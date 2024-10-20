@@ -9,3 +9,4 @@ Route::get('/', function () {
 Route::redirect('/admin', '/admin/orders');
 Route::get('/web', [DomainController::class, 'index']);
 Route::post('/check-domain', [DomainController::class, 'checkDomain'])->name('check.domain');
+Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');

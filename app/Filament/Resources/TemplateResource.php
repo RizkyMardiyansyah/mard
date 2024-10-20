@@ -11,22 +11,20 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Storage;
+
 
 class TemplateResource extends Resource
 {
     protected static ?string $model = Template::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-code-bracket-square';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Section::make('Template Form')->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
@@ -34,18 +32,14 @@ class TemplateResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
-                    ->required()
-                    ->disk('public')
-                    ->image(),
+                    ->image()
+                    ->required(),
                 Forms\Components\TextInput::make('like')
-                    ->nullable()
-                   
-                    ->numeric(),
+                    ->numeric()
+                    ->default(null),
                 Forms\Components\TextInput::make('buy')
-                    ->nullable()
-                   
-                    ->numeric(),
-                ]),
+                    ->numeric()
+                    ->default(null),
             ]);
     }
 
@@ -57,8 +51,7 @@ class TemplateResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('link')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('like')
                     ->numeric()
                     ->sortable(),
@@ -83,15 +76,13 @@ class TemplateResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                    ->after(
-                        function (Collection $record) {
-                            foreach($record as $key => $value){
-                            if ($value->image) {
-                                Storage::disk('public')->delete($value->image);
-                            }                           
-                        }
-                        }
-                    ),
+                        ->after(function (Collection $record) {
+                            foreach ($record as $key => $value) {
+                                if ($value->image) {
+                                    Storage::disk('public')->delete($value->image);
+                                }                           
+                            }
+                        }),
                 ]),
             ]);
     }

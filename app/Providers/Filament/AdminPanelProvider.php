@@ -61,20 +61,13 @@ class AdminPanelProvider extends PanelProvider
                 ->slug('my-profile')
                 ->setTitle('My Profile')
                 ->setNavigationLabel('My Profile')
-                // ->setNavigationGroup('Group Profile')
-                ->setIcon('heroicon-o-user-circle')
-                // ->setSort(10)
-                // ->canAccess(fn () => auth()->admin()->id === 1)
-                // ->shouldRegisterNavigation(false)
+                ->setIcon('heroicon-o-user-circle')                
                 ->shouldShowDeleteAccountForm(false)
-                // ->shouldShowSanctumTokens()
                 ->shouldShowBrowserSessionsForm()
                 ->shouldShowAvatarForm(),
-                // ->customProfileComponents([
-                //     \App\Livewire\CustomProfileComponent::class,
-                // ]),
                 \Hasnayeen\Themes\ThemesPlugin::make(), // Memasukkan plugin tema dengan benar
             ]);
+             
             
             
             

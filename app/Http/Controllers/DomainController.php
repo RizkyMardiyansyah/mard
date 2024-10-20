@@ -8,13 +8,31 @@ use Illuminate\Support\Facades\Http;
 
 class DomainController extends Controller
 {
-    public function index()
-    {
-        // Mengambil semua template dari database
-        $templates = Template::all();
+    public function index(Request $request)
+{
+    // Mengambil query pencarian dari request
+    $search = $request->input('search');
+    
 
-        return view('domain-check', compact('templates'));
+
+
+    // Mengambil template dari database dengan pagination dan pencarian berdasarkan judul
+    $templates = Template::when($search, function ($query) use ($search) {
+        return $query->where('title', 'like', "%{$search}%");
+    })->paginate(10); // 10 template per halaman
+    if ($request->ajax()) {
+        // Kembalikan data dalam format JSON
+        return response()->json([
+            'templates' => $templates->items(), // Ambil item untuk ditampilkan
+            'pagination' => (string) $templates->links() // Mengembalikan pagination
+        ]);
     }
+
+    return view('domain-check', compact('templates', 'search'));
+}
+
+
+
 
     public function checkDomain(Request $request)
     {
@@ -26,27 +44,27 @@ class DomainController extends Controller
         $comResponse = Http::get($comUrl);
 
         if (str_contains($comResponse->body(), 'whoisparser: domain is not found')) {
-            $results['com'] = 'Domain tersedia';
+            $results['com'] = 'available';
         } else {
-            $results['com'] = 'Domain tidak tersedia';
+            $results['com'] = 'unavailable';
         }
 
         // Cek domain .id menggunakan RDAP PANDI
         $idUrl = "https://rdap.pandi.id/rdap/domain/$domainName.id";
         $idResponse = Http::get($idUrl);
         if ($idResponse->status() == 404) {
-            $results['id'] = 'Domain tersedia';
+            $results['id'] = 'available';
         } else {
-            $results['id'] = 'Domain tidak tersedia';
+            $results['id'] = 'unavailable';
         }
 
         // Cek domain .co.id menggunakan RDAP PANDI
         $coIdUrl = "https://rdap.pandi.id/rdap/domain/$domainName.co.id";
         $coIdResponse = Http::get($coIdUrl);
         if ($coIdResponse->status() == 404) {
-            $results['co.id'] = 'Domain tersedia';
+            $results['co.id'] = 'available';
         } else {
-            $results['co.id'] = 'Domain tidak tersedia';
+            $results['co.id'] = 'unavailable';
         }
 
         return response()->json($results);
