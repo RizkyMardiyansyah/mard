@@ -111,11 +111,81 @@
     </div>
     @endforeach
 </div>
+<div class="order-section container hero-text" style="margin-top: 50px;">
+    <h2>Order Your Website</h2>
+    <form id="orderForm" action="{{ route('orderstore') }}" method="POST">
+        @csrf
+        <div class="mb-3">
+            <label for="domain" class="form-label">DOMAIN</label>
+            <input type="text" class="form-control" id="domain" name="domain" required placeholder="Enter your Domain">
+        </div>
+        <div class="mb-3">
+            <label for="nik" class="form-label">NIK</label>
+            <input type="text" class="form-control" id="nik" name="nik" required placeholder="Enter your NIK">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" required placeholder="Enter your full name">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+        </div>
+        <div class="mb-3">
+            <label for="phone_number" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone_number" name="phone_number" required placeholder="Enter your phone number">
+        </div>
+        <div class="mb-3">
+            <label for="template" class="form-label">Selected Template</label>
+            <select class="form-select" id="template" name="template" required>
+                <option value="" disabled selected>Select a template</option>
+                @foreach($templates as $template)
+                    <option value="{{ $template->id }}">{{ $template->title }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select class="form-select" id="status" name="status" required>
+                <option value="Pending Payment">Pending Payment</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Active">Active</option>
+                <option value="Pending Renewal">Pending Renewal</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Order</button>
+    </form>
+</div>
+
+
 
 <!-- Menampilkan Pagination -->
 <div class="pagination">
     {{ $templates->links() }} <!-- Menampilkan link pagination -->
 </div>
+<script>
+    document.getElementById('orderForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Mencegah pengiriman form normal
+
+        const formData = new FormData(this); // Ambil data dari form
+
+        fetch('{{ route('orderstore') }}', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data); // Lihat respons dari server
+            alert('Order submitted successfully!');
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
+
 
 <!-- Script untuk AJAX Pencarian -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

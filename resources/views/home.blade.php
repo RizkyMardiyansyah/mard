@@ -1,7 +1,3 @@
-@php
- $sitename=get_setting_value('site_name');
-@endphp
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/favicon.ico">
     {{-- <title>Mitra Adidaya Rekayasa Digital</title> --}}
-    <title>{{ $sitename }}</title>
+    <title>Mitra Adidaya Rekayasa Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">

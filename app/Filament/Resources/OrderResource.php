@@ -21,7 +21,12 @@ class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-queue-list';
+    protected static ?string $navigationIcon = 'heroicon-s-shopping-bag';
+    public static function getNavigationBadge(): ?string
+        {
+            return static::getModel()::where('status', 'In Progress')->count();
+        }
+
 
     public static function form(Form $form): Form
     {

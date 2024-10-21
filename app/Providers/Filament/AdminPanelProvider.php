@@ -5,6 +5,8 @@ namespace App\Providers\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -31,6 +33,8 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->font('poppins')
+            ->brandLogo(asset('img/MardBlue.svg'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             // ->pages([
@@ -53,6 +57,7 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
                 \Hasnayeen\Themes\Http\Middleware\SetTheme::class,
             ])
+            ->databaseNotifications()
             ->authMiddleware([
                 Authenticate::class,
             ])
@@ -60,12 +65,31 @@ class AdminPanelProvider extends PanelProvider
                 FilamentEditProfilePlugin::make()
                 ->slug('my-profile')
                 ->setTitle('My Profile')
+                ->setSort(3)
                 ->setNavigationLabel('My Profile')
-                ->setIcon('heroicon-o-user-circle')                
+                ->setIcon('heroicon-s-user-circle')                
                 ->shouldShowDeleteAccountForm(false)
                 ->shouldShowBrowserSessionsForm()
                 ->shouldShowAvatarForm(),
                 \Hasnayeen\Themes\ThemesPlugin::make(), // Memasukkan plugin tema dengan benar
+            ])
+
+            ->userMenuItems([
+                MenuItem::make()
+                    ->label('My Profile')
+                    ->url('/admin/my-profile')
+                    ->icon('heroicon-o-user-circle'),
+                // ...
+            ])
+
+            ->navigationItems([
+                NavigationItem::make('Themes')
+                    ->url('/admin/themes')
+                    ->icon('heroicon-s-swatch')
+                    ->isActiveWhen(fn () => request()->is('admin/themes'))
+                    // ->group('Reports')
+                    ->sort(4),
+                
             ]);
              
             

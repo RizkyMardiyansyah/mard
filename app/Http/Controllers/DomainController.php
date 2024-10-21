@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\order;
 use App\Models\Template; // Pastikan model Template sudah ada
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -69,4 +70,23 @@ class DomainController extends Controller
 
         return response()->json($results);
     }
+
+    public function store(Request $request)
+{
+    $validated = $request->validate([
+        'nik' => 'required',
+        'name' => 'required|string|max:255',
+        'email' => 'required|email',
+        'phone_number' => 'required',
+        'domain' => 'required|string',
+        'template' => 'required|exists:templates,id',
+        'status' => 'required|in:Pending Payment,In Progress,Active,Pending Renewal',
+    ]);
+
+    // Simpan order ke database (contoh implementasi)
+    order::create($validated);
+
+    return redirect()->back()->with('success', 'Your order has been submitted successfully!');
+}
+
 }
