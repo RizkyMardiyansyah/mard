@@ -11,7 +11,7 @@
         color: white;
         background-color: rgba(72, 142, 254, 0.5); /* Warna hijau muda untuk tersedia */
         border-radius: 10px;
-        border: 1px solid ##488EFE;
+        border: 1px solid #488EFE;
       }
 
       .unavailable {
