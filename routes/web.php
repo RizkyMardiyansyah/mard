@@ -16,4 +16,10 @@ Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate
 Route::post('/orderstore', [DomainController::class, 'store'])->name('orderstore');
 
 
+Route::get('/brand', function () {
+    return view('brand');
+})->name('brand');
+
+
+
 
