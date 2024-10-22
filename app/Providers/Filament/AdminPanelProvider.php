@@ -75,6 +75,7 @@ class AdminPanelProvider extends PanelProvider
                 ->shouldShowDeleteAccountForm(false)
                 ->shouldShowBrowserSessionsForm()
                 ->shouldShowAvatarForm(),
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
                 \Hasnayeen\Themes\ThemesPlugin::make(), // Memasukkan plugin tema dengan benar
             ])
 
