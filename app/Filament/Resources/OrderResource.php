@@ -86,8 +86,7 @@ class OrderResource extends Resource
                             ->default(null),
                     ]),
                     Section::make('Paymet Information')->schema([                        
-                        Forms\Components\TextInput::make('subscription')
-                            ->required()
+                        Forms\Components\Select::make('subscription')
                             ->options(subscription::pluck('title', 'id')->toArray())
                             ->reactive(),
                         Forms\Components\TextInput::make('initial_domain_cost')

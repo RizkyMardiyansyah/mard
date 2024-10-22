@@ -71,7 +71,7 @@ class AdminPanelProvider extends PanelProvider
                 ->setNavigationGroup('Settings')
                 ->setSort(3)
                 ->setNavigationLabel('My Profile')
-                ->setIcon('heroicon-s-user-circle')                
+                ->setIcon('heroicon-s-user')                
                 ->shouldShowDeleteAccountForm(false)
                 ->shouldShowBrowserSessionsForm()
                 ->shouldShowAvatarForm(),
@@ -85,14 +85,14 @@ class AdminPanelProvider extends PanelProvider
                 MenuItem::make()
                     ->label('My Profile')
                     ->url('/admin/my-profile')
-                    ->icon('heroicon-o-user-circle'),
+                    ->icon('heroicon-o-user'),
                 // ...
             ])
 
             ->navigationItems([
                 NavigationItem::make('Themes')
                     ->url('/admin/themes')
-                    ->icon('heroicon-s-swatch')
+                    ->icon('heroicon-s-paint-brush')
                     ->isActiveWhen(fn () => request()->is('admin/themes'))
                     ->group('Settings')
                     ->sort(4),
