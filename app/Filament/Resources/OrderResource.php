@@ -22,6 +22,8 @@ class OrderResource extends Resource
     protected static ?string $model = Order::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-shopping-bag';
+    
+    protected static ?string $navigationGroup = 'Orders';
     public static function getNavigationBadge(): ?string
         {
             return static::getModel()::where('status', 'In Progress')->count();

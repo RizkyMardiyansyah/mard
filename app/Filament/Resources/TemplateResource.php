@@ -20,8 +20,12 @@ class TemplateResource extends Resource
     protected static ?string $model = Template::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-folder-open';
+    
+    protected static ?string $navigationGroup = 'Orders';
 
     public static function form(Form $form): Form
+
+    
     {
         return $form
             ->schema([

@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Forms\Components\Group;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -30,20 +31,22 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            // ->breadcrumbs(false)
             ->colors([
                 'primary' => Color::Amber,
             ])
             ->font('poppins')
             ->brandLogo(asset('img/MardBlue.svg'))
+            ->brandLogoHeight('40px')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
-            // ->pages([
-            //     Pages\Dashboard::class,
-            // ])
+            ->pages([
+                // Pages\Dashboard::class,
+            ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                // Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -65,6 +68,7 @@ class AdminPanelProvider extends PanelProvider
                 FilamentEditProfilePlugin::make()
                 ->slug('my-profile')
                 ->setTitle('My Profile')
+                ->setNavigationGroup('Settings')
                 ->setSort(3)
                 ->setNavigationLabel('My Profile')
                 ->setIcon('heroicon-s-user-circle')                
@@ -75,6 +79,9 @@ class AdminPanelProvider extends PanelProvider
             ])
 
             ->userMenuItems([
+                // 'profile' => MenuItem::make()->label('Edit profile'),
+                // 'logout' => MenuItem::make()->label('Log out'),
+                
                 MenuItem::make()
                     ->label('My Profile')
                     ->url('/admin/my-profile')
@@ -87,7 +94,7 @@ class AdminPanelProvider extends PanelProvider
                     ->url('/admin/themes')
                     ->icon('heroicon-s-swatch')
                     ->isActiveWhen(fn () => request()->is('admin/themes'))
-                    // ->group('Reports')
+                    ->group('Settings')
                     ->sort(4),
                 
             ]);
