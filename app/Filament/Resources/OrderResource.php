@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers;
 use App\Models\Order;
+use App\Models\subscription;
 use App\Models\template;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -23,7 +24,7 @@ class OrderResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-s-shopping-bag';
     
-    protected static ?string $navigationGroup = 'Orders';
+    protected static ?string $navigationGroup = 'Operations';
     public static function getNavigationBadge(): ?string
         {
             return static::getModel()::where('status', 'In Progress')->count();
@@ -84,7 +85,11 @@ class OrderResource extends Resource
                             ->image()
                             ->default(null),
                     ]),
-                    Section::make('Paymet Information')->schema([
+                    Section::make('Paymet Information')->schema([                        
+                        Forms\Components\TextInput::make('subscription')
+                            ->required()
+                            ->options(subscription::pluck('title', 'id')->toArray())
+                            ->reactive(),
                         Forms\Components\TextInput::make('initial_domain_cost')
                             ->numeric()
                             ->default(null),
@@ -125,6 +130,7 @@ class OrderResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])

@@ -21,14 +21,15 @@ class TemplateResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-s-folder-open';
     
-    protected static ?string $navigationGroup = 'Orders';
+    protected static ?string $navigationGroup = 'Operations';
 
     public static function form(Form $form): Form
 
     
     {
         return $form
-            ->schema([
+        ->schema([
+            Section::make('Template Form')->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
@@ -36,15 +37,17 @@ class TemplateResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->required(),
+                    ->required()
+                    ->disk('public')
+                    ->image(),
                 Forms\Components\TextInput::make('like')
-                    ->numeric()
-                    ->default(null),
+                    ->nullable()
+                    ->numeric(),
                 Forms\Components\TextInput::make('buy')
-                    ->numeric()
-                    ->default(null),
-            ]);
+                    ->nullable()
+                    ->numeric(),
+            ]),
+        ]);
     }
 
     public static function table(Table $table): Table

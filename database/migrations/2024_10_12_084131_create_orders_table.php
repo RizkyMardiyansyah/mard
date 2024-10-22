@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('ktp')->nullable();
             $table->string('siup')->nullable();
             $table->string('npwp')->nullable();
+            $table->string('subscription');
             $table->decimal('initial_domain_cost', 10, 2)->nullable();
             $table->decimal('renewal_cost', 10, 2)->nullable();
             $table->decimal('hosting_cost', 10, 2)->nullable();
