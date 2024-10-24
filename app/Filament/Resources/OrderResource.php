@@ -15,8 +15,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
+use Filament\Tables\Actions\ExportBulkAction;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction as TablesExportBulkAction;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class OrderResource extends Resource
 {
@@ -137,6 +140,12 @@ class OrderResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
+                TablesExportBulkAction::make()->exports([
+                    
+                    ExcelExport::make('form')
+                    ->fromForm()
+                    ->withFilename(date('Y-m-d') . ' - Orders'),
+                ]),
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
                     ->after(

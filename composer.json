@@ -8,12 +8,14 @@
         "php": "^8.2",
         "bezhansalleh/filament-shield": "^3.2",
         "filament/filament": "^3.2",
+        "flowframe/laravel-trend": "^0.3.0",
         "hasnayeen/themes": "^3.0",
         "hydrat/filament-table-layout-toggle": "^2.0",
         "joaopaulolndev/filament-edit-profile": "^1.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "owenvoke/blade-fontawesome": "^2.6",
+        "pxlrbt/filament-excel": "^2.3",
         "stechstudio/filament-impersonate": "^3.14"
     },
     "require-dev": {
