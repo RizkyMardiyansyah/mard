@@ -18,6 +18,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
   </head>
@@ -66,10 +68,16 @@
                             <span data-lang-en="Find Your Domain, Select Your Template, and Launch Your Website with Ease. Take Your Business Digital Today!" data-lang-id="Temukan Domain Anda, Pilih Template, dan Luncurkan Website dengan Mudah. Jadikan Bisnismu Digital Sekarang!"></span>
                             </div>
                             <!-- Form untuk memasukkan nama domain -->
-                            <form style="margin-top: 20px"  id="domainForm">
+                            {{-- <form style="margin-top: 20px"  id="domainForm">
                                 <div class="form-row">
                                     <input type="text" id="domain" name="domain" required placeholder="Find your business domain...">
                                     <button type="submit" class="btn" style="opacity: 100%; background-color:#FFCB47"><b>Cari Domain</b></button>
+                                </div>
+                            </form> --}}
+                            <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
+                                <div style="margin:0px;" class="form-row  d-flex align-items-center slider-search p-10 bg-white w-100">
+                                    <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" required placeholder="Find your business domain..."/>
+                                    <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; background-color:#FFCB47; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Cari Domain</b></button>
                                 </div>
                             </form>
                             <!-- Spinner untuk loading animation -->
@@ -99,16 +107,19 @@
    <div style="margin-top: 50px" class="spinner" id="spinnerr"></div>
 </form>
 
-<div class="card-container" id="templateContainer">
+<div class="card-container container row" id="templateContainer">
     @foreach($templates as $template)
-    <div class="card">
-        <img src="{{ asset('storage/' . $template->image) }}" alt="{{ $template->title }}">
-        <div class="card-title">{{ $template->title }}</div>
-        <div class="card-description">{{ $template->description }}</div>
-        <input type="checkbox" id="template-{{ $template->id }}" name="template_ids[]" value="{{ $template->id }}">
-        <label for="template-{{ $template->id }}">Select</label>
-        <a href="{{ strpos($template->link, 'http://') === 0 || strpos($template->link, 'https://') === 0 ? $template->link : 'http://' . $template->link }}" class="live-preview-btn" target="_blank" rel="noopener noreferrer">Live Preview</a>
+    <div class="card col-lg-4 col-md-6 col-12">
+        <img src="{{ asset('storage/' . $template->image) }}" alt="{{ $template->title }}" class="card-img-top">        
+        <div class=" d-flex" style="padding: 0px">
+            <div class="card-title">{{ $template->title }}</div>            
+            <div class="d-flex" style="margin-left: auto">
+                <a href="#"  class="view d-flex align-items-center justify-content-center"><i class="fas fa-check"></i></a>
+                <a href="{{ $template->link }}" target="_blank" class="view d-flex align-items-center justify-content-center" ><i class="fas fa-eye"></i></a>
+            </div>
+        </div>
     </div>
+    
     @endforeach
 </div>
 <div class="order-section container hero-text" style="margin-top: 50px;">
@@ -211,14 +222,24 @@
                     // Jika ada template yang ditemukan, tambahkan ke kontainer
                     if (response.templates.length > 0) {
                         response.templates.forEach(template => {
+                            const imageUrl = `{{ url('storage') }}/${template.image}`;
+                            
                             $('#templateContainer').append(`
-                                <div class="card">
-                                    <img src="{{ asset('storage/' . $template->image) }}" alt="{{ $template->title }}">
-                                    <div class="card-title">${template.title}</div>                                   
-                                    <input type="checkbox" id="template-${template.id}" name="template_ids[]" value="${template.id}">
-                                    <label for="template-${template.id}">Select</label>
-                                    <a href="${template.link.startsWith('http://') || template.link.startsWith('https://') ? template.link : 'http://' + template.link}" class="live-preview-btn" target="_blank" rel="noopener noreferrer">Live Preview</a>
+                            <div class="card col-lg-4 col-md-6 col-12">
+                                <img src="${imageUrl}" alt="${template.title}" class="card-img-top">
+                                <div class="d-flex" style="padding: 0px">
+                                    <div class="card-title">${template.title}</div>
+                                    <div class="d-flex" style="margin-left: auto">
+                                        <a href="#" class="view d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-check"></i>
+                                        </a>
+                                        <a href="${template.link}"target="_blank"
+                                        class="view d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </div>
                                 </div>
+                            </div>
                             `);
                         });
                     } else {
