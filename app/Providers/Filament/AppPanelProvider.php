@@ -49,6 +49,10 @@ class AppPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->renderHook(
+                'panels::body.end',
+                fn (): string => auth()->check() ? Blade::render('@livewire(\'livewire-ui-modal\')') : '',
+            )
             ->authMiddleware([
                 Authenticate::class,
             ]);

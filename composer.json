@@ -11,6 +11,7 @@
         "flowframe/laravel-trend": "^0.3.0",
         "hasnayeen/themes": "^3.0",
         "hydrat/filament-table-layout-toggle": "^2.0",
+        "icetalker/filament-chatgpt-bot": "^1.1",
         "joaopaulolndev/filament-edit-profile": "^1.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",

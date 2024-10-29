@@ -111,6 +111,7 @@
             </div>
         </div>
     </div>
+    {{-- @livewire('filament-chatgpt-bot') --}}
 
     <div class="container-fluid py-5" id="contact">
         <div class="container" style="width:80%">
