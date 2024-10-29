@@ -10,10 +10,9 @@ Route::get('/web', [DomainController::class, 'index']);
 Route::post('/check-domain', [DomainController::class, 'checkDomain'])->name('check.domain');
 Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');
 
-
-
-
 Route::post('/orderstore', [DomainController::class, 'store'])->name('orderstore');
+Route::get('/templates', [DomainController::class, 'index'])->name('templates.index');
+
 
 
 Route::get('/brand', function () {

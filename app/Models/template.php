@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use illuminate\Database\Eloquent\Relations\HasMany;
 
 class template extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
-    protected static function boot()
+        protected static function boot()
     {
         parent::boot();
     
@@ -22,4 +22,14 @@ class template extends Model
             }        
         });
     }
+        public function orders(): HasMany
+        {
+            return $this->hasMany(Order::class, 'template_id');
+        }
+
+        // Atribut total pembelian (dinamis)
+        public function getTotalPembelianAttribute(): int
+        {
+            return Order::where('template', $this->id)->count();
+        }
 }

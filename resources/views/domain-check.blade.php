@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/heroicons@2.0.16/css/heroicons.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
   </head>
@@ -67,15 +67,9 @@
                             <h1 data-lang-en="Create Your Own Website" data-lang-id="Buat Wesbsitemu Sendiri"></h1>
                             <span data-lang-en="Find Your Domain, Select Your Template, and Launch Your Website with Ease. Take Your Business Digital Today!" data-lang-id="Temukan Domain Anda, Pilih Template, dan Luncurkan Website dengan Mudah. Jadikan Bisnismu Digital Sekarang!"></span>
                             </div>
-                            <!-- Form untuk memasukkan nama domain -->
-                            {{-- <form style="margin-top: 20px"  id="domainForm">
-                                <div class="form-row">
-                                    <input type="text" id="domain" name="domain" required placeholder="Find your business domain...">
-                                    <button type="submit" class="btn" style="opacity: 100%; background-color:#FFCB47"><b>Cari Domain</b></button>
-                                </div>
-                            </form> --}}
+                            <!-- Form untuk memasukkan nama domain -->            
                             <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
-                                <div style="margin:0px;" class="form-row  d-flex align-items-center slider-search p-10 bg-white w-100">
+                                <div style="margin:0px;" class="form-row  d-flex align-items-center slider-search bg-white w-100">
                                     <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" required placeholder="Find your business domain..."/>
                                     <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; background-color:#FFCB47; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Cari Domain</b></button>
                                 </div>
@@ -96,163 +90,106 @@
 
     <div class="serv container hero-text">
 
-        <h1>Our Template</h1>
-
-    <!-- Form Pencarian -->
-<form id="searchTemplateForm" action="{{ route('searchtemplate') }}" method="POST">
-    @csrf <!-- Ini untuk melindungi dari CSRF -->
-    <input type="text" name="search" id="search" placeholder="Search by title" required>
-    <button type="submit">Search</button>
-   <!-- Spinner untuk loading animation -->
-   <div style="margin-top: 50px" class="spinner" id="spinnerr"></div>
-</form>
-
-<div class="card-container container row" id="templateContainer">
-    @foreach($templates as $template)
-    <div class="card col-lg-4 col-md-6 col-12">
-        <img src="{{ asset('storage/' . $template->image) }}" alt="{{ $template->title }}" class="card-img-top">        
-        <div class=" d-flex" style="padding: 0px">
-            <div class="card-title">{{ $template->title }}</div>            
-            <div class="d-flex" style="margin-left: auto">
-                <a href="#"  class="view d-flex align-items-center justify-content-center"><i class="fas fa-check"></i></a>
-                <a href="{{ $template->link }}" target="_blank" class="view d-flex align-items-center justify-content-center" ><i class="fas fa-eye"></i></a>
+        <div class="serv container hero-text">
+            
+            <h1>Our Template</h1>
+        
+            <!-- Form Pencarian -->
+            <form id="searchTemplateForm" action="{{ route('searchtemplate') }}" method="POST">
+                @csrf <!-- Ini untuk melindungi dari CSRF -->
+                <div class="input-group">
+                    <input type="text" name="search" id="search" class="form-control" placeholder="Search by title" required>
+                    <button style="opacity: 100%; margin-top:0px" class="btn btn-primary" type="submit">Search</button>
+                </div>
+                <!-- Spinner untuk loading animation -->
+                <div style="margin-top: 50px" class="spinner" id="spinnerr" style="display: none;"></div>
+            </form>
+        
+            <div class=" row" id="templateContainer">
+                @foreach($templates as $template)
+                    @include('partials.template_card', ['template' => $template])
+                @endforeach
+            </div>
+        
+            <!-- Menampilkan Pagination -->
+            <div class="pagination justify-content-center mt-4" id="paginationLinks">
+                {{ $templates->appends(request()->query())->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>
-    
-    @endforeach
-</div>
-<div class="order-section container hero-text" style="margin-top: 50px;">
-    <h2>Order Your Website</h2>
-    <form id="orderForm" action="{{ route('orderstore') }}" method="POST">
-        @csrf
-        <div class="mb-3">
-            <label for="domain" class="form-label">DOMAIN</label>
-            <input type="text" class="form-control" id="domain" name="domain" required placeholder="Enter your Domain">
-        </div>
-        <div class="mb-3">
-            <label for="nik" class="form-label">NIK</label>
-            <input type="text" class="form-control" id="nik" name="nik" required placeholder="Enter your NIK">
-        </div>
-        <div class="mb-3">
-            <label for="name" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="name" name="name" required placeholder="Enter your full name">
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
-        </div>
-        <div class="mb-3">
-            <label for="phone_number" class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" id="phone_number" name="phone_number" required placeholder="Enter your phone number">
-        </div>
-        <div class="mb-3">
-            <label for="template" class="form-label">Selected Template</label>
-            <select class="form-select" id="template" name="template" required>
-                <option value="" disabled selected>Select a template</option>
-                @foreach($templates as $template)
-                    <option value="{{ $template->id }}">{{ $template->title }}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
-            <select class="form-select" id="status" name="status" required>
-                <option value="Pending Payment">Pending Payment</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Active">Active</option>
-                <option value="Pending Renewal">Pending Renewal</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Order</button>
-    </form>
-</div>
 
-
-
-<!-- Menampilkan Pagination -->
-<div class="pagination">
-    {{ $templates->links() }} <!-- Menampilkan link pagination -->
-</div>
-<script>
-    document.getElementById('orderForm').addEventListener('submit', function (e) {
-        e.preventDefault(); // Mencegah pengiriman form normal
-
-        const formData = new FormData(this); // Ambil data dari form
-
-        fetch('{{ route('orderstore') }}', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            }
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data); // Lihat respons dari server
-            alert('Order submitted successfully!');
-        })
-        .catch(error => console.error('Error:', error));
-    });
-</script>
 
 
 <!-- Script untuk AJAX Pencarian -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+<script>    
     $(document).ready(function() {
+        // Event untuk form pencarian
         $('#searchTemplateForm').on('submit', function(e) {
-            e.preventDefault(); // Mencegah form dari submit standar
+            e.preventDefault(); // Mencegah submit standar
+            performSearchOrPagination($(this).attr('action'), 'POST', { 
+                _token: '{{ csrf_token() }}',
+                search: $('#search').val() 
+            });
+        });
 
-            let searchQuery = $('#search').val(); // Ambil nilai input pencarian
+        // Event untuk pagination link
+        $(document).on('click', '#paginationLinks a', function(e) {
+            e.preventDefault(); // Mencegah reload halaman
+            let url = $(this).attr('href');
+            performSearchOrPagination(url, 'GET'); // Pagination menggunakan GET
+        });
+
+        // Fungsi umum untuk Search atau Pagination
+        function performSearchOrPagination(url, method, data = {}) {
             $('#spinnerr').show(); // Tampilkan spinner
 
             $.ajax({
-                url: $(this).attr('action'), // URL action form
-                method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}', // Token CSRF
-                    search: searchQuery // Data pencarian
-                },
+                url: url,
+                method: method,
+                data: data,
                 success: function(response) {
                     $('#spinnerr').hide(); // Sembunyikan spinner
-                    $('#templateContainer').html(''); // Kosongkan kontainer template
+                    $('#templateContainer').html(''); // Kosongkan kontainer
 
-                    // Jika ada template yang ditemukan, tambahkan ke kontainer
+                    // Tampilkan template jika ada hasil
                     if (response.templates.length > 0) {
                         response.templates.forEach(template => {
                             const imageUrl = `{{ url('storage') }}/${template.image}`;
-                            
                             $('#templateContainer').append(`
-                            <div class="card col-lg-4 col-md-6 col-12">
-                                <img src="${imageUrl}" alt="${template.title}" class="card-img-top">
-                                <div class="d-flex" style="padding: 0px">
-                                    <div class="card-title">${template.title}</div>
-                                    <div class="d-flex" style="margin-left: auto">
-                                        <a href="#" class="view d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-check"></i>
-                                        </a>
-                                        <a href="${template.link}"target="_blank"
-                                        class="view d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
+                                <div class="card col-lg-4 col-md-6 col-12">
+                                    <img src="${imageUrl}" alt="${template.title}" class="card-img-top">
+                                    <div class="d-flex" style="padding: 0px">
+                                        <div class="card-title">${template.title}</div>
+                                        <div class="d-flex" style="margin-left: auto">
+                                            <a href="#" class="view d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-check"></i>
+                                            </a>
+                                            <a href="${template.link}" target="_blank" 
+                                               class="view d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             `);
                         });
                     } else {
-                        $('#templateContainer').append('<p>No templates found.</p>'); // Pesan jika tidak ada template ditemukan
+                        $('#templateContainer').append('<p>No templates found.</p>');
                     }
+
+                    // Update pagination links
+                    $('#paginationLinks').html(response.pagination);
                 },
                 error: function() {
                     $('#spinnerr').hide(); // Sembunyikan spinner
-                    alert('An error occurred while searching. Please try again.'); // Pesan error
+                    alert('An error occurred. Please try again.');
                 }
             });
-        });
+        }
     });
+
+
 </script>
 
 

@@ -11,25 +11,20 @@ class DomainController extends Controller
 {
     public function index(Request $request)
 {
-    // Mengambil query pencarian dari request
-    $search = $request->input('search');
     
 
+    $search = $request->input('search');
+    $templates = Template::where('title', 'LIKE', "%{$search}%")
+                        ->paginate(9); // Sesuaikan jumlah per halaman
 
-
-    // Mengambil template dari database dengan pagination dan pencarian berdasarkan judul
-    $templates = Template::when($search, function ($query) use ($search) {
-        return $query->where('title', 'like', "%{$search}%");
-    })->paginate(10); // 10 template per halaman
     if ($request->ajax()) {
-        // Kembalikan data dalam format JSON
         return response()->json([
-            'templates' => $templates->items(), // Ambil item untuk ditampilkan
-            'pagination' => (string) $templates->links() // Mengembalikan pagination
+            'templates' => $templates->items(),
+            'pagination' => (string) $templates->links('pagination::bootstrap-4')
         ]);
     }
 
-    return view('domain-check', compact('templates', 'search'));
+   return view('domain-check', compact('templates', 'search'));
 }
 
 

@@ -57,14 +57,13 @@ class TemplateResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('link')
-                    ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('like')
-                    ->numeric()
-                    ->sortable(),
+                    ->searchable(),               
+                
                 Tables\Columns\TextColumn::make('buy')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->alignRight()
+                    ->getStateUsing(fn (Template $record) => $record->total_pembelian),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
