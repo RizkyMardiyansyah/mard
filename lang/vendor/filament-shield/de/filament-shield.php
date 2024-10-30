@@ -32,7 +32,7 @@ return [
     */
 
     'nav.group' => 'Settings',
-    'nav.role.icon' => 'heroicon-s-shield-check',
+    'nav.role.icon' => 'heroicon-m-shield-check',
     'nav.role.label' => 'Rollen',
     'resource.label.role' => 'Rolle',
     'resource.label.roles' => 'Rollen',

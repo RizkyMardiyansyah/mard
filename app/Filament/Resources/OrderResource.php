@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\subscription;
 use App\Models\template;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -15,23 +16,27 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
+use Filament\Resources\Components\Tab;
 use Filament\Tables\Actions\ExportBulkAction;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction as TablesExportBulkAction;
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
+use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Enums\FiltersLayout;
 
 class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
 
-    protected static ?string $navigationIcon = 'heroicon-s-shopping-bag';
+    protected static ?string $navigationIcon = 'heroicon-m-shopping-bag';
     
     protected static ?string $navigationGroup = 'Operations';
     public static function getNavigationBadge(): ?string
-        {
-            return static::getModel()::where('status', 'In Progress')->count();
-        }
+    {
+        return static::getModel()::where('status', 'Developing')->count();
+    }
+    
 
 
     public static function form(Form $form): Form
@@ -50,10 +55,11 @@ class OrderResource extends Resource
                         Forms\Components\Select::make('status')
                             ->options(
                                 [
-                                    'Pending Payment'=>'Pending Payment',
-                                    'In Progress'=>'In Progress',
-                                    'Active'=>'Active',
-                                    'Pending Renewal'=>'Pending Renewal',
+                                    'Paying' => 'Paying',
+                                    'Developing' => 'Developing',
+                                    'Online' => 'Online',
+                                    'Renewing' => 'Renewing',
+                                    'Offline' => 'Offline',
                                 ]
                             )
                             ->required(),
@@ -111,18 +117,37 @@ class OrderResource extends Resource
                 // ]),
             ]);
     }
-
+    
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('domain')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
+                ->sortable()->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\BadgeColumn::make('status')
+                    ->sortable()
+                    ->colors([
+                        'warning',
+                        'primary' => 'Developing',
+                        'success' => 'Online',
+                        'danger' => 'Offline',
+                        
+                    ])
+                    ->icons([
+                        'heroicon-m-x',
+                        'heroicon-m-currency-dollar' => 'Paying',
+                        'heroicon-m-code-bracket' => 'Developing',
+                        'heroicon-m-globe-alt' => 'Online',
+                        'heroicon-m-receipt-percent' => 'Renewing',
+                        'heroicon-m-x-circle' => 'Offline',
+                    ]),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -130,15 +155,16 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([
                 //
-            ])
+            ],layout: FiltersLayout::AboveContentCollapsible)
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
+            
             ->bulkActions([
                 TablesExportBulkAction::make()->exports([
                     

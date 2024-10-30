@@ -75,7 +75,7 @@ class DomainController extends Controller
         'phone_number' => 'required',
         'domain' => 'required|string',
         'template' => 'required|exists:templates,id',
-        'status' => 'required|in:Pending Payment,In Progress,Active,Pending Renewal',
+        'status' => 'required|in:Paying,Developing,Online,Renewing,Offline',
     ]);
 
     // Simpan order ke database (contoh implementasi)

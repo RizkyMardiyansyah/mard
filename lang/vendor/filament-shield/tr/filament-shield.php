@@ -33,7 +33,7 @@ return [
 
     'nav.group' => 'Filament Kalkan',
     'nav.role.label' => 'Roller',
-    'nav.role.icon' => 'heroicon-s-shield-check',
+    'nav.role.icon' => 'heroicon-m-shield-check',
     'resource.label.role' => 'Rol',
     'resource.label.roles' => 'Roller',
 

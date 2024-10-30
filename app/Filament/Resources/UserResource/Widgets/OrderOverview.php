@@ -12,24 +12,27 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use Filament\Forms\Components\DatePicker;
+use Filament\Widgets\Concerns\InteractsWithPageFilters;
 
 class orderOverview extends ChartWidget
 {
+    use InteractsWithPageFilters;
+
     protected static ?string $pollingInterval = null;
     protected static bool $isLazy = false;
     protected static ?string $maxHeight = '300px';
     protected static ?string $heading = 'Orders';
     protected int | string | array $columnSpan = 'full';
-    public ?string $filter = 'today';
-    protected function getFilters(): ?array
-        {
-            return [
-                'today' => 'Today',
-                'week' => 'Last week',
-                'month' => 'Last month',
-                'year' => 'This year',
-            ];
-        }
+   
+    // protected function getFilters(): ?array
+    //     {
+    //         return [
+    //             'today' => 'Today',
+    //             'week' => 'Last week',
+    //             'month' => 'Last month',
+    //             'year' => 'This year',
+    //         ];
+    //     }
     // protected static ?array $options = [
     //     'plugins' => [
     //         'legend' => [
@@ -58,13 +61,14 @@ class orderOverview extends ChartWidget
  
     protected function getData(): array
     {
-        $activeFilter = $this->filter;
+        $start= $this->filters['StartDate'];
+        $end= $this->filters['EndDate'];
         $data = Trend::model(order::class)
         ->between(
-            start: now()->startOfMonth(),
-            end: now()->endOfMonth(),
+            start: $start ? Carbon::parse($start): now()->subDays(6),
+            end: $end ? Carbon::parse($end): now(),
         )
-        ->perWeek()
+        ->perDay()
         ->count();
         
         return [

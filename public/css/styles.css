@@ -64,8 +64,8 @@
       .container-global {
         margin: 20px;
         position: relative; /* Agar bisa menggunakan z-index */
-        background-color: rgba(255, 255, 255, 0.1); /* Putih dengan transparansi */
-        backdrop-filter: blur(10px); /* Efek blur di belakang */
+        /* background-color: rgba(255, 255, 255, 0.1); */
+        /* backdrop-filter: blur(10px); */
         padding: 50px;
         border-radius: 10px; /* Membuat sudut sedikit membulat */
         z-index: 1; /* Agar berada di atas elemen lain */
@@ -338,6 +338,7 @@ html {
           width: 100%;
           height: 100%;
           background-color: rgba(0, 0, 0, 0.2);
+          backdrop-filter: blur(10px);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -356,8 +357,8 @@ html {
         }
         .hero-text-domain h1{
           margin-top: 0px;
-          color: #FFCB47;
-          text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+          color: #fff;
+          /* text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5); */
           font-weight:900;
           font-size: 55px;
       }

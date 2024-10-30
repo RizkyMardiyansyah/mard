@@ -19,7 +19,7 @@ class TemplateResource extends Resource
 {
     protected static ?string $model = Template::class;
 
-    protected static ?string $navigationIcon = 'heroicon-s-folder-open';
+    protected static ?string $navigationIcon = 'heroicon-m-folder-open';
     
     protected static ?string $navigationGroup = 'Operations';
 

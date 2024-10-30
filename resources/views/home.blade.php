@@ -70,6 +70,7 @@
             </div>
         </div>
     </div>
+    
 
     <div id="about" class="about hero-text">
         <div class="row">

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->decimal('hosting_cost', 10, 2)->nullable();
             $table->decimal('total_payment', 10, 2)->nullable();
             $table->string('va')->nullable();
-            $table->enum('status', ['Pending Payment', 'In Progress', 'Active', 'Pending Renewal'])->default('Pending Payment');
+            $table->enum('status', ['Paying', 'Developing', 'Online', 'Renewing', 'Offline'])->default('Paying');
             $table->timestamps();
         });
     }

@@ -33,7 +33,7 @@ return [
 
     'nav.group' => 'Pelindung',
     'nav.role.label' => 'Peran',
-    'nav.role.icon' => 'heroicon-s-shield-check',
+    'nav.role.icon' => 'heroicon-m-shield-check',
     'resource.label.role' => 'Peran',
     'resource.label.roles' => 'Peran',
 

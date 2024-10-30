@@ -33,7 +33,7 @@ return [
 
     'nav.group' => 'Rendszer',
     'nav.role.label' => 'Jogosultságok',
-    'nav.role.icon' => 'heroicon-s-shield-check',
+    'nav.role.icon' => 'heroicon-m-shield-check',
     'resource.label.role' => 'Jogosultság',
     'resource.label.roles' => 'Jogosultságok',
 

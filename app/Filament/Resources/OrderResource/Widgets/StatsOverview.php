@@ -4,46 +4,68 @@ namespace App\Filament\Resources\OrderResource\Widgets;
 
 use App\Models\Order;
 use Carbon\Carbon;
+use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class StatsOverview extends BaseWidget
 {
+    use InteractsWithPageFilters;
     protected static ?string $pollingInterval = null;
     protected static bool $isLazy = false;
 
     protected function getStats(): array
     {
+        // $start= $this->filters['StartDate'];
+        // $end= $this->filters['EndDate'];
+        $start = $this->filters['StartDate'] ? Carbon::parse($this->filters['StartDate']): now()->subDays(6);
+        $end = $this->filters['EndDate'] ? Carbon::parse($this->filters['EndDate']) : now();
+
+        // dd($start);
+
+       
         $statuses = [
-            'pending payment' => 'Pending Payment',
-            'In Progress' => 'In Progress',
-            'Active' => 'Active',
-            'Pending Renewal' => 'Pending Renewal',
+            'Paying' => 'Paying',
+            'Developing' => 'Developing',
+            'Online' => 'Online',
+            'Renewing' => 'Renewing',
+            // 'Offline' => 'Offline',
         ];
 
-        return array_map(fn($description, $status) => $this->createStat($status, $description), $statuses, array_keys($statuses));
+        return array_map(fn($description, $status) => 
+            $this->createStat($status, $description, $start, $end), 
+            $statuses, array_keys($statuses)
+        );
+
+
     }
 
-    protected function createStat(string $status, string $description): Stat
+    protected function createStat(string $status, string $description, Carbon $start, Carbon $end): Stat
     {
-        $data = $this->getOrderData($status);
+        $data = $this->getOrderData($status, $start, $end);
         $color = $this->determineColor($data);
 
         return Stat::make('', Order::where('status', $status)->count() . ' Orders')
+        // return Stat::make('', Order::where('status', $status)
+        //     ->whereBetween('updated_at', [$start->startOfDay(), $end->endOfDay()])
+        //     ->count() . ' Orders')
             // ->descriptionIcon('heroicon-m-' . strtolower(str_replace(' ', '-', $description)))
             ->description($description)
             ->chart($data)
             ->color($color);
     }
 
-    protected function getOrderData(string $status): array
+    protected function getOrderData(string $status, Carbon $start, Carbon $end): array
     {
-        // Mengumpulkan data dari 7 hari terakhir
-        return collect(range(0, 6))->mapWithKeys(function ($day) {
+        $daysRange = $start->diffInDays($end) + 1;
+
+        return collect(range(0, $daysRange - 1))->mapWithKeys(function ($day) use ($start) {
+            // $date = $start->copy()->addDays($day)->format('Y-m-d');
             $date = Carbon::now()->subDays(6 - $day)->format('Y-m-d');
-            return [$date => 0]; // Default value 0
+            return [$date => 0];
         })->merge(
             Order::where('status', $status)
+                // ->whereBetween('created_at', [$start->startOfDay(), $end->endOfDay()])
                 ->whereDate('created_at', '>=', Carbon::now()->subDays(7))
                 ->selectRaw('DATE(created_at) as date, count(*) as total')
                 ->groupBy('date')
@@ -51,6 +73,7 @@ class StatsOverview extends BaseWidget
                 ->pluck('total', 'date')
         )->values()->toArray();
     }
+
 
     protected function determineColor(array $data): string
     {

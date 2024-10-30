@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/favicon.ico">
-    {{-- <title>Mitra Adidaya Rekayasa Digital</title> --}}
+    <title>Mitra Adidaya Rekayasa Digital</title>
     {{-- <title>{{ $sitename }}</title> --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,13 +56,38 @@
             </div>
         </div>
     </nav>
-
-    <div class="hero-section-domain d-flex align-items-center justify-content-center" style="height: 100vh;"> <!-- Tambahkan d-flex dan align-items-center -->
+    <div class="hero-section-domain d-flex align-items-center justify-content-center">
         <div class="hero-overlay-domain">
-            <div class="container-global hero-text-domain text-center">
-                <div class="">
+            <div class="container hero-text-domain text-center"> 
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="container">
+                        <h1 data-lang-en="Create Your Own Website" data-lang-id="Buat Wesbsitemu Sendiri"></h1>
+                        <span data-lang-en="Find Your Domain, Select Your Template, and Launch Your Website with Ease. Take Your Business Digital Today!" data-lang-id="Temukan Domain Anda, Pilih Template, dan Luncurkan Website dengan Mudah. Jadikan Bisnismu Digital Sekarang!"></span>
+                        </div>
+                        <!-- Form untuk memasukkan nama domain -->            
+                        <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
+                            <div style="margin:0px;" class="form-row  d-flex align-items-center slider-search bg-white w-100">
+                                <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" required placeholder="Find your business domain..."/>
+                                <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Cari Domain</b></button>
+                            </div>
+                        </form>
+                        <!-- Spinner untuk loading animation -->
+                        <div style="margin-top: 50px" class="spinner" id="spinner"></div>
+
+                        <!-- Div untuk menampilkan hasil pencarian -->
+                        <div style="margin-top: 50px;" id="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="hero-section-domain d-flex align-items-center justify-content-center"> <!-- Tambahkan d-flex dan align-items-center -->
+        <div class="hero-overlay-domain">
+            <div class="container hero-text-domain text-center">                
                     <div class="row">
-                        <div class="col">
+                        <div class="col cari">
                             <div class="container">
                             <h1 data-lang-en="Create Your Own Website" data-lang-id="Buat Wesbsitemu Sendiri"></h1>
                             <span data-lang-en="Find Your Domain, Select Your Template, and Launch Your Website with Ease. Take Your Business Digital Today!" data-lang-id="Temukan Domain Anda, Pilih Template, dan Luncurkan Website dengan Mudah. Jadikan Bisnismu Digital Sekarang!"></span>
@@ -80,12 +105,11 @@
                             <!-- Div untuk menampilkan hasil pencarian -->
                             <div style="margin-top: 50px;" id="result"></div>
                         </div>
-                    </div>
-                </div>
+                    </div>                
             </div>
             
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="serv container hero-text">
