@@ -24,6 +24,7 @@ use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction as TablesExportBulkActi
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Enums\FiltersLayout;
+use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
 
 class OrderResource extends Resource
 {
@@ -159,8 +160,11 @@ class OrderResource extends Resource
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([
-                //
-            ],layout: FiltersLayout::AboveContentCollapsible)
+                DateRangeFilter::make('created_at'),
+                DateRangeFilter::make('updated_at'),
+            ])
+            // ],layout: FiltersLayout::AboveContentCollapsible)
+            
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])

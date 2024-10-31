@@ -88,12 +88,15 @@ class AdminPanelProvider extends PanelProvider
             ->userMenuItems([
                 // 'profile' => MenuItem::make()->label($Auth->user->name),
                 // 'logout' => MenuItem::make()->label('Log out'),
-                
+                MenuItem::make()
+                    ->label('Website')
+                    ->url('/')
+                    ->icon('heroicon-o-globe-alt'),
                 MenuItem::make()
                     ->label('My Profile')
                     ->url('/admin/my-profile')
                     ->icon('heroicon-o-user'),
-                // ...
+                
             ])
 
             ->navigationItems([

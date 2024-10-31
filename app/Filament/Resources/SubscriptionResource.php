@@ -18,7 +18,7 @@ class SubscriptionResource extends Resource
 {
     protected static ?string $model = Subscription::class;
 
-    protected static ?string $navigationIcon = 'heroicon-m-wallet';
+    protected static ?string $navigationIcon = 'heroicon-m-currency-dollar';
 
     protected static ?string $navigationGroup = 'Operations';
 
