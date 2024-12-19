@@ -29,8 +29,8 @@
 
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; transition: background-color 0.5s;">
         <div class="container">
-            <a class="navbar-brand blue" href="index.php"><img  src="img/MardBlue.svg" height="50px" style="padding: 5px;"></a>
-            <a class="navbar-brand white" href="index.php"><img src="img/MardWhite.svg" height="50px" style="padding: 5px;"></a>
+            <a class="navbar-brand blue" href="index.php"><img  src="img/NewLogoMardBlue.svg" height="50px" style="padding: 5px;"></a>
+            <a class="navbar-brand white" href="index.php"><img src="img/NewLogoMardWhite.svg" height="50px" style="padding: 5px;"></a>
             <div class="language-selector order-lg-2">
                 <div class="toggle-container">
                     <input type="checkbox" id="languageToggle" class="toggle-checkbox">
@@ -48,19 +48,21 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
+{{-- Jumbotron Section --}}
     <div class="hero-section">
         <div class="hero-overlay">
             <div class="container hero-text">
                 <div class="row">
                     <div class="col-lg-6 col-12">
                         <h1 data-lang-en="Digital Solutions for Optimal Innovation" data-lang-id="Solusi Digital untuk Inovasi Optimal"></h1>
-                        <p data-lang-en="Delivering Cutting-Edge Digital Solutions to Achieve Optimal Innovation and Enhance Business Success." data-lang-id="Menyediakan Solusi Digital Terdepan untuk Mencapai Inovasi yang Optimal dan Meningkatkan Keberhasilan Bisnis."></p>
+                        <p data-lang-en="Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence." data-lang-id="Mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru."></p>
                         <a href="#contact">
                             <button type="submit" class="btn"><b style="color:white;">Get In Touch</b></button>
                         </a>
@@ -71,49 +73,115 @@
         </div>
     </div>
     
-
-    <div id="about" class="about hero-text">
+{{-- About Section --}}
+    <div id="about" class="about hero-text ">
         <div class="row">
-            <div class="col-lg-6 col-12 order-lg-2" style="padding-left: 40px;">
-                <img style="width: 100%; height: auto; position: relative; top: -50px; border-radius: 8px; box-shadow: -15px 30px 10px rgba(54, 64, 89, 0.2);" src="img/about.jpg" alt="">
+            <div class="col-lg-6 col-12 order-lg-2">
+                <img src="img/about.jpg">
             </div>
-            <div class="col-lg-6 col-12 order-lg-1" style="padding-right: 40px;">
+            <div class="col-lg-6 col-12 order-lg-1 textabout">
                 <h1 data-lang-en="About Us" data-lang-id="Tentang Kami"></h1>
-                <p data-lang-en="Mitra Adidaya Rekayasa Digital (MARD) is committed to delivering innovative solutions that help businesses overcome challenges and optimize their operations. By leveraging cutting-edge technology and in-depth industry knowledge, we create tailored digital strategies designed to enhance efficiency, drive sustainable growth, and ensure long-term success in an ever-evolving business landscape." data-lang-id="Mitra Adidaya Rekayasa Digital (MARD) berkomitmen untuk memberikan solusi inovatif yang membantu bisnis mengatasi tantangan dan mengoptimalkan operasional. Dengan memanfaatkan teknologi mutakhir serta wawasan industri yang mendalam, kami menciptakan strategi digital yang disesuaikan untuk meningkatkan efisiensi, mendorong pertumbuhan yang berkelanjutan, dan memastikan kesuksesan jangka panjang dalam lanskap bisnis yang terus berkembang."></p>
+                <p data-lang-en="Mitra Adidaya Rekayasa Digital (MARD) also known as Mardsoft is committed to bringing your ideas to life with our advanced digital solutions and infinite innovations. Our mission is to elevate your business and set a new standard of excellence in the ever-evolving digital landscape. We focus on creating tailored strategies that address your unique challenges, optimize operations, and drive sustainable growth." 
+                data-lang-id="Mitra Adidaya Rekayasa Digital (MARD) yang juga dikenal sebagai Mardsoft berkomitmen untuk mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas. Misi kami adalah untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru di dunia digital yang terus berkembang. Kami fokus pada pembuatan strategi yang disesuaikan untuk mengatasi tantangan unik anda, dan mengoptimalkan operasional."></p>
             </div>
         </div>
     </div>
 
-    <div id="services" class="services container hero-text">
+{{-- Service Section --}}
+    <div id="services" class="services container hero-text ">
         <div class="row">
+            <div class="serv col-lg-3 col-md-6 col-12 order-lg-4">
+                <h1 data-lang-en="Our Services" data-lang-id="Layanan Kami"></h1>
+                <p data-lang-en="Mardsoft provides innovative digital solutions tailored to optimize your business processes, support growth, and set new standards of excellence in your industry." 
+                   data-lang-id="Mardsoft menyediakan solusi digital inovatif yang sesuai untuk optimalisasi bisnis Anda, serta mendukung pertumbuhan, dan standar baru dalam industri."></p>
+            </div>
             <div class="serv col-lg-3 col-md-6 col-12">
                 <div class="serContainer">
                     <a href="/web" target="_blank" style="text-decoration: none; color: black;">
-                        <h3 style="color: black;" data-lang-en="Profile Website Development" data-lang-id="Pengembangan Website Profile"></h3>
-                        <p data-lang-en="Boost your brand with a captivating profile website! We create professional, responsive sites that engage your audience." data-lang-id="Tingkatkan merek Anda dengan website profile yang menarik! Kami buat situs profesional dan responsif yang melibatkan audiens."></p>
+                        <h3 style="color: black;" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h3>
+                        <p data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." 
+                           data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk go online."></p>
                     </a>
                 </div>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
                 <div class="serContainer">
-                    <h3 style="color: black;" data-lang-en="Customized Business Solutions" data-lang-id="Solusi Bisnis Kustom"></h3>
-                    <p data-lang-en="We turn your ideas into reality with tailored technology solutions that enhance efficiency and optimize your business." data-lang-id="Kami mewujudkan ide-ide Anda dengan solusi teknologi yang dirancang khusus untuk meningkatkan efisiensi dan mengoptimalkan bisnis Anda."></p>
+                        <h3 style="color: black;" data-lang-en="Custom App Development" data-lang-id="Custom App Development"></h3>
+                        <p data-lang-en="Bring your ideas to life with our expert developers, delivering digital solutions and endless innovations to drive your business growth." 
+                           data-lang-id="Wujudkan ide Anda dengan pengembang ahli kami, menghadirkan solusi digital dan inovasi tanpa batas untuk mendorong pertumbuhan bisnis Anda."></p>
                 </div>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
                 <div class="serContainer">
-                    <h3 style="color: black;" data-lang-en="Web Application Support" data-lang-id="Dukungan Aplikasi Web"></h3>
-                    <p data-lang-en="Keep your applications running smoothly with our expert support, handling updates and fixes so you can focus on your business." data-lang-id="Jaga aplikasi Anda berjalan lancar dengan dukungan ahli kami, mengurus pembaruan dan perbaikan agar Anda bisa fokus pada bisnis."></p>
+                        <h3 style="color: black;" data-lang-en="Support and Maintenance" data-lang-id="Support and Maintenance"></h3>
+                        <p data-lang-en="We provide continuous maintenance and support to ensure the seamless operation and efficiency of your applications and systems." 
+                           data-lang-id="Kami menawarkan pemeliharaan dan dukungan berkelanjutan untuk menjamin kelancaran dan efisiensi aplikasi serta sistem Anda."></p>
                 </div>
             </div>
-            <div class="serv col-lg-3 col-md-6 col-12">
-                <h1 data-lang-en="Our Services" data-lang-id="Layanan Kami"></h1>
-                <p data-lang-en="Algoritme Digital Solutions supports your business growth with innovative digital solutions and tailored services to optimize your processes." data-lang-id="Algoritme Digital Solutions mendukung pertumbuhan bisnis Anda dengan solusi digital inovatif dan layanan yang disesuaikan untuk mengoptimalkan proses."></p>
+            
+        </div>
+    </div>
+
+{{-- Partner Section --}}
+<div id="partners" class="partner hero-text " style="margin-top: 70px;">
+    
+    <div class="row d-flex flex-wrap">
+        <div class="serv col-lg-4 col-12 " >
+            <h1 data-lang-en="Partners and Clients" data-lang-id="Mitra dan Klien"></h1>
+            <p data-lang-en="Trusted partners and satisfied clients who have collaborated to develop their business ideas." 
+               data-lang-id="Mitra terpercaya dan klien puas yang telah bekerjasama mengembangkan ide bisnis mereka."></p>
+        </div>
+        <div class="partner-logos col-lg-8 col-12 d-flex flex-wrap">
+            <img src="img/mendix.png" alt="Partner 1">
+            <img src="img/aca.png" alt="Partner 2">
+            <img src="img/bmc.png" alt="Partner 3">
+            <img src="img/mendix.png" alt="Partner 4">
+            <img src="img/aca.png" alt="Partner 5">
+            <img src="img/bmc.png" alt="Partner 1">
+            <img src="img/mendix.png" alt="Partner 2">
+            <img src="img/aca.png" alt="Partner 3">
+            <img src="img/bmc.png" alt="Partner 4">
+            <img src="img/mendix.png" alt="Partner 5">
+            <img src="img/aca.png" alt="Partner 5">
+            <img src="img/bmc.png" alt="Partner 5">
+        </div>
+        
+    </div>
+</div>
+
+
+{{-- Contact Us Section --}}
+{{-- Contact Us Section --}}
+<div id="contact" class="contact hero-text" style="margin-top: 70px; padding:30px;">
+    <div class="row d-flex flex-wrap">
+        <div class="col-lg-6 col-12">
+            <h1 data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h1>
+            <p data-lang-en="Feel free to contact us for any inquiries." data-lang-id="Jangan ragu untuk menghubungi kami jika ada pertanyaan."></p>
+        </div>
+        <div class="col-lg-6 col-12">
+            <form id="contact-form" method="POST" action="send_email.php">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <div id="notification" style="display:none; margin-top: 20px;" class="alert alert-success">
+                Your message has been sent successfully!
             </div>
         </div>
     </div>
-    {{-- @livewire('filament-chatgpt-bot') --}}
+</div>
 
+{{-- Footer --}}
     <div class="container-fluid py-5" id="contact">
         <div class="container" style="width:80%">
             <footer class="sk">
@@ -201,8 +269,30 @@ document.getElementById('languageToggle').addEventListener('change', function() 
         // Jika targetId bukan '#' tidak perlu melakukan apa-apa dan biarkan tautan berfungsi seperti biasa
     });
 });
-
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let images = document.querySelectorAll('.partner-logos img');
+        let index = 0;
+
+        // Fungsi untuk merubah opacity secara acak
+        function changeOpacityRandomly() {
+            // Set opacity semua gambar ke 30%
+            images.forEach(img => img.classList.remove('active'));
+
+            // Pilih gambar secara acak
+            let randomIndex = Math.floor(Math.random() * images.length);
+            images[randomIndex].classList.add('active');
+        }
+
+        // Panggil fungsi untuk merubah opacity setiap detik
+        setInterval(changeOpacityRandomly, 1000);
+    });
+</script>
+
+
+
   
 </body>
 </html>

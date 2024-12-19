@@ -1,4 +1,66 @@
+    
+    /* Mengatur animasi naik turun */
+    @keyframes float {
+      0% {
+          transform: translateY(0);
+      }
+      50% {
+          transform: translateY(-10px); /* Naik sedikit */
+      }
+      100% {
+          transform: translateY(0); /* Kembali ke posisi awal */
+      }
+    }
 
+    .about img {
+      animation: float 3s ease-in-out infinite; /* Efek animasi melayang */
+      will-change: transform; /* Memberitahukan browser untuk mempersiapkan transformasi */
+    }
+
+    .partner-logos img.active {
+        opacity: 1;
+        transform: scale(1.2);
+    }    
+
+      .partner-logos img {
+        opacity: 0.3;
+        transition: opacity 0.5s ease-in-out;
+        padding:5px;
+        max-width: 130px;
+        height: auto;
+        object-fit: contain; /* Menjaga aspek rasio gambar */
+        transition: transform 0.5s ease; /* Menambahkan efek transisi saat hover */
+      }
+
+      .partner-logos img:hover {
+        opacity: 1;
+        transform: scale(1.2); 
+      }
+
+      .partner-logos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      
+      /* Section appear ons croll */
+      .appear-on-scroll {
+        opacity: 0; 
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.8s ease;
+      }
+
+      .appear-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0); 
+      }
+      /* End Section appear ons croll */
+
+      
+      
+      
+      
       .slider-search {
         border-radius: 38px;
         padding: 5px;
@@ -181,7 +243,7 @@
       .serContainer{
         transition: 0.3s;
         border: 1px solid #fff;
-        padding: 40px;
+        padding: 30px;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -194,6 +256,7 @@
         font-weight: bolder;
         font-size: 25px;
         line-height: 30px;
+        /* color: #191250 !important; */
         color: rgba(0, 0, 0, 0.8) !important;
       }
       .serContainer:hover{
@@ -210,7 +273,7 @@
       }
       /* Styling button melayang */
       .services{
-        margin-top: 50px;
+        margin-top: 70px;
       }
       .serv h1{
         color: #488EFE !important;
@@ -253,26 +316,98 @@
         color: #fff;
       }
 
+      .partner h1{
+        /* color: rgba(0, 0, 0, 0.8) !important; */
+        color: #191250 !important;
+        font-size:40px !important;
+        font-family: "Raleway", sans-serif;
+        font-weight: bolder !important;
+      }
+      .partner{
+        margin-top: 10px; 
+        padding: 50px;       
+        padding-left: 70px;
+        padding-right: 70px;
+        background-color: rgba(92, 149, 255, 0.1);        
+      }
 
       .about h1{
         color: #488EFE !important;
         margin-top: 20px;
+        padding: 10px !important;
       }
       .about p{
         line-height: 30px;
+        padding:0px !important;
         color: #010A44 !important;
         font-size: 16px !important;
         text-align: justify;
+        padding: 10px !important;
       }
-      .about{
-        margin-top: 10px;
-        margin-left: 50px;
-        margin-right: 50px;
-        padding-left: 40px;
-        padding-right: 40px;
+      .about {
+        margin-top: 10px;        
         background-color: rgba(92, 149, 255, 0.1);
         border-radius: 20px;
-      }
+    }
+        .about img{
+          width: 100%; 
+          height: auto; 
+          position: relative; 
+          /* top: -50px;  */
+          border-radius: 8px;        
+        }
+        
+    
+    @media (min-width: 992px) { /* Ukuran lg dimulai dari 992px */
+        .txtabout{
+          padding-right: 40px;
+        }
+        .partner{
+          margin-top: 10px; 
+          padding: 40px;       
+          padding-left: 100px;
+          padding-right: 100px;
+          background-color: rgba(92, 149, 255, 0.1);        
+        }
+        .partner h1{
+          /* color: rgba(0, 0, 0, 0.8) !important; */
+          color: #191250 !important;
+          padding-right: 70px;
+          font-size:30px !important;
+          font-family: "Raleway", sans-serif;
+          font-weight: bolder !important;
+        }
+        .partner p{
+          padding-right: 70px;
+        }
+      
+        .about {
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left: 50px;
+            margin-right: 50px;
+            padding-left: 40px;
+        }
+        .about img{
+          width: 100%; 
+          height: auto; 
+          position: relative; 
+          top: -50px; 
+          border-radius: 8px; 
+          box-shadow: -15px 30px 10px rgba(54, 64, 89, 0.2);
+        }
+        .partner h1{ 
+          padding-right:100px;
+        }
+        
+
+        .partner-logos{
+          gap: 15px;
+          
+        }
+    }
+    
+      
 /* Hero */
 html {
     scroll-behavior: smooth;
@@ -661,8 +796,14 @@ html {
         
 /* phone View */
 @media (max-width: 767.98px) {      
+          
           .way{
             font-size: 20px;
+          }
+
+          .btn{
+            margin-top: 10px !important;
+            margin-left: 0px !important;
           }
         
 
