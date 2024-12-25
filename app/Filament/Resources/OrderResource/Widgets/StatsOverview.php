@@ -40,20 +40,26 @@ class StatsOverview extends BaseWidget
 
     }
 
-    protected function createStat(string $status, string $description, Carbon $start, Carbon $end): Stat
+        protected function createStat(string $status, string $description, Carbon $start, Carbon $end): Stat
     {
+        // Ambil jumlah order berdasarkan status dan rentang tanggal
+        $orderCount = Order::where('status', $status)
+            ->whereBetween('updated_at', [$start->startOfDay(), $end->endOfDay()])
+            ->count();
+
+        // Jika tidak ada order, pastikan count tetap 0
+        $orderCount = $orderCount ?: 0;
+
+        // Ambil data untuk chart
         $data = $this->getOrderData($status, $start, $end);
         $color = $this->determineColor($data);
 
-        return Stat::make('', Order::where('status', $status)->count() . ' Orders')
-        // return Stat::make('', Order::where('status', $status)
-        //     ->whereBetween('updated_at', [$start->startOfDay(), $end->endOfDay()])
-        //     ->count() . ' Orders')
-            // ->descriptionIcon('heroicon-m-' . strtolower(str_replace(' ', '-', $description)))
+        return Stat::make('', $orderCount . ' Orders')
             ->description($description)
             ->chart($data)
             ->color($color);
     }
+
 
     protected function getOrderData(string $status, Carbon $start, Carbon $end): array
     {
