@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers;
-use App\Models\Order;
+use App\Models\order;
 use App\Models\subscription;
 use App\Models\template;
 use Filament\Forms;
@@ -28,7 +28,7 @@ use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
 
 class OrderResource extends Resource
 {
-    protected static ?string $model = Order::class;
+    protected static ?string $model = order::class;
 
     protected static ?string $navigationIcon = 'heroicon-m-shopping-bag';
     
