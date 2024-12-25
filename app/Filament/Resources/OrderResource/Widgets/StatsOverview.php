@@ -44,11 +44,12 @@ class StatsOverview extends BaseWidget
     {
         // Ambil jumlah order berdasarkan status dan rentang tanggal
         $orderCount = Order::where('status', $status)
-            ->whereBetween('updated_at', [$start->startOfDay(), $end->endOfDay()])
-            ->count();
+        ->whereBetween('updated_at', [$start->startOfDay(), $end->endOfDay()])
+        ->count();
 
-        // Jika tidak ada order, pastikan count tetap 0
+        // Jika tidak ada order, pastikan count tetap 0 (menggunakan `?:`)
         $orderCount = $orderCount ?: 0;
+
 
         // Ambil data untuk chart
         $data = $this->getOrderData($status, $start, $end);
