@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\OrderResource\Widgets;
 
-use App\Models\Order;
+use App\Models\order;
 use Carbon\Carbon;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -43,7 +43,7 @@ class StatsOverview extends BaseWidget
         protected function createStat(string $status, string $description, Carbon $start, Carbon $end): Stat
     {
         // Ambil jumlah order berdasarkan status dan rentang tanggal
-        $orderCount = Order::where('status', $status)
+        $orderCount = order::where('status', $status)
         ->whereBetween('updated_at', [$start->startOfDay(), $end->endOfDay()])
         ->count();
 
