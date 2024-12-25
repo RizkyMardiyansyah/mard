@@ -1,4 +1,16 @@
-    
+#notification {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 9999;
+}
+
     /* Mengatur animasi naik turun */
     @keyframes float {
       0% {

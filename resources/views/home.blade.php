@@ -151,7 +151,6 @@
 
 
 {{-- Contact Us Section --}}
-{{-- Contact Us Section --}}
 <div id="contact" class="contact hero-text" style="margin-top: 70px; padding:30px;">
     <div class="row d-flex flex-wrap">
         <div class="col-lg-6 col-12">
@@ -159,7 +158,8 @@
             <p data-lang-en="Feel free to contact us for any inquiries." data-lang-id="Jangan ragu untuk menghubungi kami jika ada pertanyaan."></p>
         </div>
         <div class="col-lg-6 col-12">
-            <form id="contact-form" method="POST" action="send_email.php">
+            <form id="contact-form">
+                @csrf
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" class="form-control" required>
@@ -169,17 +169,28 @@
                     <input type="email" id="email" name="email" class="form-control" required>
                 </div>
                 <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company:</label>
+                    <input type="text" id="company" name="company" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
-            <div id="notification" style="display:none; margin-top: 20px;" class="alert alert-success">
+            <div id="notification" style="display:none;" class="alert alert-success">
                 Your message has been sent successfully!
             </div>
+            
         </div>
     </div>
 </div>
+
+
 
 {{-- Footer --}}
     <div class="container-fluid py-5" id="contact">
@@ -271,6 +282,32 @@ document.getElementById('languageToggle').addEventListener('change', function() 
 });
 </script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#contact-form').submit(function(e) {
+            e.preventDefault(); // Mencegah form submit biasa
+
+            var formData = $(this).serialize(); // Menyusun data form
+
+            $.ajax({
+                url: '{{ route('contact.store') }}', // URL untuk mengirim data
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    // Menampilkan notifikasi jika berhasil
+                    $('#notification').fadeIn().delay(3000).fadeOut(); // Munculkan dan sembunyikan setelah 3 detik
+                    $('#contact-form')[0].reset(); // Mengosongkan form setelah submit
+                },
+                error: function(xhr, status, error) {
+                    // Menangani error jika terjadi
+                    alert('Something went wrong. Please try again later.');
+                }
+            });
+        });
+    });
+</script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let images = document.querySelectorAll('.partner-logos img');
@@ -290,9 +327,6 @@ document.getElementById('languageToggle').addEventListener('change', function() 
         setInterval(changeOpacityRandomly, 1000);
     });
 </script>
-
-
-
-  
+ 
 </body>
 </html>

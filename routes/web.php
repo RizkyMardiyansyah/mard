@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DomainController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('home');
@@ -18,6 +19,9 @@ Route::get('/templates', [DomainController::class, 'index'])->name('templates.in
 Route::get('/brand', function () {
     return view('brand');
 })->name('brand');
+
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 
 
