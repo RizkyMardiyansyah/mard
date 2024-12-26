@@ -97,7 +97,8 @@
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
                 <div class="serContainer">
-                    <a href="/web" target="_blank" style="text-decoration: none; color: black;">
+                    {{-- <a href="/web" target="_blank" style="text-decoration: none; color: black;"> --}}
+                    <a href="#" target="_blank" style="text-decoration: none; color: black;">
                         <h3 style="color: black;" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h3>
                         <p data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." 
                            data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk go online."></p>
@@ -151,7 +152,7 @@
 
 
 {{-- Contact Us Section --}}
-<div id="contact" class="contact hero-text" style="margin-top: 70px; padding:30px;">
+{{-- <div id="contact" class="contact hero-text" style="margin-top: 70px; padding:30px;">
     <div class="row d-flex flex-wrap">
         <div class="col-lg-6 col-12">
             <h1 data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h1>
@@ -188,7 +189,7 @@
             
         </div>
     </div>
-</div>
+</div> --}}
 
 
 
