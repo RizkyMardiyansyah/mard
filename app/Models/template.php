@@ -24,12 +24,12 @@ class template extends Model
     }
         public function orders(): HasMany
         {
-            return $this->hasMany(Order::class, 'template_id');
+            return $this->hasMany(order::class, 'template_id');
         }
 
         // Atribut total pembelian (dinamis)
         public function getTotalPembelianAttribute(): int
         {
-            return Order::where('template', $this->id)->count();
+            return order::where('template', $this->id)->count();
         }
 }
