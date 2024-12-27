@@ -3,15 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\ContactController;
+use App\Models\template;
 
 // Route::get('/', function () {
 //     return view('home');
 // });
 
-use App\Models\Template;
+
 
 Route::get('/', function () {
-    $templates = Template::paginate(6); // Ambil data dari database
+    $templates = template::paginate(6); // Ambil data dari database
     return view('home', compact('templates'));
 });
 
