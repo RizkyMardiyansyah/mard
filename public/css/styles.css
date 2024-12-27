@@ -357,6 +357,7 @@
         padding: 10px !important;
       }
       .about {
+        padding: 10px;
         margin-top: 10px;        
         background-color: rgba(92, 149, 255, 0.1);
         border-radius: 20px;

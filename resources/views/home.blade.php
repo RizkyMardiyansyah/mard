@@ -86,6 +86,20 @@
             </div>
         </div>
     </div>
+    {{-- <div id="partners" class="about partner hero-text " style="margin-top: 70px;">
+    
+        <div class="row d-flex flex-wrap">
+            <div class="col-lg-6 col-12 order-lg-2">
+                <img src="img/about.jpg">
+            </div>
+            <div class="col-lg-6 col-12 order-lg-1 textabout">
+                <h1 data-lang-en="About Us" data-lang-id="Tentang Kami"></h1>
+                <p data-lang-en="Mitra Adidaya Rekayasa Digital (MARD) also known as Mardsoft is committed to bringing your ideas to life with our advanced digital solutions and infinite innovations. Our mission is to elevate your business and set a new standard of excellence in the ever-evolving digital landscape. We focus on creating tailored strategies that address your unique challenges, optimize operations, and drive sustainable growth." 
+                data-lang-id="Mitra Adidaya Rekayasa Digital (MARD) yang juga dikenal sebagai Mardsoft berkomitmen untuk mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas. Misi kami adalah untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru di dunia digital yang terus berkembang. Kami fokus pada pembuatan strategi yang disesuaikan untuk mengatasi tantangan unik anda, dan mengoptimalkan operasional."></p>
+            </div>
+            
+        </div>
+    </div> --}}
 
 {{-- Service Section --}}
     <div id="services" class="services container hero-text ">
@@ -97,8 +111,7 @@
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
                 <div class="serContainer">
-                    {{-- <a href="/web" target="_blank" style="text-decoration: none; color: black;"> --}}
-                    <a href="#" target="_blank" style="text-decoration: none; color: black;">
+                    <a href="/web" target="_blank" style="text-decoration: none; color: black;">
                         <h3 style="color: black;" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h3>
                         <p data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." 
                            data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk go online."></p>
