@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\order;
-use App\Models\Template; // Pastikan model Template sudah ada
+use App\Models\template;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -14,7 +14,7 @@ class DomainController extends Controller
     
 
     $search = $request->input('search');
-    $templates = Template::where('title', 'LIKE', "%{$search}%")
+    $templates = template::where('title', 'LIKE', "%{$search}%")
                         ->paginate(9); // Sesuaikan jumlah per halaman
 
     if ($request->ajax()) {
