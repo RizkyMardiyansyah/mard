@@ -4,9 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\ContactController;
 
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+use App\Models\Template;
+
 Route::get('/', function () {
-    return view('home');
+    $templates = Template::paginate(6); // Ambil data dari database
+    return view('home', compact('templates'));
 });
+
+
+
 Route::get('/web', [DomainController::class, 'index']);
 Route::post('/check-domain', [DomainController::class, 'checkDomain'])->name('check.domain');
 Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');

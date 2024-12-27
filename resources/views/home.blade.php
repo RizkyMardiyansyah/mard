@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     
   </head>
@@ -86,21 +87,7 @@
             </div>
         </div>
     </div>
-    {{-- <div id="partners" class="about partner hero-text " style="margin-top: 70px;">
     
-        <div class="row d-flex flex-wrap">
-            <div class="col-lg-6 col-12 order-lg-2">
-                <img src="img/about.jpg">
-            </div>
-            <div class="col-lg-6 col-12 order-lg-1 textabout">
-                <h1 data-lang-en="About Us" data-lang-id="Tentang Kami"></h1>
-                <p data-lang-en="Mitra Adidaya Rekayasa Digital (MARD) also known as Mardsoft is committed to bringing your ideas to life with our advanced digital solutions and infinite innovations. Our mission is to elevate your business and set a new standard of excellence in the ever-evolving digital landscape. We focus on creating tailored strategies that address your unique challenges, optimize operations, and drive sustainable growth." 
-                data-lang-id="Mitra Adidaya Rekayasa Digital (MARD) yang juga dikenal sebagai Mardsoft berkomitmen untuk mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas. Misi kami adalah untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru di dunia digital yang terus berkembang. Kami fokus pada pembuatan strategi yang disesuaikan untuk mengatasi tantangan unik anda, dan mengoptimalkan operasional."></p>
-            </div>
-            
-        </div>
-    </div> --}}
-
 {{-- Service Section --}}
     <div id="services" class="services container hero-text ">
         <div class="row">
@@ -111,10 +98,10 @@
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
                 <div class="serContainer">
-                    <a href="/web" target="_blank" style="text-decoration: none; color: black;">
+                    <a href="/web" style="text-decoration: none; color: black;">
                         <h3 style="color: black;" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h3>
                         <p data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." 
-                           data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk go online."></p>
+                           data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online."></p>
                     </a>
                 </div>
             </div>
@@ -136,30 +123,152 @@
         </div>
     </div>
 
-{{-- Partner Section --}}
-<div id="partners" class="partner hero-text " style="margin-top: 70px;">
+{{-- Instal Build Website --}}
+<div class="container" style="margin-top: 50px">
+    <div class="hero-section-home-domain d-flex align-items-center justify-content-center">
+        <div class="hero-overlay-home-domain">
+            <div class="container hero-text-domain text-center"> 
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div style="margin-bottom: 20px" class="container">
+                        <h1 style="margin-bottom: 0px" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h1>
+                        <span data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online."></span>
+                        </div>
+                        <!-- Form untuk memasukkan nama domain -->            
+                        <form id="domainForm" class="mt-30 mt-lg-30 w-100" action="/web" method="GET">
+                            <div style="margin:0px;" class="form-row d-flex align-items-center slider-search bg-white w-100">
+                                <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" placeholder="Find your domain..."/>
+                                <button type="submit" class="btn rounded-pill " style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Search</b></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <div class="row d-flex flex-wrap">
-        <div class="serv col-lg-4 col-12 " >
-            <h1 data-lang-en="Partners and Clients" data-lang-id="Mitra dan Klien"></h1>
-            <p data-lang-en="Trusted partners and satisfied clients who have collaborated to develop their business ideas." 
-               data-lang-id="Mitra terpercaya dan klien puas yang telah bekerjasama mengembangkan ide bisnis mereka."></p>
-        </div>
-        <div class="partner-logos col-lg-8 col-12 d-flex flex-wrap">
-            <img src="img/mendix.png" alt="Partner 1">
-            <img src="img/aca.png" alt="Partner 2">
-            <img src="img/bmc.png" alt="Partner 3">
-            <img src="img/miligolas.png" alt="Partner 4">
-            <img src="img/delano.png" alt="Partner 5">
-            <img src="img/mendix.png" alt="Partner 2">
-            <img src="img/aca.png" alt="Partner 3">
-            <img src="img/bmc.png" alt="Partner 4">
-            <img src="img/miligolas.png" alt="Partner 5">
-            <img src="img/delano.png" alt="Partner 5">
-        </div>
+
+    <div style="margin-top: 50px"  class="serv container hero-text">
+
+        <div class="serv container hero-text">
+            
+            {{-- <h1>Our Template</h1> --}}
         
+            <!-- Form Pencarian -->
+            <form id="searchTemplateForm" action="{{ route('searchtemplate') }}" method="POST">
+                @csrf <!-- Ini untuk melindungi dari CSRF -->
+                <div class="input-group">
+                    <input type="text" name="search" id="search" class="form-control" placeholder="Find your template..." required>
+                    <button style="opacity: 100%; margin-top:0px" class="btn btn-primary" type="submit">Search</button>
+                </div>
+                <!-- Spinner untuk loading animation -->
+                <div style="margin-top: 50px" class="spinner" id="spinnerr" style="display: none;"></div>
+            </form>
+        
+            <div class=" row" id="templateContainer">
+                @foreach($templates as $template)
+                    @include('partials.template_card', ['template' => $template])
+                @endforeach
+            </div>
+        
+            <!-- Menampilkan Pagination -->
+            <div class="pagination justify-content-center mt-4" id="paginationLinks">
+                {{ $templates->appends(request()->query())->links('pagination::bootstrap-4') }}
+            </div>
+        </div>
     </div>
 </div>
+{{-- Partner Section --}}
+    <div id="partners" class="partner hero-text " style="margin-top: 70px;">
+        
+        <div class="row d-flex flex-wrap">
+            <div class="serv col-lg-4 col-12 " >
+                <h1 data-lang-en="Partners and Clients" data-lang-id="Mitra dan Klien"></h1>
+                <p data-lang-en="Trusted partners and satisfied clients who have collaborated to develop their business ideas." 
+                data-lang-id="Mitra terpercaya dan klien puas yang telah bekerjasama mengembangkan ide bisnis mereka."></p>
+            </div>
+            <div class="partner-logos col-lg-8 col-12 d-flex flex-wrap">
+                <img src="img/mendix.png" alt="Partner 1">
+                <img src="img/aca.png" alt="Partner 2">
+                <img src="img/bmc.png" alt="Partner 3">
+                <img src="img/miligolas.png" alt="Partner 4">
+                <img src="img/delano.png" alt="Partner 5">
+                <img src="img/babagi.png" alt="Partner 2">
+                <img src="img/big.png" alt="Partner 3">
+            </div>
+            
+        </div>
+    </div>
+
+
+
+<script>    
+    $(document).ready(function() {
+        // Event untuk form pencarian
+        $('#searchTemplateForm').on('submit', function(e) {
+            e.preventDefault(); // Mencegah submit standar
+            performSearchOrPagination($(this).attr('action'), 'POST', { 
+                _token: '{{ csrf_token() }}',
+                search: $('#search').val() 
+            });
+        });
+
+        // Event untuk pagination link
+        $(document).on('click', '#paginationLinks a', function(e) {
+            e.preventDefault(); // Mencegah reload halaman
+            let url = $(this).attr('href');
+            performSearchOrPagination(url, 'GET'); // Pagination menggunakan GET
+        });
+
+        // Fungsi umum untuk Search atau Pagination
+        function performSearchOrPagination(url, method, data = {}) {
+            $('#spinnerr').show(); // Tampilkan spinner
+
+            $.ajax({
+                url: url,
+                method: method,
+                data: data,
+                success: function(response) {
+                    $('#spinnerr').hide(); // Sembunyikan spinner
+                    $('#templateContainer').html(''); // Kosongkan kontainer
+
+                    // Tampilkan template jika ada hasil
+                    if (response.templates.length > 0) {
+                        response.templates.forEach(template => {
+                            const imageUrl = `{{ url('storage') }}/${template.image}`;
+                            $('#templateContainer').append(`
+                                <div class="card col-lg-4 col-md-6 col-12">
+                                    <img src="${imageUrl}" alt="${template.title}" class="card-img-top">
+                                    <div class="d-flex" style="padding: 0px">
+                                        <div class="card-title">${template.title}</div>
+                                        <div class="d-flex" style="margin-left: auto">
+                                            <a href="#" class="view d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-check"></i>
+                                            </a>
+                                            <a href="${template.link}" target="_blank" 
+                                               class="view d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `);
+                        });
+                    } else {
+                        $('#templateContainer').append('<p>No templates found.</p>');
+                    }
+
+                    // Update pagination links
+                    $('#paginationLinks').html(response.pagination);
+                },
+                error: function() {
+                    $('#spinnerr').hide(); // Sembunyikan spinner
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        }
+    });    
+</script>
 
 
 {{-- Contact Us Section --}}
@@ -212,40 +321,83 @@
             </footer>
         </div>
     </div>
+    
 
     <script>
-window.onload = function() {
-  document.getElementById('languageToggle').checked = true; // Toggle default ke 'true' untuk bahasa Inggris
-    switchLanguage('en'); // Set bahasa default ke Bahasa Inggris
-};
+// window.onload = function() {
+//   document.getElementById('languageToggle').checked = true; // Toggle default ke 'true' untuk bahasa Inggris
+//     switchLanguage('en'); // Set bahasa default ke Bahasa Inggris
+// };
 
-const toggleCheckbox = document.getElementById('languageToggle');
-const toggleInner = document.querySelector('.toggle-inner');
+// const toggleCheckbox = document.getElementById('languageToggle');
+// const toggleInner = document.querySelector('.toggle-inner');
 
-toggleCheckbox.addEventListener('change', function() {
-    const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
-    switchLanguage(selectedLang);
+// toggleCheckbox.addEventListener('change', function() {
+//     const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
+//     switchLanguage(selectedLang);
 
-    // Ubah teks yang ditampilkan
-    toggleInner.textContent = toggleCheckbox.checked ? 'EN' : 'IN';
-});
+//     // Ubah teks yang ditampilkan
+//     toggleInner.textContent = toggleCheckbox.checked ? 'EN' : 'IN';
+// });
 
-function switchLanguage(lang) {
-    const elements = document.querySelectorAll('[data-lang-en]');
+// function switchLanguage(lang) {
+//     const elements = document.querySelectorAll('[data-lang-en]');
 
-    elements.forEach(element => {
-        element.textContent = element.getAttribute('data-lang-' + lang);
+//     elements.forEach(element => {
+//         element.textContent = element.getAttribute('data-lang-' + lang);
+//     });
+// }
+// document.getElementById('languageToggle').addEventListener('change', function() {
+//     if (this.checked) {
+//         // Logic saat toggle aktif
+//         console.log('Bahasa diubah ke EN');
+//     } else {
+//         // Logic saat toggle tidak aktif
+//         console.log('Bahasa diubah ke IN');
+//     }
+// });
+
+    window.onload = function () {
+        // Ambil preferensi bahasa dari localStorage
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+
+        // Atur posisi toggle sesuai bahasa tersimpan
+        const languageToggle = document.getElementById('languageToggle');
+        languageToggle.checked = (savedLanguage === 'en');
+        
+        // Set bahasa saat halaman dimuat
+        switchLanguage(savedLanguage);
+        updateToggleText(savedLanguage);
+    };
+
+    // Tambahkan event listener pada toggle
+    const toggleCheckbox = document.getElementById('languageToggle');
+
+    toggleCheckbox.addEventListener('change', function () {
+        const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
+
+        // Simpan preferensi bahasa ke localStorage
+        localStorage.setItem('preferredLanguage', selectedLang);
+
+        // Ubah bahasa dan teks toggle
+        switchLanguage(selectedLang);
+        updateToggleText(selectedLang);
     });
-}
-document.getElementById('languageToggle').addEventListener('change', function() {
-    if (this.checked) {
-        // Logic saat toggle aktif
-        console.log('Bahasa diubah ke EN');
-    } else {
-        // Logic saat toggle tidak aktif
-        console.log('Bahasa diubah ke IN');
+
+    function switchLanguage(lang) {
+        const elements = document.querySelectorAll('[data-lang-en]');
+
+        elements.forEach(element => {
+            element.textContent = element.getAttribute('data-lang-' + lang);
+        });
     }
-});
+
+    function updateToggleText(lang) {
+        const toggleInner = document.querySelector('.toggle-inner');
+        toggleInner.textContent = lang === 'en' ? 'EN' : 'IN';
+    }
+
+
 
     window.onscroll = function() {
         const navbar = document.getElementById('navbar');
@@ -339,6 +491,8 @@ document.getElementById('languageToggle').addEventListener('change', function() 
         setInterval(changeOpacityRandomly, 1000);
     });
 </script>
+
+
  
 </body>
 </html>

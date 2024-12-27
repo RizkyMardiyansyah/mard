@@ -47,11 +47,12 @@
                 <span class="navbar-toggler-icon" style="box-shadow: none;"></span>
             </button>
             <div class="collapse navbar-collapse order-lg-1" id="navbarNav">
-              <ul style="margin-left: auto;" class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                <ul style="margin-left: auto;" class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#partners">Partners</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#contact">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -62,14 +63,14 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="container">
-                        <h1 data-lang-en="Create Your Own Website" data-lang-id="Buat Wesbsitemu Sendiri"></h1>
-                        <span data-lang-en="Find Your Domain, Select Your Template, and Launch Your Website with Ease. Take Your Business Digital Today!" data-lang-id="Temukan Domain Anda, Pilih Template, dan Luncurkan Website dengan Mudah. Jadikan Bisnismu Digital Sekarang!"></span>
+                            <h1 style="margin-bottom: 0px" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h1>
+                            <span data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online."></span>
                         </div>
                         <!-- Form untuk memasukkan nama domain -->            
                         <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
                             <div style="margin:0px;" class="form-row  d-flex align-items-center slider-search bg-white w-100">
-                                <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" required placeholder="Find your business domain..."/>
-                                <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Cari Domain</b></button>
+                                <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" value="{{ request('domain') }}" required placeholder="Find your domain..."/>
+                                <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Search</b></button>
                             </div>
                         </form>
                         <!-- Spinner untuk loading animation -->
@@ -82,34 +83,6 @@
             </div>
         </div>
     </div>
-
-    {{-- <div class="hero-section-domain d-flex align-items-center justify-content-center"> <!-- Tambahkan d-flex dan align-items-center -->
-        <div class="hero-overlay-domain">
-            <div class="container hero-text-domain text-center">                
-                    <div class="row">
-                        <div class="col cari">
-                            <div class="container">
-                            <h1 data-lang-en="Create Your Own Website" data-lang-id="Buat Wesbsitemu Sendiri"></h1>
-                            <span data-lang-en="Find Your Domain, Select Your Template, and Launch Your Website with Ease. Take Your Business Digital Today!" data-lang-id="Temukan Domain Anda, Pilih Template, dan Luncurkan Website dengan Mudah. Jadikan Bisnismu Digital Sekarang!"></span>
-                            </div>
-                            <!-- Form untuk memasukkan nama domain -->            
-                            <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
-                                <div style="margin:0px;" class="form-row  d-flex align-items-center slider-search bg-white w-100">
-                                    <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" required placeholder="Find your business domain..."/>
-                                    <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; background-color:#FFCB47; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Cari Domain</b></button>
-                                </div>
-                            </form>
-                            <!-- Spinner untuk loading animation -->
-                            <div style="margin-top: 50px" class="spinner" id="spinner"></div>
-
-                            <!-- Div untuk menampilkan hasil pencarian -->
-                            <div style="margin-top: 50px;" id="result"></div>
-                        </div>
-                    </div>                
-            </div>
-            
-        </div>
-    </div> --}}
 
 
     <div class="serv container hero-text">
@@ -148,6 +121,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>    
     $(document).ready(function() {
+
         // Event untuk form pencarian
         $('#searchTemplateForm').on('submit', function(e) {
             e.preventDefault(); // Mencegah submit standar
@@ -226,38 +200,48 @@
     </div>
 
     <script>
-window.onload = function() {
-  document.getElementById('languageToggle').checked = true; // Toggle default ke 'true' untuk bahasa Inggris
-    switchLanguage('en'); // Set bahasa default ke Bahasa Inggris
-};
+//   JS untuk toggle bahasa
+        window.onload = function () {
+            // Ambil preferensi bahasa dari localStorage
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
 
-const toggleCheckbox = document.getElementById('languageToggle');
-const toggleInner = document.querySelector('.toggle-inner');
+            // Atur posisi toggle sesuai bahasa tersimpan
+            const languageToggle = document.getElementById('languageToggle');
+            languageToggle.checked = (savedLanguage === 'en');
+            
+            // Set bahasa saat halaman dimuat
+            switchLanguage(savedLanguage);
+            updateToggleText(savedLanguage);
+        };
 
-toggleCheckbox.addEventListener('change', function() {
-    const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
-    switchLanguage(selectedLang);
+        // Tambahkan event listener pada toggle
+        const toggleCheckbox = document.getElementById('languageToggle');
 
-    // Ubah teks yang ditampilkan
-    toggleInner.textContent = toggleCheckbox.checked ? 'EN' : 'IN';
-});
+        toggleCheckbox.addEventListener('change', function () {
+            const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
 
-function switchLanguage(lang) {
-    const elements = document.querySelectorAll('[data-lang-en]');
+            // Simpan preferensi bahasa ke localStorage
+            localStorage.setItem('preferredLanguage', selectedLang);
 
-    elements.forEach(element => {
-        element.textContent = element.getAttribute('data-lang-' + lang);
-    });
-}
-document.getElementById('languageToggle').addEventListener('change', function() {
-    if (this.checked) {
-        // Logic saat toggle aktif
-        console.log('Bahasa diubah ke EN');
-    } else {
-        // Logic saat toggle tidak aktif
-        console.log('Bahasa diubah ke IN');
-    }
-});
+            // Ubah bahasa dan teks toggle
+            switchLanguage(selectedLang);
+            updateToggleText(selectedLang);
+        });
+
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang-en]');
+
+            elements.forEach(element => {
+                element.textContent = element.getAttribute('data-lang-' + lang);
+            });
+        }
+
+        function updateToggleText(lang) {
+            const toggleInner = document.querySelector('.toggle-inner');
+            toggleInner.textContent = lang === 'en' ? 'EN' : 'IN';
+        }
+//   End JS untuk toggle bahasa
+
 
     window.onscroll = function() {
         const navbar = document.getElementById('navbar');

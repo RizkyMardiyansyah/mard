@@ -25,6 +25,7 @@ class DomainController extends Controller
     }
 
    return view('domain-check', compact('templates', 'search'));
+   return view('home', compact('templates', 'search'));
 }
 
 
