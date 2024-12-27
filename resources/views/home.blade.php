@@ -104,7 +104,7 @@
 {{-- Service Section --}}
     <div id="services" class="services container hero-text ">
         <div class="row">
-            <div class="serv col-lg-3 col-md-6 col-12 order-lg-4">
+            <div class="serv our col-lg-3 col-md-6 col-12 order-lg-4">
                 <h1 data-lang-en="Our Services" data-lang-id="Layanan Kami"></h1>
                 <p data-lang-en="Mardsoft provides innovative digital solutions tailored to optimize your business processes, support growth, and set new standards of excellence in your industry." 
                    data-lang-id="Mardsoft menyediakan solusi digital inovatif yang sesuai untuk optimalisasi bisnis Anda, serta mendukung pertumbuhan, dan standar baru dalam industri."></p>
@@ -149,15 +149,13 @@
             <img src="img/mendix.png" alt="Partner 1">
             <img src="img/aca.png" alt="Partner 2">
             <img src="img/bmc.png" alt="Partner 3">
-            <img src="img/mendix.png" alt="Partner 4">
-            <img src="img/aca.png" alt="Partner 5">
-            <img src="img/bmc.png" alt="Partner 1">
+            <img src="img/miligolas.png" alt="Partner 4">
+            <img src="img/delano.png" alt="Partner 5">
             <img src="img/mendix.png" alt="Partner 2">
             <img src="img/aca.png" alt="Partner 3">
             <img src="img/bmc.png" alt="Partner 4">
-            <img src="img/mendix.png" alt="Partner 5">
-            <img src="img/aca.png" alt="Partner 5">
-            <img src="img/bmc.png" alt="Partner 5">
+            <img src="img/miligolas.png" alt="Partner 5">
+            <img src="img/delano.png" alt="Partner 5">
         </div>
         
     </div>
