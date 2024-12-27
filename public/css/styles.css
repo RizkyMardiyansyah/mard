@@ -357,10 +357,10 @@
         padding: 10px !important;
       }
       .about {
-        padding: 10px;
+        padding: 20px;
         margin-top: 10px;        
         background-color: rgba(92, 149, 255, 0.1);
-        border-radius: 20px;
+        /* border-radius: 20px; */
     }
         .about img{
           width: 100%; 
