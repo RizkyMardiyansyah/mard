@@ -337,7 +337,7 @@
 
 
 {{-- Footer --}}
-<div class="footer container-fluid bg-dark text-light py-5">
+<div  style="margin-top: 100px" class="footer container-fluid bg-dark text-light py-5">
     <div class="container">
         <div class="row">
             <!-- Logo -->
