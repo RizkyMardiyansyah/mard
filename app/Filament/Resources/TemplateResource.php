@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\TemplateResource\Pages;
 use App\Filament\Resources\TemplateResource\RelationManagers;
-use App\Models\Template;
+use App\Models\template;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 
 class TemplateResource extends Resource
 {
-    protected static ?string $model = Template::class;
+    protected static ?string $model = template::class;
 
     protected static ?string $navigationIcon = 'heroicon-m-rectangle-group';
     
