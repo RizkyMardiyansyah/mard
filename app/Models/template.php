@@ -26,6 +26,7 @@ class template extends Model
         {
             return $this->hasMany(order::class, 'template_id');
         }
+        
 
         // Atribut total pembelian (dinamis)
         public function getTotalPembelianAttribute(): int
