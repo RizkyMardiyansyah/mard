@@ -128,7 +128,7 @@
     <div class="hero-section-home-domain d-flex align-items-center justify-content-center">
         <div class="hero-overlay-home-domain">
             <div class="container hero-text-domain text-center"> 
-                <div class="row">
+                <div class="row webbuilder">
                     <div class="col-lg-8 mx-auto">
                         <div style="margin-bottom: 20px" class="container">
                         <h1 style="margin-bottom: 0px" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h1>
@@ -138,7 +138,7 @@
                         <form id="domainForm" class="mt-30 mt-lg-30 w-100" action="/web" method="GET">
                             <div style="margin:0px;" class="form-row d-flex align-items-center slider-search bg-white w-100">
                                 <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" placeholder="Find your domain..."/>
-                                <button type="submit" class="btn rounded-pill " style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Search</b></button>
+                                <button type="submit" class="btn cari rounded-pill " style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Search</b></button>
                             </div>
                         </form>
                     </div>
@@ -159,7 +159,7 @@
                 @csrf <!-- Ini untuk melindungi dari CSRF -->
                 <div class="input-group">
                     <input type="text" name="search" id="search" class="form-control" placeholder="Find your template..." required>
-                    <button style="opacity: 100%; margin-top:0px" class="btn btn-primary" type="submit">Search</button>
+                    <button style="opacity: 100%;" class="btn cari btn-primary" type="submit">Search</button>
                 </div>
                 <!-- Spinner untuk loading animation -->
                 <div style="margin-top: 50px" class="spinner" id="spinnerr" style="display: none;"></div>
