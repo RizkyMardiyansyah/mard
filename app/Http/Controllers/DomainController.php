@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\Http;
 class DomainController extends Controller
 {
     public function index(Request $request)
-{
-    
-
+{   
     $search = $request->input('search');
     $templates = template::where('title', 'LIKE', "%{$search}%")
                         ->paginate(9); // Sesuaikan jumlah per halaman
