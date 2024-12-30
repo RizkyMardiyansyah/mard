@@ -124,7 +124,7 @@
     </div>
 
 {{-- Instal Build Website --}}
-<div class="container" style="margin-top: 50px">
+<div class="container" style="margin-top: 70px">
     <div class="hero-section-home-domain d-flex align-items-center justify-content-center">
         <div class="hero-overlay-home-domain">
             <div class="container hero-text-domain text-center"> 
@@ -188,14 +188,38 @@
                 data-lang-id="Mitra terpercaya dan klien puas yang telah bekerjasama mengembangkan ide bisnis mereka."></p>
             </div>
             <div class="partner-logos col-lg-8 col-12 d-flex flex-wrap">
-                <img src="img/mendix.png" alt="Partner 1">
-                <img src="img/aca.png" alt="Partner 2">
-                <img src="img/bmc.png" alt="Partner 3">
-                <img src="img/miligolas.png" alt="Partner 4">
-                <img src="img/delano.png" alt="Partner 5">
-                <img src="img/babagi.png" alt="Partner 2">
-                <img src="img/big.png" alt="Partner 3">
+                <a href="https://www.mendix.com" target="_blank">
+                    <img src="img/mendix.png" alt="Partner 1">
+                </a>
+                <a href="https://www.aca-apac.com/id" target="_blank">
+                    <img src="img/aca.png" alt="Partner 2">
+                </a>
+                <a href="https://www.bmc.com" target="_blank">
+                    <img src="img/bmc.png" alt="Partner 3">
+                </a>
+                <a href="https://www.miligolas.co.id" target="_blank">
+                    <img src="img/miligola.png" alt="Partner 4">
+                </a>
+                <a href="https://www.delano-comm.com" target="_blank">
+                    <img src="img/delano.png" alt="Partner 5">
+                </a>
+                <a href="https://www.babagi-tech.co.id" target="_blank">
+                    <img src="img/babagi.png" alt="Partner 6">
+                </a>
+                <a href="https://www.big-solutions.co.id/" target="_blank">
+                    <img src="img/big.png" alt="Partner 7">
+                </a>
+                <a href="https://www.miligolas.co.id" target="_blank">
+                    <img src="img/milian.png" alt="Partner 8">
+                </a>
+                <a href="https://www.pakarangan.id/" target="_blank">
+                    <img src="img/pakarangan.png" alt="Partner 9">
+                </a>
+                <a href="https://www.spyros.co.id" target="_blank">
+                    <img src="img/spyros.png" alt="Partner 10">
+                </a>
             </div>
+            
             
         </div>
     </div>
@@ -272,55 +296,135 @@
 
 
 {{-- Contact Us Section --}}
-{{-- <div id="contact" class="contact hero-text" style="margin-top: 70px; padding:30px;">
-    <div class="row d-flex flex-wrap">
-        <div class="col-lg-6 col-12">
-            <h1 data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h1>
-            <p data-lang-en="Feel free to contact us for any inquiries." data-lang-id="Jangan ragu untuk menghubungi kami jika ada pertanyaan."></p>
-        </div>
-        <div class="col-lg-6 col-12">
-            <form id="contact-form">
-                @csrf
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
+    {{-- <div id="contact" class="container contact hero-text" style="color: black; margin-top: 70px; padding: 30px;">
+        <div class="row d-flex flex-wrap">
+            <!-- Form Kontak -->
+            <div class="col-lg-6 col-12 mb-4">
+                <h1 style="color: black;" data-lang-en="Contact Us" data-lang-id="Hubungi Kami">Contact Us</h1>
+                <form id="contact-form" style="max-width: 100%; margin-top: 20px;">
+                    @csrf
+                    <div class="form-group mb-3">
+                        <input type="text" id="name" name="name" class="form-control" required placeholder="Name..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="email" id="email" name="email" class="form-control" required placeholder="Email..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" id="company" name="company" class="form-control" placeholder="Company..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                    </div>
+                    <div class="form-group mb-3">
+                        <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 5px;">Send Message</button>
+                </form>
+                <div id="notification" style="display: none;" class="alert alert-success mt-3">
+                    Your message has been sent successfully!
                 </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone:</label>
-                    <input type="text" id="phone" name="phone" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="company">Company:</label>
-                    <input type="text" id="company" name="company" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-            <div id="notification" style="display:none;" class="alert alert-success">
-                Your message has been sent successfully!
             </div>
-            
+
+            <!-- Gambar dan Deskripsi -->
+            <div class="col-lg-6 col-12">
+                <img src="img/contactus.png" alt="Contact Us" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 8px;">
+            </div>
         </div>
-    </div>
-</div> --}}
+    </div> --}}
+
+
 
 
 
 {{-- Footer --}}
-    <div class="container-fluid py-5" id="contact">
-        <div class="container" style="width:80%">
-            <footer class="sk">
-                <p>Copyright © <b>2024</b> Rizky Mardiyansyah. All Rights Reserved</p>
-            </footer>
+<div class="footer container-fluid bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Logo -->
+            <div class="col-lg-3 col-md-6 col-12 flex-column ">
+                <img src="img/MardPutih.svg" alt="Logo" class="footer-logo me-3" style="height: 40px;">
+                <a href="#" style="color: inherit; text-decoration: none;">
+                    <p style="margin-top:20px;"><b>Cakung Timur</b>, Jakarta Timur, DKI Jakarta, 13910, Indonesia</p>
+                </a>
+            </div>
+
+            <!-- About us -->
+            <div class="col-lg-3 col-md-6 col-12 text-left">
+                <h6 data-lang-en="About Us" data-lang-id="Tentang Kami"></h6>
+                <a href="#about" style="color: inherit; text-decoration: none;">
+                    <p data-lang-en="About Us" data-lang-id="Tentang Kami"></p>
+                </a>
+                <a href="#services" style="color: inherit; text-decoration: none;">
+                    <p data-lang-en="Our Services" data-lang-id="Layanan Kami"></p>
+                </a>
+                <a href="#partners" style="color: inherit; text-decoration: none;">
+                    <p data-lang-en="Partner and Client" data-lang-id="Mitra dan Klien"></p>
+                </a>
+            </div>
+
+            <!-- Our Services -->
+            <div class="col-lg-3 col-md-6 col-12 text-left">
+                <h6 data-lang-en="Our Services" data-lang-id="Layanan Kami"></h6>
+                <a href="#" style="color: inherit; text-decoration: none;">
+                    <p data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></p>
+                </a>
+                <a href="#" style="color: inherit; text-decoration: none;">
+                    <p data-lang-en="Custom App Development" data-lang-id="Custom App Development"></p>
+                </a>
+                <a href="#" style="color: inherit; text-decoration: none;">
+                    <p data-lang-en="Support and Maintenance" data-lang-id="Support and Maintenance"></p>
+                </a>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="col-lg-3 col-md-6 col-12 text-left">
+                <h6 data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h6>
+                <a href="#" style="color: inherit; text-decoration: none;">
+                    <p data-lang-en="hi@mardsoft.com" data-lang-id="hi@mardsoft.com"></p>
+                </a>
+                <a href="#" class="btn btn-primary" data-lang-en="Get in Touch" data-lang-id="Hubungi Kami">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer Bawah -->
+        <div style="margin-top: 10px" class="row align-items-center">
+            <!-- Copyright Section -->
+            <div class="col-lg-6 col-md-6 col-12">
+                <footer class="mt-4 text-left">
+                    <p class="mb-0">
+                        Copyright © <span id="year"></span> Mardsoft.
+                    </p>
+                    
+                    <script>
+                        document.getElementById("year").textContent = new Date().getFullYear();
+                    </script>
+                </footer>
+            </div>
+
+            <!-- Social Media Icons Section -->
+            <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-end justify-content-md-end justify-content-start">
+                <footer class="mt-4 ml-md-auto">
+                    <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
+                        <i class="fab fa-github fs-3"></i>
+                    </a>
+                    <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
+                        <i class="fab fa-x-twitter fs-3"></i>
+                    </a>
+                    <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
+                        <i class="fab fa-instagram fs-3"></i>
+                    </a>
+                    <a href="#" style="color: inherit; text-decoration: none;">
+                        <i class="fab fa-linkedin fs-3"></i>
+                    </a>
+                </footer>
+            </div>
         </div>
     </div>
+</div>
+
+
     
 
     <script>
@@ -433,7 +537,7 @@
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) { // Periksa apakah elemen target ada
-                const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 60;
+                const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
 
                 window.scrollTo({
                     top: offsetPosition,
