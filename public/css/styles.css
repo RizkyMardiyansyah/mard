@@ -360,24 +360,38 @@ margin-bottom: 20px;
           align-items: center; /* Vertical align center */
       }
 
-      #whatsapp svg {
-        
+      #whatsapp {
+        font-weight: bolder;
         position: fixed;
         top: 50%; /* Jarak dari atas */
         right: 10px; /* Jarak dari kanan */
-        
-        width: 45px; /* Sedikit lebih besar untuk kenyamanan */
-        height: 45px;
+        background: transparent;
+        border: transparent;
+        color: transparent;
+        padding: 0; /* Kurangi padding agar tidak menggeser SVG */
+        border-radius: 50px;
+        width: 40px; /* Sedikit lebih besar untuk kenyamanan */
+        height: 40px;
         cursor: pointer;
-        z-index: 1000;    
-        
-          transition: 0.9s;
-        
+        display: none; /* Tombol disembunyikan secara default */
+        z-index: 1000;
+        display: flex; /* Flexbox untuk memposisikan svg */
+        justify-content: center; /* Horizontal align center */
+        align-items: center; /* Vertical align center */
     }
-    #whatsapp svg:hover{
-      width: 55px;
-      height: 55px;
+    
+    #whatsapp svg {
+        width: 40px; /* Ukuran awal SVG */
+        height: 40px; /* Ukuran awal SVG */
+        transition: all 0.3s ease; /* Animasi pada ukuran */
     }
+    
+    #whatsapp:hover svg {
+        width: 55px; /* Ukuran saat hover */
+        height: 55px; /* Ukuran saat hover */
+    }
+    
+
 
       #floatingButton svg {
         transition: 0.9s;
