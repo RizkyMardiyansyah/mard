@@ -360,6 +360,25 @@ margin-bottom: 20px;
           align-items: center; /* Vertical align center */
       }
 
+      #whatsapp svg {
+        
+        position: fixed;
+        top: 50%; /* Jarak dari atas */
+        right: 10px; /* Jarak dari kanan */
+        
+        width: 45px; /* Sedikit lebih besar untuk kenyamanan */
+        height: 45px;
+        cursor: pointer;
+        z-index: 1000;    
+        
+          transition: 0.9s;
+        
+    }
+    #whatsapp svg:hover{
+      width: 55px;
+      height: 55px;
+    }
+
       #floatingButton svg {
         transition: 0.9s;
           margin-top: -20%;
