@@ -28,33 +28,10 @@
         </svg>
     </button>
 
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; transition: background-color 0.5s;">
-        <div class="container">
-            <a class="navbar-brand blue" href="index.php"><img  src="img/NewLogoMardBlue.svg" height="50px" style="padding: 5px;"></a>
-            <a class="navbar-brand white" href="index.php"><img src="img/NewLogoMardWhite.svg" height="50px" style="padding: 5px;"></a>
-            <div class="language-selector order-lg-2">
-                <div class="toggle-container">
-                    <input type="checkbox" id="languageToggle" class="toggle-checkbox">
-                    <label class="toggle-label" for="languageToggle">
-                        <span class="toggle-inner">EN</span>
-                        <span class="toggle-switch"></span>
-                    </label>
-                </div>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="box-shadow: none;"></span>
-            </button>
-            <div class="collapse navbar-collapse order-lg-1" id="navbarNav">
-              <ul style="margin-left: auto;" class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {{-- navbar section --}}
+    @include('partials.navbar')
+
+    
 
 {{-- Jumbotron Section --}}
     <div class="hero-section">
@@ -333,97 +310,9 @@
     </div> --}}
 
 
-
-
-
-{{-- Footer --}}
-<div class="footer container-fluid bg-dark text-light py-5">
-    <div class="container">
-        <div class="row">
-            <!-- Logo -->
-            <div class="col-lg-3 col-md-6 col-12 flex-column ">
-                <img src="img/MardPutih.svg" alt="Logo" class="footer-logo me-3" style="height: 40px;">
-                <a href="#" style="color: inherit; text-decoration: none;">
-                    <p style="margin-top:20px;"><b>Cakung Timur</b>, Jakarta Timur, DKI Jakarta, 13910, Indonesia</p>
-                </a>
-            </div>
-
-            <!-- About us -->
-            <div class="col-lg-3 col-md-6 col-12 text-left">
-                <h6 data-lang-en="About Us" data-lang-id="Tentang Kami"></h6>
-                <a href="#about" style="color: inherit; text-decoration: none;">
-                    <p data-lang-en="About Us" data-lang-id="Tentang Kami"></p>
-                </a>
-                <a href="#services" style="color: inherit; text-decoration: none;">
-                    <p data-lang-en="Our Services" data-lang-id="Layanan Kami"></p>
-                </a>
-                <a href="#partners" style="color: inherit; text-decoration: none;">
-                    <p data-lang-en="Partner and Client" data-lang-id="Mitra dan Klien"></p>
-                </a>
-            </div>
-
-            <!-- Our Services -->
-            <div class="col-lg-3 col-md-6 col-12 text-left">
-                <h6 data-lang-en="Our Services" data-lang-id="Layanan Kami"></h6>
-                <a href="#" style="color: inherit; text-decoration: none;">
-                    <p data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></p>
-                </a>
-                <a href="#" style="color: inherit; text-decoration: none;">
-                    <p data-lang-en="Custom App Development" data-lang-id="Custom App Development"></p>
-                </a>
-                <a href="#" style="color: inherit; text-decoration: none;">
-                    <p data-lang-en="Support and Maintenance" data-lang-id="Support and Maintenance"></p>
-                </a>
-            </div>
-
-            <!-- Contact Us -->
-            <div class="col-lg-3 col-md-6 col-12 text-left">
-                <h6 data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h6>
-                <a href="#" style="color: inherit; text-decoration: none;">
-                    <p data-lang-en="hi@mardsoft.com" data-lang-id="hi@mardsoft.com"></p>
-                </a>
-                <a href="#" class="btn btn-primary" data-lang-en="Get in Touch" data-lang-id="Hubungi Kami">
-                    Get in Touch
-                </a>
-            </div>
-        </div>
-
-        <!-- Footer Bawah -->
-        <div style="margin-top: 10px" class="row align-items-center">
-            <!-- Copyright Section -->
-            <div class="col-lg-6 col-md-6 col-12">
-                <footer class="mt-4 text-left">
-                    <p class="mb-0">
-                        Copyright © <span id="year"></span> Mardsoft.
-                    </p>
-                    
-                    <script>
-                        document.getElementById("year").textContent = new Date().getFullYear();
-                    </script>
-                </footer>
-            </div>
-
-            <!-- Social Media Icons Section -->
-            <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-end justify-content-md-end justify-content-start">
-                <footer class="mt-4 ml-md-auto">
-                    <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
-                        <i class="fab fa-github fs-3"></i>
-                    </a>
-                    <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
-                        <i class="fab fa-x-twitter fs-3"></i>
-                    </a>
-                    <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
-                        <i class="fab fa-instagram fs-3"></i>
-                    </a>
-                    <a href="#" style="color: inherit; text-decoration: none;">
-                        <i class="fab fa-linkedin fs-3"></i>
-                    </a>
-                </footer>
-            </div>
-        </div>
-    </div>
-</div>
-
+    {{-- Footer Section --}}
+    @include('partials.footer')
+    
 
     
 
@@ -527,16 +416,16 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    document.querySelectorAll('a').forEach(anchor => {
+    // Smooth scroll untuk navigasi di halaman yang sama
+document.querySelectorAll('a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
 
-        // Periksa apakah targetId dimulai dengan '#'
-        if (targetId.startsWith('#')) {
-            e.preventDefault(); // Mencegah perilaku default hanya untuk anchor yang dimulai dengan '#'
-            const targetElement = document.querySelector(targetId);
+        if (targetId && targetId.startsWith('/#')) {
+            const targetElement = document.querySelector(targetId.slice(1)); // Menghapus '/' agar selector valid
 
             if (targetElement) { // Periksa apakah elemen target ada
+                e.preventDefault(); // Mencegah navigasi default
                 const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
 
                 window.scrollTo({
@@ -545,9 +434,26 @@
                 });
             }
         }
-        // Jika targetId bukan '#' tidak perlu melakukan apa-apa dan biarkan tautan berfungsi seperti biasa
     });
 });
+
+// Pindah ke posisi elemen setelah halaman dimuat
+window.addEventListener('load', () => {
+    const hash = window.location.hash; // Mendapatkan bagian hash dari URL
+    if (hash) {
+        const targetElement = document.querySelector(hash); // Mencari elemen dengan ID hash
+        if (targetElement) {
+            const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth' // Bisa juga diubah menjadi 'auto' jika tidak ingin animasi di sini
+            });
+        }
+    }
+});
+
+
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

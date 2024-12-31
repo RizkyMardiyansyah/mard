@@ -30,33 +30,9 @@
         </svg>
     </button>
 
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; transition: background-color 0.5s;">
-        <div class="container">
-            <a class="navbar-brand blue" href="index.php"><img  src="img/NewLogoMardBlue.svg" height="50px" style="padding: 5px;"></a>
-            <a class="navbar-brand white" href="index.php"><img src="img/NewLogoMardWhite.svg" height="50px" style="padding: 5px;"></a>
-            <div class="language-selector order-lg-2">
-                <div class="toggle-container">
-                    <input type="checkbox" id="languageToggle" class="toggle-checkbox">
-                    <label class="toggle-label" for="languageToggle">
-                        <span class="toggle-inner">EN</span>
-                        <span class="toggle-switch"></span>
-                    </label>
-                </div>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="box-shadow: none;"></span>
-            </button>
-            <div class="collapse navbar-collapse order-lg-1" id="navbarNav">
-                <ul style="margin-left: auto;" class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#partners">Partners</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#contact">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {{-- navbar section --}}
+    @include('partials.navbar')
+
     <div class="hero-section-domain d-flex align-items-center justify-content-center">
         <div class="hero-overlay-domain">
             <div class="container hero-text-domain text-center"> 
@@ -191,13 +167,8 @@
 </script>
 
 
-    <div class="container-fluid py-5" id="contact">
-        <div class="container" style="width:80%">
-            <footer class="sk">
-                <p>Copyright © <b>2024</b> Rizky Mardiyansyah. All Rights Reserved</p>
-            </footer>
-        </div>
-    </div>
+    {{-- Footer Section --}}
+    @include('partials.footer')
 
     <script>
 //   JS untuk toggle bahasa
@@ -267,17 +238,17 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    document.querySelectorAll('a').forEach(anchor => {
+    // Smooth scroll untuk navigasi di halaman yang sama
+document.querySelectorAll('a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
 
-        // Periksa apakah targetId dimulai dengan '#'
-        if (targetId.startsWith('#')) {
-            e.preventDefault(); // Mencegah perilaku default hanya untuk anchor yang dimulai dengan '#'
-            const targetElement = document.querySelector(targetId);
+        if (targetId && targetId.startsWith('/#')) {
+            const targetElement = document.querySelector(targetId.slice(1)); // Menghapus '/' agar selector valid
 
             if (targetElement) { // Periksa apakah elemen target ada
-                const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 60;
+                e.preventDefault(); // Mencegah navigasi default
+                const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
 
                 window.scrollTo({
                     top: offsetPosition,
@@ -285,9 +256,25 @@
                 });
             }
         }
-        // Jika targetId bukan '#' tidak perlu melakukan apa-apa dan biarkan tautan berfungsi seperti biasa
     });
 });
+
+// Pindah ke posisi elemen setelah halaman dimuat
+window.addEventListener('load', () => {
+    const hash = window.location.hash; // Mendapatkan bagian hash dari URL
+    if (hash) {
+        const targetElement = document.querySelector(hash); // Mencari elemen dengan ID hash
+        if (targetElement) {
+            const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth' // Bisa juga diubah menjadi 'auto' jika tidak ingin animasi di sini
+            });
+        }
+    }
+});
+
 
 </script>
 <script>
