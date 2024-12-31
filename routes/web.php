@@ -12,9 +12,11 @@ use App\Models\template;
 
 
 Route::get('/', function () {
-    $templates = template::paginate(6); // Ambil data dari database
+    
+    $templates = template::paginate(9); // Ambil data dari database
     return view('home', compact('templates'));
 });
+
 
 
 
