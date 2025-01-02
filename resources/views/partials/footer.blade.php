@@ -69,16 +69,16 @@
                 <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-end justify-content-md-end justify-content-start">
                     <footer class="mt-4 ml-md-auto">
                         <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
-                            <i class="fab fa-github fs-3"></i>
+                            <i class="fab fa-github fs-5"></i>
                         </a>
                         <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
-                            <i class="fab fa-x-twitter fs-3"></i>
+                            <i class="fab fa-x-twitter fs-5"></i>
                         </a>
                         <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
-                            <i class="fab fa-instagram fs-3"></i>
+                            <i class="fab fa-instagram fs-5"></i>
                         </a>
                         <a href="#" style="color: inherit; text-decoration: none;">
-                            <i class="fab fa-linkedin fs-3"></i>
+                            <i class="fab fa-linkedin fs-5"></i>
                         </a>
                     </footer>
                 </div>

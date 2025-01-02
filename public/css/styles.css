@@ -103,11 +103,7 @@ margin-bottom: 20px;
         opacity: 1;
         transform: translateY(0); 
       }
-      /* End Section appear ons croll */
-
-      
-      
-      
+      /* End Section appear ons croll */    
       
       .slider-search {
         border-radius: 38px;
@@ -361,37 +357,73 @@ margin-bottom: 20px;
       }
 
       #whatsapp {
-        font-weight: bolder;
         position: fixed;
-        top: 50%; /* Jarak dari atas */
-        right: 10px; /* Jarak dari kanan */
-        background: transparent;
-        border: transparent;
-        color: transparent;
-        padding: 0; /* Kurangi padding agar tidak menggeser SVG */
-        border-radius: 50px;
-        width: 40px; /* Sedikit lebih besar untuk kenyamanan */
+        top: 50%;
+        right: 10px;
+        background: none;
+        border: none;
+        width: 40px;
         height: 40px;
         cursor: pointer;
-        display: none; /* Tombol disembunyikan secara default */
         z-index: 1000;
-        display: flex; /* Flexbox untuk memposisikan svg */
-        justify-content: center; /* Horizontal align center */
-        align-items: center; /* Vertical align center */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+    #whatsapp a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+  }
     
     #whatsapp svg {
-        width: 40px; /* Ukuran awal SVG */
-        height: 40px; /* Ukuran awal SVG */
-        transition: all 0.3s ease; /* Animasi pada ukuran */
+        width: 40px;
+        height: 40px;
+        transition: all 0.3s ease;
+        animation: float 3s ease-in-out infinite;
+        will-change: transform;
+        filter: drop-shadow(0 2px 1px rgba(191, 200, 208, 1));
     }
     
     #whatsapp:hover svg {
-        width: 55px; /* Ukuran saat hover */
-        height: 55px; /* Ukuran saat hover */
+        width: 55px;
+        height: 55px;
     }
     
-
+    .contact-text {
+        position: absolute;
+        right: 50px; /* Jarak dari logo */
+        opacity: 0; /* Tersembunyi secara default */
+        font-size: 14px;
+        background-color: white;
+        color: black;
+        padding: 5px 10px;
+        font-weight: bolder;
+        font-family: "Raleway", sans-serif;
+        border-radius: 50px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        white-space: nowrap; /* Hindari teks terpotong */
+        transition: all 0.3s ease;
+        pointer-events: none; /* Tidak bisa diklik */
+        transition: all 0.3s ease;
+        animation: float 3s ease-in-out infinite;
+        will-change: transform;
+        filter: drop-shadow(0 2.5px 1px rgba(191, 200, 208, 1));
+    }
+    
+    
+    #whatsapp:hover .contact-text,
+    #whatsapp:active .contact-text {
+        opacity: 1;
+        transform: translateX(-10px); /* Efek animasi muncul */
+    }
+    
+    
+    /* .about img {
+      animation: float 3s ease-in-out infinite; 
+      will-change: transform;
+    } */
 
       #floatingButton svg {
         transition: 0.9s;

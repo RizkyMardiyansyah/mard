@@ -29,6 +29,7 @@
     </button>
     <button id="whatsapp">
         <a href="https://wa.me/62895340307548" target="_blank">
+            <span class="contact-text">Contact Us</span>
             <svg width="50px" height="50px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16 31C23.732 31 30 24.732 30 17C30 9.26801 23.732 3 16 3C8.26801 3 2 9.26801 2 17C2 19.5109 2.661 21.8674 3.81847 23.905L2 31L9.31486 29.3038C11.3014 30.3854 13.5789 31 16 31ZM16 28.8462C22.5425 28.8462 27.8462 23.5425 27.8462 17C27.8462 10.4576 22.5425 5.15385 16 5.15385C9.45755 5.15385 4.15385 10.4576 4.15385 17C4.15385 19.5261 4.9445 21.8675 6.29184 23.7902L5.23077 27.7692L9.27993 26.7569C11.1894 28.0746 13.5046 28.8462 16 28.8462Z" fill="#BFC8D0"/>
                 <path d="M28 16C28 22.6274 22.6274 28 16 28C13.4722 28 11.1269 27.2184 9.19266 25.8837L5.09091 26.9091L6.16576 22.8784C4.80092 20.9307 4 18.5589 4 16C4 9.37258 9.37258 4 16 4C22.6274 4 28 9.37258 28 16Z" fill="url(#paint0_linear_87_7264)"/>
@@ -90,28 +91,33 @@
                 <p data-lang-en="Mardsoft provides innovative digital solutions tailored to optimize your business processes, support growth, and set new standards of excellence in your industry." 
                    data-lang-id="Mardsoft menyediakan solusi digital inovatif yang sesuai untuk optimalisasi bisnis Anda, serta mendukung pertumbuhan, dan standar baru dalam industri."></p>
             </div>
-            <div class="serv col-lg-3 col-md-6 col-12">
-                <div class="serContainer">
-                    <a href="/web" style="text-decoration: none; color: black;">
+            <div class="serv col-lg-3 col-md-6 col-12">                
+                <a href="/web" style="text-decoration: none; color: black;">
+                    <div class="serContainer">
                         <h3 style="color: black;" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h3>
                         <p data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." 
                            data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online."></p>
-                    </a>
-                </div>
+                    </div>
+                </a>
+                
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
-                <div class="serContainer">
+                <a href="/web" style="text-decoration: none; color: black;">
+                    <div class="serContainer">
                         <h3 style="color: black;" data-lang-en="Custom App Development" data-lang-id="Custom App Development"></h3>
                         <p data-lang-en="Bring your ideas to life with our expert developers, delivering digital solutions and endless innovations to drive your business growth." 
-                           data-lang-id="Wujudkan ide Anda dengan pengembang ahli kami, menghadirkan solusi digital dan inovasi tanpa batas untuk mendorong pertumbuhan bisnis Anda."></p>
-                </div>
+                        data-lang-id="Wujudkan ide Anda dengan pengembang ahli kami, menghadirkan solusi digital dan inovasi tanpa batas untuk mendorong pertumbuhan bisnis Anda."></p>
+                    </div>
+                </a>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
-                <div class="serContainer">
+                <a href="/web" style="text-decoration: none; color: black;">
+                    <div class="serContainer">
                         <h3 style="color: black;" data-lang-en="Support and Maintenance" data-lang-id="Support and Maintenance"></h3>
                         <p data-lang-en="We provide continuous maintenance and support to ensure the seamless operation and efficiency of your applications and systems." 
                            data-lang-id="Kami menawarkan pemeliharaan dan dukungan berkelanjutan untuk menjamin kelancaran dan efisiensi aplikasi serta sistem Anda."></p>
-                </div>
+                    </div>
+                </a>
             </div>
             
         </div>
