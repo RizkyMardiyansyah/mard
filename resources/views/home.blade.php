@@ -130,16 +130,38 @@
     <div style="margin-top: 50px"  class="serv container hero-text">
 
         <div class="serv container hero-text">
-            
-            {{-- <h1>Our Template</h1> --}}
         
             <!-- Form Pencarian -->
             <form id="searchTemplateForm" action="{{ route('searchtemplate') }}" method="POST">
                 @csrf <!-- Ini untuk melindungi dari CSRF -->
-                <div class="input-group">
-                    <input type="text" name="search" id="search" class="form-control" placeholder="Find your template..." required>
-                    <button style="opacity: 100%;" class="btn cari btn-primary" type="submit">Search</button>
-                </div>
+                
+                <div class="row d-flex justify-content-between align-items-center ">
+                    <!-- Tabs untuk memilih tipe template -->
+                    <div class="col-md-6 col-12">
+                        <div class="btn-group tabs" role="group" aria-label="Tipe Template">
+                            <input type="radio" class="btn-check" name="type" id="all" value="all" 
+                                {{ request('type') == 'all' ? 'checked' : '' }} checked>
+                            <label class="btn btn-outline-primary" for="all">ALL</label>
+                    
+                            <input type="radio" class="btn-check" name="type" id="basic" value="Basic"
+                                {{ request('type') == 'basic' ? 'checked' : '' }}>
+                            <label class="btn btn-outline-primary" for="basic">BASIC</label>
+                    
+                            <input type="radio" class="btn-check" name="type" id="premium" value="Premium"
+                                {{ request('type') == 'premium' ? 'checked' : '' }}>
+                            <label class="btn btn-outline-primary" for="premium">PREMIUM</label>
+                        </div>
+                    </div>
+                
+                    <!-- Input Search -->
+                    <div class="col-md-6 col-12">
+                        <div class="input-group">
+                            <input type="text" name="search" id="search" class="form-control" placeholder="Find your template..." required>
+                            <button style="opacity: 100%; margin-top:0px" class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </div>
+                </div>                
+                
                 <!-- Spinner untuk loading animation -->
                 <div style="margin-top: 50px" class="spinner" id="spinnerr" style="display: none;"></div>
             </form>
@@ -157,6 +179,7 @@
         </div>
     </div>
 </div>
+
 {{-- Partner Section --}}
     <div id="partners" class="partner hero-text " style="margin-top: 70px;">
         
@@ -204,16 +227,23 @@
     </div>
 
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>    
-    $(document).ready(function() {
+     $(document).ready(function() {
+
         // Event untuk form pencarian
         $('#searchTemplateForm').on('submit', function(e) {
             e.preventDefault(); // Mencegah submit standar
             performSearchOrPagination($(this).attr('action'), 'POST', { 
                 _token: '{{ csrf_token() }}',
-                search: $('#search').val() 
+                search: $('#search').val(),
+                type: $('input[name="type"]:checked').val() // Tambahkan tipe yang dipilih
             });
+        });
+
+        // Event untuk tab tipe template
+        $('input[name="type"]').on('change', function() {
+            $('#searchTemplateForm').submit(); // Submit form saat tab berubah
         });
 
         // Event untuk pagination link
@@ -249,7 +279,7 @@
                                                 <i class="fas fa-check"></i>
                                             </a>
                                             <a href="${template.link}" target="_blank" 
-                                               class="view d-flex align-items-center justify-content-center">
+                                            class="view d-flex align-items-center justify-content-center">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                         </div>
@@ -270,7 +300,7 @@
                 }
             });
         }
-    });    
+        });
 </script>
 
 

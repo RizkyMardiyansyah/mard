@@ -11,11 +11,21 @@ use App\Models\template;
 
 
 
-Route::get('/', function () {
+// Route::get('/', function () {
     
-    $templates = template::paginate(9); // Ambil data dari database
-    return view('home', compact('templates'));
-});
+//     $templates = template::paginate(9); // Ambil data dari database
+//     return view('home', compact('templates'));
+// });
+
+// Rute untuk halaman home
+Route::get('/', [DomainController::class, 'index'])->name('home');
+
+// // Rute untuk halaman domain-check
+// Route::get('/web', [DomainController::class, 'index'])->name('domain-check');
+
+// // Rute pencarian template
+// Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');
+
 
 
 

@@ -64,10 +64,35 @@
             <!-- Form Pencarian -->
             <form id="searchTemplateForm" action="{{ route('searchtemplate') }}" method="POST">
                 @csrf <!-- Ini untuk melindungi dari CSRF -->
-                <div class="input-group">
-                    <input type="text" name="search" id="search" class="form-control" placeholder="Search by title" required>
-                    <button style="opacity: 100%; margin-top:0px" class="btn btn-primary" type="submit">Search</button>
+                
+                <div class="row d-flex justify-content-between align-items-center ">
+                    <!-- Tabs untuk memilih tipe template -->
+                    <div class="col-md-6 col-12">
+                        <div class="btn-group tabs" role="group" aria-label="Tipe Template">
+                            <input type="radio" class="btn-check" name="type" id="all" value="all" 
+                                {{ request('type') == 'all' ? 'checked' : '' }} checked>
+                            <label class="btn btn-outline-primary" for="all">ALL</label>
+                    
+                            <input type="radio" class="btn-check" name="type" id="basic" value="Basic"
+                                {{ request('type') == 'basic' ? 'checked' : '' }}>
+                            <label class="btn btn-outline-primary" for="basic">BASIC</label>
+                    
+                            <input type="radio" class="btn-check" name="type" id="premium" value="Premium"
+                                {{ request('type') == 'premium' ? 'checked' : '' }}>
+                            <label class="btn btn-outline-primary" for="premium">PREMIUM</label>
+                        </div>
+                    </div>
+                
+                    <!-- Input Search -->
+                    <div class="col-md-6 col-12">
+                        <div class="input-group">
+                            <input type="text" name="search" id="search" class="form-control" placeholder="Find your template..." required>
+                            <button style="opacity: 100%; margin-top:0px" class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </div>
                 </div>
+                
+                
                 <!-- Spinner untuk loading animation -->
                 <div style="margin-top: 50px" class="spinner" id="spinnerr" style="display: none;"></div>
             </form>
@@ -92,70 +117,77 @@
 <script>    
     $(document).ready(function() {
 
-        // Event untuk form pencarian
-        $('#searchTemplateForm').on('submit', function(e) {
-            e.preventDefault(); // Mencegah submit standar
-            performSearchOrPagination($(this).attr('action'), 'POST', { 
-                _token: '{{ csrf_token() }}',
-                search: $('#search').val() 
-            });
-        });
+// Event untuk form pencarian
+$('#searchTemplateForm').on('submit', function(e) {
+    e.preventDefault(); // Mencegah submit standar
+    performSearchOrPagination($(this).attr('action'), 'POST', { 
+        _token: '{{ csrf_token() }}',
+        search: $('#search').val(),
+        type: $('input[name="type"]:checked').val() // Tambahkan tipe yang dipilih
+    });
+});
 
-        // Event untuk pagination link
-        $(document).on('click', '#paginationLinks a', function(e) {
-            e.preventDefault(); // Mencegah reload halaman
-            let url = $(this).attr('href');
-            performSearchOrPagination(url, 'GET'); // Pagination menggunakan GET
-        });
+// Event untuk tab tipe template
+$('input[name="type"]').on('change', function() {
+    $('#searchTemplateForm').submit(); // Submit form saat tab berubah
+});
 
-        // Fungsi umum untuk Search atau Pagination
-        function performSearchOrPagination(url, method, data = {}) {
-            $('#spinnerr').show(); // Tampilkan spinner
+// Event untuk pagination link
+$(document).on('click', '#paginationLinks a', function(e) {
+    e.preventDefault(); // Mencegah reload halaman
+    let url = $(this).attr('href');
+    performSearchOrPagination(url, 'GET'); // Pagination menggunakan GET
+});
 
-            $.ajax({
-                url: url,
-                method: method,
-                data: data,
-                success: function(response) {
-                    $('#spinnerr').hide(); // Sembunyikan spinner
-                    $('#templateContainer').html(''); // Kosongkan kontainer
+// Fungsi umum untuk Search atau Pagination
+function performSearchOrPagination(url, method, data = {}) {
+    $('#spinnerr').show(); // Tampilkan spinner
 
-                    // Tampilkan template jika ada hasil
-                    if (response.templates.length > 0) {
-                        response.templates.forEach(template => {
-                            const imageUrl = `{{ url('storage') }}/${template.image}`;
-                            $('#templateContainer').append(`
-                                <div class="card col-lg-4 col-md-6 col-12">
-                                    <img src="${imageUrl}" alt="${template.title}" class="card-img-top">
-                                    <div class="d-flex" style="padding: 0px">
-                                        <div class="card-title">${template.title}</div>
-                                        <div class="d-flex" style="margin-left: auto">
-                                            <a href="#" class="view d-flex align-items-center justify-content-center">
-                                                <i class="fas fa-check"></i>
-                                            </a>
-                                            <a href="${template.link}" target="_blank" 
-                                               class="view d-flex align-items-center justify-content-center">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                        </div>
-                                    </div>
+    $.ajax({
+        url: url,
+        method: method,
+        data: data,
+        success: function(response) {
+            $('#spinnerr').hide(); // Sembunyikan spinner
+            $('#templateContainer').html(''); // Kosongkan kontainer
+
+            // Tampilkan template jika ada hasil
+            if (response.templates.length > 0) {
+                response.templates.forEach(template => {
+                    const imageUrl = `{{ url('storage') }}/${template.image}`;
+                    $('#templateContainer').append(`
+                        <div class="card col-lg-4 col-md-6 col-12">
+                            <img src="${imageUrl}" alt="${template.title}" class="card-img-top">
+                            <div class="d-flex" style="padding: 0px">
+                                <div class="card-title">${template.title}</div>
+                                <div class="d-flex" style="margin-left: auto">
+                                    <a href="#" class="view d-flex align-items-center justify-content-center">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="${template.link}" target="_blank" 
+                                       class="view d-flex align-items-center justify-content-center">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
                                 </div>
-                            `);
-                        });
-                    } else {
-                        $('#templateContainer').append('<p>No templates found.</p>');
-                    }
+                            </div>
+                        </div>
+                    `);
+                });
+            } else {
+                $('#templateContainer').append('<p>No templates found.</p>');
+            }
 
-                    // Update pagination links
-                    $('#paginationLinks').html(response.pagination);
-                },
-                error: function() {
-                    $('#spinnerr').hide(); // Sembunyikan spinner
-                    alert('An error occurred. Please try again.');
-                }
-            });
+            // Update pagination links
+            $('#paginationLinks').html(response.pagination);
+        },
+        error: function() {
+            $('#spinnerr').hide(); // Sembunyikan spinner
+            alert('An error occurred. Please try again.');
         }
     });
+}
+});
+
 
 
 </script>

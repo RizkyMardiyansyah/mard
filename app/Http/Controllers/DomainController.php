@@ -12,9 +12,23 @@ class DomainController extends Controller
     public function index(Request $request)
 {   
     $search = $request->input('search');
-    $templates = template::where('title', 'LIKE', "%{$search}%")
-                        ->paginate(9); // Sesuaikan jumlah per halaman
+    $type = $request->input('type', 'all'); // Default 'all' jika tidak ada parameter 'type'
 
+    // Cek apakah ada pencarian
+    if ($search) {
+        $templates = Template::where('title', 'LIKE', "%{$search}%")
+                             ->paginate(9); // Sesuaikan jumlah per halaman
+    }
+    // Cek apakah ada tipe selain 'all'
+    else if ($type != 'all') {
+        $templates = Template::where('type', 'LIKE', "%{$type}%")
+                             ->paginate(9); // Sesuaikan jumlah per halaman
+    } else {
+        // Default jika tidak ada pencarian dan tipe 'all'
+        $templates = Template::paginate(9); 
+    }
+
+    // Mengecek apakah request menggunakan ajax
     if ($request->ajax()) {
         return response()->json([
             'templates' => $templates->items(),
@@ -22,9 +36,14 @@ class DomainController extends Controller
         ]);
     }
 
-   return view('domain-check', compact('templates', 'search'));
-   return view('home', compact('templates', 'search'));
+    // Menentukan view yang akan ditampilkan berdasarkan rute
+    if ($request->is('/')) {
+        return view('home', compact('templates', 'search', 'type'));
+    }
+
+    return view('domain-check', compact('templates', 'search', 'type'));
 }
+
 
 
 

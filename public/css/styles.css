@@ -1,3 +1,32 @@
+.input-group{
+  
+}
+
+.tabs .btn{
+  border-radius: 8px !important;
+  background:transparent;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  font-family: "Raleway", sans-serif;
+  transition: all 0.9s ease;
+  margin: 10px;
+  font-size: 12px !important;
+  width: 80px !important;
+}
+
+/* Ketika radio button dipilih */
+.tabs .btn-check:checked + .btn {
+  opacity: 100% !important;
+  background-color: #007bff;
+}
+
+/* Ketika radio button dipilih */
+.tabs .btn-check:hover + .btn {
+  color: white;
+  background-color: #007bff;
+  opacity: 100% !important;
+}
+
 #contact {
   padding: 50px !important;
   background-color: rgba(92, 149, 255, 0.1);
