@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('templates', function (Blueprint $table) {
-            $table->enum('type', ['Premium', 'Basic'])->default('Premium');
+            $table->enum('type', ['Basic', 'Premium'])->default('Basic');
         });
     }
 

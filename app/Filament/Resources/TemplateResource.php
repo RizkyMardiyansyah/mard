@@ -11,17 +11,20 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
+
 
 
 class TemplateResource extends Resource
 {
     protected static ?string $model = template::class;
 
-    protected static ?string $navigationIcon = 'heroicon-m-rectangle-group';
+    protected static ?string $navigationIcon = 'heroicon-m-command-line';
     
     protected static ?string $navigationGroup = 'Operations';
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
 
@@ -36,10 +39,19 @@ class TemplateResource extends Resource
                 Forms\Components\TextInput::make('link')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Radio::make('type')
+                    ->required()
+                    ->options([
+                        'Basic' => 'Basic',
+                        'Premium' => 'Premium',
+                    ])
+                    ->default('Basic')
+                    ->inline(), 
                 Forms\Components\FileUpload::make('image')
                     ->required()
                     ->disk('public')
                     ->image(),
+                
                 Forms\Components\TextInput::make('like')
                     ->nullable()
                     ->numeric(),
@@ -54,11 +66,26 @@ class TemplateResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('title')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('link')
-                    ->searchable(),               
-                
+                    ->sortable()
+                    ->searchable(),    
+                Tables\Columns\BadgeColumn::make('type')
+                    ->sortable()
+                    ->colors([
+                        'primary',
+                        // 'success' => 'Basic',
+                        'warning' => 'Premium',                     
+                    ])
+                    ->icons([
+                        'heroicon-m-x',
+                        'heroicon-m-document-duplicate' => 'Basic',
+                        'heroicon-m-star' => 'Premium',
+                    ]),  
                 Tables\Columns\TextColumn::make('buy')
                     ->numeric()
                     ->sortable()

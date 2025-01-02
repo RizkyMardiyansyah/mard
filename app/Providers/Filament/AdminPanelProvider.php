@@ -75,7 +75,7 @@ class AdminPanelProvider extends PanelProvider
                 ->slug('my-profile')
                 ->setTitle('My Profile')
                 ->setNavigationGroup('Settings')
-                ->setSort(3)
+                ->setSort(6)
                 ->setNavigationLabel('My Profile')
                 ->setIcon('heroicon-m-user')                
                 ->shouldShowDeleteAccountForm(false)
@@ -105,7 +105,7 @@ class AdminPanelProvider extends PanelProvider
                     ->icon('heroicon-m-paint-brush')
                     ->isActiveWhen(fn () => request()->is('admin/themes'))
                     ->group('Settings')
-                    ->sort(4),
+                    ->sort(8),
                 
             ]);
              

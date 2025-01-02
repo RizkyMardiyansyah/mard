@@ -33,6 +33,7 @@ class OrderResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-m-shopping-bag';
     
     protected static ?string $navigationGroup = 'Operations';
+    protected static ?int $navigationSort = 1;
     // public static function getNavigationBadge(): ?string
     // {
     //     return static::getModel()::where('status', 'Developing')->count();
