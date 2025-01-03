@@ -18,7 +18,8 @@
         "malzariey/filament-daterangepicker-filter": "^3.1",
         "owenvoke/blade-fontawesome": "^2.6",
         "pxlrbt/filament-excel": "^2.3",
-        "stechstudio/filament-impersonate": "^3.14"
+        "stechstudio/filament-impersonate": "^3.14",
+        "xendit/xendit-php": "^6.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

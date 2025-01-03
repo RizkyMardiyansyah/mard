@@ -54,10 +54,10 @@ class DomainController extends Controller
         $results = [];
 
         // Cek domain .com menggunakan API baru
-        $comUrl = "https://who-dat.as93.net/$domainName.com";
+        $comUrl = "https://production.webekspor.id/api/domain/search?name=$domainName.com";
         $comResponse = Http::get($comUrl);
-
-        if (str_contains($comResponse->body(), 'whoisparser: domain is not found')) {
+        
+        if (str_contains($comResponse->body(), '"is_available":true,"name":"'.$domainName.'.com"')) {
             $results['com'] = 'available';
         } else {
             $results['com'] = 'unavailable';
