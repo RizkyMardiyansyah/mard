@@ -11,8 +11,8 @@
                 </a>
             </div>
             <div class="d-flex" style="margin-left: auto">
-                <a href="#" class="view d-flex align-items-center justify-content-center"><i class="fas fa-check"></i></a>
-                <a href="{{ $template->link }}" target="_blank" class="view d-flex align-items-center justify-content-center"><i class="fas fa-eye"></i></a>
+                <a href="#" class="view d-flex align-items-center justify-content-center" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
+                <a href="{{ $template->link }}" target="_blank" class="view d-flex align-items-center justify-content-center" data-bs-toggle="tooltip" title="Live Preview"><i class="fas fa-eye"></i></a>
             </div>
         </div>
         <div class="" style="padding: 0px; Opacity:50%; font-size:14px; margin-top:auto">       
