@@ -200,7 +200,7 @@
                     <img src="img/bmc.png" alt="Partner 3">
                 </a>
                 <a href="https://www.miligolas.co.id" target="_blank">
-                    <img src="img/miligola.png" alt="Partner 4">
+                    <img src="img/miligolas.png" alt="Partner 4">
                 </a>
                 <a href="https://www.delano-comm.com" target="_blank">
                     <img src="img/delano.png" alt="Partner 5">
