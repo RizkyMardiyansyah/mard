@@ -1,4 +1,21 @@
 
+#templateContainer p{
+  padding: 100px;
+  text-align: center;
+}
+
+.serv .template{
+  margin-top: 70px !important;
+  color: #488EFE !important;
+  font-size: 35px;
+  /* text-shadow:10px 0px 0px rgba(72, 142, 254, 0.2); */   
+}
+.serv .template-description{
+  color: #191250 !important;
+  opacity: 80% !important;
+  margin-bottom: 70px !important;
+}
+
 .tabs .btn{
   border-radius: 8px !important;
   background:transparent;
@@ -6,7 +23,7 @@
   font-weight: bold;
   font-family: "Raleway", sans-serif;
   transition: all 0.9s ease;
-  margin: 10px;
+  margin-right: 10px;
   font-size: 12px !important;
   width: 80px !important;
 }

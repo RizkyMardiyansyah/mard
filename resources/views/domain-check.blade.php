@@ -55,12 +55,22 @@
     </div>
 
 
-    <div class="serv container hero-text">
+    <div class=" serv container hero-text">
 
         <div class="serv container hero-text">
+            <div class="col-md-3 col-12"></div>
+            <div class=" col-md-6 col-12 container justify-content-center text-center">
+                <h3 class="template" lang="en" data-lang-en="Our Templates" data-lang-id="Template Kami">
+                </h3>
+                <p class="template-description" lang="en" 
+                data-lang-en="Transform your business vision into reality with our user-friendly templates that prioritize performance and style."
+                data-lang-id="Ubah visi bisnis Anda menjadi kenyataan dengan template kami yang mudah digunakan dan mengutamakan kinerja serta gaya.">
+                </p>
+
+            </div>
+            <div class="col-md-3 col-12"></div>
             
-            <h1>Our Template</h1>
-        
+            <div>
             <!-- Form Pencarian -->
             <form id="searchTemplateForm" action="{{ route('searchtemplate') }}" method="POST">
                 @csrf <!-- Ini untuk melindungi dari CSRF -->
@@ -107,6 +117,10 @@
             <div class="pagination justify-content-center mt-4" id="paginationLinks">
                 {{ $templates->appends(request()->query())->links('pagination::bootstrap-4') }}
             </div>
+
+            </div>
+
+
         </div>
     </div>
 
