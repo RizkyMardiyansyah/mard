@@ -339,14 +339,19 @@ margin-bottom: 20px;
       .serContainer:hover{
         margin-top: -10px;
         box-shadow: 0 2px 10px rgba(92, 149, 255, 0.5);
+        background: linear-gradient(to right, #488EFE, #5658ef);
+        /* background: linear-gradient(to right, #488EFE, #3f42e3); */
         border: 1px solid rgba(92, 149, 255, 0.5);
         p{
-          color: #010A44 !important;
+          /* color: #010A44 !important; */
+          color: rgba(255, 255, 255, 0.8) !important;
         }
         h3{
-        background: linear-gradient(to right, #488EFE, #A7C6FF);
+          color: white !important;
+        /* background: linear-gradient(to right, #488EFE, #A7C6FF);
         -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;}
+        -webkit-text-fill-color: transparent; */
+      }
       }
       /* Styling button melayang */
       .services{
