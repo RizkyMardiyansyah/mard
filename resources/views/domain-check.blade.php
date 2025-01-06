@@ -123,7 +123,7 @@
 
             </div>
         </div>
-
+         
         <div class="card" id="cart"> 
             <div>   
                 <h5 data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
@@ -363,7 +363,7 @@ window.addEventListener('load', () => {
                     let resultHtml = `
                     <div class="carddomain ${response.com === 'available' ? 'available' : 'unavailable'}">
                         <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                            <p><b>${domain}.com</b> ${response.com}</p>
+                            <p><b>${domain}.com</b> ${response.com === 'unavailable' ? 'Unvailable' : ''}</p>
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response.com === 'available' ? 
@@ -379,7 +379,7 @@ window.addEventListener('load', () => {
 
                     <div class="carddomain ${response.id === 'available' ? 'available' : 'unavailable'}">
                         <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                            <p><b>${domain}.id</b> ${response.id === 'unavailable' ? 'Sudah Terdaftar' : ''}</p>
+                            <p><b>${domain}.id</b> ${response.id === 'unavailable' ? 'Unvailable' : ''}</p>
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response.id === 'available' ? 
@@ -395,7 +395,7 @@ window.addEventListener('load', () => {
 
                     <div class="carddomain ${response['co.id'] === 'available' ? 'available' : 'unavailable'}">
                         <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                            <p><b>${domain}.co.id</b> ${response['co.id'] === 'unavailable' ? 'Sudah Terdaftar' : ''}</p>
+                            <p><b>${domain}.co.id</b> ${response['co.id'] === 'unavailable' ? 'Unvailable' : ''}</p>
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response['co.id'] === 'available' ? 
