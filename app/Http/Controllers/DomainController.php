@@ -37,6 +37,10 @@ class DomainController extends Controller
     }
 
     // Menentukan view yang akan ditampilkan berdasarkan rute
+    
+    if ($request->is('chart')) {
+        return view('chart', compact('templates', 'search', 'type'));
+    }
     if ($request->is('/')) {
         return view('home', compact('templates', 'search', 'type'));
     }
@@ -54,10 +58,10 @@ class DomainController extends Controller
         $results = [];
 
         // Cek domain .com menggunakan API baru
-        $comUrl = "https://production.webekspor.id/api/domain/search?name=$domainName.com";
-        $comResponse = Http::get($comUrl);
-        
-        if (str_contains($comResponse->body(), '"is_available":true,"name":"'.$domainName.'.com"')) {
+        $comUrl = "https://web-cms.biznetgio.com/domain-checker/$domainName.com";
+        $comResponse = Http::get($comUrl)->json(); // Decode JSON response to an array
+
+        if (isset($comResponse['status']) && $comResponse['status'] == 1) {
             $results['com'] = 'available';
         } else {
             $results['com'] = 'unavailable';
