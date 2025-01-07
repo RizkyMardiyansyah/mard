@@ -7,6 +7,7 @@
     <meta name="title" content="Mitra Adidaya Rekayasa Digital">
     <title>Mitra Adidaya Rekayasa Digital</title>
     {{-- <title>{{ $sitename }}</title> --}}
+    <meta name="keywords" content="digital solutions, business optimization, software development, IT consulting, buat website, domain, website, software, development, IT consultant">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
