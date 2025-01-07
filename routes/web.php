@@ -19,7 +19,7 @@ use App\Models\template;
 
 // Rute untuk halaman home
 Route::get('/', [DomainController::class, 'index'])->name('home');
-Route::get('/chart', [DomainController::class, 'index'])->name('chart');
+Route::get('/cart', [DomainController::class, 'index'])->name('cart');
 
 // // Rute untuk halaman domain-check
 // Route::get('/web', [DomainController::class, 'index'])->name('domain-check');

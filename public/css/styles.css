@@ -1,3 +1,72 @@
+.Subtotal{
+ margin-top: 30px;
+ border-top: 1.5px solid #EBEBEC;
+}
+
+.Subtotal h5{
+  font-weight: normal !important;
+  font-size: 25px !important;
+}
+
+.Subtotal #Subtotal{
+  color: #488EFE !important;
+  font-weight: bold !important;
+}
+
+.order {
+  color: black !important;
+  text-transform: capitalize;
+  font-family: "Raleway", sans-serif;
+}
+
+.order .cart-title {
+  color: black !important;
+  opacity: 100%;
+  margin-top: 20px;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+.order .cart-des {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-weight: normal;
+
+}
+
+.order h5{
+  text-align: center;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+.order .btn-primary{
+  margin-top: 50px !important;
+  margin-bottom: 0px !important;
+  opacity: 100%;
+}
+
+
+.cart{
+  border: 1px solid #fff;
+  padding: 30px;
+  background-color: #fff;
+  border: 1.5px solid #EBEBEC;
+  border-radius: 10px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+.cart h5{
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+  line-height: 30px;
+  color: rgba(0, 0, 0, 0.8) !important; 
+  font-size: 16px;
+}
+.form-section{
+  margin-top: -10px !important;
+  padding-bottom: 15px !important;
+  border-bottom: 1.5px solid #EBEBEC;
+}
 .next {
   margin-top: auto !important;
 }
@@ -7,6 +76,10 @@
 }
 .cartprice{
   margin-top: 0px;
+}
+
+#cart .card :hover{
+  transform: none !important;
 }
 
 #cart {
@@ -45,6 +118,7 @@
 #cart h5{
   text-align: center;
   margin-bottom: 0px;
+  font-weight: bold;
 }
 
 #cart button{
@@ -86,13 +160,13 @@
 /* Ketika radio button dipilih */
 .tabs .btn-check:checked + .btn {
   opacity: 100% !important;
-  background-color: #007bff;
+  background-color: #488EFE;
 }
 
 /* Ketika radio button dipilih */
 .tabs .btn-check:hover + .btn {
   color: white;
-  background-color: #007bff;
+  background-color: #488EFE;
   opacity: 100% !important;
 }
 
@@ -321,7 +395,7 @@ margin-bottom: 20px;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           
       }
-      .card:hover{
+      .webtemplate:hover{
         transform: scale(1.1);
         z-index: 10;
         box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);

@@ -1,5 +1,5 @@
 
-<div class="card col-lg-4 col-md-6 col-12">
+<div class="card webtemplate col-lg-4 col-md-6 col-12">
     <a href="{{ $template->link }}" target="_blank">
         <img src="{{ asset('storage/' . $template->image) }}" alt="{{ $template->title }}">
     </a>

@@ -336,6 +336,7 @@ window.addEventListener('load', () => {
 
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $(document).ready(function() {
         $('#domainForm').on('submit', function(e) {
@@ -429,7 +430,7 @@ window.addEventListener('load', () => {
                 $('#cart').addClass('visible'); // Tampilkan cart dengan menambahkan kelas
             } else {
                 $('#cart').removeClass('visible'); // Sembunyikan cart dengan menghapus kelas
-            }
+            };
         }
 
         // Event listener untuk tombol "Pilih Domain"
@@ -452,7 +453,41 @@ window.addEventListener('load', () => {
             $('#template-price').text('Rp. ' + selectedTemplatePrice.toLocaleString()); // Tampilkan harga domain
             
             updateCartVisibility();
+            
         });
+
+            // Fungsi untuk navigasi ke halaman /cart
+            $('#cart .btn-primary').on('click', function () {
+                const domain = $('#selected-domain').text();
+                const domainPrice = $('#domain-price').text();
+                const template = $('#selected-template').text();
+                const templatePrice = $('#template-price').text();
+
+                // Simpan data ke localStorage
+                localStorage.setItem('domain', domain);
+                localStorage.setItem('domainPrice', domainPrice);
+                localStorage.setItem('template', template);
+                localStorage.setItem('templatePrice', templatePrice);
+
+                // Periksa apakah ada data yang kosong
+                if (!domain || !domainPrice || !template || !templatePrice) {
+                        Swal.fire({
+                            title: 'Oops!',
+                            text: 'Please select Domain and Template.',
+                            icon: 'warning',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#3085d6',
+                            background: '#fff',
+                            customClass: {
+                                popup: 'animated tada', // Animasi alert
+                            },
+                        });
+                        return; // Jangan lakukan apapun jika ada data yang kosong
+                    }
+
+                // Navigasi ke halaman /cart
+                window.location.href = '/cart';
+            });
 
        
     });

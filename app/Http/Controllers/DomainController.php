@@ -38,8 +38,8 @@ class DomainController extends Controller
 
     // Menentukan view yang akan ditampilkan berdasarkan rute
     
-    if ($request->is('chart')) {
-        return view('chart', compact('templates', 'search', 'type'));
+    if ($request->is('cart')) {
+        return view('cart', compact('templates', 'search', 'type'));
     }
     if ($request->is('/')) {
         return view('home', compact('templates', 'search', 'type'));
