@@ -127,12 +127,14 @@
         </div>
     </div>
 
+    {{-- Footer Section --}}
+    @include('partials.footer')
+
 
 <!-- Script untuk AJAX Pencarian -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    
 
+<script>
     function updatePrice() {
         // Ambil elemen dropdown dan elemen harga
         const selectElement = document.getElementById('subs');
@@ -141,7 +143,6 @@
         const descElement = document.getElementById('subs-desc');
         const domainYearsElement = document.getElementById('domainYears');
         const subYearsElement = document.getElementById('subYears');
-        
 
         // Ambil harga dari atribut data-price pada opsi yang dipilih
         const selectedOption = selectElement.options[selectElement.selectedIndex];
@@ -150,15 +151,14 @@
         const subYears = selectedOption.getAttribute('data-years');
 
         // Tampilkan deskripsi dan harga di elemen yang sesuai
-        descElement.textContent = desc ? desc : '';
-        subYearsElement.textContent = subYears ? subYears : '1';
-        domainYearsElement.textContent = subYears ? subYears : '1';
+        descElement.textContent = desc || '';
+        subYearsElement.textContent = subYears || '1';
+        domainYearsElement.textContent = subYears || '1';
         priceElement.textContent = `Rp. ${price.toLocaleString('id-ID')}`;
         priceCartElement.textContent = `Rp. ${price.toLocaleString('id-ID')}`;
 
         // Simpan harga langganan ke localStorage
         localStorage.setItem("subsPrice", price);
-        
 
         // Perbarui harga domain berdasarkan tahun langganan
         updateDomainPrice(subYears);
@@ -166,11 +166,16 @@
         // Perbarui subtotal
         updateSubtotal(price);
     }
+
     function updateDomainPrice(subYears) {
         const domainPrice = parseInt(localStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
         
         // Kalikan harga domain dengan jumlah tahun yang dipilih
-        const updatedDomainPrice = domainPrice * subYears;
+        const selectElement = document.getElementById('subs');
+        const selectedOption = selectElement.options[selectElement.selectedIndex];
+        const Years = selectedOption.getAttribute('data-years');
+
+        const updatedDomainPrice = domainPrice * Years;
         localStorage.setItem("updatedDomainPrice", updatedDomainPrice);
 
         // Perbarui harga domain di tampilan
@@ -178,26 +183,25 @@
     }
 
     function updateSubtotal(subsPrice = 0) {
-         // Ambil harga domain yang telah diperbarui dari localStorage
+        // Ambil harga domain yang telah diperbarui dari localStorage
         const updatedDomainPrice = parseInt(localStorage.getItem("updatedDomainPrice") || "0", 10);
 
         // Ambil harga template dari localStorage
         const templatePrice = parseInt(localStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-        
 
-        const Subtotal = updatedDomainPrice  + templatePrice + subsPrice;
+        const Subtotal = updatedDomainPrice + templatePrice + subsPrice;
 
         // Format harga ke dalam format Rupiah
-        const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
+        const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
 
         // Tampilkan subtotal di elemen yang sesuai
         document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
     }
-    
 
     document.addEventListener("DOMContentLoaded", function () {
+        // localStorage.clear();
         document.getElementById('subs').dispatchEvent(new Event('change'));
-        
+
         // Ambil elemen harga dari subs-price
         const priceElement = document.getElementById('subs-price');
         const subsPrice = parseInt(priceElement.textContent.replace(/[^\d]/g, '') || "0", 10);
@@ -221,7 +225,7 @@
         }
 
         // Tampilkan data di halaman
-        const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
+        const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
         document.getElementById("selected-domain").innerText = domain;
         document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
         document.getElementById("selected-template").innerText = template;
@@ -238,10 +242,9 @@
         const templateId = $('#selected-template-id').text();
         const templatePrice = $('#template-price').text();
         const subYears = $('#subYears').text();
-        
 
         // Simpan data ke localStorage
-        localStorage.setItem('domainPrice', domainPrice);
+        localStorage.setItem('newDomainPrice', domainPrice);
         localStorage.setItem('template', template);
         localStorage.setItem('templateId', templateId);
         localStorage.setItem('templatePrice', templatePrice);
@@ -250,83 +253,7 @@
         // Navigasi ke halaman /cart
         window.location.href = '/cart';
     });
-</script>
-<script>
-    document.getElementById('next-button').addEventListener('click', function(event) {
-    // Ambil elemen input dari form
-    const inputs = {
-        nik: document.getElementById('nik'),
-        name: document.getElementById('name'),
-        email: document.getElementById('email'),
-        phone_number: document.getElementById('phone_number')
-    };
-
-    const docSection = document.getElementById('doc');  // Menangkap elemen doc
-    const docFields = {
-        ktp: document.getElementById('ktp'),
-        siup: document.getElementById('siup'),
-        npwp: document.getElementById('npwp')
-    };
-
-    let isValid = true;
-
-    // Fungsi validasi untuk masing-masing input
-    const validateInput = (input, regex, minLength, maxLength, customMessage) => {
-        if (input.value.trim() === '' || (minLength && input.value.length < minLength) || (maxLength && input.value.length > maxLength) || (regex && !regex.test(input.value.trim()))) {
-            input.style.border = '1px solid red';
-            input.setCustomValidity(customMessage);
-            isValid = false;
-        } else {
-            input.style.border = '';
-            input.setCustomValidity('');
-        }
-        input.reportValidity();
-    };
-
-    // Validasi NIK
-    validateInput(inputs.nik, /^\d{16}$/, 16, 16, 'Required valid NIK.');
-
-    // Validasi Nama
-    validateInput(inputs.name, null, 1, null, 'Required.');
-
-    // Validasi Email
-    validateInput(inputs.email, /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, 1, null, 'Required valid email.');
-
-    // Validasi Nomor Telepon
-    validateInput(inputs.phone_number, /^\d{10,15}$/, 10, 15, 'Required valid phone number.');
-
-    // Validasi Dokumen jika #doc muncul
-    if (docSection.classList.contains('visible')) {
-        // Cek apakah file di-upload untuk KTP, SIUP, NPWP
-        if (!docFields.ktp.value.trim() || !docFields.siup.value.trim() || !docFields.npwp.value.trim()) {
-            isValid = false;
-            if (!docFields.ktp.value.trim()) {
-                docFields.ktp.style.border = '1px solid red';
-                docFields.ktp.setCustomValidity('KTP is required.');
-            }
-            if (!docFields.siup.value.trim()) {
-                docFields.siup.style.border = '1px solid red';
-                docFields.siup.setCustomValidity('SIUP is required.');
-            }
-            if (!docFields.npwp.value.trim()) {
-                docFields.npwp.style.border = '1px solid red';
-                docFields.npwp.setCustomValidity('NPWP is required.');
-            }
-        }
-    }
-
-    // Jika ada input yang tidak valid, hentikan form submission
-    if (!isValid) {
-        event.preventDefault(); // Mencegah form untuk disubmit
-    }
-});
-
-</script>
-
-
-
-    {{-- Footer Section --}}
-    @include('partials.footer')
+</script> 
 
     <script>
 //   JS untuk toggle bahasa

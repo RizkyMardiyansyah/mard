@@ -170,85 +170,117 @@
         </div>
     </div>
 
+{{-- Footer Section --}}
+@include('partials.footer')
 
 <!-- Script untuk AJAX Pencarian -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
     document.getElementById('next-button').addEventListener('click', function(event) {
-    // Ambil elemen input dari form
-    const inputs = {
-        nik: document.getElementById('nik'),
-        name: document.getElementById('name'),
-        email: document.getElementById('email'),
-        phone_number: document.getElementById('phone_number')
-    };
+        const inputs = {
+            nik: document.getElementById('nik'),
+            name: document.getElementById('name'),
+            email: document.getElementById('email'),
+            phone_number: document.getElementById('phone_number')
+        };
 
-    const docSection = document.getElementById('doc');  // Menangkap elemen doc
-    const docFields = {
-        ktp: document.getElementById('ktp'),
-        siup: document.getElementById('siup'),
-        npwp: document.getElementById('npwp')
-    };
+        const docSection = document.getElementById('doc');
+        const docFields = {
+            ktp: document.getElementById('ktp'),
+            siup: document.getElementById('siup'),
+            npwp: document.getElementById('npwp')
+        };
 
-    let isValid = true;
+        let isValid = true;
 
-    // Fungsi validasi untuk masing-masing input
-    const validateInput = (input, regex, minLength, maxLength, customMessage) => {
-        if (input.value.trim() === '' || (minLength && input.value.length < minLength) || (maxLength && input.value.length > maxLength) || (regex && !regex.test(input.value.trim()))) {
-            input.style.border = '1px solid red';
-            input.setCustomValidity(customMessage);
-            isValid = false;
+        const validateInput = (input, regex, minLength, maxLength, customMessage) => {
+            if (input.value.trim() === '' || 
+                (minLength && input.value.length < minLength) || 
+                (maxLength && input.value.length > maxLength) || 
+                (regex && !regex.test(input.value.trim()))) {
+                input.style.border = '1px solid red';
+                input.setCustomValidity(customMessage);
+                isValid = false;
+            } else {
+                input.style.border = '';
+                input.setCustomValidity('');
+            }
+            input.reportValidity();
+        };
+
+        validateInput(inputs.nik, /^\d{16}$/, 16, 16, 'Required valid NIK.');
+        validateInput(inputs.name, null, 1, null, 'Required.');
+        validateInput(inputs.email, /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, 1, null, 'Required valid email.');
+        validateInput(inputs.phone_number, /^\d{10,15}$/, 10, 15, 'Required valid phone number.');
+
+        if (docSection.classList.contains('visible')) {
+            if (!docFields.ktp.value.trim() || !docFields.siup.value.trim() || !docFields.npwp.value.trim()) {
+                isValid = false;
+                if (!docFields.ktp.value.trim()) {
+                    docFields.ktp.style.border = '1px solid red';
+                    docFields.ktp.setCustomValidity('KTP is required.');
+                }
+                if (!docFields.siup.value.trim()) {
+                    docFields.siup.style.border = '1px solid red';
+                    docFields.siup.setCustomValidity('SIUP is required.');
+                }
+                if (!docFields.npwp.value.trim()) {
+                    docFields.npwp.style.border = '1px solid red';
+                    docFields.npwp.setCustomValidity('NPWP is required.');
+                }
+            }
+        }
+
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const domain = localStorage.getItem("domain") || "-";
+        const template = localStorage.getItem("template") || "-";
+        const templateId = localStorage.getItem("templateId") || "-";
+        const subYears = localStorage.getItem("year") || "1";
+        const domainPrice = parseInt(localStorage.getItem("newDomainPrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const templatePrice = parseInt(localStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const subsPrice = parseInt(localStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0", 10);
+
+        if (domain.toLowerCase().includes('.co.id')) {
+            $('#doc').addClass('visible');
         } else {
-            input.style.border = '';
-            input.setCustomValidity('');
+            $('#doc').removeClass('visible');
         }
-        input.reportValidity();
-    };
 
-    // Validasi NIK
-    validateInput(inputs.nik, /^\d{16}$/, 16, 16, 'Required valid NIK.');
-
-    // Validasi Nama
-    validateInput(inputs.name, null, 1, null, 'Required.');
-
-    // Validasi Email
-    validateInput(inputs.email, /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, 1, null, 'Required valid email.');
-
-    // Validasi Nomor Telepon
-    validateInput(inputs.phone_number, /^\d{10,15}$/, 10, 15, 'Required valid phone number.');
-
-    // Validasi Dokumen jika #doc muncul
-    if (docSection.classList.contains('visible')) {
-        // Cek apakah file di-upload untuk KTP, SIUP, NPWP
-        if (!docFields.ktp.value.trim() || !docFields.siup.value.trim() || !docFields.npwp.value.trim()) {
-            isValid = false;
-            if (!docFields.ktp.value.trim()) {
-                docFields.ktp.style.border = '1px solid red';
-                docFields.ktp.setCustomValidity('KTP is required.');
-            }
-            if (!docFields.siup.value.trim()) {
-                docFields.siup.style.border = '1px solid red';
-                docFields.siup.setCustomValidity('SIUP is required.');
-            }
-            if (!docFields.npwp.value.trim()) {
-                docFields.npwp.style.border = '1px solid red';
-                docFields.npwp.setCustomValidity('NPWP is required.');
-            }
+        if (!domain || domain === "-" || !template || template === "-") {
+            window.location.href = '/';
         }
-    }
 
-    // Jika ada input yang tidak valid, hentikan form submission
-    if (!isValid) {
-        event.preventDefault(); // Mencegah form untuk disubmit
-    }
-});
+        const Subtotal = domainPrice + templatePrice + subsPrice;
 
+        const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "-";
+
+        document.getElementById("selected-domain").innerText = domain;
+        document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
+        document.getElementById("selected-template").innerText = template;
+        document.getElementById("template-price").innerText = formatRupiah(templatePrice);
+        document.getElementById("domainYears").innerText = formatRupiah(subYears);
+        document.getElementById("subYears").innerText = formatRupiah(subYears);
+        document.getElementById("subs-price-cart").innerText = formatRupiah(subsPrice);
+        document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
+    });
+
+    $('#cart .btn-primary').on('click', function () {
+        window.location.href = '/cart';
+    });
 </script>
 
 
 
-    {{-- Footer Section --}}
-    @include('partials.footer')
+
+    
 
     <script>
 //   JS untuk toggle bahasa
@@ -354,67 +386,6 @@ window.addEventListener('load', () => {
         }
     }
 });
-
-
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Ambil data dari localStorage
-        const domain = localStorage.getItem("domain") || "-";
-        const template = localStorage.getItem("template") || "-";
-        const templateId = localStorage.getItem("templateId")|| "-";
-        const subYears = localStorage.getItem("year")|| "1";
-        const domainPrice = parseInt(localStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const templatePrice = parseInt(localStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const subsPrice = parseInt(localStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0", 10);
-
-
-        if (domain.toLowerCase().includes('.co.id')) {
-                $('#doc').addClass('visible'); 
-            } else {
-                $('#doc').removeClass('visible'); 
-            }
-
-        if (!domain || domain === "-" || !template || template === "-") {
-            window.location.href = '/';
-        }
-
-        const Subtotal = domainPrice + templatePrice + subsPrice;
-
-        // Format harga ke dalam format Rupiah
-        const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "-";
-
-        // Tampilkan data di halaman
-        document.getElementById("selected-domain").innerText = domain;
-        document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
-        document.getElementById("selected-template").innerText = template;
-        document.getElementById("template-price").innerText = formatRupiah(templatePrice);
-        document.getElementById("domainYears").innerText = formatRupiah(subYears);
-        document.getElementById("subYears").innerText = formatRupiah(subYears);
-        document.getElementById("subs-price-cart").innerText = formatRupiah(subsPrice);
-        document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
-    });
-
-         
-    // Fungsi untuk navigasi ke halaman /cart
-        $('#cart .btn-primary').on('click', function () {
-            const nik = $('#nik').text();
-            const name = $('#name').text();
-            const email = $('#email').text();
-            const phone_number = $('#phone_number').text();
-        
-
-        // Simpan data ke localStorage
-            localStorage.setItem('nik', nik);
-            localStorage.setItem('name', name);
-            localStorage.setItem('email', email);
-            localStorage.setItem('phone_number', phone_number);
-
-            // Navigasi ke halaman /cart
-            window.location.href = '/cart';
-            });
-
-
 
 </script>
   
