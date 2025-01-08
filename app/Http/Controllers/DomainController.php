@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\order;
 use App\Models\template;
+use App\Models\subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -12,7 +13,7 @@ class DomainController extends Controller
     public function index(Request $request)
 {   
     $search = $request->input('search');
-    $type = $request->input('type', 'all'); // Default 'all' jika tidak ada parameter 'type'
+    $type = $request->input('type', 'all'); 
 
     // Cek apakah ada pencarian
     if ($search) {
@@ -36,10 +37,15 @@ class DomainController extends Controller
         ]);
     }
 
+
+    // subscriptions
+    $subs= subscription::all();
+
+
     // Menentukan view yang akan ditampilkan berdasarkan rute
     
     if ($request->is('subscription')) {
-        return view('subscription', compact('templates', 'search', 'type'));
+        return view('subscription', compact('subs'));
     }
     if ($request->is('cart')) {
         return view('cart', compact('templates', 'search', 'type'));

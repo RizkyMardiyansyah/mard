@@ -63,53 +63,26 @@
         <div class="row">
             
             <div class="serv col-md-8 col-12">                
-                <div class="">
                     <div class="container">
-
-                        <!-- Personal Information Section -->
                         <div class="cart">
-                            <h5 class="form-section" data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h5>
-                            <form>
-                                <div class="form-group">
-                                    <label class="form-label" for="nik">NIK</label>
-                                    <input  type="text" id="nik" name="nik" class="form-control" placeholder="Enter your NIK" required mainlength="16">
+                            <h5 class="form-section" data-lang-en="Subscription" data-lang-id="Langanan"></h5>
+                            <form class="align-items-center row">
+                                <div class="form-group col-6">
+                                    <label class="form-label" for="subs" data-lang-en="Packet" data-lang-id="Paket">Pilih Paket</label>
+                                    <select name="subs" id="subs" class="form-control" onchange="updatePrice()">
+                                        <option value="" disabled selected>Pilih Paket</option>
+                                        @foreach ($subs as $sub)
+                                            <option value="{{ $sub->id }}" data-price="{{ $sub->price }}">{{ $sub->title }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="name">Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required maxlength="255">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="email">Email</label>
-                                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required maxlength="255">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="phone_number">Phone Number</label>
-                                    <input type="tel" id="phone_number" name="phone_number" class="form-control" placeholder="Enter your phone number" required maxlength="255">
+                                
+                                <div class="form-group col-6">
+                                    <h5 class="cart-title" id="subs-price" class="price">Rp 0/years</h5>
                                 </div>
                             </form>
                         </div>
-                    
-                        <!-- Additional Documents Section -->
-                        <div id="doc" class="cart" style="margin-top: 20px">
-                            <h5 class="form-section" style="color: black;" data-lang-en="Supporting Documents" data-lang-id="Dokumen Pendukung"></h5>
-                            <form>
-                                <div class="form-group">
-                                    <label class="form-label" for="ktp">KTP</label>
-                                    <input type="file" id="ktp" name="ktp" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="siup">SIUP</label>
-                                    <input type="file" id="siup" name="siup" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="npwp">NPWP</label>
-                                    <input type="file" id="npwp" name="npwp" class="form-control">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    
-                </div>                
+                    </div>            
             </div> 
             <div class="serv col-md-4 col-12">                
                     <div class="cart order">
@@ -142,6 +115,20 @@
 
 <!-- Script untuk AJAX Pencarian -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function updatePrice() {
+        // Ambil elemen dropdown dan elemen harga
+        const selectElement = document.getElementById('subs');
+        const priceElement = document.getElementById('subs-price');
+
+        // Ambil harga dari atribut data-price pada opsi yang dipilih
+        const selectedOption = selectElement.options[selectElement.selectedIndex];
+        const price = selectedOption.getAttribute('data-price');
+
+        // Tampilkan harga di elemen harga
+        priceElement.textContent = price ? `Rp ${parseInt(price).toLocaleString('id-ID')} /Years` : 'Rp 0 /Years';
+    }
+</script>
 <script>
     document.getElementById('next-button').addEventListener('click', function(event) {
     // Ambil elemen input dari form
@@ -348,7 +335,7 @@ window.addEventListener('load', () => {
         const Subtotal = domainPrice + templatePrice;
 
         // Format harga ke dalam format Rupiah
-        const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "-";
+        const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
 
         // Tampilkan data di halaman
         document.getElementById("selected-domain").innerText = domain;

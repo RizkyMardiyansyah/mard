@@ -75,7 +75,7 @@
                                     <input  type="text" id="nik" name="nik" class="form-control" placeholder="Enter your NIK" required mainlength="16">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="name">Name</label>
+                                    <label class="form-label" for="name" data-lang-en="Name" data-lang-id="Nama"></label>
                                     <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required maxlength="255">
                                 </div>
                                 <div class="form-group">
@@ -83,7 +83,7 @@
                                     <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required maxlength="255">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="phone_number">Phone Number</label>
+                                    <label class="form-label" for="phone_number" data-lang-en="Phone Number" data-lang-id="Nomor Telepon"></label>
                                     <input type="tel" id="phone_number" name="phone_number" class="form-control" placeholder="Enter your phone number" required maxlength="255">
                                 </div>
                             </form>
