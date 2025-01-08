@@ -67,20 +67,23 @@
                         <div class="cart">
                             <h5 class="form-section" data-lang-en="Subscription" data-lang-id="Langanan"></h5>
                             <form class="align-items-center row">
-                                <div class="form-group col-md-6 col-12 mb-4">
+                                <div class="form-group col-6 mb-4">
                                     <label class="form-label" for="subs" data-lang-en="Packet" data-lang-id="Paket">Pilih Paket</label>
                                     <div class="custom-select-wrapper">
                                         <select name="subs" id="subs" class="custom-select form-control" onchange="updatePrice()">
                                             <option value="" disabled selected>Pilih Paket</option>
                                             @foreach ($subs as $sub)
-                                                <option value="{{ $sub->id }}" data-price="{{ $sub->price }}">{{ $sub->title }}</option>
+                                                <option value="{{ $sub->id }}" data-price="{{ $sub->price }}" data-desc="{{ $sub->description }}">{{ $sub->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 
-                                <div class="form-group col-md-6 col-12 mb-4">
+                                <div class="form-group col-6 mb-4">
                                     <p class="cart-title" id="subs-price" class="price display-price">Rp 0/tahun</p>
+                                </div>
+                                <div class="form-group  col-12 mb-4">
+                                    <p class="cart-title" id="subs-desc" class="price display-price"></p>
                                 </div>
                             </form>
                         </div>
@@ -122,12 +125,16 @@
         // Ambil elemen dropdown dan elemen harga
         const selectElement = document.getElementById('subs');
         const priceElement = document.getElementById('subs-price');
+        const descElement = document.getElementById('subs-desc');
 
         // Ambil harga dari atribut data-price pada opsi yang dipilih
         const selectedOption = selectElement.options[selectElement.selectedIndex];
         const price = selectedOption.getAttribute('data-price');
+        const desc = selectedOption.getAttribute('data-desc');
 
         // Tampilkan harga di elemen harga
+
+        descElement.textContent = desc ? desc : '';
         priceElement.textContent = price ? `Rp. ${parseInt(price).toLocaleString('id-ID')} /Years` : 'Rp. 0 /Years';
     }
 </script>
