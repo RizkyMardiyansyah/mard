@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SubscriptionResource\Pages;
 use App\Filament\Resources\SubscriptionResource\RelationManagers;
 use App\Models\Subscription;
+use Filament\Support\RawJs;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
@@ -38,9 +39,12 @@ class SubscriptionResource extends Resource
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('price')
+                    ->mask(RawJs::make('$money($input)'))
                     ->required()
                     ->numeric()
-                    ->prefix('Rp.'),
+                    ->prefix('IDR')
+                    ->stripCharacters(','), 
+                    
                 ]),
             ]);
     }
@@ -55,8 +59,9 @@ class SubscriptionResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('price')
-                    ->prefix('Rp.')
-                    ->sortable(),
+                    // ->prefix('Rp.')
+                    ->sortable()
+                    ->money('IDR'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
