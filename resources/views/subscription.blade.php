@@ -80,7 +80,7 @@
                                 </div>
                                 
                                 <div class="form-group col-6 mb-4">
-                                    <p class="cart-title" id="subs-price" class="price display-price">Rp 0/tahun</p>
+                                    <p class="" id="subs-price" class="display-price">Rp. 0/Years</p>
                                 </div>
                                 <div class="form-group  col-12 mb-4">
                                     <p class="cart-title" id="subs-desc" class="price display-price"></p>
@@ -135,7 +135,7 @@
         // Tampilkan harga di elemen harga
 
         descElement.textContent = desc ? desc : '';
-        priceElement.textContent = price ? `Rp. ${parseInt(price).toLocaleString('id-ID')} /Years` : 'Rp. 0 /Years';
+        priceElement.textContent = price ? `Rp. ${parseInt(price).toLocaleString('id-ID')}/Years` : 'Rp. 0/Years';
     }
 </script>
 <script>
