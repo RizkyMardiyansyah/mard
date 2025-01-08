@@ -38,6 +38,9 @@ class DomainController extends Controller
 
     // Menentukan view yang akan ditampilkan berdasarkan rute
     
+    if ($request->is('subscription')) {
+        return view('subscription', compact('templates', 'search', 'type'));
+    }
     if ($request->is('cart')) {
         return view('cart', compact('templates', 'search', 'type'));
     }

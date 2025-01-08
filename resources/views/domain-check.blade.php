@@ -139,6 +139,7 @@
                     <p id="template-price" class=" price"></p>
                 </div>
                 <span id="selected-template">-</span>
+                <span style="display: none" id="selected-template-id">-</span>
             </div>
             <div style="margin-top: auto;">
                 <button class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya"></button>
@@ -450,8 +451,10 @@ window.addEventListener('load', () => {
         $(document).on('click', '.select', function() {
             var selectedTemplate = $(this).data('template-title');
             var selectedTemplateType = $(this).data('template-type');
+            var selectedTemplateId = $(this).data('template-id');
             var selectedTemplatePrice = (selectedTemplateType === 'Basic') ? 0 : 500000;
-            $('#selected-template').text(selectedTemplate); // Tampilkan judul template yang dipilih di order summary
+            $('#selected-template').text(selectedTemplate);
+            $('#selected-template-id').text(selectedTemplateId);
             $('#template-price').text('Rp. ' + selectedTemplatePrice.toLocaleString()); // Tampilkan harga domain
             
             updateCartVisibility();
@@ -463,13 +466,16 @@ window.addEventListener('load', () => {
                 const domain = $('#selected-domain').text();
                 const domainPrice = $('#domain-price').text();
                 const template = $('#selected-template').text();
+                const templateId = $('#selected-template-id').text();
                 const templatePrice = $('#template-price').text();
 
                 // Simpan data ke localStorage
                 localStorage.setItem('domain', domain);
                 localStorage.setItem('domainPrice', domainPrice);
                 localStorage.setItem('template', template);
+                localStorage.setItem('templateId', templateId);
                 localStorage.setItem('templatePrice', templatePrice);
+                
 
                 // Periksa apakah ada data yang kosong
                 if (!domain || !domainPrice || !template || !templatePrice) {
@@ -488,7 +494,7 @@ window.addEventListener('load', () => {
                     }
 
                 // Navigasi ke halaman /cart
-                window.location.href = '/cart';
+                window.location.href = '/subscription';
             });
 
        

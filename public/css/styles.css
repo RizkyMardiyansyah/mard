@@ -1,3 +1,10 @@
+#doc{
+  display: none;
+}
+#doc.visible{
+  display: block !important;
+}
+
 .Subtotal{
  margin-top: 30px;
  border-top: 1.5px solid #EBEBEC;
@@ -60,7 +67,7 @@
   font-weight: bolder;
   line-height: 30px;
   color: rgba(0, 0, 0, 0.8) !important; 
-  font-size: 16px;
+  font-size: 18px;
 }
 .form-section{
   margin-top: -10px !important;
