@@ -1,3 +1,53 @@
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  background-color: #fff;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 8 8%22 width=%223%22 height=%223%22%3E%3Cpath fill=%22%23000%22 d=%22M1 2l3 3 3-3z%22/%3E%3C/svg%3E');
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  transition: all 0.3s ease;
+}
+
+.custom-select:hover {
+  border-color: #488EFE;
+}
+
+.custom-select:focus {
+  border: 1px solid #488EFE;
+  outline: none !important;
+}
+
+.display-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-top: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.display-price:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.05);
+}
+
 #doc{
   display: none;
 }

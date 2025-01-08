@@ -67,18 +67,20 @@
                         <div class="cart">
                             <h5 class="form-section" data-lang-en="Subscription" data-lang-id="Langanan"></h5>
                             <form class="align-items-center row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-md-6 col-12 mb-4">
                                     <label class="form-label" for="subs" data-lang-en="Packet" data-lang-id="Paket">Pilih Paket</label>
-                                    <select name="subs" id="subs" class="form-control" onchange="updatePrice()">
-                                        <option value="" disabled selected>Pilih Paket</option>
-                                        @foreach ($subs as $sub)
-                                            <option value="{{ $sub->id }}" data-price="{{ $sub->price }}">{{ $sub->title }}</option>
-                                        @endforeach
-                                    </select>
+                                    <div class="custom-select-wrapper">
+                                        <select name="subs" id="subs" class="custom-select form-control" onchange="updatePrice()">
+                                            <option value="" disabled selected>Pilih Paket</option>
+                                            @foreach ($subs as $sub)
+                                                <option value="{{ $sub->id }}" data-price="{{ $sub->price }}">{{ $sub->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                                 
-                                <div class="form-group col-6">
-                                    <h5 class="cart-title" id="subs-price" class="price">Rp 0/years</h5>
+                                <div class="form-group col-md-6 col-12 mb-4">
+                                    <p class="cart-title" id="subs-price" class="price display-price">Rp 0/tahun</p>
                                 </div>
                             </form>
                         </div>
@@ -126,7 +128,7 @@
         const price = selectedOption.getAttribute('data-price');
 
         // Tampilkan harga di elemen harga
-        priceElement.textContent = price ? `Rp ${parseInt(price).toLocaleString('id-ID')} /Years` : 'Rp 0 /Years';
+        priceElement.textContent = price ? `Rp. ${parseInt(price).toLocaleString('id-ID')} /Years` : 'Rp. 0 /Years';
     }
 </script>
 <script>
