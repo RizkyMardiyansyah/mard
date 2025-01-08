@@ -112,7 +112,7 @@
                 </div>                
             </div> 
             <div class="serv col-md-4 col-12">                
-                    <div class="cart order">
+                    {{-- <div class="cart order">
                         <div>   
                             <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
                             <div class="d-flex justify-content-between align-items-center">
@@ -133,8 +133,39 @@
 
                             <button id="next-button"  class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya"></button>
                         </div>
+                    </div> --}}
+                    <div class="cart order">
+                        <div>   
+                            <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex justify-content-left">
+                                    <p class="cart-title" data-lang-en="Domain (" data-lang-id="Domain ("></p><p style="margin-right: 2px" class="cart-title" id="domainYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)"></p>
+                                </div>
+                                <p class="cart-title" id="domain-price" class=" price"></p>
+                            </div>
+                            <span class="cart-des" id="selected-domain">-</span>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="cart-title" data-lang-en="Web Template" data-lang-id="Web Template"></p>
+                                <p class="cart-title" id="template-price" class=" price"></p>
+                            </div>
+                            <span class="cart-des" id="selected-template">-</span>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex justify-content-left">
+                                    <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan ("></p><p style="margin-right: 2px" class="cart-title" id="subYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)"></p>
+                                </div>
+                                    <p class="cart-title" id="subs-price-cart" class=" price">Rp. 0</p>
+                            </div>
+                            <span class="cart-des" id="" data-lang-en="Subscription fee for website management service." data-lang-id="Biaya langganan untuk layanan pengelolaan website"></span>
+
+                            <div class="Subtotal d-flex justify-content-between align-items-center">
+                                <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal"></h5>
+                                <h5 class="cart-title" id="Subtotal" class="price"></h5>
+                            </div>
+
+                            <button id="next-button"  class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya"></button>
+                        </div>
                     </div>
-                
             </div>           
         </div>
     </div>
@@ -332,9 +363,12 @@ window.addEventListener('load', () => {
         const domain = localStorage.getItem("domain") || "-";
         const template = localStorage.getItem("template") || "-";
         const templateId = localStorage.getItem("templateId")|| "-";
+        const subYears = localStorage.getItem("year")|| "1";
         const domainPrice = parseInt(localStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
         const templatePrice = parseInt(localStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-        
+        const subsPrice = parseInt(localStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0", 10);
+
+
         if (domain.toLowerCase().includes('.co.id')) {
                 $('#doc').addClass('visible'); 
             } else {
@@ -345,7 +379,7 @@ window.addEventListener('load', () => {
             window.location.href = '/';
         }
 
-        const Subtotal = domainPrice + templatePrice;
+        const Subtotal = domainPrice + templatePrice + subsPrice;
 
         // Format harga ke dalam format Rupiah
         const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "-";
@@ -355,6 +389,9 @@ window.addEventListener('load', () => {
         document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
         document.getElementById("selected-template").innerText = template;
         document.getElementById("template-price").innerText = formatRupiah(templatePrice);
+        document.getElementById("domainYears").innerText = formatRupiah(subYears);
+        document.getElementById("subYears").innerText = formatRupiah(subYears);
+        document.getElementById("subs-price-cart").innerText = formatRupiah(subsPrice);
         document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
     });
 

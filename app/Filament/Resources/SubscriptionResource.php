@@ -35,7 +35,7 @@ class SubscriptionResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('duration_in_months')
+                Forms\Components\TextInput::make('year')
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('price')
@@ -55,7 +55,7 @@ class SubscriptionResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('duration_in_months')
+                Tables\Columns\TextColumn::make('year')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('price')

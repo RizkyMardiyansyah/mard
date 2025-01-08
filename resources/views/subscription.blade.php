@@ -71,16 +71,16 @@
                                     <label class="form-label" for="subs" data-lang-en="Packet" data-lang-id="Paket">Pilih Paket</label>
                                     <div class="custom-select-wrapper">
                                         <select name="subs" id="subs" class="custom-select form-control" onchange="updatePrice()">
-                                            <option value="" disabled selected>Pilih Paket</option>
+                                            <option value="" disabled selected data-lang-en="Select Packet" data-lang-id="Pilih Paket"></option>
                                             @foreach ($subs as $sub)
-                                                <option value="{{ $sub->id }}" data-price="{{ $sub->price }}" data-desc="{{ $sub->description }}">{{ $sub->title }}</option>
+                                                <option value="{{ $sub->id }}" data-years="{{ $sub->year }}" data-price="{{ $sub->price }}" data-desc="{{ $sub->description }}" @if ($sub->id == 1) selected @endif>{{ $sub->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 
-                                <div class="form-group col-6 mb-4">
-                                    <p class="" id="subs-price" class="display-price">Rp. 0/Years</p>
+                                <div style="display: flex; justify-content:right" class="form-group col-6 mb-4">
+                                    <p class="" id="subs-price" class="display-price">Rp. 0</p><p id="yeartext">/Year</p>
                                 </div>
                                 <div class="form-group  col-12 mb-4">
                                     <p class="cart-title" id="subs-desc" class="price display-price"></p>
@@ -94,7 +94,9 @@
                         <div>   
                             <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
                             <div class="d-flex justify-content-between align-items-center">
-                                <p class="cart-title" data-lang-en="Domain (1 Year)" data-lang-id="Domain (1 Tahun)"></p>
+                                <div class="d-flex justify-content-left">
+                                    <p class="cart-title" data-lang-en="Domain (" data-lang-id="Domain ("></p><p style="margin-right: 2px" class="cart-title" id="domainYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)"></p>
+                                </div>
                                 <p class="cart-title" id="domain-price" class=" price"></p>
                             </div>
                             <span class="cart-des" id="selected-domain">-</span>
@@ -103,6 +105,14 @@
                                 <p class="cart-title" id="template-price" class=" price"></p>
                             </div>
                             <span class="cart-des" id="selected-template">-</span>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex justify-content-left">
+                                    <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan ("></p><p style="margin-right: 2px" class="cart-title" id="subYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)"></p>
+                                </div>
+                                    <p class="cart-title" id="subs-price-cart" class=" price">Rp. 0</p>
+                            </div>
+                            <span class="cart-des" id="" data-lang-en="Subscription fee for website management service." data-lang-id="Biaya langganan untuk layanan pengelolaan website"></span>
 
                             <div class="Subtotal d-flex justify-content-between align-items-center">
                                 <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal"></h5>
@@ -121,22 +131,125 @@
 <!-- Script untuk AJAX Pencarian -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    
+
     function updatePrice() {
         // Ambil elemen dropdown dan elemen harga
         const selectElement = document.getElementById('subs');
         const priceElement = document.getElementById('subs-price');
+        const priceCartElement = document.getElementById('subs-price-cart');
         const descElement = document.getElementById('subs-desc');
+        const domainYearsElement = document.getElementById('domainYears');
+        const subYearsElement = document.getElementById('subYears');
+        
 
         // Ambil harga dari atribut data-price pada opsi yang dipilih
         const selectedOption = selectElement.options[selectElement.selectedIndex];
-        const price = selectedOption.getAttribute('data-price');
+        const price = parseInt(selectedOption.getAttribute('data-price') || "0", 10);
         const desc = selectedOption.getAttribute('data-desc');
+        const subYears = selectedOption.getAttribute('data-years');
 
-        // Tampilkan harga di elemen harga
-
+        // Tampilkan deskripsi dan harga di elemen yang sesuai
         descElement.textContent = desc ? desc : '';
-        priceElement.textContent = price ? `Rp. ${parseInt(price).toLocaleString('id-ID')}/Years` : 'Rp. 0/Years';
+        subYearsElement.textContent = subYears ? subYears : '1';
+        domainYearsElement.textContent = subYears ? subYears : '1';
+        priceElement.textContent = `Rp. ${price.toLocaleString('id-ID')}`;
+        priceCartElement.textContent = `Rp. ${price.toLocaleString('id-ID')}`;
+
+        // Simpan harga langganan ke localStorage
+        localStorage.setItem("subsPrice", price);
+        
+
+        // Perbarui harga domain berdasarkan tahun langganan
+        updateDomainPrice(subYears);
+
+        // Perbarui subtotal
+        updateSubtotal(price);
     }
+    function updateDomainPrice(subYears) {
+        const domainPrice = parseInt(localStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
+        
+        // Kalikan harga domain dengan jumlah tahun yang dipilih
+        const updatedDomainPrice = domainPrice * subYears;
+        localStorage.setItem("updatedDomainPrice", updatedDomainPrice);
+
+        // Perbarui harga domain di tampilan
+        document.getElementById('domain-price').textContent = `Rp. ${updatedDomainPrice.toLocaleString('id-ID')}`;
+    }
+
+    function updateSubtotal(subsPrice = 0) {
+         // Ambil harga domain yang telah diperbarui dari localStorage
+        const updatedDomainPrice = parseInt(localStorage.getItem("updatedDomainPrice") || "0", 10);
+
+        // Ambil harga template dari localStorage
+        const templatePrice = parseInt(localStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
+        
+
+        const Subtotal = updatedDomainPrice  + templatePrice + subsPrice;
+
+        // Format harga ke dalam format Rupiah
+        const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
+
+        // Tampilkan subtotal di elemen yang sesuai
+        document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
+    }
+    
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById('subs').dispatchEvent(new Event('change'));
+        
+        // Ambil elemen harga dari subs-price
+        const priceElement = document.getElementById('subs-price');
+        const subsPrice = parseInt(priceElement.textContent.replace(/[^\d]/g, '') || "0", 10);
+
+        // Ambil data lain dari localStorage
+        const domain = localStorage.getItem("domain") || "-";
+        const template = localStorage.getItem("template") || "-";
+        const domainPrice = parseInt(localStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const templatePrice = parseInt(localStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
+
+        // Tampilkan dokumen jika domain mengandung ".co.id"
+        if (domain.toLowerCase().includes('.co.id')) {
+            $('#doc').addClass('visible');
+        } else {
+            $('#doc').removeClass('visible');
+        }
+
+        // Jika data tidak valid, redirect ke halaman utama
+        if (!domain || domain === "-" || !template || template === "-") {
+            window.location.href = '/';
+        }
+
+        // Tampilkan data di halaman
+        const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
+        document.getElementById("selected-domain").innerText = domain;
+        document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
+        document.getElementById("selected-template").innerText = template;
+        document.getElementById("template-price").innerText = formatRupiah(templatePrice);
+
+        // Perbarui subtotal saat halaman dimuat
+        updateSubtotal(subsPrice);
+    });
+
+    // Fungsi untuk navigasi ke halaman /cart
+    $('.cart .btn-primary').on('click', function () {
+        const domainPrice = $('#domain-price').text();
+        const template = $('#selected-template').text();
+        const templateId = $('#selected-template-id').text();
+        const templatePrice = $('#template-price').text();
+        const subYears = $('#subYears').text();
+        
+
+        // Simpan data ke localStorage
+        localStorage.setItem('domainPrice', domainPrice);
+        localStorage.setItem('template', template);
+        localStorage.setItem('templateId', templateId);
+        localStorage.setItem('templatePrice', templatePrice);
+        localStorage.setItem('year', subYears);
+
+        // Navigasi ke halaman /cart
+        window.location.href = '/cart';
+    });
 </script>
 <script>
     document.getElementById('next-button').addEventListener('click', function(event) {
@@ -321,61 +434,6 @@ window.addEventListener('load', () => {
 });
 
 
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Ambil data dari localStorage
-        const domain = localStorage.getItem("domain") || "-";
-        const template = localStorage.getItem("template") || "-";
-        const templateId = localStorage.getItem("templateId")|| "-";
-        const domainPrice = parseInt(localStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const templatePrice = parseInt(localStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-        
-        if (domain.toLowerCase().includes('.co.id')) {
-                $('#doc').addClass('visible'); 
-            } else {
-                $('#doc').removeClass('visible'); 
-            }
-
-        if (!domain || domain === "-" || !template || template === "-") {
-            window.location.href = '/';
-        }
-
-        const Subtotal = domainPrice + templatePrice;
-
-        // Format harga ke dalam format Rupiah
-        const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
-
-        // Tampilkan data di halaman
-        document.getElementById("selected-domain").innerText = domain;
-        document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
-        document.getElementById("selected-template").innerText = template;
-        document.getElementById("template-price").innerText = formatRupiah(templatePrice);
-        document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
-    });
-
-         
-    // Fungsi untuk navigasi ke halaman /cart
-        $('#cart .btn-primary').on('click', function () {
-            const nik = $('#nik').text();
-            const name = $('#name').text();
-            const email = $('#email').text();
-            const phone_number = $('#phone_number').text();
-        
-
-        // Simpan data ke localStorage
-            localStorage.setItem('nik', nik);
-            localStorage.setItem('name', name);
-            localStorage.setItem('email', email);
-            localStorage.setItem('phone_number', phone_number);
-
-            // Navigasi ke halaman /cart
-            window.location.href = '/cart';
-            });
-
-
-
-</script>
-  
+</script> 
 </body>
 </html>

@@ -230,7 +230,9 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>    
+<script> 
+// localStorage.clear();
+
      $(document).ready(function() {
 
         // Event untuk form pencarian

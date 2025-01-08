@@ -90,7 +90,7 @@ class OrderResource extends Resource
                             ->required()
                             ->maxLength(255),
                     ]),
-                    Section::make('Additional Documents')->schema([
+                    Section::make('Supporting Document')->schema([
                         Forms\Components\FileUpload::make('ktp')
                             ->disk('public')
                             ->image()
@@ -109,18 +109,21 @@ class OrderResource extends Resource
                             ->options(subscription::pluck('title', 'id')->toArray())
                             ->reactive(),
                         Forms\Components\TextInput::make('initial_domain_cost')
+                            ->label('Domain Cost')
                             ->numeric()
                             ->default(null),
                         Forms\Components\TextInput::make('renewal_cost')
+                            ->label('Template Cost')
                             ->numeric()
                             ->default(null),
-                        Forms\Components\TextInput::make('hosting_cost')
-                            ->numeric()
-                            ->default(null),
+                        // Forms\Components\TextInput::make('hosting_cost')
+                        //     ->numeric()
+                        //     ->default(null),
                         Forms\Components\TextInput::make('total_payment')
                             ->numeric()
                             ->default(null),
                         Forms\Components\TextInput::make('va')
+                            ->label('Payment Link')
                             ->maxLength(255)
                             ->default(null),
                     ]),
