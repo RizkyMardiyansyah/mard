@@ -100,19 +100,45 @@ class DomainController extends Controller
     public function store(Request $request)
 {
     $validated = $request->validate([
+        'domain' => 'required|string',
+        'template' => 'required|exists:templates,id',
         'nik' => 'required',
         'name' => 'required|string|max:255',
         'email' => 'required|email',
         'phone_number' => 'required',
-        'domain' => 'required|string',
-        'template' => 'required|exists:templates,id',
-        'status' => 'required|in:Paying,Developing,Online,Renewing,Offline',
+        'status' => 'required|in:Paying,Developing,Online,Renewing,Offline', 
+        'subscription' => 'required|exists:subscriptions,id',       
+        'initial_domain_cost' => 'nullable|numeric',
+        'renewal_cost' => 'nullable|numeric',
+        'hosting_cost' => 'nullable|numeric',
+        'total_payment' => 'nullable|numeric',
+        'ktp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+        'siup' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+        'npwp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
     ]);
 
-    // Simpan order ke database (contoh implementasi)
+     // Handle file uploads
+     if ($request->hasFile('ktp') && $request->file('ktp')->isValid()) {
+        // Simpan di public folder tanpa subfolder
+        $validated['ktp'] = $request->file('ktp')->store('ktp_' . time(), 'public');
+    }
+
+    if ($request->hasFile('siup') && $request->file('siup')->isValid()) {
+        // Simpan di public folder tanpa subfolder
+        $validated['siup'] = $request->file('siup')->store('siup_' . time(), 'public');
+    }
+
+    if ($request->hasFile('npwp') && $request->file('npwp')->isValid()) {
+        // Simpan di public folder tanpa subfolder
+        $validated['npwp'] = $request->file('npwp')->store('npwp_' . time(), 'public');
+    }
+
+    // Save order to database
     order::create($validated);
 
-    return redirect()->back()->with('success', 'Your order has been submitted successfully!');
+    return redirect('/#home')->with('success', 'Your order has been submitted successfully!');
 }
+
+
 
 }

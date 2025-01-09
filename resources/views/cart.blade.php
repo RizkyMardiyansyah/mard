@@ -54,86 +54,82 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/heroicons@2.0.16/css/heroicons.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
+    
   </head>
   <body id="home">
     {{-- navbar section --}}
     @include('partials.navbar')
 
     <div id="services" class="services container hero-text ">
-        <div class="row">
-            
-            <div class="serv col-md-8 col-12">                
-                <div class="">
-                    <div class="container">
+        <form id="personal-info-form" method="POST" action="{{ route('orderstore') }}" enctype="multipart/form-data">
+            <div class="row">
+                @csrf
+                <div class="serv col-md-8 col-12">                
+                    <div class="">
+                        <div class="container">
 
-                        <!-- Personal Information Section -->
-                        <div class="cart">
-                            <h5 class="form-section" data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h5>
-                            <form>
-                                <div class="form-group">
-                                    <label class="form-label" for="nik">NIK</label>
-                                    <input  type="text" id="nik" name="nik" class="form-control" placeholder="Enter your NIK" required mainlength="16">
+                            <!-- Personal Information Section -->
+                            <div class="cart">
+                                
+                                <div class="section">
+                                    <h5 class="form-section" data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h5>
+                                    <h6 data-lang-en="The required information needed to register your domain" data-lang-id="Informasi yang diperlukan untuk mendaftarkan domain Anda"> </h6>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="name" data-lang-en="Name" data-lang-id="Nama"></label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required maxlength="255">
+                               
+                                    <input type="hidden" id="domain" name="domain">
+                                    <input type="hidden" id="subscription" name="subscription">
+                                    <input type="hidden" id="templateId" name="template">
+                                    <input type="hidden" id="initial_domain_cost" name="initial_domain_cost">
+                                    <input type="hidden" id="renewal_cost" name="renewal_cost">
+                                    <input type="hidden" id="hosting_cost" name="hosting_cost">
+                                    <input type="hidden" id="total_payment" name="total_payment">
+                                    <input type="hidden" id="status" name="status" value="Paying">
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="nik">NIK</label>
+                                        <input  type="text" id="nik" name="nik" class="form-control" placeholder="Enter your NIK" required mainlength="16">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="name" data-lang-en="Name" data-lang-id="Nama"></label>
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required maxlength="255">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required maxlength="255">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone_number" data-lang-en="Phone Number" data-lang-id="Nomor Telepon"></label>
+                                        <input type="tel" id="phone_number" name="phone_number" class="form-control" placeholder="Enter your phone number" required maxlength="255">
+                                    </div>
+                                
+                            </div>
+                        
+                            <!-- Additional Documents Section -->
+                            <div id="doc" class="cart" style="margin-top: 20px">
+                                <div class="section">
+                                    <h5 class="form-section" style="color: black;" data-lang-en="Supporting Documents" data-lang-id="Dokumen Pendukung"></h5>
+                                    <h6 data-lang-en="The required document needed to register your domain, because you're using a .co.id domain" data-lang-id="Dokumen yang diperlukan untuk mendaftarkan domain Anda, karena Anda menggunakan domain .co.id"> </h6>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="email">Email</label>
-                                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required maxlength="255">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="phone_number" data-lang-en="Phone Number" data-lang-id="Nomor Telepon"></label>
-                                    <input type="tel" id="phone_number" name="phone_number" class="form-control" placeholder="Enter your phone number" required maxlength="255">
-                                </div>
-                            </form>
-                        </div>
-                    
-                        <!-- Additional Documents Section -->
-                        <div id="doc" class="cart" style="margin-top: 20px">
-                            <h5 class="form-section" style="color: black;" data-lang-en="Supporting Documents" data-lang-id="Dokumen Pendukung"></h5>
-                            <form>
-                                <div class="form-group">
-                                    <label class="form-label" for="ktp">KTP</label>
-                                    <input type="file" id="ktp" name="ktp" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="siup">SIUP</label>
-                                    <input type="file" id="siup" name="siup" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="npwp">NPWP</label>
-                                    <input type="file" id="npwp" name="npwp" class="form-control">
-                                </div>
-                            </form>
+                               
+                                    <div class="form-group">
+                                        <label class="form-label" for="ktp">KTP</label>
+                                        <input type="file" id="ktp" name="ktp" class="form-control">
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="siup">SIUP</label>
+                                        <input type="file" id="siup" name="siup" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="npwp">NPWP</label>
+                                        <input type="file" id="npwp" name="npwp" class="form-control">
+                                    </div>
+                            </div>
                         </div>
                     </div>
-                    
-                </div>                
+                               
             </div> 
             <div class="serv col-md-4 col-12">                
-                    {{-- <div class="cart order">
-                        <div>   
-                            <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="cart-title" data-lang-en="Domain (1 Year)" data-lang-id="Domain (1 Tahun)"></p>
-                                <p class="cart-title" id="domain-price" class=" price"></p>
-                            </div>
-                            <span class="cart-des" id="selected-domain">-</span>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="cart-title" data-lang-en="Web Template" data-lang-id="Web Template"></p>
-                                <p class="cart-title" id="template-price" class=" price"></p>
-                            </div>
-                            <span class="cart-des" id="selected-template">-</span>
-
-                            <div class="Subtotal d-flex justify-content-between align-items-center">
-                                <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal"></h5>
-                                <h5 class="cart-title" id="Subtotal" class="price"></h5>
-                            </div>
-
-                            <button id="next-button"  class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya"></button>
-                        </div>
-                    </div> --}}
                     <div class="cart order">
                         <div>   
                             <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
@@ -163,11 +159,12 @@
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
                             </div>
 
-                            <button id="next-button"  class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya"></button>
+                            <button id="next-button" type="submit"  class="w-100 btn btn-primary" data-lang-en="Checkout" data-lang-id="Checkout"></button>
                         </div>
                     </div>
             </div>           
         </div>
+    </form> 
     </div>
 
 {{-- Footer Section --}}
@@ -175,6 +172,7 @@
 
 <!-- Script untuk AJAX Pencarian -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     document.getElementById('next-button').addEventListener('click', function(event) {
@@ -215,25 +213,85 @@
         validateInput(inputs.phone_number, /^\d{10,15}$/, 10, 15, 'Required valid phone number.');
 
         if (docSection.classList.contains('visible')) {
-            if (!docFields.ktp.value.trim() || !docFields.siup.value.trim() || !docFields.npwp.value.trim()) {
-                isValid = false;
-                if (!docFields.ktp.value.trim()) {
-                    docFields.ktp.style.border = '1px solid red';
-                    docFields.ktp.setCustomValidity('KTP is required.');
-                }
-                if (!docFields.siup.value.trim()) {
-                    docFields.siup.style.border = '1px solid red';
-                    docFields.siup.setCustomValidity('SIUP is required.');
-                }
-                if (!docFields.npwp.value.trim()) {
-                    docFields.npwp.style.border = '1px solid red';
-                    docFields.npwp.setCustomValidity('NPWP is required.');
-                }
-            }
+        // Periksa file input dengan memeriksa files.length
+        if (docFields.ktp.files.length === 0) {
+            isValid = false;
+            docFields.ktp.style.border = '1px solid red';
+            docFields.ktp.setCustomValidity('KTP is required.');
+        } else {
+            docFields.ktp.style.border = '';
+            docFields.ktp.setCustomValidity('');
         }
+
+        if (docFields.siup.files.length === 0) {
+            isValid = false;
+            docFields.siup.style.border = '1px solid red';
+            docFields.siup.setCustomValidity('SIUP is required.');
+        } else {
+            docFields.siup.style.border = '';
+            docFields.siup.setCustomValidity('');
+        }
+
+        if (docFields.npwp.files.length === 0) {
+            isValid = false;
+            docFields.npwp.style.border = '1px solid red';
+            docFields.npwp.setCustomValidity('NPWP is required.');
+        } else {
+            docFields.npwp.style.border = '';
+            docFields.npwp.setCustomValidity('');
+        }
+    }
 
         if (!isValid) {
             event.preventDefault();
+        }else{
+            
+            event.preventDefault(); // Mencegah form submit langsung
+
+    // Tampilkan konfirmasi menggunakan SweetAlert2
+    // Swal.fire({
+    // title: "Are you sure?",
+    // text: "Do you want to proceed with the checkout?",
+    // icon: "warning",
+    // showCancelButton: true,
+    // confirmButtonColor: "#3085d6",
+    // cancelButtonColor: "#d33",
+    // confirmButtonText: "Yes, Checkout!"
+    // }).then((result) => {
+    // if (result.isConfirmed) {
+    //     Swal.fire({
+    //     title: "Checkout!",
+    //     text: "Your checkout success.",
+    //     icon: "success"
+    //     });
+    // }
+    // });
+    //     }
+    // });
+
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to proceed with the checkout?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#488EFE",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Checkout!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Jika pengguna mengkonfirmasi, lakukan submit form
+            document.getElementById('personal-info-form').submit();
+            Swal.fire({
+            title: "Checkout!",
+            text: "Your checkout success.",
+            icon: "success"
+            });
+        } else {
+            // Jika pengguna membatalkan, tidak melakukan apa-apa
+            Swal.fire('Checkout Cancelled!', 'Please confirm your ourder befor checkout.', 'error');
+        }
+    });
         }
     });
 </script>
@@ -247,6 +305,10 @@
         const domainPrice = parseInt(sessionStorage.getItem("newDomainPrice")?.replace(/[^\d]/g, '') || "0", 10);
         const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
         const subsPrice = parseInt(sessionStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const subtotal = parseInt(sessionStorage.getItem("subtotal")?.replace(/[^\d]/g, '') || "0", 10);
+        // const subscription = sessionStorage.getItem('subId');
+        // const renewalCost = sessionStorage.getItem('templatePrice');
+        // const totalPayment = sessionStorage.getItem('subtotal');
 
         if (domain.toLowerCase().includes('.co.id')) {
             $('#doc').addClass('visible');
@@ -258,7 +320,7 @@
             window.location.href = '/';
         }
 
-        const Subtotal = domainPrice + templatePrice + subsPrice;
+        // const Subtotal = domainPrice + templatePrice + subsPrice;
 
         const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "-";
 
@@ -269,12 +331,23 @@
         document.getElementById("domainYears").innerText = formatRupiah(subYears);
         document.getElementById("subYears").innerText = formatRupiah(subYears);
         document.getElementById("subs-price-cart").innerText = formatRupiah(subsPrice);
-        document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
+        document.getElementById("Subtotal").innerText = formatRupiah(subtotal);
+        
+
+        // document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("domain").value = sessionStorage.getItem("domain") || "-";
+        document.getElementById("templateId").value = sessionStorage.getItem("templateId") || "-";
+        document.getElementById("subscription").value = sessionStorage.getItem("subId") || "-";
+        document.getElementById("initial_domain_cost").value = sessionStorage.getItem("newDomainPrice")?.replace(/[^\d]/g, '') || "0";
+        document.getElementById("renewal_cost").value = sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0";
+        document.getElementById("hosting_cost").value = sessionStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0";
+        document.getElementById("total_payment").value = sessionStorage.getItem("subtotal")?.replace(/[^\d]/g, '') || "0";
+
+
+
+
     });
 
-    $('#cart .btn-primary').on('click', function () {
-        window.location.href = '/cart';
-    });
 </script>
 
 

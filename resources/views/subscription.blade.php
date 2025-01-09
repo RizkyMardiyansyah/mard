@@ -73,7 +73,7 @@
                                         <select name="subs" id="subs" class="custom-select form-control" onchange="updatePrice()">
                                             <option value="" disabled selected data-lang-en="Select Packet" data-lang-id="Pilih Paket"></option>
                                             @foreach ($subs as $sub)
-                                                <option value="{{ $sub->id }}" data-years="{{ $sub->year }}" data-price="{{ $sub->price }}" data-desc="{{ $sub->description }}" @if ($sub->id == 1) selected @endif>{{ $sub->title }}</option>
+                                                <option value="{{ $sub->id }}" data-years="{{ $sub->year }}" data-price="{{ $sub->price }}" data-desc="{{ $sub->description }}" data-subId="{{ $sub->id }}" @if ($sub->id == 1) selected @endif>{{ $sub->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -105,7 +105,7 @@
                                 <p class="cart-title" id="template-price" class=" price"></p>
                             </div>
                             <span class="cart-des" id="selected-template">-</span>
-
+                        
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex justify-content-left">
                                     <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan ("></p><p style="margin-right: 2px" class="cart-title" id="subYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)"></p>
@@ -148,6 +148,7 @@
         const selectedOption = selectElement.options[selectElement.selectedIndex];
         const price = parseInt(selectedOption.getAttribute('data-price') || "0", 10);
         const desc = selectedOption.getAttribute('data-desc');
+        const subId = selectedOption.getAttribute('data-subId');
         const subYears = selectedOption.getAttribute('data-years');
 
         // Tampilkan deskripsi dan harga di elemen yang sesuai
@@ -159,6 +160,8 @@
 
         // Simpan harga langganan ke localStorage
         sessionStorage.setItem("subsPrice", price);
+        sessionStorage.setItem("subId", subId);
+
 
         // Perbarui harga domain berdasarkan tahun langganan
         updateDomainPrice(subYears);
@@ -196,6 +199,8 @@
 
         // Tampilkan subtotal di elemen yang sesuai
         document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
+
+        sessionStorage.setItem('subtotal', Subtotal);
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -239,16 +244,17 @@
     $('.cart .btn-primary').on('click', function () {
         const domainPrice = $('#domain-price').text();
         const template = $('#selected-template').text();
-        const templateId = $('#selected-template-id').text();
+        // const templateId = $('#selected-template-id').text();
         const templatePrice = $('#template-price').text();
         const subYears = $('#subYears').text();
 
         // Simpan data ke localStorage
         sessionStorage.setItem('newDomainPrice', domainPrice);
         sessionStorage.setItem('template', template);
-        sessionStorage.setItem('templateId', templateId);
+        // sessionStorage.setItem('templateId', templateId);
         sessionStorage.setItem('templatePrice', templatePrice);
         sessionStorage.setItem('year', subYears);
+        
 
         // Navigasi ke halaman /cart
         window.location.href = '/cart';

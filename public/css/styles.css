@@ -1,3 +1,16 @@
+.section{
+  /* padding-bottom: 15px !important; */
+  border-bottom: 1.5px solid #EBEBEC;
+  padding-bottom: 15px;
+  h6{
+    /* margin-top: -10px !important; */
+    font-family: "Raleway", sans-serif; 
+    font-weight: normal;
+    font-size: 14px;
+    opacity: 60%;
+
+  };
+}
 
 .custom-select-wrapper {
   position: relative;
@@ -118,9 +131,8 @@
   font-size: 18px;
 }
 .form-section{
-  margin-top: -10px !important;
-  padding-bottom: 15px !important;
-  border-bottom: 1.5px solid #EBEBEC;
+  font-size: 20px !important;
+  
 }
 .next {
   margin-top: auto !important;

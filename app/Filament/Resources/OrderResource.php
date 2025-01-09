@@ -72,6 +72,7 @@ class OrderResource extends Resource
                                     'Offline' => 'Offline',
                                 ]
                             )
+                            ->default('Paying')
                             ->required(),
                     ]),
                     Section::make('Personal Information')->schema([
