@@ -139,6 +139,7 @@
                     <p id="template-price" class=" price"></p>
                 </div>
                 <span id="selected-template">-</span>
+                <input type="hidden" id="selected-template-id">
             </div>
             <div style="margin-top: auto;">
                 <button class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya"></button>

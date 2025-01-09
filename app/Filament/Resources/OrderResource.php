@@ -109,22 +109,19 @@ class OrderResource extends Resource
                         Forms\Components\Select::make('subscription')
                             ->options(subscription::pluck('title', 'id')->toArray())
                             ->reactive(),
-                        Forms\Components\TextInput::make('initial_domain_cost')
-                            ->label('Domain Cost')
+                        Forms\Components\TextInput::make('domainCost')
                             ->numeric()
                             ->default(null),
-                        Forms\Components\TextInput::make('renewal_cost')
-                            ->label('Template Cost')
+                        Forms\Components\TextInput::make('templateCost')
                             ->numeric()
                             ->default(null),
-                        // Forms\Components\TextInput::make('hosting_cost')
-                        //     ->numeric()
-                        //     ->default(null),
+                        Forms\Components\TextInput::make('subscriptionCost')
+                            ->numeric()
+                            ->default(null),
                         Forms\Components\TextInput::make('total_payment')
                             ->numeric()
                             ->default(null),
-                        Forms\Components\TextInput::make('va')
-                            ->label('Payment Link')
+                        Forms\Components\TextInput::make('snapKey')
                             ->maxLength(255)
                             ->default(null),
                     ]),

@@ -99,6 +99,7 @@ class DomainController extends Controller
 
     public function store(Request $request)
 {
+    // dd($request);
     $validated = $request->validate([
         'domain' => 'required|string',
         'template' => 'required|exists:templates,id',
@@ -108,14 +109,20 @@ class DomainController extends Controller
         'phone_number' => 'required',
         'status' => 'required|in:Paying,Developing,Online,Renewing,Offline', 
         'subscription' => 'required|exists:subscriptions,id',       
-        'initial_domain_cost' => 'nullable|numeric',
-        'renewal_cost' => 'nullable|numeric',
-        'hosting_cost' => 'nullable|numeric',
+        'domainCost' => 'nullable|numeric',
+        'templateCost' => 'nullable|numeric',
+        'subscriptionCost' => 'nullable|numeric',
         'total_payment' => 'nullable|numeric',
         'ktp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         'siup' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         'npwp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+        // 'snapKey' => 'nullable|string',
     ]);
+
+    
+
+    // Save order to database
+    $order=order::create($validated);
 
      // Handle file uploads
      if ($request->hasFile('ktp') && $request->file('ktp')->isValid()) {
@@ -133,10 +140,38 @@ class DomainController extends Controller
         $validated['npwp'] = $request->file('npwp')->store('npwp_' . time(), 'public');
     }
 
-    // Save order to database
-    order::create($validated);
+    
 
-    return redirect('/#home')->with('success', 'Your order has been submitted successfully!');
+    // Set your Merchant Server Key
+    \Midtrans\Config::$serverKey = config('midtrans.serverKey');
+    // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+    \Midtrans\Config::$isProduction = false;
+    // Set sanitization on (default)
+    \Midtrans\Config::$isSanitized = true;
+    // Set 3DS transaction for credit card to true
+    \Midtrans\Config::$is3ds = true;
+
+    $params = array(
+        'transaction_details' => array(
+            'order_id' => rand(),
+            'gross_amount' => $validated['total_payment'],
+        ),
+        'customer_details' => array(
+            'first_name' => $validated['name'],
+            'email' => $validated['email'],
+        )
+    );
+    
+    $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+    // Menambahkan snapKey ke data order
+    $order->update(['snapKey' => $snapToken]);
+
+    
+
+
+    return redirect()->back()->with('success', 'Your order has been submitted successfully!');
+    // return redirect('/#home')->with('success', 'Your order has been submitted successfully!');
 }
 
 
