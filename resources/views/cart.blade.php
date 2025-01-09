@@ -240,13 +240,13 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const domain = localStorage.getItem("domain") || "-";
-        const template = localStorage.getItem("template") || "-";
-        const templateId = localStorage.getItem("templateId") || "-";
-        const subYears = localStorage.getItem("year") || "1";
-        const domainPrice = parseInt(localStorage.getItem("newDomainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const templatePrice = parseInt(localStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const subsPrice = parseInt(localStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const domain = sessionStorage.getItem("domain") || "-";
+        const template = sessionStorage.getItem("template") || "-";
+        const templateId = sessionStorage.getItem("templateId") || "-";
+        const subYears = sessionStorage.getItem("year") || "1";
+        const domainPrice = parseInt(sessionStorage.getItem("newDomainPrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const subsPrice = parseInt(sessionStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0", 10);
 
         if (domain.toLowerCase().includes('.co.id')) {
             $('#doc').addClass('visible');

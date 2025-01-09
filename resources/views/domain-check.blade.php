@@ -470,11 +470,11 @@ window.addEventListener('load', () => {
                 const templatePrice = $('#template-price').text();
 
                 // Simpan data ke localStorage
-                localStorage.setItem('domain', domain);
-                localStorage.setItem('domainPrice', domainPrice);
-                localStorage.setItem('template', template);
-                localStorage.setItem('templateId', templateId);
-                localStorage.setItem('templatePrice', templatePrice);
+                sessionStorage.setItem('domain', domain);
+                sessionStorage.setItem('domainPrice', domainPrice);
+                sessionStorage.setItem('template', template);
+                sessionStorage.setItem('templateId', templateId);
+                sessionStorage.setItem('templatePrice', templatePrice);
                 
 
                 // Periksa apakah ada data yang kosong

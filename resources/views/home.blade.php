@@ -231,8 +231,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script> 
-// localStorage.clear();
-
+    sessionStorage.clear();
      $(document).ready(function() {
 
         // Event untuk form pencarian
@@ -353,39 +352,6 @@
     
 
     <script>
-// window.onload = function() {
-//   document.getElementById('languageToggle').checked = true; // Toggle default ke 'true' untuk bahasa Inggris
-//     switchLanguage('en'); // Set bahasa default ke Bahasa Inggris
-// };
-
-// const toggleCheckbox = document.getElementById('languageToggle');
-// const toggleInner = document.querySelector('.toggle-inner');
-
-// toggleCheckbox.addEventListener('change', function() {
-//     const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
-//     switchLanguage(selectedLang);
-
-//     // Ubah teks yang ditampilkan
-//     toggleInner.textContent = toggleCheckbox.checked ? 'EN' : 'IN';
-// });
-
-// function switchLanguage(lang) {
-//     const elements = document.querySelectorAll('[data-lang-en]');
-
-//     elements.forEach(element => {
-//         element.textContent = element.getAttribute('data-lang-' + lang);
-//     });
-// }
-// document.getElementById('languageToggle').addEventListener('change', function() {
-//     if (this.checked) {
-//         // Logic saat toggle aktif
-//         console.log('Bahasa diubah ke EN');
-//     } else {
-//         // Logic saat toggle tidak aktif
-//         console.log('Bahasa diubah ke IN');
-//     }
-// });
-
     window.onload = function () {
         // Ambil preferensi bahasa dari localStorage
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
@@ -488,8 +454,6 @@ window.addEventListener('load', () => {
         }
     }
 });
-
-
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -538,7 +502,5 @@ window.addEventListener('load', () => {
     });
 </script>
 
-
- 
 </body>
 </html>

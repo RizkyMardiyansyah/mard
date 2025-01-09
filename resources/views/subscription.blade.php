@@ -158,7 +158,7 @@
         priceCartElement.textContent = `Rp. ${price.toLocaleString('id-ID')}`;
 
         // Simpan harga langganan ke localStorage
-        localStorage.setItem("subsPrice", price);
+        sessionStorage.setItem("subsPrice", price);
 
         // Perbarui harga domain berdasarkan tahun langganan
         updateDomainPrice(subYears);
@@ -168,7 +168,7 @@
     }
 
     function updateDomainPrice(subYears) {
-        const domainPrice = parseInt(localStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
         
         // Kalikan harga domain dengan jumlah tahun yang dipilih
         const selectElement = document.getElementById('subs');
@@ -176,7 +176,7 @@
         const Years = selectedOption.getAttribute('data-years');
 
         const updatedDomainPrice = domainPrice * Years;
-        localStorage.setItem("updatedDomainPrice", updatedDomainPrice);
+        sessionStorage.setItem("updatedDomainPrice", updatedDomainPrice);
 
         // Perbarui harga domain di tampilan
         document.getElementById('domain-price').textContent = `Rp. ${updatedDomainPrice.toLocaleString('id-ID')}`;
@@ -184,10 +184,10 @@
 
     function updateSubtotal(subsPrice = 0) {
         // Ambil harga domain yang telah diperbarui dari localStorage
-        const updatedDomainPrice = parseInt(localStorage.getItem("updatedDomainPrice") || "0", 10);
+        const updatedDomainPrice = parseInt(sessionStorage.getItem("updatedDomainPrice") || "0", 10);
 
         // Ambil harga template dari localStorage
-        const templatePrice = parseInt(localStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
 
         const Subtotal = updatedDomainPrice + templatePrice + subsPrice;
 
@@ -207,10 +207,10 @@
         const subsPrice = parseInt(priceElement.textContent.replace(/[^\d]/g, '') || "0", 10);
 
         // Ambil data lain dari localStorage
-        const domain = localStorage.getItem("domain") || "-";
-        const template = localStorage.getItem("template") || "-";
-        const domainPrice = parseInt(localStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const templatePrice = parseInt(localStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const domain = sessionStorage.getItem("domain") || "-";
+        const template = sessionStorage.getItem("template") || "-";
+        const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
 
         // Tampilkan dokumen jika domain mengandung ".co.id"
         if (domain.toLowerCase().includes('.co.id')) {
@@ -244,11 +244,11 @@
         const subYears = $('#subYears').text();
 
         // Simpan data ke localStorage
-        localStorage.setItem('newDomainPrice', domainPrice);
-        localStorage.setItem('template', template);
-        localStorage.setItem('templateId', templateId);
-        localStorage.setItem('templatePrice', templatePrice);
-        localStorage.setItem('year', subYears);
+        sessionStorage.setItem('newDomainPrice', domainPrice);
+        sessionStorage.setItem('template', template);
+        sessionStorage.setItem('templateId', templateId);
+        sessionStorage.setItem('templatePrice', templatePrice);
+        sessionStorage.setItem('year', subYears);
 
         // Navigasi ke halaman /cart
         window.location.href = '/cart';

@@ -548,7 +548,7 @@ margin-bottom: 20px;
       .serContainer:hover{
         margin-top: -10px;
         box-shadow: 0 2px 10px rgba(92, 149, 255, 0.5);
-        background: linear-gradient(to right, #488EFE, #5658ef);
+        background: linear-gradient(to right, #488EFE, #007BFF);
         /* background: linear-gradient(to right, #488EFE, #3f42e3); */
         border: 1px solid rgba(92, 149, 255, 0.5);
         p{
