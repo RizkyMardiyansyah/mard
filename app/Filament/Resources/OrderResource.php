@@ -110,6 +110,10 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('orderId')
                             ->disabled()
                             ->reactive(),
+                        Forms\Components\TextInput::make('snapKey')
+                            ->disabled()
+                            ->maxLength(255)
+                            ->default(null),
                         Forms\Components\Select::make('subscription')
                             ->options(subscription::pluck('title', 'id')->toArray())
                             ->reactive(),
@@ -133,10 +137,7 @@ class OrderResource extends Resource
                             ->prefix('IDR')
                             ->numeric()
                             ->default(null),
-                        Forms\Components\TextInput::make('snapKey')
-                            ->disabled()
-                            ->maxLength(255)
-                            ->default(null),
+                        
                     ]),
                 // ]),
             ]);
