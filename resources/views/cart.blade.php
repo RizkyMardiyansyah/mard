@@ -28,6 +28,11 @@
     }
 
 </style>
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <!doctype html>
 <html lang="en">
   <head>
@@ -158,6 +163,7 @@
                                 <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal"></h5>
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
                             </div>
+                            <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
 
                             <button id="next-button" type="submit"  class="w-100 btn btn-primary" data-lang-en="Checkout" data-lang-id="Checkout"></button>
                         </div>
@@ -173,6 +179,8 @@
 <!-- Script untuk AJAX Pencarian -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
+<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="MIDTRANS_CLIENT_KEY"></script>
 
 <script>
     document.getElementById('next-button').addEventListener('click', function(event) {
@@ -248,27 +256,6 @@
             
             event.preventDefault(); // Mencegah form submit langsung
 
-    // Tampilkan konfirmasi menggunakan SweetAlert2
-    // Swal.fire({
-    // title: "Are you sure?",
-    // text: "Do you want to proceed with the checkout?",
-    // icon: "warning",
-    // showCancelButton: true,
-    // confirmButtonColor: "#3085d6",
-    // cancelButtonColor: "#d33",
-    // confirmButtonText: "Yes, Checkout!"
-    // }).then((result) => {
-    // if (result.isConfirmed) {
-    //     Swal.fire({
-    //     title: "Checkout!",
-    //     text: "Your checkout success.",
-    //     icon: "success"
-    //     });
-    // }
-    // });
-    //     }
-    // });
-
 
     Swal.fire({
         title: "Are you sure?",
@@ -282,19 +269,16 @@
         if (result.isConfirmed) {
             // Jika pengguna mengkonfirmasi, lakukan submit form
             document.getElementById('personal-info-form').submit();
-            Swal.fire({
-            title: "Checkout!",
-            text: "Your checkout success.",
-            icon: "success"
-            });
+
+           
         } else {
-            // Jika pengguna membatalkan, tidak melakukan apa-apa
-            Swal.fire('Checkout Cancelled!', 'Please confirm your ourder befor checkout.', 'error');
+
         }
     });
         }
     });
 </script>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

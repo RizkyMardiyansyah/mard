@@ -98,81 +98,82 @@ class DomainController extends Controller
     }
 
     public function store(Request $request)
-{
-    // dd($request);
-    $validated = $request->validate([
-        'domain' => 'required|string',
-        'template' => 'required|exists:templates,id',
-        'nik' => 'required',
-        'name' => 'required|string|max:255',
-        'email' => 'required|email',
-        'phone_number' => 'required',
-        'status' => 'required|in:Paying,Developing,Online,Renewing,Offline', 
-        'subscription' => 'required|exists:subscriptions,id',       
-        'domainCost' => 'nullable|numeric',
-        'templateCost' => 'nullable|numeric',
-        'subscriptionCost' => 'nullable|numeric',
-        'total_payment' => 'nullable|numeric',
-        'ktp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-        'siup' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-        'npwp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-        // 'snapKey' => 'nullable|string',
-    ]);
+    {
+        // dd($request);
+        $validated = $request->validate([
+            'domain' => 'required|string',
+            'template' => 'required|exists:templates,id',
+            'nik' => 'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'phone_number' => 'required',
+            'status' => 'required|in:Paying,Developing,Online,Renewing,Offline', 
+            'subscription' => 'required|exists:subscriptions,id',       
+            'domainCost' => 'nullable|numeric',
+            'templateCost' => 'nullable|numeric',
+            'subscriptionCost' => 'nullable|numeric',
+            'total_payment' => 'nullable|numeric',
+            'ktp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'siup' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'npwp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            // 'snapKey' => 'nullable|string',
+        ]);
 
-    
+        
 
-    // Save order to database
-    $order=order::create($validated);
+        // Save order to database
+        $order=order::create($validated);
 
-     // Handle file uploads
-     if ($request->hasFile('ktp') && $request->file('ktp')->isValid()) {
-        // Simpan di public folder tanpa subfolder
-        $validated['ktp'] = $request->file('ktp')->store('ktp_' . time(), 'public');
+        // Handle file uploads
+        if ($request->hasFile('ktp') && $request->file('ktp')->isValid()) {
+            // Simpan di public folder tanpa subfolder
+            $validated['ktp'] = $request->file('ktp')->store('ktp_' . time(), 'public');
+        }
+
+        if ($request->hasFile('siup') && $request->file('siup')->isValid()) {
+            // Simpan di public folder tanpa subfolder
+            $validated['siup'] = $request->file('siup')->store('siup_' . time(), 'public');
+        }
+
+        if ($request->hasFile('npwp') && $request->file('npwp')->isValid()) {
+            // Simpan di public folder tanpa subfolder
+            $validated['npwp'] = $request->file('npwp')->store('npwp_' . time(), 'public');
+        }
+
+        
+
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = config('midtrans.serverKey');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => rand(),
+                'gross_amount' => $validated['total_payment'],
+            ),
+            'customer_details' => array(
+                'first_name' => $validated['name'],
+                'email' => $validated['email'],
+            )
+        );
+        
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+        
+        // Menambahkan snapKey ke data order
+        $order->update(['snapKey' => $snapToken]);
+
+        
+
+        return response()->json(['status' => 'success', 'message' => 'Your order has been submitted successfully!']);
+
+        // return redirect('/#home')->with('success', 'Your order has been submitted successfully!');
     }
-
-    if ($request->hasFile('siup') && $request->file('siup')->isValid()) {
-        // Simpan di public folder tanpa subfolder
-        $validated['siup'] = $request->file('siup')->store('siup_' . time(), 'public');
-    }
-
-    if ($request->hasFile('npwp') && $request->file('npwp')->isValid()) {
-        // Simpan di public folder tanpa subfolder
-        $validated['npwp'] = $request->file('npwp')->store('npwp_' . time(), 'public');
-    }
-
-    
-
-    // Set your Merchant Server Key
-    \Midtrans\Config::$serverKey = config('midtrans.serverKey');
-    // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-    \Midtrans\Config::$isProduction = false;
-    // Set sanitization on (default)
-    \Midtrans\Config::$isSanitized = true;
-    // Set 3DS transaction for credit card to true
-    \Midtrans\Config::$is3ds = true;
-
-    $params = array(
-        'transaction_details' => array(
-            'order_id' => rand(),
-            'gross_amount' => $validated['total_payment'],
-        ),
-        'customer_details' => array(
-            'first_name' => $validated['name'],
-            'email' => $validated['email'],
-        )
-    );
-    
-    $snapToken = \Midtrans\Snap::getSnapToken($params);
-
-    // Menambahkan snapKey ke data order
-    $order->update(['snapKey' => $snapToken]);
-
-    
-
-
-    return redirect()->back()->with('success', 'Your order has been submitted successfully!');
-    // return redirect('/#home')->with('success', 'Your order has been submitted successfully!');
-}
 
 
 
