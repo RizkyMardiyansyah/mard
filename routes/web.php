@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\paymentController;
 use App\Models\template;
 
 // Route::get('/', function () {
@@ -21,6 +22,7 @@ use App\Models\template;
 Route::get('/', [DomainController::class, 'index'])->name('home');
 Route::get('/subscription', [DomainController::class, 'index'])->name('subscription');
 Route::get('/cart', [DomainController::class, 'index'])->name('cart');
+Route::get('/payment/{snapKey}', [paymentController::class, 'index'])->name('payment');
 
 // // Rute untuk halaman domain-check
 // Route::get('/web', [DomainController::class, 'index'])->name('domain-check');
@@ -37,6 +39,7 @@ Route::post('/check-domain', [DomainController::class, 'checkDomain'])->name('ch
 Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');
 
 Route::post('/orderstore', [DomainController::class, 'store'])->name('orderstore');
+Route::get('/update-status', [paymentController::class, 'updateStatus'])->name('updateStatus');
 Route::get('/templates', [DomainController::class, 'index'])->name('templates.index');
 
 

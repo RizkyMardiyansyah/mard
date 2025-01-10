@@ -100,29 +100,25 @@ class DomainController extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        $validated = $request->validate([
-            'domain' => 'required|string',
-            'template' => 'required|exists:templates,id',
-            'nik' => 'required',
-            'name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'phone_number' => 'required',
-            'status' => 'required|in:Paying,Developing,Online,Renewing,Offline', 
-            'subscription' => 'required|exists:subscriptions,id',       
-            'domainCost' => 'nullable|numeric',
-            'templateCost' => 'nullable|numeric',
-            'subscriptionCost' => 'nullable|numeric',
-            'total_payment' => 'nullable|numeric',
-            'ktp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-            'siup' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-            'npwp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-            // 'snapKey' => 'nullable|string',
+        $data = $request->all(); // Mengambil semua data dari request
+
+        $order=Order::create([
+            'domain' => $data['domain'],
+            'template' => $data['template'],
+            'nik' => $data['nik'],
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone_number' => $data['phone_number'],
+            'status' => $data['status'],
+            'subscription' => $data['subscription'],
+            'domainCost' => $data['domainCost'] ?? 0,
+            'templateCost' => $data['templateCost'] ?? 0,
+            'subscriptionCost' => $data['subscriptionCost'] ?? 0,
+            'total_payment' => $data['total_payment'] ?? 0,
+            'ktp' => $request->file('ktp') ? $request->file('ktp')->store('documents') : null,
+            'siup' => $request->file('siup') ? $request->file('siup')->store('documents') : null,
+            'npwp' => $request->file('npwp') ? $request->file('npwp')->store('documents') : null,
         ]);
-
-        
-
-        // Save order to database
-        $order=order::create($validated);
 
         // Handle file uploads
         if ($request->hasFile('ktp') && $request->file('ktp')->isValid()) {
@@ -140,8 +136,6 @@ class DomainController extends Controller
             $validated['npwp'] = $request->file('npwp')->store('npwp_' . time(), 'public');
         }
 
-        
-
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.serverKey');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -153,26 +147,40 @@ class DomainController extends Controller
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => rand(),
-                'gross_amount' => $validated['total_payment'],
+                'order_id' => 'order_' . rand(),
+                'gross_amount' => $data['total_payment'],
             ),
             'customer_details' => array(
-                'first_name' => $validated['name'],
-                'email' => $validated['email'],
+                'first_name' => $data['name'],
+                'email' => $data['email'],
             )
         );
         
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-
-        
-        // Menambahkan snapKey ke data order
-        $order->update(['snapKey' => $snapToken]);
-
-        
-
-        return response()->json(['status' => 'success', 'message' => 'Your order has been submitted successfully!']);
-
-        // return redirect('/#home')->with('success', 'Your order has been submitted successfully!');
+        try {
+            // Mendapatkan Snap Token dari Midtrans
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+    
+            // Update order dengan Snap Token yang didapat
+            $order->update(['snapKey' => $snapToken]);
+    
+            // Redirect ke halaman payment dengan snapKey sebagai URL unik
+            return redirect()->route('payment', ['snapKey' => $snapToken]);
+    
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
+        }
+    }
+    
+    // Controller untuk menampilkan view payment.blade
+    public function payment($snapKey)
+    {
+        // Ambil data berdasarkan snapKey
+        $order = Order::where('snapKey', $snapKey)->firstOrFail();
+    
+        return view('payment', [
+            'order' => $order,
+            'snapKey' => $snapKey,
+        ]);
     }
 
 

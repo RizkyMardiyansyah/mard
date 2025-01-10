@@ -4,7 +4,7 @@
             <div class="row">
                 <!-- Logo -->
                 <div class="col-lg-3 col-md-6 col-12 flex-column ">
-                    <img src="img/MardPutih.svg" alt="Logo" class="footer-logo me-3" style="height: 40px;">
+                    <img src="../img/MardPutih.svg" alt="Logo" class="footer-logo me-3" style="height: 40px;">
                     <a href="#" style="color: inherit; text-decoration: none;">
                         <p style="margin-top:20px;"><b>Cakung Timur</b>, Jakarta Timur, DKI Jakarta, 13910, Indonesia</p>
                     </a>

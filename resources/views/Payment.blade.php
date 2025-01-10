@@ -28,10 +28,16 @@
     }
 
 </style>
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/favicon.ico">
     <meta name="title" content="Mitra Adidaya Rekayasa Digital">
@@ -61,75 +67,21 @@
     @include('partials.navbar')
 
     <div id="services" class="services container hero-text ">
-        <form id="personal-info-form" method="POST" action="{{ route('orderstore') }}" enctype="multipart/form-data">
+        
             <div class="row">
                 @csrf
                 <div class="serv col-md-8 col-12">                
-                    <div class="">
-                        <div class="container">
-
-                            <!-- Personal Information Section -->
-                            <div class="cart">
-                                
-                                <div class="section">
-                                    <h5 class="form-section" data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h5>
-                                    <h6 data-lang-en="The required information needed to register your domain" data-lang-id="Informasi yang diperlukan untuk mendaftarkan domain Anda"> </h6>
-                                </div>
-                               
-                                    <input type="hidden" id="domain" name="domain">
-                                    <input type="hidden" id="subscription" name="subscription">
-                                    <input type="hidden" id="templateId" name="template">
-                                    <input type="hidden" id="initial_domain_cost" name="domainCost">
-                                    <input type="hidden" id="renewal_cost" name="template_cost">
-                                    <input type="hidden" id="hosting_cost" name="subscriptionCost">
-                                    <input type="hidden" id="total_payment" name="total_payment">
-                                    <input type="hidden" id="status" name="status" value="Paying">
-                                    
-                                    <div class="form-group">
-                                        <label class="form-label" for="nik">NIK</label>
-                                        <input  type="text" id="nik" name="nik" class="form-control" placeholder="Enter your NIK" required mainlength="16">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="name" data-lang-en="Name" data-lang-id="Nama"></label>
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required maxlength="255">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="email">Email</label>
-                                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required maxlength="255">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="phone_number" data-lang-en="Phone Number" data-lang-id="Nomor Telepon"></label>
-                                        <input type="tel" id="phone_number" name="phone_number" class="form-control" placeholder="Enter your phone number" required maxlength="255">
-                                    </div>
-                                
-                            </div>
-                        
-                            <!-- Additional Documents Section -->
-                            <div id="doc" class="cart" style="margin-top: 20px">
-                                <div class="section">
-                                    <h5 class="form-section" style="color: black;" data-lang-en="Supporting Documents" data-lang-id="Dokumen Pendukung"></h5>
-                                    <h6 data-lang-en="The required document needed to register your domain, because you're using a .co.id domain" data-lang-id="Dokumen yang diperlukan untuk mendaftarkan domain Anda, karena Anda menggunakan domain .co.id"> </h6>
-                                </div>
-                               
-                                    <div class="form-group">
-                                        <label class="form-label" for="ktp">KTP</label>
-                                        <input type="file" id="ktp" name="ktp" class="form-control">
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="siup">SIUP</label>
-                                        <input type="file" id="siup" name="siup" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="npwp">NPWP</label>
-                                        <input type="file" id="npwp" name="npwp" class="form-control">
-                                    </div>
-                            </div>
+                    <div class="container">
+                        <div class="cart">
+                            <div class="section">
+                                <h5 class="form-section" data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h5>
+                                <h6 data-lang-en="The required information needed to register your domain" data-lang-id="Informasi yang diperlukan untuk mendaftarkan domain Anda"> </h6>
+                            </div>                                
                         </div>
-                    </div>
-                               
-            </div> 
-            <div class="serv col-md-4 col-12">                
+                    </div>                               
+                </div> 
+                {{-- Cart --}}
+                <div class="serv col-md-4 col-12">                
                     <div class="cart order">
                         <div>   
                             <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
@@ -157,14 +109,15 @@
                             <div class="Subtotal d-flex justify-content-between align-items-center">
                                 <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal"></h5>
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
-                            </div>
-
-                            <button id="next-button" type="submit"  class="w-100 btn btn-primary" data-lang-en="Checkout" data-lang-id="Checkout"></button>
+                            </div>                
+                            <button id="pay-button" type="submit"  class="w-100 btn btn-primary" data-lang-en="Pay" data-lang-id="Bayar"></button>
+                            {{-- <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>  --}}
                         </div>
                     </div>
-            </div>           
-        </div>
-    </form> 
+                </div>      
+                {{-- End Cart --}}
+            </div>
+        
     </div>
 
 {{-- Footer Section --}}
@@ -174,188 +127,87 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-    document.getElementById('next-button').addEventListener('click', function(event) {
-        const inputs = {
-            nik: document.getElementById('nik'),
-            name: document.getElementById('name'),
-            email: document.getElementById('email'),
-            phone_number: document.getElementById('phone_number')
-        };
+<!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
+<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="MIDTRANS_CLIENT_KEY"></script>
 
-        const docSection = document.getElementById('doc');
-        const docFields = {
-            ktp: document.getElementById('ktp'),
-            siup: document.getElementById('siup'),
-            npwp: document.getElementById('npwp')
-        };
-
-        let isValid = true;
-
-        const validateInput = (input, regex, minLength, maxLength, customMessage) => {
-            if (input.value.trim() === '' || 
-                (minLength && input.value.length < minLength) || 
-                (maxLength && input.value.length > maxLength) || 
-                (regex && !regex.test(input.value.trim()))) {
-                input.style.border = '1px solid red';
-                input.setCustomValidity(customMessage);
-                isValid = false;
-            } else {
-                input.style.border = '';
-                input.setCustomValidity('');
-            }
-            input.reportValidity();
-        };
-
-        validateInput(inputs.nik, /^\d{16}$/, 16, 16, 'Required valid NIK.');
-        validateInput(inputs.name, null, 1, null, 'Required.');
-        validateInput(inputs.email, /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, 1, null, 'Required valid email.');
-        validateInput(inputs.phone_number, /^\d{10,15}$/, 10, 15, 'Required valid phone number.');
-
-        if (docSection.classList.contains('visible')) {
-        // Periksa file input dengan memeriksa files.length
-        if (docFields.ktp.files.length === 0) {
-            isValid = false;
-            docFields.ktp.style.border = '1px solid red';
-            docFields.ktp.setCustomValidity('KTP is required.');
-        } else {
-            docFields.ktp.style.border = '';
-            docFields.ktp.setCustomValidity('');
-        }
-
-        if (docFields.siup.files.length === 0) {
-            isValid = false;
-            docFields.siup.style.border = '1px solid red';
-            docFields.siup.setCustomValidity('SIUP is required.');
-        } else {
-            docFields.siup.style.border = '';
-            docFields.siup.setCustomValidity('');
-        }
-
-        if (docFields.npwp.files.length === 0) {
-            isValid = false;
-            docFields.npwp.style.border = '1px solid red';
-            docFields.npwp.setCustomValidity('NPWP is required.');
-        } else {
-            docFields.npwp.style.border = '';
-            docFields.npwp.setCustomValidity('');
-        }
-    }
-
-        if (!isValid) {
-            event.preventDefault();
-        }else{
-            
-            event.preventDefault(); // Mencegah form submit langsung
-
-    // Tampilkan konfirmasi menggunakan SweetAlert2
-    // Swal.fire({
-    // title: "Are you sure?",
-    // text: "Do you want to proceed with the checkout?",
-    // icon: "warning",
-    // showCancelButton: true,
-    // confirmButtonColor: "#3085d6",
-    // cancelButtonColor: "#d33",
-    // confirmButtonText: "Yes, Checkout!"
-    // }).then((result) => {
-    // if (result.isConfirmed) {
-    //     Swal.fire({
-    //     title: "Checkout!",
-    //     text: "Your checkout success.",
-    //     icon: "success"
-    //     });
-    // }
-    // });
-    //     }
-    // });
-
-
-    Swal.fire({
-        title: "Are you sure?",
-        text: "Do you want to proceed with the checkout?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#488EFE",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, Checkout!"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Jika pengguna mengkonfirmasi, lakukan submit form
-            document.getElementById('personal-info-form').submit();
+    <script type="text/javascript">
+      document.getElementById('pay-button').onclick = function(){
+        // SnapToken acquired from previous step
+        snap.pay('{{ $order->snapKey }}', {
+          // Optional
+          onSuccess: function(result){
             Swal.fire({
-            title: "Checkout!",
-            text: "Your checkout success.",
-            icon: "success"
+                title: 'Success!',
+                text: 'Your payment was successful.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {              
+
+                var snapKey = '{{ $order->snapKey }}';
+                var orderId = result.order_id; // order_id yang didapat dari Snap API result
+
+                // Arahkan ke route updateStatus dengan parameter snapKey dan orderId
+                window.location.href = "/update-status?snapKey=" + snapKey + "&orderId=" + orderId;
             });
-        } else {
-            // Jika pengguna membatalkan, tidak melakukan apa-apa
-            Swal.fire('Checkout Cancelled!', 'Please confirm your ourder befor checkout.', 'error');
-        }
-    });
-        }
-    });
-</script>
+
+          },
+          // Optional
+          onPending: function(result){
+            Swal.fire({
+                title: 'Pending!',
+                text: 'Your payment is pending. Please complete the payment.',
+                icon: 'info',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                // Lakukan tindakan tambahan jika diperlukan
+                console.log(result); // Untuk debugging
+            });
+          },
+          // Optional
+          onError: function(result){
+            Swal.fire({
+                title: 'Error!',
+                text: 'There was an error with your payment. Please try again.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                // Lakukan tindakan tambahan jika diperlukan
+                console.error(result); // Untuk debugging
+            });
+          }
+        });
+      };
+    </script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const domain = sessionStorage.getItem("domain") || "-";
-        const template = sessionStorage.getItem("template") || "-";
-        const templateId = sessionStorage.getItem("templateId") || "-";
-        const subYears = sessionStorage.getItem("year") || "1";
-        const domainPrice = parseInt(sessionStorage.getItem("newDomainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const subsPrice = parseInt(sessionStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const subtotal = parseInt(sessionStorage.getItem("subtotal")?.replace(/[^\d]/g, '') || "0", 10);
-        // const subscription = sessionStorage.getItem('subId');
-        // const renewalCost = sessionStorage.getItem('templatePrice');
-        // const totalPayment = sessionStorage.getItem('subtotal');
+        // Memastikan nilai variabel Blade dibungkus dengan tanda kutip jika merupakan string
+        const domain = "{{ $order->domain }}" || "-";
+        const template = "{{ $template->title }}" || "-";
+        const subYears = "{{ $subs->year }}" || "1";
+        const domainPrice = Math.floor(parseFloat("{{ $order->domainCost }}") || 0);
+        const templatePrice = Math.floor(parseFloat("{{ $order->templateCost }}") || 0);
+        const subsPrice = Math.floor(parseFloat("{{ $subs->price }}") || 0);
+        const subtotal = Math.floor(parseFloat("{{ $order->total_payment }}") || 0);
 
-        if (domain.toLowerCase().includes('.co.id')) {
-            $('#doc').addClass('visible');
-        } else {
-            $('#doc').removeClass('visible');
-        }
-
-        if (!domain || domain === "-" || !template || template === "-") {
-            window.location.href = '/';
-        }
-
-        // const Subtotal = domainPrice + templatePrice + subsPrice;
-
+        // Fungsi untuk format nilai menjadi format Rupiah
         const formatRupiah = (value) => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "-";
 
+        // Menampilkan nilai yang sudah diformat pada elemen yang sesuai
         document.getElementById("selected-domain").innerText = domain;
         document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
         document.getElementById("selected-template").innerText = template;
         document.getElementById("template-price").innerText = formatRupiah(templatePrice);
-        document.getElementById("domainYears").innerText = formatRupiah(subYears);
-        document.getElementById("subYears").innerText = formatRupiah(subYears);
+        document.getElementById("domainYears").innerText = subYears;
+        document.getElementById("subYears").innerText = subYears;
         document.getElementById("subs-price-cart").innerText = formatRupiah(subsPrice);
         document.getElementById("Subtotal").innerText = formatRupiah(subtotal);
-        
-
-        // document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("domain").value = sessionStorage.getItem("domain") || "-";
-        document.getElementById("templateId").value = sessionStorage.getItem("templateId") || "-";
-        document.getElementById("subscription").value = sessionStorage.getItem("subId") || "-";
-        document.getElementById("initial_domain_cost").value = sessionStorage.getItem("newDomainPrice")?.replace(/[^\d]/g, '') || "0";
-        document.getElementById("renewal_cost").value = sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0";
-        document.getElementById("hosting_cost").value = sessionStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0";
-        document.getElementById("total_payment").value = sessionStorage.getItem("subtotal")?.replace(/[^\d]/g, '') || "0";
-
-
-
-
     });
-
 </script>
 
 
-
-
-    
-
-    <script>
+<script>
 //   JS untuk toggle bahasa
         window.onload = function () {
             // Ambil preferensi bahasa dari localStorage
@@ -459,8 +311,8 @@ window.addEventListener('load', () => {
         }
     }
 });
-
 </script>
+
   
 </body>
 </html>

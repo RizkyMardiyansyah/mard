@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Section;
 use Filament\Resources\Components\Tab;
+use Filament\Support\RawJs;
 use Filament\Tables\Actions\ExportBulkAction;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
@@ -106,22 +107,34 @@ class OrderResource extends Resource
                             ->default(null),
                     ]),
                     Section::make('Paymet Information')->schema([                        
+                        Forms\Components\TextInput::make('orderId')
+                            ->disabled()
+                            ->reactive(),
                         Forms\Components\Select::make('subscription')
                             ->options(subscription::pluck('title', 'id')->toArray())
                             ->reactive(),
                         Forms\Components\TextInput::make('domainCost')
+                            ->mask(RawJs::make('$money($input)'))
+                            ->prefix('IDR')
                             ->numeric()
                             ->default(null),
                         Forms\Components\TextInput::make('templateCost')
+                            ->mask(RawJs::make('$money($input)'))
+                            ->prefix('IDR')
                             ->numeric()
                             ->default(null),
                         Forms\Components\TextInput::make('subscriptionCost')
+                            ->mask(RawJs::make('$money($input)'))
+                            ->prefix('IDR')
                             ->numeric()
                             ->default(null),
                         Forms\Components\TextInput::make('total_payment')
+                            ->mask(RawJs::make('$money($input)'))
+                            ->prefix('IDR')
                             ->numeric()
                             ->default(null),
                         Forms\Components\TextInput::make('snapKey')
+                            ->disabled()
                             ->maxLength(255)
                             ->default(null),
                     ]),

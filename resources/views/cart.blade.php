@@ -89,6 +89,7 @@
                                     <input type="hidden" id="hosting_cost" name="subscriptionCost">
                                     <input type="hidden" id="total_payment" name="total_payment">
                                     <input type="hidden" id="status" name="status" value="Paying">
+                                    <input type="hidden" id="snap-token" name="snap_token">
                                     
                                     <div class="form-group">
                                         <label class="form-label" for="nik">NIK</label>
@@ -162,9 +163,7 @@
                             <div class="Subtotal d-flex justify-content-between align-items-center">
                                 <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal"></h5>
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
-                            </div>
-                            <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
-
+                            </div>                
                             <button id="next-button" type="submit"  class="w-100 btn btn-primary" data-lang-en="Checkout" data-lang-id="Checkout"></button>
                         </div>
                     </div>
@@ -255,26 +254,34 @@
         }else{
             
             event.preventDefault(); // Mencegah form submit langsung
+Swal.fire({
+    title: "Are you sure?",
+    text: "Do you want to proceed with the checkout?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#488EFE",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Checkout!"
+}).then((result) => {
+    if (result.isConfirmed) {
+        // Jika pengguna mengkonfirmasi, lakukan submit form
+        document.getElementById('personal-info-form').submit();
 
+        Swal.fire({
+            title: 'Please wait...',
+            html: `<div style="text-align: center;">
+                    <div class="spinner" style="display: inline-block; margin: 10px auto;"></div>
+                </div>`,
+            allowOutsideClick: false,
+            showConfirmButton: false
+        });
 
-    Swal.fire({
-        title: "Are you sure?",
-        text: "Do you want to proceed with the checkout?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#488EFE",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, Checkout!"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Jika pengguna mengkonfirmasi, lakukan submit form
-            document.getElementById('personal-info-form').submit();
+    } else {
+        // Cancel jika pengguna membatalkan
+        Swal.close();
+    }
+});
 
-           
-        } else {
-
-        }
-    });
         }
     });
 </script>

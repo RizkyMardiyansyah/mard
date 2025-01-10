@@ -28,8 +28,8 @@
 {{-- Navbar --}}
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; transition: background-color 0.5s;">
     <div class="container">
-        <a class="navbar-brand blue" href="index.php"><img  src="img/NewLogoMardBlue.svg" height="50px" style="padding: 5px;"></a>
-        <a class="navbar-brand white" href="index.php"><img src="img/NewLogoMardWhite.svg" height="50px" style="padding: 5px;"></a>
+        <a class="navbar-brand blue" href="/#home"><img  src="../img/NewLogoMardBlue.svg" height="50px" style="padding: 5px;"></a>
+        <a class="navbar-brand white" href="/#home"><img src="../img/NewLogoMardWhite.svg" height="50px" style="padding: 5px;"></a>
         <div class="language-selector order-lg-2">
             <div class="toggle-container">
                 <input type="checkbox" id="languageToggle" class="toggle-checkbox">
