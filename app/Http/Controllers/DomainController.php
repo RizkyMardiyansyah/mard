@@ -164,8 +164,11 @@ class DomainController extends Controller
 
             $subs = subscription::where ('id', $data['subscription'])->first();
             $template = template::where ('id', $data['template'])->first();
+            $kop="{{ config('app.url') }}/img/kop.png";
 
-            Mail::to($data['email'])->send(new orderMail($data, $snapToken, $subs, $template));
+            dd($kop);
+
+            Mail::to($data['email'])->send(new orderMail($data, $snapToken, $subs, $template, $kop));
     
             return redirect()->route('payment', ['snapKey' => $snapToken]);
     
