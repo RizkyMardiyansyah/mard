@@ -50,6 +50,7 @@ class orderMail extends Mailable
         return new Content(
             view: 'orderMail',
         );
+    
     }
     public function build()
 {
