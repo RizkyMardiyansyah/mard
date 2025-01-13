@@ -54,17 +54,21 @@ class orderMail extends Mailable
     
     }
     public function build()
-    {
-        $imageUrl = 'https://mardsoft.com/img/kop.png';
-    $kop = Http::get($imageUrl)->body();
-        return $this->view('orderMail')
-        ->attachData($kop, 'kop.png', [
-            'as' => 'kop.png',  // Nama file yang akan dilampirkan
-            'mime' => 'image/png', // Tipe MIME gambar
-            'disposition' => 'inline', // Menandakan bahwa gambar ini adalah inline
-            'cid' => 'kop.png', // Content-ID untuk digunakan dalam HTML
-        ]);
-    }
+{
+    // Path ke gambar yang ingin di-embed
+    $imagePath = public_path('img/kop.png');
+    
+    // Mengambil konten gambar dan mengonversinya ke Base64
+    $imageData = base64_encode(file_get_contents($imagePath));
+    
+    // Format Base64 untuk digunakan dalam tag <img>
+    $imageUrl = 'data:image/png;base64,' . $imageData;
+
+    // Mengirim email dengan gambar Base64
+    return $this->view('orderMail', [
+        'imageUrl' => $imageUrl,
+    ]);
+}
 
     /**
      * Get the attachments for the message.

@@ -110,7 +110,7 @@
         
         <div class="header">
             <div class="kop" style="max-width: 100%; height: auto;">
-                <img src="cid:kop.png" alt="Logo Perusahaan" >
+                <img src="{{ $imageUrl }}" alt="Logo Perusahaan" >
                 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW -->
