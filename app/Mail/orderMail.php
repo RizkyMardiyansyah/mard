@@ -54,10 +54,10 @@ class orderMail extends Mailable
         $path = public_path('img/kop.png'); // Path to the image in the public folder
         $imageContent = file_get_contents($path); // Read the image content
 
-        // Embed the image inline using embedData
+        // Embed the image inline using embed
         return $this->subject('Checkout Website')
                     ->view('orderMail')
-                    ->embedData($imageContent, 'kop.png', 'image/png'); // Embed the image with CID
+                    ->embed($path); // Embed the image inline
     }
 
     /**
