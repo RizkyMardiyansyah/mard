@@ -70,7 +70,6 @@ class orderMail extends Mailable
                 \Illuminate\Mail\Mailables\Attachment::fromPath($path)
                     ->as('kop.png')
                     ->withMime('image/png')
-                    ->disposition('inline')
                     ->withCid('kop.png'),
             ];
         }
