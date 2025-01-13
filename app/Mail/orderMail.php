@@ -49,27 +49,39 @@ class orderMail extends Mailable
             view: 'orderMail',
         );
     }
+    public function build()
+    {
+        $path = public_path('img/kop.png'); // Path to the image in the public folder
+        $imageContent = file_get_contents($path); // Read the image content
+
+        // Embed the image inline using embedData
+        return $this->subject('Checkout Website')
+                    ->view('orderMail')
+                    ->embedData($imageContent, 'kop.png', 'image/png'); // Embed the image with CID
+    }
 
     /**
      * Get the attachments for the message.
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
-    // public function attachments(): array
-    // {
-    //     return [];
-    // }
-
     public function attachments(): array
-        {
-            $path = public_path('img/kop.png'); // Path gambar yang ada di folder public
-    $imageContent = file_get_contents($path); // Membaca konten gambar
+    {
+        return [];
+    }
 
-    return [
-        // Menyertakan gambar sebagai lampiran inline
-        $this->embedData($imageContent, 'kop.png', 'image/png'), // CID 'kop.png'
-    ];
-        }
+    // public function attachments(): array
+    //     {
+    //           // Path gambar yang ada di public/img
+    //         $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
+
+    //         return [
+    //             // Menambahkan gambar sebagai lampiran inline
+    //             \Illuminate\Mail\Mailables\Attachment::fromPath($path)
+    //                 ->as('kop.png')
+    //                 ->withMime('image/png')
+    //         ];
+    //     }
 }
 
 
