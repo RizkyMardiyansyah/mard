@@ -8,7 +8,6 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use Swift_Attachment;
 
 class orderMail extends Mailable
 {
@@ -64,17 +63,15 @@ class orderMail extends Mailable
     public function attachments(): array
         {
               // Path gambar yang ada di public/img
-        $path = public_path('img/kop.png');
+            $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
 
-        // Membaca gambar sebagai data dan menyematkannya dengan Content-ID
-        $imageData = file_get_contents($path);
-
-        // Menambahkan gambar dengan CID
-        return [
-            (new Swift_Attachment($imageData, 'kop.png', 'image/png'))
-                ->setDisposition('inline') // Menyatakan lampiran sebagai inline
-                ->setId('kop_image') // Menetapkan Content-ID
-        ];
+            return [
+                // Menambahkan gambar sebagai lampiran inline
+                \Illuminate\Mail\Mailables\Attachment::fromPath($path)
+                    ->as('kop.png') 
+                    ->withMime('image/png')
+            ];
+        }
 }
 
 
