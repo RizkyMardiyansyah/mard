@@ -58,9 +58,8 @@ class orderMail extends Mailable
     public function attachments(): array
     {
         return [
-            \Illuminate\Mail\Mailables\Attachment::fromStorageDisk('public', 'img/kop.png')
-                ->path('img/kop.png') // Path gambar di dalam folder public
-                ->as('kop.png') // Nama file gambar yang akan disertakan
+            \Illuminate\Mail\Mailables\Attachment::fromStorageDisk('public', 'img/kop.png') // Path relatif file dalam folder public
+                ->as('kop.png') // Nama file gambar
                 ->withMime('image/png') // MIME type untuk gambar PNG
                 ->cid('kopImage') // Content-ID untuk referensi di dalam email
         ];
