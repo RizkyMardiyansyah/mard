@@ -110,8 +110,9 @@
         
         <div class="header">
             <div class="kop" style="max-width: 100%; height: auto;">
-                <img src="{{asset('/img/kop.png')}}" alt="Logo Perusahaan" >
-                <p>{{asset('/img/kop.png')}}</p>
+                <div style='background: url("https://mardsoft.com/img/kop.png")'></div>
+                {{-- <img src="{{asset('/img/kop.png')}}" alt="Logo Perusahaan" >
+                <p>{{asset('/img/kop.png')}}</p> --}}
             </div>
         </div>
         <div class="content">
