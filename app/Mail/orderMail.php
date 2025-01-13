@@ -58,14 +58,18 @@ class orderMail extends Mailable
      */
     public function attachments(): array
     {
-         // Menggunakan embed() untuk menambahkan gambar dengan Content-ID
-         $path = storage_path('app/public/img/kop.png'); // Path gambar
+          // Menyertakan gambar sebagai lampiran inline
+        $path = storage_path('app/public/img/kop.png'); // Path gambar
+
+        // Gunakan embed() untuk mendapatkan CID
+        $image = $this->embed($path);
 
         return [
-            Attachment::fromPath($path) // Menambahkan gambar sebagai lampiran
+            // Menambahkan gambar sebagai lampiran inline
+            \Illuminate\Mail\Mailables\Attachment::fromPath($path)
                 ->as('kop.png') // Nama file gambar
                 ->withMime('image/png') // MIME type untuk gambar PNG
-                ->embedAs('kopImage')
+                ->embed($image) // Menyertakan gambar dalam email
         ];
     }
 }
