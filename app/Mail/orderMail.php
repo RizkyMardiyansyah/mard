@@ -36,7 +36,7 @@ class orderMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Order Mail',
+            subject: 'Checkout Website',
         );
     }
 
@@ -55,23 +55,25 @@ class orderMail extends Mailable
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
-    public function attachments(): array
-    {
-        return [];
-    }
-
     // public function attachments(): array
-    //     {
-    //           // Path gambar yang ada di public/img
-    //         $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
+    // {
+    //     return [];
+    // }
 
-    //         return [
-    //             // Menambahkan gambar sebagai lampiran inline
-    //             \Illuminate\Mail\Mailables\Attachment::fromPath($path)
-    //                 ->as('kop.png') // Nama file gambar
-    //                 ->withMime('image/png') // MIME type untuk gambar PNG
-    //         ];
-    //     }
+    public function attachments(): array
+        {
+              // Path gambar yang ada di public/img
+            $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
+
+            return [
+                // Menambahkan gambar sebagai lampiran inline
+                \Illuminate\Mail\Mailables\Attachment::fromPath($path)
+                    ->as('kop.png')
+                    ->withMime('image/png')
+                    ->disposition('inline')
+                    ->withCid('kop.png'),
+            ];
+        }
 }
 
 
