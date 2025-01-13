@@ -110,7 +110,7 @@
         
         <div class="header">
             <div class="kop">
-                <img src="kop.png" alt="Logo Perusahaan" style="max-width: 100%; height: auto;">
+                <img src="https://mardsoft.com/img/kop.png" alt="Logo Perusahaan" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="content">
