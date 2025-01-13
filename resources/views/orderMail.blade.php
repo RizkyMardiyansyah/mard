@@ -110,7 +110,9 @@
         
         <div class="header">
             <div class="kop">
-                <img src="{{ asset($kop) }}" alt="Logo Perusahaan" style="max-width: 100%; height: auto;">
+                <div class="kop" style="background-image: url('https://mardsoft.com/img/kop.png'); background-size: contain; background-repeat: no-repeat; background-position: center; height: 200px;">
+                    <!-- Konten lain di dalam div ini bisa ditempatkan di sini -->
+                </div>
             </div>
         </div>
         <div class="content">
