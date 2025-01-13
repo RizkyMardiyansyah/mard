@@ -110,7 +110,7 @@
         
         <div class="header">
             <div class="kop">
-                <img src="{{ secure_url('img/kop.png') }}" alt="Logo Perusahaan">
+                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/kop.png'))) }}" alt="Logo Perusahaan">
             </div>
         </div>
         <div class="content">
