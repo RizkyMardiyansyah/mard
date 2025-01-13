@@ -110,7 +110,7 @@
         
         <div class="header">
             <div class="kop">
-                <img src="{{ config('app.url') }}img/kop.png" alt="Logo Perusahaan">
+                <img src="cid:kopImage" alt="Logo Perusahaan">
             </div>
         </div>
         <div class="content">

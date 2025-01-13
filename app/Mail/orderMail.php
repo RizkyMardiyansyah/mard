@@ -27,6 +27,7 @@ class orderMail extends Mailable
         $this->snapToken = $snapToken;
         $this->subs = $subs;
         $this->template = $template;
+        
     }
 
     /**
@@ -56,6 +57,12 @@ class orderMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [
+            \Illuminate\Mail\Mailables\Attachment::fromStorageDisk('public') // Gunakan public disk
+                ->path('img/kop.png') // Path gambar di dalam folder public
+                ->as('kop.png') // Nama file gambar yang akan disertakan
+                ->withMime('image/png') // MIME type untuk gambar PNG
+                ->cid('kopImage') // Content-ID untuk referensi di dalam email
+        ];
     }
 }
