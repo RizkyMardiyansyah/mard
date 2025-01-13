@@ -151,6 +151,7 @@
                 window.location.href = "/update-status?snapKey=" + snapKey + "&orderId=" + orderId;
             });
 
+            
           },
           // Optional
           onPending: function(result){
