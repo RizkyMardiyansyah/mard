@@ -58,8 +58,8 @@ class orderMail extends Mailable
      */
     public function attachments(): array
     {
-          // Menyertakan gambar sebagai lampiran inline
-        $path = storage_path('app/public/img/kop.png'); // Path gambar
+          // Path gambar yang ada di public/img
+        $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
 
         // Menyertakan gambar dengan CID menggunakan embedData
         $image = $this->embedData(file_get_contents($path), 'kop.png', 'image/png');
