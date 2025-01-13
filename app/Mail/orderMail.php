@@ -53,15 +53,15 @@ class orderMail extends Mailable
     
     }
     public function build()
-{
-    return $this->view('orderMail')
+    {
+        return $this->view('orderMail')
         ->attach(public_path('img/kop.png'), [
-            'as' => 'kop.png',
-            'mime' => 'image/png',
-            'disposition' => 'inline',
-            'cid' => 'kop.png'
+            'as' => 'kop.png',  // Nama file yang akan dilampirkan
+            'mime' => 'image/png', // Tipe MIME gambar
+            'disposition' => 'inline', // Menandakan bahwa gambar ini adalah inline
+            'cid' => 'kop.png', // Content-ID untuk digunakan dalam HTML
         ]);
-}
+    }
 
     /**
      * Get the attachments for the message.
