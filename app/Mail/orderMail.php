@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Attachment;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -57,11 +58,14 @@ class orderMail extends Mailable
      */
     public function attachments(): array
     {
+         // Menggunakan embed() untuk menambahkan gambar dengan Content-ID
+         $path = storage_path('app/public/img/kop.png'); // Path gambar
+
         return [
-            \Illuminate\Mail\Mailables\Attachment::fromStorageDisk('public', 'img/kop.png') // Path relatif file dalam folder public
+            Attachment::fromPath($path) // Menambahkan gambar sebagai lampiran
                 ->as('kop.png') // Nama file gambar
                 ->withMime('image/png') // MIME type untuk gambar PNG
-                ->cid('kopImage') // Content-ID untuk referensi di dalam email
+                ->embedAs('kopImage')
         ];
     }
 }
