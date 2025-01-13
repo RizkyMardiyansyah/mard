@@ -17,18 +17,16 @@ class orderMail extends Mailable
     public $snapToken;
     public $subs;
     public $template;
-    public $kop;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($data, $snapToken, $subs, $template, $kop)
+    public function __construct($data, $snapToken, $subs, $template)
     {
         $this->data = $data;
         $this->snapToken = $snapToken;
         $this->subs = $subs;
         $this->template = $template;
-        $this->kop = $kop;
         
     }
 
@@ -52,30 +50,29 @@ class orderMail extends Mailable
         );
     }
 
-    
-
     /**
      * Get the attachments for the message.
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
-    public function attachments(): array
-    {
-        return [];
-    }
-
     // public function attachments(): array
-    //     {
-    //           // Path gambar yang ada di public/img
-    //         $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
+    // {
+    //     return [];
+    // }
 
-    //         return [
-    //             // Menambahkan gambar sebagai lampiran inline
-    //             \Illuminate\Mail\Mailables\Attachment::fromPath($path)
-    //                 ->as('kop.png')
-    //                 ->withMime('image/png')
-    //         ];
-    //     }
+    public function attachments(): array
+        {
+              // Path gambar yang ada di public/img
+            $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
+
+            return [
+                // Menambahkan gambar sebagai lampiran inline
+                \Illuminate\Mail\Mailables\Attachment::fromPath($path)
+                    ->as('kop.png') 
+                    ->withMime('image/png')
+                    ->setId('kop_image')
+            ];
+        }
 }
 
 

@@ -164,11 +164,7 @@ class DomainController extends Controller
 
             $subs = subscription::where ('id', $data['subscription'])->first();
             $template = template::where ('id', $data['template'])->first();
-            // $kop=url('img/kop.png');
-
-            $kopPath = public_path('img/kop.png');
-            $kopbase = base64_encode(file_get_contents($kopPath));
-            $kop = 'data:image/png;base64,' . $kopbase;
+            $kop=url('img/kop.png');
             
 
             // dd($kop);
