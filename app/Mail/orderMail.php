@@ -61,9 +61,6 @@ class orderMail extends Mailable
           // Path gambar yang ada di public/img
         $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
 
-        // Menyertakan gambar dengan embed (inline)
-        $image = $this->embed($path); // Menambahkan gambar inline
-
         return [
             // Menambahkan gambar sebagai lampiran inline
             \Illuminate\Mail\Mailables\Attachment::fromPath($path)
