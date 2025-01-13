@@ -62,16 +62,13 @@ class orderMail extends Mailable
 
     public function attachments(): array
         {
-              // Path gambar yang ada di public/img
-            $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
+            $path = public_path('img/kop.png'); // Path gambar yang ada di folder public
+    $imageContent = file_get_contents($path); // Membaca konten gambar
 
-            return [
-                // Menambahkan gambar sebagai lampiran inline
-                \Illuminate\Mail\Mailables\Attachment::fromPath($path)
-                    ->as('kop.png')
-                    ->withMime('image/png')
-                    ->withCid('kop.png'),
-            ];
+    return [
+        // Menyertakan gambar sebagai lampiran inline
+        $this->embedData($imageContent, 'kop.png', 'image/png'), // CID 'kop.png'
+    ];
         }
 }
 
