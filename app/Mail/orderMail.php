@@ -49,29 +49,38 @@ class orderMail extends Mailable
             view: 'orderMail',
         );
     }
+    public function build()
+{
+    return $this->view('orderMail')
+        ->attach(public_path('img/kop.png'), [
+            'as' => 'kop.png',
+            'mime' => 'image/png',
+            'disposition' => 'inline', // Pastikan disposisi adalah 'inline'
+        ]);
+}
 
     /**
      * Get the attachments for the message.
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
-    // public function attachments(): array
-    // {
-    //     return [];
-    // }
-
     public function attachments(): array
-        {
-              // Path gambar yang ada di public/img
-            $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
+    {
+        return [];
+    }
 
-            return [
-                // Menambahkan gambar sebagai lampiran inline
-                \Illuminate\Mail\Mailables\Attachment::fromPath($path)
-                    ->as('kop.png') 
-                    ->withMime('image/png')
-            ];
-        }
+    // public function attachments(): array
+    //     {
+    //           // Path gambar yang ada di public/img
+    //         $path = public_path('img/kop.png'); // Menggunakan public_path() untuk gambar di folder public
+
+    //         return [
+    //             // Menambahkan gambar sebagai lampiran inline
+    //             \Illuminate\Mail\Mailables\Attachment::fromPath($path)
+    //                 ->as('kop.png') 
+    //                 ->withMime('image/png')
+    //         ];
+    //     }
 }
 
 
