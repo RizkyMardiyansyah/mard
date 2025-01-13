@@ -72,7 +72,7 @@ class orderMail extends Mailable
                 // \Illuminate\Mail\Mailables\Attachment::fromPath($path)
                 //     ->as('kop.png')
                 //     ->withMime('image/png')
-                    $this->embed($path)
+                $this->embedData(file_get_contents($path), 'kop.png', 'image/png')
             ];
         }
 }
