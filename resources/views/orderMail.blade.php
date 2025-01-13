@@ -110,9 +110,9 @@
         
         <div class="header">
             <div class="kop">
-                @php
+                {{-- @php
                     cd(cid:kop.png);
-                @endphp
+                @endphp --}}
                 <img src="cid:kop.png" alt="Logo Perusahaan" style="max-width: 100%; height: auto;">
             </div>
         </div>
