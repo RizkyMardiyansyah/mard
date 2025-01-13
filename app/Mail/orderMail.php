@@ -66,7 +66,6 @@ class orderMail extends Mailable
             \Illuminate\Mail\Mailables\Attachment::fromPath($path)
                 ->as('kop.png') // Nama file gambar
                 ->withMime('image/png') // MIME type untuk gambar PNG
-                ->cid('kop')
         ];
     }
 }
