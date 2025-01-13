@@ -57,7 +57,8 @@ class orderMail extends Mailable
         ->attach(public_path('img/kop.png'), [
             'as' => 'kop.png',
             'mime' => 'image/png',
-            'disposition' => 'inline', // Pastikan disposisi adalah 'inline'
+            'disposition' => 'inline',
+            'cid' => 'kop.png',
         ]);
 }
 
