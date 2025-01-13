@@ -69,10 +69,10 @@ class orderMail extends Mailable
 
             return [
                 // Menambahkan gambar sebagai lampiran inline
-                \Illuminate\Mail\Mailables\Attachment::fromPath($path)
-                    ->as('kop.png')
-                    ->withMime('image/png')
-                    ->withContentId('kopImage')
+                // \Illuminate\Mail\Mailables\Attachment::fromPath($path)
+                //     ->as('kop.png')
+                //     ->withMime('image/png')
+                    $this->embed($path)
             ];
         }
 }

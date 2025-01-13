@@ -110,7 +110,7 @@
         
         <div class="header">
             <div class="kop">
-                <img src="cid:kopImage" alt="Logo Perusahaan" style="max-width: 100%; height: auto;">
+                <img src="{{ $message->embed(public_path('img/kop.png')) }}" alt="Logo Perusahaan" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="content">
