@@ -164,7 +164,7 @@ class DomainController extends Controller
 
             $subs = subscription::where ('id', $data['subscription'])->first();
             $template = template::where ('id', $data['template'])->first();
-            $kop="{{ config('app.url') }}/img/kop.png";
+            $kop=url('img/kop.png');
 
             dd($kop);
 
