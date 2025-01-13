@@ -110,7 +110,7 @@
         
         <div class="header">
             <div class="kop">
-                <img src="cid:kop.png" alt="Logo Perusahaan">
+                <img src="cid:kopImage" alt="Logo Perusahaan" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="content">

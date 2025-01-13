@@ -49,15 +49,16 @@ class orderMail extends Mailable
             view: 'orderMail',
         );
     }
+
     public function build()
     {
-        $path = public_path('img/kop.png'); // Path to the image in the public folder
-        $imageContent = file_get_contents($path); // Read the image content
-
-        // Embed the image inline using embed
-        return $this->subject('Checkout Website')
-                    ->view('orderMail')
-                    ->embed($path); // Embed the image inline
+        return $this->view('emails.header')
+                    ->attachFromStorage(public_path('img/kop.png'), 'kop.png', [
+                        'mime' => 'image/png',
+                    ])
+                    ->with([
+                        'kopImage' => 'kop.png', // Menghubungkan dengan content_id
+                    ]);
     }
 
     /**
