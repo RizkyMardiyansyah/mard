@@ -110,7 +110,7 @@
         
         <div class="header">
             <div class="kop">
-                <img src="{{ asset('img/kop.png') }}" alt="Logo Perusahaan">
+                <img src="{{ secure_url('img/kop.png') }}" alt="Logo Perusahaan">
             </div>
         </div>
         <div class="content">
