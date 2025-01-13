@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -61,19 +60,12 @@ class orderMail extends Mailable
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
-    // public function attachments(): array
-    // {
-    //     return [];
-    // }
-
     public function attachments(): array
-        {
-            $image_data = base64_encode(file_get_contents(public_path('img/kop.png')));
-            return [
-                Attachment::fromData(function () use ($image_data) { return $image_data; }, 'kop.png')
-                    ->withMime('image/png'),
-            ];
-        }
+    {
+        return [];
+    }
+
+    
 }
 
 
