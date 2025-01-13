@@ -53,22 +53,7 @@ class orderMail extends Mailable
         );
     
     }
-    public function build()
-{
-    // Path ke gambar yang ingin di-embed
-    $imagePath = public_path('img/kop.png');
     
-    // Mengambil konten gambar dan mengonversinya ke Base64
-    $imageData = base64_encode(file_get_contents($imagePath));
-    
-    // Format Base64 untuk digunakan dalam tag <img>
-    $imageUrl = 'data:image/png;base64,' . $imageData;
-
-    // Mengirim email dengan gambar Base64
-    return $this->view('orderMail', [
-        'imageUrl' => $imageUrl,
-    ]);
-}
 
     /**
      * Get the attachments for the message.
