@@ -61,15 +61,14 @@ class orderMail extends Mailable
           // Menyertakan gambar sebagai lampiran inline
         $path = storage_path('app/public/img/kop.png'); // Path gambar
 
-        // Gunakan embed() untuk mendapatkan CID
-        $image = $this->embed($path);
+        // Menyertakan gambar dengan CID menggunakan embedData
+        $image = $this->embedData(file_get_contents($path), 'kop.png', 'image/png');
 
         return [
             // Menambahkan gambar sebagai lampiran inline
             \Illuminate\Mail\Mailables\Attachment::fromPath($path)
                 ->as('kop.png') // Nama file gambar
                 ->withMime('image/png') // MIME type untuk gambar PNG
-                ->embed($image) // Menyertakan gambar dalam email
         ];
     }
 }
