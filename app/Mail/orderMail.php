@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Http;
 
 class orderMail extends Mailable
 {
@@ -54,8 +55,10 @@ class orderMail extends Mailable
     }
     public function build()
     {
+        $imageUrl = 'https://mardsoft.com/img/kop.png';
+    $kop = Http::get($imageUrl)->body();
         return $this->view('orderMail')
-        ->attach(public_path('img/kop.png'), [
+        ->attachData($kop, 'kop.png', [
             'as' => 'kop.png',  // Nama file yang akan dilampirkan
             'mime' => 'image/png', // Tipe MIME gambar
             'disposition' => 'inline', // Menandakan bahwa gambar ini adalah inline
