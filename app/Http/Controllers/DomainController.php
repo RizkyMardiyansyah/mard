@@ -7,6 +7,9 @@ use App\Models\template;
 use App\Models\subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Mail\ExampleMail;
+use App\Mail\orderMail;
+use Illuminate\Support\Facades\Mail;
 
 class DomainController extends Controller
 {
@@ -157,13 +160,15 @@ class DomainController extends Controller
         );
         
         try {
-            // Mendapatkan Snap Token dari Midtrans
             $snapToken = \Midtrans\Snap::getSnapToken($params);
     
-            // Update order dengan Snap Token yang didapat
             $order->update(['snapKey' => $snapToken]);
+
+            $subs = subscription::where ('id', $data['subscription'])->first();
+            $template = template::where ('id', $data['template'])->first();
+
+            Mail::to($data['email'])->send(new orderMail($data, $snapToken, $subs, $template));
     
-            // Redirect ke halaman payment dengan snapKey sebagai URL unik
             return redirect()->route('payment', ['snapKey' => $snapToken]);
     
         } catch (\Exception $e) {
@@ -182,6 +187,18 @@ class DomainController extends Controller
             'snapKey' => $snapKey,
         ]);
     }
+
+    // public function sendEmail()
+    // {
+    //     $data = [
+    //         'name' => 'John Doe',
+    //         'message' => 'This is a test email from Laravel.'
+    //     ];
+
+    //     Mail::to('rizkymardiyansyah23@gmail.com')->send(new orderMail($data));
+
+    //     return "Email sent successfully!";
+    // }
 
 
 

@@ -30,7 +30,7 @@ Route::get('/payment/{snapKey}', [paymentController::class, 'index'])->name('pay
 // // Rute pencarian template
 // Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');
 
-
+Route::get('/orderEmail', [paymentController::class, 'sendEmail']);
 
 
 
