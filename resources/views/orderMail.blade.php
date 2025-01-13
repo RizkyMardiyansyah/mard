@@ -110,9 +110,10 @@
         
         <div class="header">
             <div class="kop">
-                <div class="kop" style="background-image: url('https://mardsoft.com/img/kop.png'); background-size: contain; background-repeat: no-repeat; background-position: center; height: 200px;">
-                    <!-- Konten lain di dalam div ini bisa ditempatkan di sini -->
-                </div>
+                @php
+                    cd(cid:kop.png);
+                @endphp
+                <img src="cid:kop.png" alt="Logo Perusahaan" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="content">

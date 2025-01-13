@@ -49,7 +49,6 @@ class orderMail extends Mailable
     {
         return new Content(
             view: 'orderMail',
-            with: ['image_path' => $this->kop]
         );
     }
     public function build()
@@ -59,7 +58,7 @@ class orderMail extends Mailable
             'as' => 'kop.png',
             'mime' => 'image/png',
             'disposition' => 'inline',
-            'cid' => 'kop.png',
+            'cid' => 'kop.png'
         ]);
 }
 
