@@ -105,9 +105,6 @@
         }
     </style>
 </head>
-@php
-    dd(public_path('img/kop.png'));
-@endphp
 <body>
     <div class="container" style="padding: 0px">
         

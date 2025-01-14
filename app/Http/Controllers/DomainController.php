@@ -166,6 +166,7 @@ class DomainController extends Controller
             $template = template::where ('id', $data['template'])->first();
             $kop = public_path('img/kop.png');
             
+            
 
             Mail::to($data['email'])->send(new orderMail($data, $snapToken, $subs, $template, $kop));
     
