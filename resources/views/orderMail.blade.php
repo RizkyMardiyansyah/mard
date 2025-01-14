@@ -106,15 +106,13 @@
     </style>
 </head>
 <body>
-    <?php
-    $url = config('app.url') . '/img/kop.png';
-    $message->embedData(file_get_contents($url), 'kop', 'image/png');
-    ?>
     <div class="container" style="padding: 0px">
         
         <div class="header">
-            <div class="kop" style="max-width: 100%; height: auto;">
-                <img src="{{ $message->embedData(file_get_contents($url), 'kop', 'image/png') }}" alt="kop">
+            <div class="kop">
+                <img src="{{ $message->embed(public_path().'/img/kop.png') }}" alt="kop" style="max-width: 100%; height: auto;">
+
+                {{-- <img src="{{ $message->embed(storage_path('app/public/kop.png')) }}" alt="Logo Perusahaan"> --}}
             </div>
         </div>
         <div class="content">
