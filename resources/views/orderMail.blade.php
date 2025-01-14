@@ -108,13 +108,13 @@
 <body>
     <?php
     $url = config('app.url') . '/img/kop.png';
-    $message->embedData(file_get_contents($url), 'kop', ['mime' => 'image/png']);
+    $message->embedData(file_get_contents($url), 'kop', 'image/png');
     ?>
     <div class="container" style="padding: 0px">
         
         <div class="header">
             <div class="kop" style="max-width: 100%; height: auto;">
-                <img src="{{ $message->embedData(file_get_contents($url), 'kop', ['mime' => 'image/png']) }}" alt="kop">
+                <img src="{{ $message->embedData(file_get_contents($url), 'kop', 'image/png') }}" alt="kop">
             </div>
         </div>
         <div class="content">
