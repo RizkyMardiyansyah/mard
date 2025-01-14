@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Mail\ExampleMail;
 use App\Mail\orderMail;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class paymentController extends Controller
@@ -37,8 +38,10 @@ class paymentController extends Controller
             // $order->status = 'Developing';
             // $order->orderId = $orderId;
             // $order->save();
+            $currentDateTime = Carbon::now()->format('Y-m-d H:i:s');
             $order->update(['status' => 'Developing']);
             $order->update(['orderId' => $orderId]);
+            $order->update(['terms_and_condition_at' => $currentDateTime]);
         
         return redirect()->back();
         // return redirect()->route('order.show', ['id' => $orderId]);
