@@ -107,15 +107,14 @@
 </head>
 <body>
     <?php
-    // Use the public path instead of asset() to ensure images are accessible outside the app.
-    $imageUrl = public_path('img/kop.png');
-    $message->embed($imageUrl, 'kop');
+    $url = config('app.url') . '/img/kop.png';
+    $message->embedData(file_get_contents($url), 'kop', ['mime' => 'image/png']);
     ?>
     <div class="container" style="padding: 0px">
         
         <div class="header">
             <div class="kop" style="max-width: 100%; height: auto;">
-                <img src="{{ $message->embed($imageUrl) }}" alt="kop">
+                <img src="{{ $message->embedData(file_get_contents($url), 'kop', ['mime' => 'image/png']) }}" alt="kop">
             </div>
         </div>
         <div class="content">
