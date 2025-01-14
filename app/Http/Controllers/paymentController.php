@@ -48,16 +48,16 @@ class paymentController extends Controller
     }
 
 
-    public function sendEmail()
-    {
-        $data = [
-            'name' => 'John Doe',
-            'message' => 'This is a test email from Laravel.'
-        ];
+    // public function sendEmail()
+    // {
+    //     $data = [
+    //         'name' => 'John Doe',
+    //         'message' => 'This is a test email from Laravel.'
+    //     ];
 
-        Mail::to('rizkymardiyansyah23@gmail.com')->send(new orderMail($data));
+    //     Mail::to('rizkymardiyansyah23@gmail.com')->send(new orderMail($data));
 
-        return "Email sent successfully!";
-    }
+    //     return "Email sent successfully!";
+    // }
 
 }
