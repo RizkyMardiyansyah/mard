@@ -1,3 +1,10 @@
+.form-check{
+  margin-top: 50px;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  padding-top: 20px;
+  border-top: 1px solid;
+}
+
 .section{
   /* padding-bottom: 15px !important; */
   border-bottom: 1.5px solid #EBEBEC;
