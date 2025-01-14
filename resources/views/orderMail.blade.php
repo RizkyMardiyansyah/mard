@@ -32,7 +32,7 @@
             padding: 0;
         }
         .container {
-            width: 700px;
+            width: 70%;
             margin: 20px auto;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -106,7 +106,7 @@
     </style>
 </head>
 <body>
-    <div class="container" style="padding: 0px">
+    <div class="container" style="padding: 0px; width:600px;">
         
         <div class="header">
             <div class="kop">
