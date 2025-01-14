@@ -164,11 +164,8 @@ class DomainController extends Controller
 
             $subs = subscription::where ('id', $data['subscription'])->first();
             $template = template::where ('id', $data['template'])->first();
-            // $kop='img/kop.png';
             $kop = public_path('img/kop.png');
             
-
-            // dd($kop);
 
             Mail::to($data['email'])->send(new orderMail($data, $snapToken, $subs, $template, $kop));
     
@@ -191,18 +188,5 @@ class DomainController extends Controller
         ]);
     }
 
-    // public function sendEmail()
-    // {
-    //     $data = [
-    //         'name' => 'John Doe',
-    //         'message' => 'This is a test email from Laravel.'
-    //     ];
-
-    //     Mail::to('rizkymardiyansyah23@gmail.com')->send(new orderMail($data));
-
-    //     return "Email sent successfully!";
-    // }
-
-
-
+    
 }
