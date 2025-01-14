@@ -32,7 +32,7 @@
             padding: 0;
         }
         .container {
-            width: 70%;
+            width: 700px;
             margin: 20px auto;
             border: 1px solid #ddd;
             border-radius: 10px;

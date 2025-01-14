@@ -9,8 +9,6 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Mail\Mailables\Attachment;
-
 
 class orderMail extends Mailable
 {
@@ -21,7 +19,7 @@ class orderMail extends Mailable
     public $subs;
     public $template;
     public $kop;
-    
+
     /**
      * Create a new message instance.
      */
@@ -64,9 +62,7 @@ class orderMail extends Mailable
      */
     public function attachments(): array
     {
-        return [
-            Attachment::fromPath($this->kop),
-        ];
+        return [];
     }
 
     
