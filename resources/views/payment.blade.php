@@ -1,4 +1,9 @@
 <style>
+    #pay-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    }
+
     .form-group{
         margin-top: 20px;
         font-size: 14px !important;
@@ -21,6 +26,14 @@
         display:block;
         }
     }
+    ul{
+        margin-top: 20px !important;
+        font-size: 14px;
+        font-weight: normal;
+        li{
+            margin-bottom:10px;
+        }
+    }
 
     #home{
         background-color: #FAFAFA;
@@ -37,7 +50,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/favicon.ico">
     <meta name="title" content="Mitra Adidaya Rekayasa Digital">
@@ -74,9 +86,59 @@
                     <div class="container">
                         <div class="cart">
                             <div class="section">
-                                <h5 class="form-section" data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h5>
-                                <h6 data-lang-en="The required information needed to register your domain" data-lang-id="Informasi yang diperlukan untuk mendaftarkan domain Anda"> </h6>
-                            </div>                                
+                                <h5 class="form-section" data-lang-en="Terms and Conditions" data-lang-id="Syarat dan Ketentuan">
+                                    <h6 data-lang-en="Please review the terms before completing your payment, including website delivery time, refund policy, and contact info for assistance." 
+                                        data-lang-id="Harap baca syarat dan ketentuan berikut sebelum menyelesaikan pembayaran Anda, termasuk waktu pengiriman website, kebijakan pengembalian dana, dan info kontak untuk bantuan.">
+                                    </h6>
+                            </div>
+                            <ul>
+                                <!-- New Point: Checkout Information Email -->
+                                <li data-lang-en="You have been sent a checkout information email containing details of your order and payment instructions." 
+                                    data-lang-id="Anda telah dikirimi email informasi checkout yang berisi detail pesanan dan instruksi pembayaran.">
+                                    You have been sent a checkout information email containing details of your order and payment instructions.
+                                </li>
+                                <li data-lang-en="Your website will be ready within a maximum of 2x24 hours after payment is completed." 
+                                    data-lang-id="Website Anda akan siap paling lama dalam 2x24 jam setelah pembayaran selesai.">
+                                    Your website will be ready within a maximum of 2x24 hours after payment is completed.
+                                </li>
+                                <!-- New Point: Order Expiration -->
+                                <li data-lang-en="If payment is not made within 2x24 hours after checkout, your order will be canceled. To proceed, please place a new order." 
+                                    data-lang-id="Jika pembayaran belum dilakukan dalam 2x24 jam setelah checkout, pesanan Anda akan dibatalkan. Untuk melanjutkan, silakan ulangi pemesanan.">
+                                    If payment is not made within 2x24 hours after checkout, your order will be canceled. To proceed, please place a new order.
+                                </li>
+                                <li data-lang-en="If your website is not completed within the specified time frame, you will receive a 100% refund." 
+                                    data-lang-id="Jika website Anda belum selesai dalam waktu tersebut, Anda akan mendapatkan refund 100%.">
+                                    If your website is not completed within the specified time frame, you will receive a 100% refund.
+                                </li>
+                                <li data-lang-en="All domain registration fees are non-refundable once the domain is successfully registered." 
+                                    data-lang-id="Semua biaya pendaftaran domain tidak dapat dikembalikan setelah domain berhasil didaftarkan.">
+                                    All domain registration fees are non-refundable once the domain is successfully registered.
+                                </li>
+                                <li data-lang-en="Ensure the information provided during registration is accurate and complete." 
+                                    data-lang-id="Pastikan informasi yang diberikan selama pendaftaran akurat dan lengkap.">
+                                    Ensure the information provided during registration is accurate and complete.
+                                </li>                                
+                                <!-- Deliverables Section -->
+                                <li data-lang-en="Upon completion of your website, you will receive your website credentials, along with a guide to help you edit and manage your website." 
+                                    data-lang-id="Setelah website Anda selesai, Anda akan menerima kredensial website Anda, beserta panduan untuk membantu Anda mengedit dan mengelola website.">
+                                    Upon completion of your website, you will receive your website credentials, along with a guide to help you edit and manage your website.
+                                </li>  
+                                <li data-lang-en="By completing your payment, you agree to our Privacy Policy and Terms of Service." 
+                                    data-lang-id="Dengan menyelesaikan pembayaran, Anda menyetujui Kebijakan Privasi dan Syarat Layanan kami.">
+                                    By completing your payment, you agree to our Privacy Policy and Terms of Service.
+                                </li>                              
+                                <!-- Contact Information Section -->
+                                <li data-lang-en="If you have any questions or need assistance, feel free to contact us." 
+                                    data-lang-id="Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi kami.">
+                                    If you have any questions or need assistance, feel free to contact us.
+                                </li>
+                            </ul>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="acceptTerms" required>
+                                <label class="form-check-label" for="acceptTerms">
+                                    I agree to the Terms and Conditions
+                                </label>
+                            </div>                             
                         </div>
                     </div>                               
                 </div> 
@@ -110,7 +172,7 @@
                                 <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal"></h5>
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
                             </div>                
-                            <button id="pay-button" type="submit"  class="w-100 btn btn-primary" data-lang-en="Pay" data-lang-id="Bayar"></button>
+                            <button data-lang-en="Pay" data-lang-id="Bayar" id="pay-button" type="submit" class="w-100 btn btn-primary" disabled></button>
                             {{-- <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>  --}}
                         </div>
                     </div>
@@ -129,6 +191,21 @@
 
 <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="MIDTRANS_CLIENT_KEY"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkbox = document.getElementById('acceptTerms');
+        const payButton = document.getElementById('pay-button');
+
+        // Pastikan tombol "Pay" awalnya dinonaktifkan
+        payButton.disabled = true;
+
+        // Tambahkan event listener untuk checkbox
+        checkbox.addEventListener('change', function () {
+            payButton.disabled = !this.checked;
+        });
+    });
+</script>
 
     <script type="text/javascript">
       document.getElementById('pay-button').onclick = function(){
@@ -151,7 +228,6 @@
                 window.location.href = "/update-status?snapKey=" + snapKey + "&orderId=" + orderId;
             });
 
-            
           },
           // Optional
           onPending: function(result){
