@@ -7,6 +7,9 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Pemberitahuan Pemesanan</title>
     <style>
+        .justify-content-center{
+            justify-content: center;
+        }
         .total-price{
             color: #488EFE !important;
             font-size: 25px !important;
