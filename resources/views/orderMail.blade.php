@@ -108,6 +108,9 @@
         .btn:hover{
             text-decoration: none !important;
         }
+        .price{
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -131,24 +134,24 @@
                     <div class="order-details">
                         <p style="display: flex; justify-content: space-between;">
                             <strong>Domain ({{ $subs['year'] }} Tahun)</strong> 
-                            <span style="text-align: right;">Rp. {{ number_format($data['domainCost'], 2, ',', '.') }}</span>
+                            <div class="price"><span >Rp. {{ number_format($data['domainCost'], 2, ',', '.') }}</span></div>
                         </p>
                         <span class="cart-des" id="selected-domain">{{ $data['domain'] }}</span>
                         <p style="display: flex; justify-content: space-between;">
                             <strong>Website Template:</strong>
-                            <span style="text-align: right;">Rp. {{ $data['template_cost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format($data['templateCost'], 2, ',', '.') }}</span>
+                            <div class="price"><span>Rp. {{ $data['template_cost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format($data['templateCost'], 2, ',', '.') }}</span></div>
                         </p>
                         <span class="cart-des" id="selected-template">{{ $template['title'] }}</span>
                 
                         <p style="display: flex; justify-content: space-between;">
                             <strong>Langanan ({{ $subs['year'] }} Tahun)</strong>
-                            <span style="text-align: right;">Rp. {{ number_format($data['subscriptionCost'], 2, ',', '.') }}</span>
+                            <div class="price"><span>Rp. {{ number_format($data['subscriptionCost'], 2, ',', '.') }}</span></div>
                         </p>
                         <span class="cart-des" >Biaya langganan untuk layanan pengelolaan website</span>
                 
                         <p class="total-price" style="display: flex; justify-content: space-between; font-weight: bold;">
                             <strong>Subtotal:</strong>
-                            <span style="text-align: right;">Rp. {{ number_format($data['total_payment'], 2, ',', '.') }}</span>
+                            <div class="price"><span>Rp. {{ number_format($data['total_payment'], 2, ',', '.') }}</span></div>
                         </p>
                     </div>
                 </div>
