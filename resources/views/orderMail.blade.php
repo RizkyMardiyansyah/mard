@@ -8,7 +8,7 @@
     <title>Pemberitahuan Pemesanan</title>
     <style>
         .containerButton{
-            padding-top: 20px;
+            padding-top: 50px;
             text-align: center;
         }
         .total-price{
@@ -150,15 +150,15 @@
                         <span class="cart-des" >Biaya langganan untuk layanan pengelolaan website</span>
                 
                         <div class="total-price" style="display: flex; justify-content: space-between; font-weight: bold;">
-                            <strong>Subtotal:</strong>
+                            <strong>Subtotal</strong>
                             <div class="price"><span>Rp. {{ number_format($data['total_payment'], 2, ',', '.') }}</span></div>
                         </div>
                     </div>
                 </div>
-                
+                <p>Silahkan selesaikan pembayaran paling lama dalam 2x24 jam setelah Checkout, Jika pembayaran belum diselesaikan maka pesanan Anda akan dibatalkan. Untuk melanjutkan, silakan ulangi pemesanan kembali.</p>
                 <p>Website Anda akan siap paling lama dalam 2x24 jam setelah pembayaran selesai. Jika website Anda belum selesai dalam waktu tersebut, Anda akan mendapatkan refund 100%.</p>
 
-                <p>Silakan melanjutkan pembayaran melalui tautan berikut:</p>
+                
                 <div class="containerButton">
                     <a class="btn btn-primary" href="{{ config('app.url') }}/payment/{{ $snapToken }}" target="_blank">Klik di sini untuk pembayaran</a>
                     {{-- <a href="{{ config('app.url') }}/payment/{{ $snapToken }}" target="_blank">Klik di sini untuk pembayaran</a> --}}
