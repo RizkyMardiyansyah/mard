@@ -8,8 +8,8 @@
     <title>Pemberitahuan Pemesanan</title>
     <style>
         .containerButton{
-            display: flex;
-            justify-content: center;
+            /* display: flex; */
+            text-align: center;
         }
         .total-price{
             color: #488EFE !important;
@@ -90,9 +90,7 @@
             font-size: 16px;
             color: #333;
         }
-        .order-details{
-            text-align: right !important;
-        }
+        
         .btn {
             font-family: "Raleway", sans-serif;
             border-radius: 10px;
@@ -133,24 +131,24 @@
                     <div class="order-details">
                         <p style="display: flex; justify-content: space-between;">
                             <strong>Domain ({{ $subs['year'] }} Tahun)</strong> 
-                            <span>Rp. {{ number_format($data['domainCost'], 2, ',', '.') }}</span>
+                            <span style="text-align: right;">Rp. {{ number_format($data['domainCost'], 2, ',', '.') }}</span>
                         </p>
                         <span class="cart-des" id="selected-domain">{{ $data['domain'] }}</span>
                         <p style="display: flex; justify-content: space-between;">
                             <strong>Website Template:</strong>
-                            <span>Rp. {{ $data['template_cost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format($data['templateCost'], 2, ',', '.') }}</span>
+                            <span style="text-align: right;">Rp. {{ $data['template_cost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format($data['templateCost'], 2, ',', '.') }}</span>
                         </p>
                         <span class="cart-des" id="selected-template">{{ $template['title'] }}</span>
                 
                         <p style="display: flex; justify-content: space-between;">
                             <strong>Langanan ({{ $subs['year'] }} Tahun)</strong>
-                            <span>Rp. {{ number_format($data['subscriptionCost'], 2, ',', '.') }}</span>
+                            <span style="text-align: right;">Rp. {{ number_format($data['subscriptionCost'], 2, ',', '.') }}</span>
                         </p>
                         <span class="cart-des" >Biaya langganan untuk layanan pengelolaan website</span>
                 
                         <p class="total-price" style="display: flex; justify-content: space-between; font-weight: bold;">
                             <strong>Subtotal:</strong>
-                            <span>Rp. {{ number_format($data['total_payment'], 2, ',', '.') }}</span>
+                            <span style="text-align: right;">Rp. {{ number_format($data['total_payment'], 2, ',', '.') }}</span>
                         </p>
                     </div>
                 </div>
