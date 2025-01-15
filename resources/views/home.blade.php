@@ -1,10 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/favicon.ico">
     <meta name="title" content="Mitra Adidaya Rekayasa Digital">
+    <meta property="og:title" content="Mitra Adidaya Rekayasa Digital">
+    <meta property="og:description" content="Penyedia solusi digital untuk optimasi bisnis Anda.">
+    <meta property="og:url" content="https://www.mardsoft.com">
+    <meta property="og:image" content="https://www.mardsoft.com/img/ogImage.jpg">
     {{-- <title>Mitra Adidaya Rekayasa Digital</title> --}}
     <title>Mitra Adidaya Rekayasa Digital</title>
     <meta name="keywords" content="jasa buat website jakarta, jasa buat website jakarta timur, jasa buat website jaktim, digital solutions, business optimization, software development, IT consulting, buat website, domain, website, website jakarta, website jakarta timur, website jaktim, software, development, IT consultant jakarta, IT consultant jakarta timur, IT consulting jakarta, IT consulting jakarta timur, IT consultant jaktim, IT consulting jaktim">

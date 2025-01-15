@@ -33,7 +33,6 @@ Route::get('/payment/{snapKey}', [paymentController::class, 'index'])->name('pay
 Route::get('/orderEmail', [paymentController::class, 'sendEmail']);
 
 
-
 Route::get('/web', [DomainController::class, 'index']);
 Route::post('/check-domain', [DomainController::class, 'checkDomain'])->name('check.domain');
 Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');
@@ -51,7 +50,9 @@ Route::get('/brand', function () {
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-
+Route::get('/sitemap.xml', function () {
+    return response()->file(public_path('sitemap.xml'));
+});
 
 
 

@@ -64,6 +64,9 @@
             
             <div class="serv col-md-8 col-12">                
                     <div class="container">
+                        <div class="StepOfWizard">
+                
+                        </div>
                         <div class="cart">
                             <h5 class="form-section" data-lang-en="Subscription" data-lang-id="Langanan"></h5>
                             <form class="align-items-center row">
