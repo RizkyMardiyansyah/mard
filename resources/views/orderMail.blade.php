@@ -7,7 +7,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Pemberitahuan Pemesanan</title>
     <style>
-        .justify-content-center{
+        .containerButton{
+            display: flex;
             justify-content: center;
         }
         .total-price{
@@ -89,6 +90,9 @@
             font-size: 16px;
             color: #333;
         }
+        .order-details{
+            text-align: right !important;
+        }
         .btn {
             font-family: "Raleway", sans-serif;
             border-radius: 10px;
@@ -128,7 +132,7 @@
                 <div class="container" style="border: none">
                     <div class="order-details">
                         <p style="display: flex; justify-content: space-between;">
-                            <strong>Domain.{{ $subs['year'] }}</strong> 
+                            <strong>Domain ({{ $subs['year'] }} Tahun)</strong> 
                             <span>Rp. {{ number_format($data['domainCost'], 2, ',', '.') }}</span>
                         </p>
                         <span class="cart-des" id="selected-domain">{{ $data['domain'] }}</span>
@@ -139,7 +143,7 @@
                         <span class="cart-des" id="selected-template">{{ $template['title'] }}</span>
                 
                         <p style="display: flex; justify-content: space-between;">
-                            <strong>Langanan{{ $subs['year'] }}</strong>
+                            <strong>Langanan ({{ $subs['year'] }} Tahun)</strong>
                             <span>Rp. {{ number_format($data['subscriptionCost'], 2, ',', '.') }}</span>
                         </p>
                         <span class="cart-des" >Biaya langganan untuk layanan pengelolaan website</span>
@@ -154,7 +158,7 @@
                 <p>Website Anda akan siap paling lama dalam 2x24 jam setelah pembayaran selesai. Jika website Anda belum selesai dalam waktu tersebut, Anda akan mendapatkan refund 100%.</p>
 
                 <p>Silakan melanjutkan pembayaran melalui tautan berikut:</p>
-                <div class="justify-content-center">
+                <div class="containerButton">
                     <a class="btn btn-primary" href="{{ config('app.url') }}/payment/{{ $snapToken }}" target="_blank">Klik di sini untuk pembayaran</a>
                     {{-- <a href="{{ config('app.url') }}/payment/{{ $snapToken }}" target="_blank">Klik di sini untuk pembayaran</a> --}}
                 </div>
