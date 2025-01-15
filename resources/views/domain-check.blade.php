@@ -8,7 +8,7 @@
     <meta property="og:title" content="Mitra Adidaya Rekayasa Digital">
     <meta property="og:description" content="Penyedia solusi digital untuk optimasi bisnis Anda.">
     <meta property="og:url" content="https://www.mardsoft.com">
-    <meta property="og:image" content="https://www.mardsoft.com/img/ogImage.jpg">
+    <meta property="og:image" content="https://www.mardsoft.com/img/og-image.png">
     <title>Mitra Adidaya Rekayasa Digital</title>
     {{-- <title>{{ $sitename }}</title> --}}
     <meta name="keywords" content="digital solutions, business optimization, software development, IT consulting, buat website, domain, website, software, development, IT consultant">
