@@ -8,7 +8,7 @@
     <title>Pemberitahuan Pemesanan</title>
     <style>
         .containerButton{
-            /* display: flex; */
+            padding-top: 20px;
             text-align: center;
         }
         .total-price{
