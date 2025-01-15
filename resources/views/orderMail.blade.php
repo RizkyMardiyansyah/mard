@@ -109,7 +109,7 @@
             text-decoration: none !important;
         }
         .price{
-            text-align: right;
+            margin-left: auto;
         }
     </style>
 </head>
@@ -138,7 +138,7 @@
                         </div>
                         <span class="cart-des" id="selected-domain">{{ $data['domain'] }}</span>
                         <div style="display: flex; justify-content: space-between;">
-                            <strong>Website Template:</strong>
+                            <strong>Website Template</strong>
                             <div class="price"><span>Rp. {{ $data['template_cost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format($data['templateCost'], 2, ',', '.') }}</span></div>
                         </div>
                         <span class="cart-des" id="selected-template">{{ $template['title'] }}</span>
