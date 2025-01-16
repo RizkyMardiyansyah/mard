@@ -30,10 +30,10 @@
                     <a href="/web" style="color: inherit; text-decoration: none;">
                         <p data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></p>
                     </a>
-                    <a href="#" style="color: inherit; text-decoration: none;">
+                    <a href="/dev" style="color: inherit; text-decoration: none;">
                         <p data-lang-en="Custom App Development" data-lang-id="Custom App Development"></p>
                     </a>
-                    <a href="#" style="color: inherit; text-decoration: none;">
+                    <a href="/support" style="color: inherit; text-decoration: none;">
                         <p data-lang-en="Support and Maintenance" data-lang-id="Support and Maintenance"></p>
                     </a>
                 </div>
@@ -41,10 +41,10 @@
                 <!-- Contact Us -->
                 <div class="col-lg-3 col-md-6 col-12 text-left">
                     <h6 data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h6>
-                    <a href="#" style="color: inherit; text-decoration: none;">
+                    <a href="mailto:hi@mardsoft.com" style="color: inherit; text-decoration: none;">
                         <p data-lang-en="hi@mardsoft.com" data-lang-id="hi@mardsoft.com"></p>
                     </a>
-                    <a href="#" class="btn btn-primary" data-lang-en="Get in Touch" data-lang-id="Hubungi Kami">
+                    <a href="/contact" class="btn btn-primary" data-lang-en="Get in Touch" data-lang-id="Hubungi Kami">
                         Get in Touch
                     </a>
                 </div>

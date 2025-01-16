@@ -45,7 +45,7 @@
                     <div class="col-lg-6 col-12">
                         <h1 data-lang-en="Digital Solutions for Optimal Innovation" data-lang-id="Solusi Digital untuk Inovasi Optimal"></h1>
                         <p data-lang-en="Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence." data-lang-id="Mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru."></p>
-                        <a href="#contact">
+                        <a href="/contact">
                             <button type="submit" class="btn"><b style="color:white;">Get In Touch</b></button>
                         </a>
                     </div>

@@ -39,6 +39,7 @@ Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate
 
 Route::get('/dev', function () {return view('developmet');});
 Route::get('/support', function () {return view('support');});
+Route::get('/contact', function () {return view('contact');});
 
 Route::post('/orderstore', [DomainController::class, 'store'])->name('orderstore');
 Route::get('/update-status', [paymentController::class, 'updateStatus'])->name('updateStatus');
