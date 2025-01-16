@@ -75,7 +75,7 @@
                         {{-- <div class="container"> --}}
                             <div class="cart stepHead">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div style="background: #66B2FF;" class="StepOfWizard col-4 active">
+                                    <div style="background: #66B2FF; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" class="StepOfWizard col-4 active">
                                       <div class="step">
                                         <img class="stepIcon" src="img/hosting.svg" alt="Hosting">
                                       </div>
