@@ -72,14 +72,36 @@
                 @csrf
                 <div class="serv col-md-8 col-12">                
                     <div class="">
-                        <div class="container">
+                        {{-- <div class="container"> --}}
+                            <div class="cart stepHead">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div style="background: #66B2FF;" class="StepOfWizard col-4 active">
+                                      <div class="step">
+                                        <img class="stepIcon" src="img/hosting.svg" alt="Hosting">
+                                      </div>
+                                      <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
+                                    </div>
+                                    <div style="border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class="StepOfWizard col-4 active">
+                                      <div class="step">
+                                        <img class="stepIcon" src="img/form.svg" alt="Form">
+                                      </div>
+                                      <h6 data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h6>
+                                    </div>
+                                    <div class="StepOfWizard col-4">
+                                      <div class="step">
+                                        <img class="stepIcon" src="img/pay.svg" alt="Payment">
+                                      </div>
+                                      <h6 data-lang-en="Payment" data-lang-id="Pembayaran"></h6>
+                                    </div>
+                                  </div>
+                            </div>
 
                             <!-- Personal Information Section -->
                             <div class="cart">
                                 
                                 <div class="section">
                                     <h5 class="form-section" data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h5>
-                                    <h6 data-lang-en="The required information needed to register your domain" data-lang-id="Informasi yang diperlukan untuk mendaftarkan domain Anda"> </h6>
+                                    <h6 data-lang-en="Provide the essential information to secure your domain registration effortlessly." data-lang-id="Berikan informasi penting untuk mendaftarkan domain Anda dengan mudah."> </h6>
                                 </div>
                                
                                     <input type="hidden" id="domain" name="domain">
@@ -115,7 +137,7 @@
                             <div id="doc" class="cart" style="margin-top: 20px">
                                 <div class="section">
                                     <h5 class="form-section" style="color: black;" data-lang-en="Supporting Documents" data-lang-id="Dokumen Pendukung"></h5>
-                                    <h6 data-lang-en="The required document needed to register your domain, because you're using a .co.id domain" data-lang-id="Dokumen yang diperlukan untuk mendaftarkan domain Anda, karena Anda menggunakan domain .co.id"> </h6>
+                                    <h6 data-lang-en="Submit the necessary documents to register your .co.id domain seamlessly." data-lang-id="Unggah dokumen yang diperlukan untuk mendaftarkan domain .co.id Anda dengan mudah."> </h6>
                                 </div>
                                
                                     <div class="form-group">
@@ -132,7 +154,7 @@
                                         <input type="file" id="npwp" name="npwp" class="form-control">
                                     </div>
                             </div>
-                        </div>
+                        {{-- </div> --}}
                     </div>
                                
             </div> 

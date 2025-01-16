@@ -159,7 +159,8 @@
     @include('partials.footer')
     <!-- Script untuk AJAX Pencarian -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>    
+    <script>  
+     sessionStorage.clear();  
         $(document).ready(function() {
 
         // Event untuk form pencarian

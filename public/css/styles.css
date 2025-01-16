@@ -1,3 +1,64 @@
+.form-label{
+  color: rgba(0, 0, 0, 0.5) !important;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+.stepHead{
+  padding: 0px !important;
+ 
+  margin-bottom: 20px;
+}
+.cart .active{
+  background: linear-gradient(to right,  #66B2FF, #007BFF);
+  transition: transform 0.5s ease;
+}
+.stepIcon {
+  filter: invert(39%) sepia(99%) saturate(2132%) hue-rotate(193deg) brightness(96%) contrast(105%);
+}
+.StepOfWizard {
+  display: flex;
+   /* Susunan vertikal */
+  align-items: center; /* Elemen terpusat */
+}
+
+.StepOfWizard .step {
+  margin: 10px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #488EFE;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.StepOfWizard.active .step {
+  border: 1.5px solid #488EFE; /* Warna biru untuk langkah aktif */
+  background-color: white;
+}
+
+.StepOfWizard img {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.StepOfWizard h6 {
+  font-family: "Raleway", sans-serif; 
+  text-align: center;
+  margin-top: 10px; /* Jarak antara langkah dan teks */
+  font-size: 14px;
+  color:#488EFE;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.StepOfWizard.active h6 {
+  color: #fff; /* Warna biru untuk teks langkah aktif */
+}
+
 
 .form-check{
   margin-top: 50px;
@@ -123,7 +184,6 @@
 
 
 .cart{
-  border: 1px solid #fff;
   padding: 30px;
   background-color: #fff;
   border: 1.5px solid #EBEBEC;
@@ -136,7 +196,7 @@
   font-weight: bolder;
   line-height: 30px;
   color: rgba(0, 0, 0, 0.8) !important; 
-  font-size: 18px;
+  font-size: 20px;
 }
 .form-section{
   font-size: 20px !important;

@@ -83,11 +83,34 @@
             <div class="row">
                 @csrf
                 <div class="serv col-md-8 col-12">                
-                    <div class="container">
+                    {{-- <div class="container"> --}}
+                        <div class="cart stepHead">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div style="background: #66B2FF;" class="StepOfWizard col-4 active">
+                                  <div class="step">
+                                    <img src="img/hosting.svg" alt="Hosting">
+                                  </div>
+                                  <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
+                                </div>
+                                <div style="background: #66B2FF;" class="StepOfWizard col-4 active">
+                                  <div class="step">
+                                    <img src="img/form.svg" alt="Form">
+                                  </div>
+                                  <h6 data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h6>
+                                </div>
+                                <div style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;" class="StepOfWizard col-4 active">
+                                  <div class="step">
+                                    <img src="img/pay.svg" alt="Payment">
+                                  </div>
+                                  <h6 data-lang-en="Payment" data-lang-id="Pembayaran"></h6>
+                                </div>
+                              </div>
+                        </div>
+
                         <div class="cart">
                             <div class="section">
                                 <h5 class="form-section" data-lang-en="Terms and Conditions" data-lang-id="Syarat dan Ketentuan">
-                                    <h6 data-lang-en="Please review the terms before completing your payment, including website delivery time, refund policy, and contact info for assistance." 
+                                    <h6 data-lang-en="Take a moment to review the terms before completing your payment, including delivery time, refund policy, and contact information for support." 
                                         data-lang-id="Harap baca syarat dan ketentuan berikut sebelum menyelesaikan pembayaran Anda, termasuk waktu pengiriman website, kebijakan pengembalian dana, dan info kontak untuk bantuan.">
                                     </h6>
                             </div>
@@ -140,7 +163,7 @@
                                 </label>
                             </div>                             
                         </div>
-                    </div>                               
+                    {{-- </div>                                --}}
                 </div> 
                 {{-- Cart --}}
                 <div class="serv col-md-4 col-12">                

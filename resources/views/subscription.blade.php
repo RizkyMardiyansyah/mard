@@ -63,34 +63,60 @@
         <div class="row">
             
             <div class="serv col-md-8 col-12">                
-                    <div class="container">
-                        <div class="StepOfWizard">
-                
+                    {{-- <div class="container"> --}}
+                        <div class="cart stepHead">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div style="border-radius:10px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class="StepOfWizard col-4 active">
+                                  <div class="step">
+                                    <img class="stepIcon" src="img/hosting.svg" alt="Hosting">
+                                  </div>
+                                  <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
+                                </div>
+                                <div class="StepOfWizard col-4 ">
+                                  <div class="step">
+                                    <img class="stepIcon" src="img/form.svg" alt="Form">
+                                  </div>
+                                  <h6 data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h6>
+                                </div>
+                                <div class="StepOfWizard col-4">
+                                  <div class="step">
+                                    <img class="stepIcon" src="img/pay.svg" alt="Payment">
+                                  </div>
+                                  <h6 data-lang-en="Payment" data-lang-id="Pembayaran"></h6>
+                                </div>
+                              </div>
                         </div>
-                        <div class="cart">
-                            <h5 class="form-section" data-lang-en="Subscription" data-lang-id="Langanan"></h5>
-                            <form class="align-items-center row">
-                                <div class="form-group col-6 mb-4">
-                                    <label class="form-label" for="subs" data-lang-en="Packet" data-lang-id="Paket">Pilih Paket</label>
-                                    <div class="custom-select-wrapper">
-                                        <select name="subs" id="subs" class="custom-select form-control" onchange="updatePrice()">
-                                            <option value="" disabled selected data-lang-en="Select Packet" data-lang-id="Pilih Paket"></option>
-                                            @foreach ($subs as $sub)
-                                                <option value="{{ $sub->id }}" data-years="{{ $sub->year }}" data-price="{{ $sub->price }}" data-desc="{{ $sub->description }}" data-subId="{{ $sub->id }}" @if ($sub->id == 1) selected @endif>{{ $sub->title }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                        
+                        <div class="cart">                              
+                            <div class="stepBody">
+                                <div class="section" style="margin-bottom: 20px">
+                                    <h5 class="form-section" data-lang-en="Subscription" data-lang-id="Langanan"></h5>
+                                    <h6 data-lang-en="Choose the perfect subscription package for you, let us handle your website services and maintenance effortlessly." data-lang-id="Pilih paket langganan terbaik Anda, biarkan kami mengurus layanan dan perawatan website Anda dengan mudah."> </h6>
                                 </div>
                                 
-                                <div style="display: flex; justify-content:right" class="form-group col-6 mb-4">
-                                    <p class="" id="subs-price" class="display-price">Rp. 0</p><p id="yeartext">/Year</p>
-                                </div>
-                                <div class="form-group  col-12 mb-4">
-                                    <p class="cart-title" id="subs-desc" class="price display-price"></p>
-                                </div>
-                            </form>
+                                <form class="align-items-center row">
+                                    <div class="form-group col-md-6 col-12 mb-4">
+                                        <label class="form-label" for="subs" data-lang-en="Packet" data-lang-id="Paket">Pilih Paket</label>
+                                        <div class="custom-select-wrapper">
+                                            <select name="subs" id="subs" class="custom-select form-control" onchange="updatePrice()">
+                                                <option value="" disabled selected data-lang-en="Select Packet" data-lang-id="Pilih Paket"></option>
+                                                @foreach ($subs as $sub)
+                                                    <option value="{{ $sub->id }}" data-years="{{ $sub->year }}" data-price="{{ $sub->price }}" data-desc="{{ $sub->description }}" data-subId="{{ $sub->id }}" @if ($sub->id == 1) selected @endif>{{ $sub->title }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="display: flex; justify-content:right" class="form-group col-md-6 col-12 mb-4">
+                                        <p class="" id="subs-price" class="display-price">Rp. 0</p><p id="yeartext">/Year</p>
+                                    </div>
+                                    <div class="form-group  col-12 mb-4">
+                                        <p class="cart-title" id="subs-desc" class="price display-price"></p>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>            
+                    {{-- </div>             --}}
             </div> 
             <div class="serv col-md-4 col-12">                
                     <div class="cart order">
