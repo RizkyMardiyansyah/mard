@@ -1,3 +1,59 @@
+.servContact{
+  /* background: linear-gradient(to right,  #66B2FF, #007BFF);   */
+  padding: 50px !important;
+  border-radius: 50px;
+  h1 {
+    color: #488EFE !important;
+    text-align: center;
+    font-family: "Raleway", sans-serif; 
+    font-size: 2rem;
+    margin-bottom: 20px;
+    
+  };
+  p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #333;
+  };
+  input{
+    border-radius: 15px !important;
+    background-color: rgba(0, 0, 0, 0.1);
+  };
+  textarea{
+    border-radius: 15px !important; 
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .btn{
+    font-weight: bold;
+    width: auto;
+    text-align: right !important;
+    opacity: 100% !important;
+    border-radius: 15px !important;
+  }
+}
+
+.servBody{
+  padding: 20px;
+  margin-top: 10px;        
+  /* background-color: rgba(92, 149, 255, 0.1) !important; */
+  img{
+    margin-top: 20px;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+  };
+}
+.blog{
+  margin-top: 20px;
+}
+.blog p{
+  font-family: "Raleway", sans-serif; 
+  line-height: 2 !important;
+  padding:0px !important;
+  color: #000 !important;
+  text-align: justify;
+}
 #discoutContainer{
   filter: drop-shadow(0 2px 1px rgba(191, 200, 208, 1));
   transition: all 0.3s ease;
@@ -330,31 +386,6 @@
   opacity: 100% !important;
 }
 
-#contact {
-  padding: 50px !important;
-  background-color: rgba(92, 149, 255, 0.1);
-  border-radius: 20px;
-  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
-}
-
-.contact img {
-  display: block;
-  margin: 0 auto;
-  border-radius: 8px;
-  width: 80%;
-  height: auto;
-}
-
-.contact h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.contact p {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  color: #333;
-}
 
 .footer{
   margin-top: 40;
@@ -764,12 +795,6 @@ margin-bottom: 20px;
         transform: translateX(-10px); /* Efek animasi muncul */
     }
     
-    
-    /* .about img {
-      animation: float 3s ease-in-out infinite; 
-      will-change: transform;
-    } */
-
       #floatingButton svg {
         transition: 0.9s;
           margin-top: -20%;

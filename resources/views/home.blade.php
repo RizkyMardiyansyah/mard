@@ -88,7 +88,7 @@
                 
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
-                <a href="/web" style="text-decoration: none; color: black;">
+                <a href="/dev" style="text-decoration: none; color: black;">
                     <div class="serContainer">
                         <h3 style="color: black;" data-lang-en="Custom App Development" data-lang-id="Custom App Development"></h3>
                         <p data-lang-en="Bring your ideas to life with our expert developers, delivering digital solutions and endless innovations to drive your business growth." 
