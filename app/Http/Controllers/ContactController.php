@@ -9,24 +9,23 @@ class ContactController extends Controller
 {
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'nullable|string|max:20',
-            'company' => 'nullable|string|max:255',
-            'message' => 'required|string',
-        ]);
+        try {
+            $validated = $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|max:255',
+                'phone' => 'nullable|string|max:20',
+                'company' => 'nullable|string|max:255',
+                'message' => 'required|string',
+            ]);
 
-        // Menyimpan data ke database
-        Message::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'phone' => $validated['phone'],
-            'company' => $validated['company'],
-            'message' => $validated['message'],
-        ]);
+            // Simpan ke database
+            Message::create($validated);
 
-        // Mengirim response sukses dalam format JSON
-        return response()->json(['success' => true]);
+            return redirect()->back()->with('success', 'Your message has been sent successfully.');
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to send your message. Please try again.');
+        }
     }
+
 }

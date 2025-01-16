@@ -1,25 +1,9 @@
-<style>
-    .navbar{
-        background-color: rgba(255, 255, 255, 0.9) !important;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan saat discroll */
-        .nav-link{
-        color: #191250 !important;
-        }
-        .white{      
-        display:none;   
-        }
-        .blue{
-        display:block;
-        }
-    }
-</style>
-
 <!doctype html>
 <html lang="en">
   <head>
         
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/favicon.ico">
     <meta name="title" content="Mitra Adidaya Rekayasa Digital">
@@ -45,7 +29,7 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     
   </head>
-  <body id="home">
+  <body>
     
     
 
@@ -53,7 +37,7 @@
     @include('partials.navbar')
 
     <div style="height: 80vh; background: url(img/dev.jpg) no-repeat center center/cover;" class="hero-section">
-        <div style="background-color: rgba(0, 0, 0, 0.5);" class="hero-overlay">
+        <div style="background-color: rgba(0, 0, 0, 0.3);" class="hero-overlay">
             <div class="container hero-text">
                 <div class="row">
                     <div class="col-lg-6 col-12"></div>
@@ -94,7 +78,7 @@
            
             <div class="col-lg-6 col-12 mb-4">
                 <h1 style="color: black;" data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h1>
-                <form id="contact-form" style="max-width: 100%; margin-top: 20px;">
+                <form id="contact-form" style="max-width: 100%; margin-top: 20px;" method="POST" action="{{ route('contactStore') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
                         <input type="text" id="name" name="name" class="form-control" required placeholder="Name..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
@@ -112,12 +96,9 @@
                         <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
                     </div>
                     <div style="text-align: right;">
-                        <button type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 5px;">Send Message</button>
+                        <button id="message_btn" type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 5px;" data-lang-en="Send Message" data-lang-id="Kirim Pesan"></button>
                     </div>
                 </form>
-                <div id="notification" style="display: none;" class="alert alert-success mt-3">
-                    Your message has been sent successfully!
-                </div>
             </div>
         </div>
     </div>
@@ -125,6 +106,92 @@
 
     {{-- Footer Section --}}
     @include('partials.footer')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if(session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success') }}',
+                showConfirmButton: false
+            });
+        @elseif(session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+                confirmButtonText: 'OK'
+            });
+        @endif
+    </script>
+    <script>
+        document.getElementById('message_btn').addEventListener('click', function(event) {
+                
+            const inputs = {                
+                name: document.getElementById('name'),
+                email: document.getElementById('email'),
+                phone_number: document.getElementById('phone'),
+                company: document.getElementById('company'),
+                message: document.getElementById('message')
+            };
+            
+            let isValid = true;
+    
+            const validateInput = (input, regex, minLength, maxLength, customMessage) => {
+                if (input.value.trim() === '' || 
+                    (minLength && input.value.length < minLength) || 
+                    (maxLength && input.value.length > maxLength) || 
+                    (regex && !regex.test(input.value.trim()))) {
+                    input.style.border = '1px solid red';
+                    input.setCustomValidity(customMessage);
+                    isValid = false;
+                } else {
+                    input.style.border = '';
+                    input.setCustomValidity('');
+                }
+                input.reportValidity();
+            };
+    
+            validateInput(inputs.name, null, 1, null, 'Name is required.');
+            validateInput(inputs.email, /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, 1, null, 'A valid email is required.');
+            validateInput(inputs.phone_number, /^\d{10,15}$/, 10, 15, 'A valid phone number is required.');
+            validateInput(inputs.message, null, 1, null, 'Message is required.');
+    
+            if (!isValid) {
+            event.preventDefault();
+            }else{
+            event.preventDefault();
+            Swal.fire({
+                title: "send a message?",
+                text: "Do you want to send us a message?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#488EFE",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Send!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna mengkonfirmasi, lakukan submit form
+                    document.getElementById('contact-form').submit();
+
+                    Swal.fire({
+                        title: 'Please wait...',
+                        html: `<div style="text-align: center;">
+                                <div class="spinner" style="display: inline-block; margin: 10px auto;"></div>
+                            </div>`,
+                        allowOutsideClick: false,
+                        showConfirmButton: false
+                    });
+
+                } else {
+                    Swal.close();
+                }
+            });
+
+            }
+        });
+    </script>
+    
     
 
     <script>

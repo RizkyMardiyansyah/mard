@@ -38,6 +38,7 @@ Route::post('/check-domain', [DomainController::class, 'checkDomain'])->name('ch
 Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');
 
 Route::get('/dev', function () {return view('developmet');});
+Route::get('/support', function () {return view('support');});
 
 Route::post('/orderstore', [DomainController::class, 'store'])->name('orderstore');
 Route::get('/update-status', [paymentController::class, 'updateStatus'])->name('updateStatus');
@@ -50,7 +51,7 @@ Route::get('/brand', function () {
 })->name('brand');
 
 
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact', [ContactController::class, 'store'])->name('contactStore');
 
 Route::get('/sitemap.xml', function () {
     return response()->file(public_path('sitemap.xml'));

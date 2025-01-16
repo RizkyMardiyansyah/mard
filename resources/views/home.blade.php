@@ -97,7 +97,7 @@
                 </a>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
-                <a href="/web" style="text-decoration: none; color: black;">
+                <a href="/support" style="text-decoration: none; color: black;">
                     <div class="serContainer">
                         <h3 style="color: black;" data-lang-en="Support and Maintenance" data-lang-id="Support and Maintenance"></h3>
                         <p data-lang-en="We provide continuous maintenance and support to ensure the seamless operation and efficiency of your applications and systems." 
@@ -312,44 +312,6 @@
 </script>
 
 
-{{-- Contact Us Section --}}
-    {{-- <div id="contact" class="container contact hero-text" style="color: black; margin-top: 70px; padding: 30px;">
-        <div class="row d-flex flex-wrap">
-            <!-- Form Kontak -->
-            <div class="col-lg-6 col-12 mb-4">
-                <h1 style="color: black;" data-lang-en="Contact Us" data-lang-id="Hubungi Kami">Contact Us</h1>
-                <form id="contact-form" style="max-width: 100%; margin-top: 20px;">
-                    @csrf
-                    <div class="form-group mb-3">
-                        <input type="text" id="name" name="name" class="form-control" required placeholder="Name..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="email" id="email" name="email" class="form-control" required placeholder="Email..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="text" id="company" name="company" class="form-control" placeholder="Company..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 5px;">Send Message</button>
-                </form>
-                <div id="notification" style="display: none;" class="alert alert-success mt-3">
-                    Your message has been sent successfully!
-                </div>
-            </div>
-
-            <!-- Gambar dan Deskripsi -->
-            <div class="col-lg-6 col-12">
-                <img src="img/contactus.png" alt="Contact Us" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 8px;">
-            </div>
-        </div>
-    </div> --}}
-
-
     {{-- Footer Section --}}
     @include('partials.footer')
     
@@ -463,30 +425,6 @@ window.addEventListener('load', () => {
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#contact-form').submit(function(e) {
-            e.preventDefault(); // Mencegah form submit biasa
-
-            var formData = $(this).serialize(); // Menyusun data form
-
-            $.ajax({
-                url: '{{ route('contact.store') }}', // URL untuk mengirim data
-                method: 'POST',
-                data: formData,
-                success: function(response) {
-                    // Menampilkan notifikasi jika berhasil
-                    $('#notification').fadeIn().delay(3000).fadeOut(); // Munculkan dan sembunyikan setelah 3 detik
-                    $('#contact-form')[0].reset(); // Mengosongkan form setelah submit
-                },
-                error: function(xhr, status, error) {
-                    // Menangani error jika terjadi
-                    alert('Something went wrong. Please try again later.');
-                }
-            });
-        });
-    });
-</script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let images = document.querySelectorAll('.partner-logos img');
