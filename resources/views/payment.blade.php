@@ -133,10 +133,6 @@
                                     data-lang-id="Jika website Anda belum selesai dalam waktu tersebut, Anda akan mendapatkan refund 100%.">
                                     If your website is not completed within the specified time frame, you will receive a 100% refund.
                                 </li>
-                                <li data-lang-en="All domain registration fees are non-refundable once the domain is successfully registered." 
-                                    data-lang-id="Semua biaya pendaftaran domain tidak dapat dikembalikan setelah domain berhasil didaftarkan.">
-                                    All domain registration fees are non-refundable once the domain is successfully registered.
-                                </li>
                                 <li data-lang-en="Ensure the information provided during registration is accurate and complete." 
                                     data-lang-id="Pastikan informasi yang diberikan selama pendaftaran akurat dan lengkap.">
                                     Ensure the information provided during registration is accurate and complete.

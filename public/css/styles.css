@@ -1,3 +1,28 @@
+#discoutContainer{
+  filter: drop-shadow(0 2px 1px rgba(191, 200, 208, 1));
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+  will-change: transform;
+  background-color: #51CB5F;
+  font-weight: bolder;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 30px;
+  justify-content: center;
+  width: 150px;
+  #discount{
+    font-size: 20px !important;
+    margin: 0px !important;
+    color: white !important;
+  };
+  #hemat{
+    margin: 0px !important;
+    text-transform: uppercase;
+    margin-right: 4px !important;
+    color: white !important;
+  }
+}
+
 .form-label{
   color: rgba(0, 0, 0, 0.5) !important;
   font-weight: normal;
@@ -117,7 +142,7 @@
 #subs-price {
   text-align: right;
   font-size: 25px !important;
-  font-weight: 600;
+  font-weight: bold;
   color: #488EFE !important; 
   font-family: "Raleway", sans-serif; 
 }

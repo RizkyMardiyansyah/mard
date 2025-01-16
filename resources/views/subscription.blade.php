@@ -96,7 +96,7 @@
                                 
                                 <form class="align-items-center row">
                                     <div class="form-group col-md-6 col-12 mb-4">
-                                        <label class="form-label" for="subs" data-lang-en="Packet" data-lang-id="Paket">Pilih Paket</label>
+                                        <label class="form-label" for="subs" data-lang-en="Choose Packet" data-lang-id="Pilih Paket"></label>
                                         <div class="custom-select-wrapper">
                                             <select name="subs" id="subs" class="custom-select form-control" onchange="updatePrice()">
                                                 <option value="" disabled selected data-lang-en="Select Packet" data-lang-id="Pilih Paket"></option>
@@ -107,8 +107,15 @@
                                         </div>
                                     </div>
                                     
-                                    <div style="display: flex; justify-content:right" class="form-group col-md-6 col-12 mb-4">
-                                        <p class="" id="subs-price" class="display-price">Rp. 0</p><p id="yeartext">/Year</p>
+                                    <div style="display: flex; flex-direction: column; align-items: flex-end;" class="form-group col-md-6 col-12 mb-4">
+                                        <div id="discoutContainer" style="display: flex; align-items: center;">    
+                                            <p id="hemat" class="display-price" data-lang-en="Hemat" data-lang-id="Save "></p>
+                                            <p id="discount"></p>
+                                        </div>
+                                        <div style="display: flex; align-items: center;">
+                                            <p id="subs-price" class="display-price">Rp. 0</p>
+                                            <p id="yeartext">/Year</p>
+                                        </div>
                                     </div>
                                     <div class="form-group  col-12 mb-4">
                                         <p class="cart-title" id="subs-desc" class="price display-price"></p>
@@ -168,7 +175,7 @@
         // Ambil elemen dropdown dan elemen harga
         const selectElement = document.getElementById('subs');
         const priceElement = document.getElementById('subs-price');
-        const priceCartElement = document.getElementById('subs-price-cart');
+        const discountElement = document.getElementById('discount');
         const descElement = document.getElementById('subs-desc');
         const domainYearsElement = document.getElementById('domainYears');
         const subYearsElement = document.getElementById('subYears');
@@ -180,17 +187,33 @@
         const subId = selectedOption.getAttribute('data-subId');
         const subYears = selectedOption.getAttribute('data-years');
 
+        // Ambil harga paket pertama (subscription 1) yang sudah diketahui
+        const package1Price = parseInt(document.querySelector('option[value="1"]').getAttribute('data-price') || "0", 10);
+    
+
+        // Hitung diskon
+        const grossPrice = package1Price * subYears;
+        const discount = grossPrice - price;
+        const discountPercentage = (discount / grossPrice) * 100;
+
         // Tampilkan deskripsi dan harga di elemen yang sesuai
         descElement.textContent = desc || '';
         subYearsElement.textContent = subYears || '1';
         domainYearsElement.textContent = subYears || '1';
         priceElement.textContent = `Rp. ${price.toLocaleString('id-ID')}`;
-        priceCartElement.textContent = `Rp. ${price.toLocaleString('id-ID')}`;
+        
+        if (discountPercentage === 0) {
+            document.getElementById('discoutContainer').style.display = 'none';
+        } else {
+            document.getElementById('discoutContainer').style.display = 'flex';
+        }
+
+        // Tampilkan diskon di elemen discount
+        discountElement.textContent = `${discountPercentage.toFixed()}%`;
 
         // Simpan harga langganan ke localStorage
         sessionStorage.setItem("subsPrice", price);
         sessionStorage.setItem("subId", subId);
-
 
         // Perbarui harga domain berdasarkan tahun langganan
         updateDomainPrice(subYears);
@@ -198,6 +221,78 @@
         // Perbarui subtotal
         updateSubtotal(price);
     }
+
+    function updateDomainPrice(subYears) {
+        const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
+        
+        // Kalikan harga domain dengan jumlah tahun yang dipilih
+        const selectElement = document.getElementById('subs');
+        const selectedOption = selectElement.options[selectElement.selectedIndex];
+        const Years = selectedOption.getAttribute('data-years');
+
+        const updatedDomainPrice = domainPrice * Years;
+        sessionStorage.setItem("updatedDomainPrice", updatedDomainPrice);
+
+        // Perbarui harga domain di tampilan
+        document.getElementById('domain-price').textContent = `Rp. ${updatedDomainPrice.toLocaleString('id-ID')}`;
+    }
+
+    function updateSubtotal(subsPrice = 0) {
+        // Ambil harga domain yang telah diperbarui dari localStorage
+        const updatedDomainPrice = parseInt(sessionStorage.getItem("updatedDomainPrice") || "0", 10);
+
+        // Ambil harga template dari localStorage
+        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
+
+        const Subtotal = updatedDomainPrice + templatePrice + subsPrice;
+
+        // Format harga ke dalam format Rupiah
+        const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
+
+        // Tampilkan subtotal di elemen yang sesuai
+        document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
+
+        sessionStorage.setItem('subtotal', Subtotal);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // localStorage.clear();
+        document.getElementById('subs').dispatchEvent(new Event('change'));
+
+        // Ambil elemen harga dari subs-price
+        const priceElement = document.getElementById('subs-price');
+        const subsPrice = parseInt(priceElement.textContent.replace(/[^\d]/g, '') || "0", 10);
+
+        // Ambil data lain dari localStorage
+        const domain = sessionStorage.getItem("domain") || "-";
+        const template = sessionStorage.getItem("template") || "-";
+        const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
+        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
+
+        // Tampilkan dokumen jika domain mengandung ".co.id"
+        if (domain.toLowerCase().includes('.co.id')) {
+            $('#doc').addClass('visible');
+        } else {
+            $('#doc').removeClass('visible');
+        }
+
+        // Jika data tidak valid, redirect ke halaman utama
+        if (!domain || domain === "-" || !template || template === "-") {
+            window.location.href = '/';
+        }
+
+        // Tampilkan data di halaman
+        const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
+        document.getElementById("selected-domain").innerText = domain;
+        document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
+        document.getElementById("selected-template").innerText = template;
+        document.getElementById("template-price").innerText = formatRupiah(templatePrice);
+
+        // Perbarui subtotal saat halaman dimuat
+        updateSubtotal(subsPrice);
+    });
+
+
 
     function updateDomainPrice(subYears) {
         const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
