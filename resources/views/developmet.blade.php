@@ -36,30 +36,68 @@
     {{-- navbar section --}}
     @include('partials.navbar')
 
-    <div style="height: 80vh; background: url(img/dev.jpg) no-repeat center center/cover;" class="hero-section">
-        <div style="background-color: rgba(0, 0, 0, 0.3);" class="hero-overlay">
+    <div style="height: 80vh; background: url(img/develop.jpg) no-repeat center center/cover;" class="hero-section">
+        <div style="background-color: rgba(0, 0, 0, 0.2);" class="hero-overlay">
             <div class="container hero-text">
                 <div class="row">
-                    <div class="col-lg-6 col-12"></div>
                     <div class="col-lg-6 col-12">
-                        <h1 style="text-align: right">Custom Application Development</h1>
+                        <h1 style="text-align: left">Custom Application Development</h1>
                     </div>
+                    <div class="col-lg-6 col-12"></div>
                 </div>
             </div>
         </div>
     </div>
 
 {{-- Body Section --}}
-<div class="servBody hero-text ">  
-    <div class="">
-    </div>
-    <div class="container textabout blog">
-        <p data-lang-en="Bring your ideas to life with our tailored digital solutions through our custom web application development services. Our expert team is dedicated to delivering unlimited innovations that drive your business growth. With a focus on advanced technologies such as web and mobile, we create web applications that are optimized, secure, and customized to meet your business’s unique needs." 
-        data-lang-id="Wujudkan ide Anda dengan solusi digital yang disesuaikan melalui layanan pengembangan aplikasi web kami. Tim ahli kami berkomitmen untuk membawa inovasi tak terbatas yang mendorong pertumbuhan bisnis Anda. Dengan fokus pada teknologi canggih seperti web, dan mobile, kami menciptakan aplikasi web yang optimal dan aman, disesuaikan dengan kebutuhan unik bisnis Anda.">Bring your ideas to life with our tailored digital solutions through our custom web application development services. Our expert team is dedicated to delivering unlimited innovations that drive your business growth. With a focus on advanced technologies such as web and mobile, we create web applications that are optimized, secure, and customized to meet your business’s unique needs.</p>
-        <p data-lang-en="We are committed not only to developing applications but also to providing trusted and professional services that support the continuous modernization and management of your applications. We leverage cutting-edge techniques and technologies to ensure your applications are always up-to-date, secure, and performing at their best." 
-        data-lang-id="Kami tidak hanya berfokus pada pengembangan aplikasi, tetapi juga berkomitmen untuk menyediakan layanan yang terpercaya dan profesional untuk mendukung modernisasi serta pengelolaan aplikasi Anda secara berkelanjutan. Kami memanfaatkan teknik dan teknologi mutakhir untuk memastikan aplikasi Anda selalu diperbarui, aman, dan berfungsi dengan maksimal.">We are committed not only to developing applications but also to providing trusted and professional services that support the continuous modernization and management of your applications. We leverage cutting-edge techniques and technologies to ensure your applications are always up-to-date, secure, and performing at their best.</p>
-        <p data-lang-en="Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry." 
-        data-lang-id="Partner dengan kami hari ini untuk memanfaatkan keahlian dan pengalaman kami dalam merancang dan mengelola aplikasi yang siap membawa bisnis Anda ke level berikutnya. Bersama-sama, kami akan menggunakan teknik modern dan teknologi maju untuk membantu Anda tetap berada di garis depan inovasi dan meraih keunggulan kompetitif di industri Anda.">Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry.</p>
+<div class="container servBody hero-text ">  
+    <div class="container">
+        <div class="container textabout blog">
+            <p data-lang-en="Bring your ideas to life with our tailored digital solutions through our custom web application development services. Our expert team is dedicated to delivering unlimited innovations that drive your business growth. With a focus on advanced technologies such as web and mobile, we create web applications that are optimized, secure, and customized to meet your business’s unique needs." 
+            data-lang-id="Wujudkan ide Anda dengan solusi digital yang disesuaikan melalui layanan pengembangan aplikasi web kami. Tim ahli kami berkomitmen untuk membawa inovasi tak terbatas yang mendorong pertumbuhan bisnis Anda. Dengan fokus pada teknologi canggih seperti web, dan mobile, kami menciptakan aplikasi web yang optimal dan aman, disesuaikan dengan kebutuhan unik bisnis Anda.">Bring your ideas to life with our tailored digital solutions through our custom web application development services. Our expert team is dedicated to delivering unlimited innovations that drive your business growth. With a focus on advanced technologies such as web and mobile, we create web applications that are optimized, secure, and customized to meet your business’s unique needs.</p>
+            <p data-lang-en="We are committed not only to developing applications but also to providing trusted and professional services that support the continuous modernization and management of your applications. We leverage cutting-edge techniques and technologies to ensure your applications are always up-to-date, secure, and performing at their best." 
+            data-lang-id="Kami tidak hanya berfokus pada pengembangan aplikasi, tetapi juga berkomitmen untuk menyediakan layanan yang terpercaya dan profesional untuk mendukung modernisasi serta pengelolaan aplikasi Anda secara berkelanjutan. Kami memanfaatkan teknik dan teknologi mutakhir untuk memastikan aplikasi Anda selalu diperbarui, aman, dan berfungsi dengan maksimal.">We are committed not only to developing applications but also to providing trusted and professional services that support the continuous modernization and management of your applications. We leverage cutting-edge techniques and technologies to ensure your applications are always up-to-date, secure, and performing at their best.</p>
+            <p data-lang-en="Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry." 
+            data-lang-id="Partner dengan kami hari ini untuk memanfaatkan keahlian dan pengalaman kami dalam merancang dan mengelola aplikasi yang siap membawa bisnis Anda ke level berikutnya. Bersama-sama, kami akan menggunakan teknik modern dan teknologi maju untuk membantu Anda tetap berada di garis depan inovasi dan meraih keunggulan kompetitif di industri Anda.">Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry.</p>
+        </div>
+
+        <div class="servContact container contact hero-text" style="color: black; margin-top: 70px; padding: 30px;">
+            <div class="row d-flex flex-wrap">
+                
+                <div class="col-lg-6 col-12">
+                    
+                    <img src="img/contactUs.svg" alt="Contact Us" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+               
+                <div class="col-lg-6 col-12 mb-4">
+                    <h1 style="color: black;" data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h1>
+                    <form id="contact-form" style="max-width: 100%; margin-top: 20px;" method="POST" action="{{ route('contactStore') }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group mb-3">
+                            <input type="text" id="name" name="name" class="form-control" required placeholder="Name..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="Email..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" id="company" name="company" class="form-control" placeholder="Company..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+                        </div>
+                        <div >
+                            <button id="message_btn" type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 5px;" data-lang-en="Send Message" data-lang-id="Kirim Pesan"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 </div>
 
@@ -67,40 +105,7 @@
 
 
 {{-- Contact Us Section --}}
-    <div class="servContact container contact hero-text" style="color: black; margin-top: 70px; padding: 30px;">
-        <div class="row d-flex flex-wrap">
-            
-            <div class="col-lg-6 col-12">
-                
-                <img src="img/contactUs.svg" alt="Contact Us" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 8px;">
-            </div>
-           
-            <div class="col-lg-6 col-12 mb-4">
-                <h1 style="color: black;" data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h1>
-                <form id="contact-form" style="max-width: 100%; margin-top: 20px;" method="POST" action="{{ route('contactStore') }}" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group mb-3">
-                        <input type="text" id="name" name="name" class="form-control" required placeholder="Name..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="email" id="email" name="email" class="form-control" required placeholder="Email..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="text" id="company" name="company" class="form-control" placeholder="Company..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-                    </div>
-                    <div style="text-align: right;">
-                        <button id="message_btn" type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 5px;" data-lang-en="Send Message" data-lang-id="Kirim Pesan"></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    
 
 
     {{-- Footer Section --}}

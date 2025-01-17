@@ -50,9 +50,9 @@
     </div>
 
 {{-- Body Section --}}
-<div class="servBody hero-text ">  
-    <div class="">
-    </div>
+<div class="container servBody hero-text ">  
+    <div class="container">
+    
         <div class="container textabout blog">
             <p data-lang-en="Ensure the longevity and performance of your applications with our Application Maintenance and Support services. Our team of experts is dedicated to keeping your systems running smoothly, minimizing downtime, and optimizing performance. With a focus on continuous updates, monitoring, and troubleshooting, we ensure your applications remain secure, stable, and aligned with your business objectives." 
             data-lang-id="Pastikan aplikasi Anda tetap andal dan berfungsi optimal dengan layanan Pemeliharaan dan Dukungan Aplikasi kami. Tim ahli kami berkomitmen untuk menjaga sistem Anda berjalan lancar, meminimalkan waktu henti, dan mengoptimalkan kinerja. Dengan fokus pada pembaruan berkelanjutan, pemantauan, dan pemecahan masalah, kami memastikan aplikasi Anda tetap aman, stabil, dan sesuai dengan tujuan bisnis Anda.">Ensure the longevity and performance of your applications with our Application Maintenance and Support services. Our team of experts is dedicated to keeping your systems running smoothly, minimizing downtime, and optimizing performance. With a focus on continuous updates, monitoring, and troubleshooting, we ensure your applications remain secure, stable, and aligned with your business objectives.</p>
@@ -63,10 +63,7 @@
             <p data-lang-en="Partner with us for reliable Application Maintenance and Support, and let us handle the technical complexities so you can focus on growing your business. Together, we will ensure your applications remain robust, efficient, and capable of supporting your business growth." 
             data-lang-id="Bermitra dengan kami untuk layanan Pemeliharaan dan Dukungan Aplikasi yang andal, dan biarkan kami menangani kompleksitas teknis sehingga Anda dapat fokus pada pertumbuhan bisnis Anda. Bersama-sama, kami akan memastikan aplikasi Anda tetap kuat, efisien, dan mampu mendukung pertumbuhan bisnis Anda.">Partner with us for reliable Application Maintenance and Support, and let us handle the technical complexities so you can focus on growing your business. Together, we will ensure your applications remain robust, efficient, and capable of supporting your business growth.</p>
          
-        </div>
-</div>
-
-   
+        </div>  
 
 
 {{-- Contact Us Section --}}
@@ -104,6 +101,9 @@
             </div>
         </div>
     </div>
+
+</div>
+</div>
 
 
     {{-- Footer Section --}}
