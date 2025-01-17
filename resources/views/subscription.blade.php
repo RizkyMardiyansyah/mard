@@ -7,7 +7,8 @@
             padding:10px;
         }
     }
-    .navbar{
+    @media (min-width: 767.99px) { 
+        .navbar{
         background-color: rgba(255, 255, 255, 0.9) !important;
         backdrop-filter: blur(10px);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan saat discroll */
@@ -21,6 +22,8 @@
         display:block;
         }
     }
+    }
+    
 
     #home{
         background-color: #FAFAFA;
