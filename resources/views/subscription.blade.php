@@ -65,7 +65,7 @@
                     {{-- <div class="container"> --}}
                         <div class="cart stepHead">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div style="border-radius:10px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class="StepOfWizard col-4 active">
+                                <div style="border-radius:10px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class=" StepOfWizard col-4 active">
                                   <div class="step">
                                     <img class="stepIcon" src="img/hosting.svg" alt="Hosting">
                                   </div>
@@ -83,7 +83,7 @@
                                   </div>
                                   <h6 data-lang-en="Payment" data-lang-id="Pembayaran"></h6>
                                 </div>
-                              </div>
+                            </div>
                         </div>
                         
                         <div class="cart">                              

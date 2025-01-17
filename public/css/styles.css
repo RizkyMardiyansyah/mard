@@ -86,8 +86,7 @@
 }
 
 .stepHead{
-  padding: 0px !important;
- 
+  padding: 0px !important; 
   margin-bottom: 20px;
 }
 .cart .active{
@@ -99,8 +98,7 @@
 }
 .StepOfWizard {
   display: flex;
-   /* Susunan vertikal */
-  align-items: center; /* Elemen terpusat */
+  align-items: center;
 }
 
 .StepOfWizard .step {
@@ -973,7 +971,7 @@ html {
           justify-content: center;
           align-items: center;
         }
-        
+
 
         .hero-overlay {
             position: absolute;
@@ -1318,6 +1316,13 @@ html {
         
 /* phone View */
 @media (max-width: 767.98px) {  
+          .StepOfWizard {
+            flex-direction: column;
+          }
+          .StepOfWizard h6 {
+            margin-top: 0px;
+          }
+          
           #cart {     
             top:60%;    
             right: 0px;            
