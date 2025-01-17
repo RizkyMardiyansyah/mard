@@ -39,8 +39,8 @@
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
                             <div class="container">
-                                <h1 style="margin-bottom: 0px" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h1>
-                                <span data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online."></span>
+                                <h1 style="margin-bottom: 0px">Instant Web Builder</h1>
+                                <span data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</span>
                             </div>
                             <!-- Form untuk memasukkan nama domain -->            
                             <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
@@ -66,11 +66,11 @@
             <div class="serv container hero-text">
                 <div class="col-md-3 col-12"></div>
                 <div class=" col-md-6 col-12 container justify-content-center text-center">
-                    <h3 class="template" lang="en" data-lang-en="Our Templates" data-lang-id="Template Kami">
+                    <h3 class="template" lang="en">Our Templates
                     </h3>
                     <p class="template-description" lang="en" 
                     data-lang-en="Transform your business vision into reality with our user-friendly templates that prioritize performance and style."
-                    data-lang-id="Ubah visi bisnis Anda menjadi kenyataan dengan template kami yang mudah digunakan dan mengutamakan kinerja serta gaya.">
+                    data-lang-id="Ubah visi bisnis Anda menjadi kenyataan dengan template kami yang mudah digunakan dan mengutamakan kinerja serta gaya.">Transform your business vision into reality with our user-friendly templates that prioritize performance and style.
                     </p>
 
                 </div>
@@ -134,19 +134,19 @@
             <div>   
                 <h5 data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
                 <div class="d-flex justify-content-between align-items-center">
-                    <p data-lang-en="Domain (1 Year)" data-lang-id="Domain (1 Tahun)"></p>
+                    <p data-lang-en="Domain (1 Year)" data-lang-id="Domain (1 Tahun)">Domain (1 Year)</p>
                     <p id="domain-price" class=" price"></p>
                 </div>
                 <span id="selected-domain">-</span>
                 <div class="d-flex justify-content-between align-items-center">
-                    <p data-lang-en="Web Template" data-lang-id="Web Template"></p>
+                    <p>Web Template</p>
                     <p id="template-price" class=" price"></p>
                 </div>
                 <span id="selected-template">-</span>
                 <input type="hidden" id="selected-template-id">
             </div>
             <div style="margin-top: auto;">
-                <button class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya"></button>
+                <button class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya">Next</button>
             </div>
         </div>
         

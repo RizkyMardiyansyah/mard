@@ -43,8 +43,8 @@
             <div class="container hero-text">
                 <div class="row">
                     <div class="col-lg-6 col-12">
-                        <h1 data-lang-en="Digital Solutions for Optimal Innovation" data-lang-id="Solusi Digital untuk Inovasi Optimal"></h1>
-                        <p data-lang-en="Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence." data-lang-id="Mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru."></p>
+                        <h1 data-lang-en="Digital Solutions for Optimal Innovation" data-lang-id="Solusi Digital untuk Inovasi Optimal">Digital Solutions for Optimal Innovation</h1>
+                        <p data-lang-en="Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence." data-lang-id="Mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru.">Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence.</p>
                         <a href="/contact">
                             <button type="submit" class="btn"><b style="color:white;">Get In Touch</b></button>
                         </a>
@@ -62,9 +62,9 @@
                 <img src="img/about.jpg">
             </div>
             <div class="col-lg-6 col-12 order-lg-1 textabout">
-                <h1 data-lang-en="About Us" data-lang-id="Tentang Kami"></h1>
+                <h1 data-lang-en="About Us" data-lang-id="Tentang Kami">About Us</h1>
                 <p data-lang-en="Mitra Adidaya Rekayasa Digital (MARD) also known as Mardsoft is committed to bringing your ideas to life with our advanced digital solutions and infinite innovations. Our mission is to elevate your business and set a new standard of excellence in the ever-evolving digital landscape. We focus on creating tailored strategies that address your unique challenges, optimize operations, and drive sustainable growth." 
-                data-lang-id="Mitra Adidaya Rekayasa Digital (MARD) yang juga dikenal sebagai Mardsoft berkomitmen untuk mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas. Misi kami adalah untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru di dunia digital yang terus berkembang. Kami fokus pada pembuatan strategi yang disesuaikan untuk mengatasi tantangan unik anda, dan mengoptimalkan operasional."></p>
+                data-lang-id="Mitra Adidaya Rekayasa Digital (MARD) yang juga dikenal sebagai Mardsoft berkomitmen untuk mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas. Misi kami adalah untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru di dunia digital yang terus berkembang. Kami fokus pada pembuatan strategi yang disesuaikan untuk mengatasi tantangan unik anda, dan mengoptimalkan operasional.">Mitra Adidaya Rekayasa Digital (MARD) also known as Mardsoft is committed to bringing your ideas to life with our advanced digital solutions and infinite innovations. Our mission is to elevate your business and set a new standard of excellence in the ever-evolving digital landscape. We focus on creating tailored strategies that address your unique challenges, optimize operations, and drive sustainable growth.</p>
             </div>
         </div>
     </div>
@@ -73,16 +73,16 @@
     <div id="services" class="services container hero-text ">
         <div class="row">
             <div class="serv our col-lg-3 col-md-6 col-12 order-lg-4">
-                <h1 data-lang-en="Our Services" data-lang-id="Layanan Kami"></h1>
+                <h1 data-lang-en="Our Services" data-lang-id="Layanan Kami">Our Services</h1>
                 <p data-lang-en="Mardsoft provides innovative digital solutions tailored to optimize your business processes, support growth, and set new standards of excellence in your industry." 
-                   data-lang-id="Mardsoft menyediakan solusi digital inovatif yang sesuai untuk optimalisasi bisnis Anda, serta mendukung pertumbuhan, dan standar baru dalam industri."></p>
+                   data-lang-id="Mardsoft menyediakan solusi digital inovatif yang sesuai untuk optimalisasi bisnis Anda, serta mendukung pertumbuhan, dan standar baru dalam industri.">Mardsoft provides innovative digital solutions tailored to optimize your business processes, support growth, and set new standards of excellence in your industry.</p>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">                
                 <a href="/web" style="text-decoration: none; color: black;">
                     <div class="serContainer">
-                        <h3 style="color: black;" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h3>
+                        <h3 style="color: black;">Instant Web Builder</h3>
                         <p data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." 
-                           data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online."></p>
+                           data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</p>
                     </div>
                 </a>
                 
@@ -90,18 +90,18 @@
             <div class="serv col-lg-3 col-md-6 col-12">
                 <a href="/dev" style="text-decoration: none; color: black;">
                     <div class="serContainer">
-                        <h3 style="color: black;" data-lang-en="Custom App Development" data-lang-id="Custom App Development"></h3>
+                        <h3 style="color: black;">Custom App Development</h3>
                         <p data-lang-en="Bring your ideas to life with our expert developers, delivering digital solutions and endless innovations to drive your business growth." 
-                        data-lang-id="Wujudkan ide Anda dengan pengembang ahli kami, menghadirkan solusi digital dan inovasi tanpa batas untuk mendorong pertumbuhan bisnis Anda."></p>
+                        data-lang-id="Wujudkan ide Anda dengan pengembang ahli kami, menghadirkan solusi digital dan inovasi tanpa batas untuk mendorong pertumbuhan bisnis Anda.">Bring your ideas to life with our expert developers, delivering digital solutions and endless innovations to drive your business growth.</p>
                     </div>
                 </a>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
                 <a href="/support" style="text-decoration: none; color: black;">
                     <div class="serContainer">
-                        <h3 style="color: black;" data-lang-en="Support and Maintenance" data-lang-id="Support and Maintenance"></h3>
+                        <h3 style="color: black;">Support and Maintenance</h3>
                         <p data-lang-en="We provide continuous maintenance and support to ensure the seamless operation and efficiency of your applications and systems." 
-                           data-lang-id="Kami menawarkan pemeliharaan dan dukungan berkelanjutan untuk menjamin kelancaran dan efisiensi aplikasi serta sistem Anda."></p>
+                           data-lang-id="Kami menawarkan pemeliharaan dan dukungan berkelanjutan untuk menjamin kelancaran dan efisiensi aplikasi serta sistem Anda.">We provide continuous maintenance and support to ensure the seamless operation and efficiency of your applications and systems.</p>
                     </div>
                 </a>
             </div>
@@ -117,8 +117,8 @@
                 <div class="row webbuilder">
                     <div class="col-lg-8 mx-auto">
                         <div style="margin-bottom: 20px" class="container">
-                        <h1 style="margin-bottom: 0px" data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></h1>
-                        <span data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online."></span>
+                        <h1 style="margin-bottom: 0px">Instant Web Builder</h1>
+                        <span data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</span>
                         </div>
                         <!-- Form untuk memasukkan nama domain -->            
                         <form id="domainForm" class="mt-30 mt-lg-30 w-100" action="/web" method="GET">
@@ -192,9 +192,9 @@
         
         <div class="row d-flex flex-wrap">
             <div class="serv col-lg-4 col-12 " >
-                <h1 data-lang-en="Partners and Clients" data-lang-id="Mitra dan Klien"></h1>
+                <h1 data-lang-en="Partners and Clients" data-lang-id="Mitra dan Klien">Partners and Clients</h1>
                 <p data-lang-en="Trusted partners and satisfied clients who have collaborated to develop their business ideas." 
-                data-lang-id="Mitra terpercaya dan klien puas yang telah bekerjasama mengembangkan ide bisnis mereka."></p>
+                data-lang-id="Mitra terpercaya dan klien puas yang telah bekerjasama mengembangkan ide bisnis mereka.">Trusted partners and satisfied clients who have collaborated to develop their business ideas.</p>
             </div>
             <div class="partner-logos col-lg-8 col-12 d-flex flex-wrap">
                 <a href="https://www.mendix.com" target="_blank">

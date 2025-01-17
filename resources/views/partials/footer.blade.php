@@ -12,29 +12,29 @@
 
                 <!-- About us -->
                 <div class="col-lg-3 col-md-6 col-12 text-left">
-                    <h6 data-lang-en="About Us" data-lang-id="Tentang Kami"></h6>
+                    <h6 data-lang-en="About Us" data-lang-id="Tentang Kami">About Us</h6>
                     <a href="/#about" style="color: inherit; text-decoration: none;">
-                        <p data-lang-en="About Us" data-lang-id="Tentang Kami"></p>
+                        <p data-lang-en="About Us" data-lang-id="Tentang Kami">About Us</p>
                     </a>
                     <a href="/#services" style="color: inherit; text-decoration: none;">
-                        <p data-lang-en="Our Services" data-lang-id="Layanan Kami"></p>
+                        <p data-lang-en="Our Services" data-lang-id="Layanan Kami">Our Services</p>
                     </a>
                     <a href="/#partners" style="color: inherit; text-decoration: none;">
-                        <p data-lang-en="Partner and Client" data-lang-id="Mitra dan Klien"></p>
+                        <p data-lang-en="Partner and Client" data-lang-id="Mitra dan Klien">Partner and Client</p>
                     </a>
                 </div>
 
                 <!-- Our Services -->
                 <div class="col-lg-3 col-md-6 col-12 text-left">
-                    <h6 data-lang-en="Our Services" data-lang-id="Layanan Kami"></h6>
+                    <h6 data-lang-en="Our Services" data-lang-id="Layanan Kami">Our Services</h6>
                     <a href="/web" style="color: inherit; text-decoration: none;">
-                        <p data-lang-en="Instant Web Builder" data-lang-id="Instant Web Builder"></p>
+                        <p>Instant Web Builder</p>
                     </a>
                     <a href="/dev" style="color: inherit; text-decoration: none;">
-                        <p data-lang-en="Custom App Development" data-lang-id="Custom App Development"></p>
+                        <p>>Custom App Development</p>
                     </a>
                     <a href="/support" style="color: inherit; text-decoration: none;">
-                        <p data-lang-en="Support and Maintenance" data-lang-id="Support and Maintenance"></p>
+                        <p >Support and Maintenance</p>
                     </a>
                 </div>
 

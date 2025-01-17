@@ -41,7 +41,7 @@
             <div class="container hero-text">
                 <div class="row">
                     <div class="col-lg-6 col-12">
-                        <h1 style="text-align: left" data-lang-en="Application Maintenance and Support" data-lang-id="Application Maintenance and Support"></h1>
+                        <h1 style="text-align: left">Application Maintenance and Support</h1>
                     </div>
                     <div class="col-lg-6 col-12"></div>
                 </div>
@@ -55,15 +55,15 @@
     </div>
         <div class="container textabout blog">
             <p data-lang-en="Ensure the longevity and performance of your applications with our Application Maintenance and Support services. Our team of experts is dedicated to keeping your systems running smoothly, minimizing downtime, and optimizing performance. With a focus on continuous updates, monitoring, and troubleshooting, we ensure your applications remain secure, stable, and aligned with your business objectives." 
-            data-lang-id="Pastikan aplikasi Anda tetap andal dan berfungsi optimal dengan layanan Pemeliharaan dan Dukungan Aplikasi kami. Tim ahli kami berkomitmen untuk menjaga sistem Anda berjalan lancar, meminimalkan waktu henti, dan mengoptimalkan kinerja. Dengan fokus pada pembaruan berkelanjutan, pemantauan, dan pemecahan masalah, kami memastikan aplikasi Anda tetap aman, stabil, dan sesuai dengan tujuan bisnis Anda."></p>
+            data-lang-id="Pastikan aplikasi Anda tetap andal dan berfungsi optimal dengan layanan Pemeliharaan dan Dukungan Aplikasi kami. Tim ahli kami berkomitmen untuk menjaga sistem Anda berjalan lancar, meminimalkan waktu henti, dan mengoptimalkan kinerja. Dengan fokus pada pembaruan berkelanjutan, pemantauan, dan pemecahan masalah, kami memastikan aplikasi Anda tetap aman, stabil, dan sesuai dengan tujuan bisnis Anda.">Ensure the longevity and performance of your applications with our Application Maintenance and Support services. Our team of experts is dedicated to keeping your systems running smoothly, minimizing downtime, and optimizing performance. With a focus on continuous updates, monitoring, and troubleshooting, we ensure your applications remain secure, stable, and aligned with your business objectives.</p>
          
-         <p data-lang-en="Our services go beyond routine maintenance; we proactively identify and resolve potential issues before they impact your business. Leveraging the latest tools and techniques, we provide updates, scalability enhancements, and performance tuning to keep your applications future-ready and aligned with technological advancements." 
-            data-lang-id="Layanan kami melampaui pemeliharaan rutin; kami secara proaktif mengidentifikasi dan menyelesaikan potensi masalah sebelum berdampak pada bisnis Anda. Dengan memanfaatkan alat dan teknik terbaru, kami menyediakan pembaruan, peningkatan skalabilitas, dan penyempurnaan kinerja untuk memastikan aplikasi Anda siap menghadapi masa depan dan sejalan dengan perkembangan teknologi."></p>
+            <p data-lang-en="Our services go beyond routine maintenance; we proactively identify and resolve potential issues before they impact your business. Leveraging the latest tools and techniques, we provide updates, scalability enhancements, and performance tuning to keep your applications future-ready and aligned with technological advancements." 
+                data-lang-id="Layanan kami melampaui pemeliharaan rutin; kami secara proaktif mengidentifikasi dan menyelesaikan potensi masalah sebelum berdampak pada bisnis Anda. Dengan memanfaatkan alat dan teknik terbaru, kami menyediakan pembaruan, peningkatan skalabilitas, dan penyempurnaan kinerja untuk memastikan aplikasi Anda siap menghadapi masa depan dan sejalan dengan perkembangan teknologi.">Our services go beyond routine maintenance; we proactively identify and resolve potential issues before they impact your business. Leveraging the latest tools and techniques, we provide updates, scalability enhancements, and performance tuning to keep your applications future-ready and aligned with technological advancements.</p>
+            
+            <p data-lang-en="Partner with us for reliable Application Maintenance and Support, and let us handle the technical complexities so you can focus on growing your business. Together, we will ensure your applications remain robust, efficient, and capable of supporting your business growth." 
+            data-lang-id="Bermitra dengan kami untuk layanan Pemeliharaan dan Dukungan Aplikasi yang andal, dan biarkan kami menangani kompleksitas teknis sehingga Anda dapat fokus pada pertumbuhan bisnis Anda. Bersama-sama, kami akan memastikan aplikasi Anda tetap kuat, efisien, dan mampu mendukung pertumbuhan bisnis Anda.">Partner with us for reliable Application Maintenance and Support, and let us handle the technical complexities so you can focus on growing your business. Together, we will ensure your applications remain robust, efficient, and capable of supporting your business growth.</p>
          
-         <p data-lang-en="Partner with us for reliable Application Maintenance and Support, and let us handle the technical complexities so you can focus on growing your business. Together, we will ensure your applications remain robust, efficient, and capable of supporting your business growth." 
-            data-lang-id="Bermitra dengan kami untuk layanan Pemeliharaan dan Dukungan Aplikasi yang andal, dan biarkan kami menangani kompleksitas teknis sehingga Anda dapat fokus pada pertumbuhan bisnis Anda. Bersama-sama, kami akan memastikan aplikasi Anda tetap kuat, efisien, dan mampu mendukung pertumbuhan bisnis Anda."></p>
-         
-    </div>
+        </div>
 </div>
 
    
@@ -300,3 +300,124 @@ window.addEventListener('load', () => {
     }
 });
 </script>
+
+{{-- <script>
+    const translations = {
+        en: [
+            "Ensure the longevity and performance of your applications with our Application Maintenance and Support services. Our team of experts is dedicated to keeping your systems running smoothly, minimizing downtime, and optimizing performance. With a focus on continuous updates, monitoring, and troubleshooting, we ensure your applications remain secure, stable, and aligned with your business objectives.",
+            "Our services go beyond routine maintenance; we proactively identify and resolve potential issues before they impact your business. Leveraging the latest tools and techniques, we provide updates, scalability enhancements, and performance tuning to keep your applications future-ready and aligned with technological advancements.",
+            "Partner with us for reliable Application Maintenance and Support, and let us handle the technical complexities so you can focus on growing your business. Together, we will ensure your applications remain robust, efficient, and capable of supporting your business growth."
+        ],
+        id: [
+            "Pastikan aplikasi Anda tetap andal dan berfungsi optimal dengan layanan Pemeliharaan dan Dukungan Aplikasi kami. Tim ahli kami berkomitmen untuk menjaga sistem Anda berjalan lancar, meminimalkan waktu henti, dan mengoptimalkan kinerja. Dengan fokus pada pembaruan berkelanjutan, pemantauan, dan pemecahan masalah, kami memastikan aplikasi Anda tetap aman, stabil, dan sesuai dengan tujuan bisnis Anda.",
+            "Layanan kami melampaui pemeliharaan rutin; kami secara proaktif mengidentifikasi dan menyelesaikan potensi masalah sebelum berdampak pada bisnis Anda. Dengan memanfaatkan alat dan teknik terbaru, kami menyediakan pembaruan, peningkatan skalabilitas, dan penyempurnaan kinerja untuk memastikan aplikasi Anda siap menghadapi masa depan dan sejalan dengan perkembangan teknologi.",
+            "Bermitra dengan kami untuk layanan Pemeliharaan dan Dukungan Aplikasi yang andal, dan biarkan kami menangani kompleksitas teknis sehingga Anda dapat fokus pada pertumbuhan bisnis Anda. Bersama-sama, kami akan memastikan aplikasi Anda tetap kuat, efisien, dan mampu mendukung pertumbuhan bisnis Anda."
+        ]
+    };
+
+    // Objek terjemahan
+    const translations = {
+        en: [
+            "Bring your ideas to life with our tailored digital solutions through our custom web application development services. Our expert team is dedicated to delivering unlimited innovations that drive your business growth. With a focus on advanced technologies such as web and mobile, we create web applications that are optimized, secure, and customized to meet your business’s unique needs.",
+            "We are committed not only to developing applications but also to providing trusted and professional services that support the continuous modernization and management of your applications. We leverage cutting-edge techniques and technologies to ensure your applications are always up-to-date, secure, and performing at their best.",
+            "Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry."
+        ],
+        id: [
+            "Wujudkan ide Anda dengan solusi digital yang disesuaikan melalui layanan pengembangan aplikasi web kami. Tim ahli kami berkomitmen untuk membawa inovasi tak terbatas yang mendorong pertumbuhan bisnis Anda. Dengan fokus pada teknologi canggih seperti web, dan mobile, kami menciptakan aplikasi web yang optimal dan aman, disesuaikan dengan kebutuhan unik bisnis Anda.",
+            "Kami tidak hanya berfokus pada pengembangan aplikasi, tetapi juga berkomitmen untuk menyediakan layanan yang terpercaya dan profesional untuk mendukung modernisasi serta pengelolaan aplikasi Anda secara berkelanjutan. Kami memanfaatkan teknik dan teknologi mutakhir untuk memastikan aplikasi Anda selalu diperbarui, aman, dan berfungsi dengan maksimal.",
+            "Partner dengan kami hari ini untuk memanfaatkan keahlian dan pengalaman kami dalam merancang dan mengelola aplikasi yang siap membawa bisnis Anda ke level berikutnya. Bersama-sama, kami akan menggunakan teknik modern dan teknologi maju untuk membantu Anda tetap berada di garis depan inovasi dan meraih keunggulan kompetitif di industri Anda."
+        ]
+    };
+
+    // Fungsi untuk mengganti bahasa
+    function switchLanguage(lang) {
+        const paragraphs = document.querySelectorAll('.container.textabout.blog p');
+        translations[lang].forEach((text, index) => {
+            if (paragraphs[index]) {
+                paragraphs[index].innerText = text;
+            }
+        });
+    }
+
+    // Fungsi untuk memperbarui teks toggle
+    function updateToggleText(lang) {
+        document.querySelector('.toggle-inner').textContent = lang === 'en' ? 'EN' : 'IN';
+    }
+
+    // Inisialisasi saat halaman dimuat
+    window.onload = () => {
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        const languageToggle = document.getElementById('languageToggle');
+        languageToggle.checked = (savedLanguage === 'id');
+        switchLanguage(savedLanguage);
+        updateToggleText(savedLanguage);
+
+        // Event listener untuk toggle bahasa
+        languageToggle.addEventListener('change', function () {
+            const lang = this.checked ? 'id' : 'en';
+            localStorage.setItem('preferredLanguage', lang);
+            switchLanguage(lang);
+            updateToggleText(lang);
+        });
+
+        // Smooth scroll untuk navigasi di halaman yang sama
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Pindah ke posisi elemen setelah halaman dimuat
+        const hash = window.location.hash;
+        if (hash) {
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+                const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
+
+    // Fungsi untuk scroll-to-top button
+    window.onscroll = function () {
+        const navbar = document.getElementById('navbar');
+        const floatingButton = document.getElementById("floatingButton");
+
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        floatingButton.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+    };
+
+    function topFunction() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+const translations = {
+en: [
+    "Ensure the longevity and performance of your applications with our Application Maintenance and Support services. Our team of experts is dedicated to keeping your systems running smoothly, minimizing downtime, and optimizing performance. With a focus on continuous updates, monitoring, and troubleshooting, we ensure your applications remain secure, stable, and aligned with your business objectives.",
+    "Our services go beyond routine maintenance; we proactively identify and resolve potential issues before they impact your business. Leveraging the latest tools and techniques, we provide updates, scalability enhancements, and performance tuning to keep your applications future-ready and aligned with technological advancements.",
+    "Partner with us for reliable Application Maintenance and Support, and let us handle the technical complexities so you can focus on growing your business. Together, we will ensure your applications remain robust, efficient, and capable of supporting your business growth."
+],
+id: [
+    "Pastikan aplikasi Anda tetap andal dan berfungsi optimal dengan layanan Pemeliharaan dan Dukungan Aplikasi kami. Tim ahli kami berkomitmen untuk menjaga sistem Anda berjalan lancar, meminimalkan waktu henti, dan mengoptimalkan kinerja. Dengan fokus pada pembaruan berkelanjutan, pemantauan, dan pemecahan masalah, kami memastikan aplikasi Anda tetap aman, stabil, dan sesuai dengan tujuan bisnis Anda.",
+    "Layanan kami melampaui pemeliharaan rutin; kami secara proaktif mengidentifikasi dan menyelesaikan potensi masalah sebelum berdampak pada bisnis Anda. Dengan memanfaatkan alat dan teknik terbaru, kami menyediakan pembaruan, peningkatan skalabilitas, dan penyempurnaan kinerja untuk memastikan aplikasi Anda siap menghadapi masa depan dan sejalan dengan perkembangan teknologi.",
+    "Bermitra dengan kami untuk layanan Pemeliharaan dan Dukungan Aplikasi yang andal, dan biarkan kami menangani kompleksitas teknis sehingga Anda dapat fokus pada pertumbuhan bisnis Anda. Bersama-sama, kami akan memastikan aplikasi Anda tetap kuat, efisien, dan mampu mendukung pertumbuhan bisnis Anda."
+]
+}; --}}
