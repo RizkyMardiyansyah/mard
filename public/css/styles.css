@@ -1,3 +1,66 @@
+#navbarPhone{
+  display: none;
+}
+#navbar{
+  display: block;
+}
+
+
+@media (max-width: 767.98px) { 
+  #navbar{
+    display: none;
+  }
+  
+  #navbarPhone {
+    display: block;
+}
+
+#navbarPhone .navPhone {
+    font-family: "Raleway", sans-serif;
+    text-decoration:none;
+    color: #000;
+    font-weight: 500;
+    transition: color 0.3s ease; /* Tambahkan transisi untuk efek */
+}
+.offcanvas-body li{
+  padding-bottom: 10px !important;
+}
+.offcanvas-body li:active {
+  color: #007BFF !important;
+}
+
+
+}
+
+
+/* Make dropdown visible on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Default dropdown menu styles */
+.dropdown-menu {
+    margin-left: -15px;
+    padding: 10px;
+    border: none;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.9s ease;
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+    .dropdown-item{
+      background: transparent;
+      transition: all 0.3s ease;
+      color: #191250 !important;
+    };
+    .dropdown-item:hover{
+      font-weight: bolder;
+    };
+}
+
 .servContact{
   /* background: linear-gradient(to right,  #66B2FF, #007BFF);   */
   padding: 50px !important;
@@ -1035,8 +1098,11 @@ html {
 
 /* language selector */
 .navbar-toggler {
-    border: none; /* Menghilangkan border */
-    outline: none; /* Menghilangkan outline */
+    border: none;
+    outline: none;
+}
+.navbar-toggler-icon{
+  
 }
 
 .navbar-toggler:focus {
