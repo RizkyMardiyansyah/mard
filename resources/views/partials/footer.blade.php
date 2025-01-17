@@ -31,7 +31,7 @@
                         <p>Instant Web Builder</p>
                     </a>
                     <a href="/dev" style="color: inherit; text-decoration: none;">
-                        <p>>Custom App Development</p>
+                        <p>Custom App Development</p>
                     </a>
                     <a href="/support" style="color: inherit; text-decoration: none;">
                         <p >Support and Maintenance</p>
