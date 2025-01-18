@@ -51,20 +51,20 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item"><a class="nav-link" href="/#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#home"  data-lang-en="Home" data-lang-id="Beranda">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#about" data-lang-en="About" data-lang-id="Tentang Kami">About</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="/#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Services
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="/web">Instant Web Builder</a></li>
-                            <li><a class="dropdown-item" href="/dev">Custom App Development</a></li>
-                            <li><a class="dropdown-item" href="/support">Support and Maintenance</a></li>
+                            <li><a class="dropdown-item" href="/web" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</a></li>
+                            <li><a class="dropdown-item" href="/dev" data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</a></li>
+                            <li><a class="dropdown-item" href="/support" data-lang-en="Support and Maintenance" data-lang-id="Dukungan dan Pemeliharaan">Support and Maintenance</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/#partners">Partners</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#partners" data-lang-en="Partners" data-lang-id="Mitra">Partners</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact" data-lang-en="Contact Us" data-lang-id="Hubungi Kami">Contact Us</a></li>
                 </ul>
             </div>
         </div>

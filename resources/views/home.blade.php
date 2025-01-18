@@ -45,7 +45,7 @@
                         <h1 data-lang-en="Digital Solutions for Optimal Innovation" data-lang-id="Solusi Digital untuk Inovasi Optimal">Digital Solutions for Optimal Innovation</h1>
                         <p data-lang-en="Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence." data-lang-id="Mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru.">Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence.</p>
                         <a href="/contact">
-                            <button type="submit" class="btn"><b style="color:white;">Get In Touch</b></button>
+                            <button type="submit" class="btn"><b style="color:white;" data-lang-en="Get In Touch" data-lang-id="Hubungi Kami">Get In Touch</b></button>
                         </a>
                     </div>
                     <div class="col-lg-6 col-12"></div>
@@ -79,7 +79,7 @@
             <div class="serv col-lg-3 col-md-6 col-12">                
                 <a href="/web" style="text-decoration: none; color: black;">
                     <div class="serContainer">
-                        <h3 style="color: black;">Instant Web Builder</h3>
+                        <h3 style="color: black;" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</h3>
                         <p data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." 
                            data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</p>
                     </div>
@@ -89,7 +89,7 @@
             <div class="serv col-lg-3 col-md-6 col-12">
                 <a href="/dev" style="text-decoration: none; color: black;">
                     <div class="serContainer">
-                        <h3 style="color: black;">Custom App Development</h3>
+                        <h3 style="color: black;" data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</h3>
                         <p data-lang-en="Bring your ideas to life with our expert developers, delivering digital solutions and endless innovations to drive your business growth." 
                         data-lang-id="Wujudkan ide Anda dengan pengembang ahli kami, menghadirkan solusi digital dan inovasi tanpa batas untuk mendorong pertumbuhan bisnis Anda.">Bring your ideas to life with our expert developers, delivering digital solutions and endless innovations to drive your business growth.</p>
                     </div>
@@ -98,7 +98,7 @@
             <div class="serv col-lg-3 col-md-6 col-12">
                 <a href="/support" style="text-decoration: none; color: black;">
                     <div class="serContainer">
-                        <h3 style="color: black;">Support and Maintenance</h3>
+                        <h3 style="color: black;" data-lang-en="Support and Maintenance" data-lang-id="Dukungan dan Pemeliharaan">Support and Maintenance</h3>
                         <p data-lang-en="We provide continuous maintenance and support to ensure the seamless operation and efficiency of your applications and systems." 
                            data-lang-id="Kami menawarkan pemeliharaan dan dukungan berkelanjutan untuk menjamin kelancaran dan efisiensi aplikasi serta sistem Anda.">We provide continuous maintenance and support to ensure the seamless operation and efficiency of your applications and systems.</p>
                     </div>
