@@ -8,7 +8,7 @@
             padding:10px;
         }
     }
-    @media (min-width: 767.99px) { 
+    
         .navbar{
         background-color: rgba(255, 255, 255, 0.9) !important;
         backdrop-filter: blur(10px);
@@ -23,7 +23,7 @@
         display:block;
         }
     }
-    }
+    
 
     #home{
         background-color: #FAFAFA;

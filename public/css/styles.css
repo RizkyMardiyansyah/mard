@@ -1,23 +1,59 @@
-#navbarPhone{
-  display: none;
-}
-#navbar{
-  display: block;
-}
 
 
 @media (max-width: 767.98px) { 
-  #navbar{
-    display: none;
-  }
-  
-  #navbarPhone {
-    display: block;
+  /* #navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    .nav-link{
+      color: #191250 !important;
+    }
+    .white{      
+      display:none;   
+    }
+    .blue{
+      display:block;
+    }
 }
 
-#navbarPhone .navPhone {
+  .white{  
+    transition:   0.5s;    
+    display:block;   
+  }
+  .blue{
+    transition:   0.5s;
+    display:none;
+  } */
+
+
+
+  /* Make dropdown visible on hover */
+.nav-item.dropdown .dropdown-menu {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Default dropdown menu styles */
+.dropdown-menu {
+  margin-left: -15px;
+  padding: 10px;
+  border: none;
+  display: none;
+  visibility: hidden;
+  opacity: 100;
+  background: none;
+  box-shadow: 0px 0px 0px rgba(255, 255, 255, 1) !important;
+  .dropdown-item{
+    background: none;
+    transition: all 0.3s ease;
+    color: black !important;
+  };
+  .dropdown-item:hover{
+    font-weight: bolder;
+  };
+}
+  
+  #navbar .nav-link {
     font-family: "Raleway", sans-serif;
     text-decoration:none;
     color: #000;
@@ -55,7 +91,6 @@
     .dropdown-item{
       background: transparent;
       transition: all 0.3s ease;
-      color: #191250 !important;
     };
     .dropdown-item:hover{
       font-weight: bolder;
@@ -973,9 +1008,9 @@ margin-bottom: 20px;
 html {
     scroll-behavior: smooth;
 }
+
 #navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.9) !important;
-    backdrop-filter: blur(10px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan saat discroll */
     .nav-link{
       color: #191250 !important;
@@ -995,6 +1030,7 @@ html {
     transition:   0.5s;
     display:none;
   }
+
 
         * {
             margin: 0;

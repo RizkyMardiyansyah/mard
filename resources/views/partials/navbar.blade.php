@@ -39,72 +39,38 @@
                 </label>
             </div>
         </div>
-        <button class="navbar-toggler hamburger hamburger--elastic" type="button" aria-label="Toggle navigation">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        {{-- Toggler for Mobile --}}
+        <button style="margin-left:-15%" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon" style="box-shadow: none;"></span>
         </button>
-        <div class="collapse navbar-collapse order-lg-1" id="navbarNav">
-          <ul style="margin-left: auto;" class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="/#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
-                <li class="nav-item dropdown">
-                    <a class=" nav-link" href="/#services" data-bs-toggle="dropdown">
-                        Services
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class=" dropdown-item" href="/web">Instant Web Builder</a></li>
-                        <li><a class=" dropdown-item" href="/dev">Custom App Development</a></li>
-                        <li><a class=" dropdown-item" href="/support">Support and Maintenance</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item"><a class="nav-link" href="/#partners">Partners</a></li>
-                <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
-            </ul>
+        
+        <div style="width: 60%" class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <a id="offcanvas-logo" href="/"><img  src="../img/NewLogoMardBlue.svg" height="40px" style="padding: 5px;"></a>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item"><a class="nav-link" href="/#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="/#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="/web">Instant Web Builder</a></li>
+                            <li><a class="dropdown-item" href="/dev">Custom App Development</a></li>
+                            <li><a class="dropdown-item" href="/support">Support and Maintenance</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/#partners">Partners</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
 
 
 {{-- Navbar Phone --}}
-<nav id="navbarPhone" class="navbar bg-body-tertiary fixed-top">
-    <div class="container-fluid">
-        <a style="display: block" class="navbar-brand blue" href="/"><img  src="../img/NewLogoMardBlue.svg" height="50px" style="padding: 5px;"></a>
-        <div class="language-selector order-lg-2">
-            <div class="toggle-container">
-                <input type="checkbox" id="languageToggle" class="toggle-checkbox">
-                <label class="toggle-label" for="languageToggle">
-                    <span class="toggle-inner">EN</span>
-                    <span class="toggle-switch"></span>
-                </label>
-            </div>
-        </div>
-      <button style="margin-left: -10%" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div style="width: 50%" class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-            <a id="offcanvas-logo" href="/"><img  src="../img/NewLogoMardBlue.svg" height="35px" style="padding: 5px;"></a>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item"><a class="navPhone" href="/#home">Home</a></li>
-            <li class="nav-item"><a class="navPhone" href="/#about">About</a></li>
-            <li class="nav-item"><a class="navPhone" href="/#services">Services</a></li>
-            <div class="container">
-                <li class="nav-item"><a class="navPhone" href="/web">Instant Web Builder</a></li>
-                <li class="nav-item"><a class="navPhone" href="/dev">Custom App Development</a></li>
-                <li class="nav-item"><a class="navPhone" href="/support">Support and Maintenance</a></li>
-            </div>
-            <li class="nav-item"><a class="navPhone" href="/#partners">Partners</a></li>
-            <li class="nav-item"><a class="navPhone" href="/contact">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
+
