@@ -54,9 +54,7 @@
                     <li class="nav-item"><a class="nav-link" href="/#home"  data-lang-en="Home" data-lang-id="Beranda">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/#about" data-lang-en="About" data-lang-id="Tentang Kami">About</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="/#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Services
-                        </a>
+                        <a class="nav-link" href="/#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-en="Services" data-lang-id="Layanan Kami">Services</a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                             <li><a class="dropdown-item" href="/web" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</a></li>
                             <li><a class="dropdown-item" href="/dev" data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</a></li>
