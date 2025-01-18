@@ -26,7 +26,7 @@
 
 
 {{-- Navbar --}}
-<nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; transition: background-color 0.5s;">
+<nav  id="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; transition: background-color 0.5s;">
     <div class="container">
         <a class="navbar-brand blue" href="/"><img  src="../img/NewLogoMardBlue.svg" height="50px" style="padding: 5px;"></a>
         <a class="navbar-brand white" href="/"><img src="../img/NewLogoMardWhite.svg" height="50px" style="padding: 5px;"></a>

@@ -1,32 +1,16 @@
 
 
 @media (max-width: 767.98px) { 
-  /* #navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    .nav-link{
-      color: #191250 !important;
-    }
-    .white{      
-      display:none;   
-    }
-    .blue{
-      display:block;
-    }
+.copyright{
+  text-align: center;
 }
-
-  .white{  
-    transition:   0.5s;    
-    display:block;   
+.footer p{
+  margin: 0px;
+  padding: 2px;
+}
+.footer h6{
+  margin-bottom: 5px !important;
   }
-  .blue{
-    transition:   0.5s;
-    display:none;
-  } */
-
-
-
-  /* Make dropdown visible on hover */
 .nav-item.dropdown .dropdown-menu {
   display: block;
   visibility: visible;
@@ -46,7 +30,7 @@
   .dropdown-item{
     background: none;
     transition: all 0.3s ease;
-    color: black !important;
+    color: #191250 !important;
   };
   .dropdown-item:hover{
     font-weight: bolder;
@@ -1010,8 +994,8 @@ html {
 }
 
 #navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan saat discroll */
+    background-color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     .nav-link{
       color: #191250 !important;
     }
