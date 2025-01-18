@@ -41,7 +41,7 @@
             <div class="container hero-text">
                 <div class="row">
                     <div class="col-lg-6 col-12">
-                        <h1 style="text-align: left">Application Maintenance and Support</h1>
+                        <h1 style="text-align: left" data-lang-en="Application Maintenance and Support" data-lang-id="Layanan Pemeliharaan dan Dukungan Aplikasi ">Support and Maintenance</h1>
                     </div>
                     <div class="col-lg-6 col-12"></div>
                 </div>
