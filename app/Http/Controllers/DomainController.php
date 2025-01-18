@@ -31,6 +31,11 @@ class DomainController extends Controller
         // Default jika tidak ada pencarian dan tipe 'all'
         $templates = Template::paginate(9); 
     }
+    
+    $templates->getCollection()->transform(function ($template) {
+        $template->total_pembelian = $template->total_pembelian; // Pastikan sudah ada atribut total_pembelian
+        return $template;
+    });
 
     // Mengecek apakah request menggunakan ajax
     if ($request->ajax()) {
