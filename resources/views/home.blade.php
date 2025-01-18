@@ -109,7 +109,7 @@
     </div>
 
 {{-- Instal Build Website --}}
-<div class="container" style="margin-top: 70px">
+<div class="container" style="margin-top: 100px">
     <div class="hero-section-home-domain d-flex align-items-center justify-content-center">
         <div class="hero-overlay-home-domain">
             <div class="container hero-text-domain text-center"> 
@@ -187,7 +187,7 @@
 </div>
 
 {{-- Partner Section --}}
-    <div id="partners" class="partner hero-text " style="margin-top: 70px;">
+    <div id="partners" class="partner hero-text " style="margin-top: 100px;">
         
         <div class="row d-flex flex-wrap">
             <div class="serv col-lg-4 col-12 " >
