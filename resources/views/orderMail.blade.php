@@ -127,7 +127,7 @@
                 <h2 class="tittle" style="font-size: bolder;">Checkout Information</h2>
                 {{-- <p>Yth. Rizky Mardiyansyah,</p> --}}
                 <p>Yth. {{ $data['name'] }},</p>
-                <p>Terima kasih telah memilih layanan Instant Web Builder dari <a href="{{ config('app.url') }}" target="_blank"> {{ config('app.name') }}</a>. Kami dengan senang hati mengonfirmasi bahwa pemesanan Anda telah diterima dengan baik.</p>
+                <p>Terima kasih telah memilih layanan Pembuat Web Instan dari <a href="{{ config('app.url') }}" target="_blank"> {{ config('app.name') }}</a>. Kami dengan senang hati mengonfirmasi bahwa pemesanan Anda telah diterima dengan baik.</p>
                             
                 <p class="detail"><strong>Detail Pemesanan Anda:</strong></p>
                 <div class="container" style="border: none">
@@ -155,38 +155,35 @@
                         </div>
                     </div>
                 </div>
-                <p>Silahkan selesaikan pembayaran paling lama dalam 2x24 jam setelah Checkout, Jika pembayaran belum diselesaikan maka pesanan Anda akan dibatalkan. Untuk melanjutkan, silakan ulangi pemesanan kembali.</p>
-                <p>Website Anda akan siap paling lama dalam 2x24 jam setelah pembayaran selesai. Jika website Anda belum selesai dalam waktu tersebut, Anda akan mendapatkan refund 100%.</p>
+                <p>Lakukan pembayaran sebelum 48 jam setelah checkout ({{ $order['updated_at']->addHours(48)->format('d M F H:i:s') }}) untuk menjaga pesanan Anda tetap berlaku. Jika tidak, pesanan akan dibatalkan otomatis.</P>
+                <p>Website Anda akan selesai dan siap digunakan dalam waktu maksimal 24 jam setelah pembayaran.</p>
+                <p>Setelah website Anda siap, Anda akan menerima kredensial website Anda beserta panduan mudah yang membantu Anda mengedit dan mengelola website Anda.</p>
+                <p>Anda juga akan mendapatkan email bisnis khusus yang sesuai dengan domain Anda, Anda bisa menghubungi kami untuk klaim email Anda.</p>
+                <p>Jika website Anda belum siap dalam 24 jam Anda akan mendapatkan refund 100%.</p>
+                <p>Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
 
                 
                 <div class="containerButton">
                     <a class="btn btn-primary" href="{{ config('app.url') }}/payment/{{ $snapToken }}" target="_blank">Klik di sini untuk pembayaran</a>
-                    {{-- <a href="{{ config('app.url') }}/payment/{{ $snapToken }}" target="_blank">Klik di sini untuk pembayaran</a> --}}
                 </div>
             
 
                 <p style="margin-top: 50px">Jika Anda membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami melalui layanan pelanggan kami.</p>
                 <div class="d-flex row">
-                    <div class=" col-md-6 col-12 flex-column ">
-                            
-                       
+                    <div class=" col-md-6 col-12 flex-column ">  
                     </div>
-                    <div class=" col-md-6 col-12 flex-column ">
-                            
+                    <div class=" col-md-6 col-12 flex-column ">  
                         <p style="margin-top: 50px;">Hormat kami,</p>
                         <p style="pa"><strong>{{ config('app.name') }}</strong></p>
                         <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895340307548" target="_blank"> Rizky Mardiyansyah (0895340307548)</a>
                     </div>
                 </div>
-            
-                
             </div>
             
         </div>
         <div class="footer">
             <div class="footer">
-                <p>{{ config('app.name') }}</p>
-                <p>Copyright © <span id="year"></span> Mardsoft.</p>
+                <p>Copyright © <span id="year"></span> | {{ ucfirst(strtolower(config('app.name'))) }}</p>
             </div>
 
     </div>

@@ -23,6 +23,8 @@ Route::get('/', [DomainController::class, 'index'])->name('home');
 Route::get('/subscription', [DomainController::class, 'index'])->name('subscription');
 Route::get('/cart', [DomainController::class, 'index'])->name('cart');
 Route::get('/payment/{snapKey}', [paymentController::class, 'index'])->name('payment');
+Route::get('/finish', [paymentController::class, 'finish'])->name('finish');
+
 
 // // Rute untuk halaman domain-check
 // Route::get('/web', [DomainController::class, 'index'])->name('domain-check');

@@ -8,30 +8,24 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Http;
 
-class orderMail extends Mailable
+class finishMail extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $data;
+    public $order;
     public $snapToken;
     public $subs;
     public $template;
-    public $kop;
-    public $order;
-
     /**
      * Create a new message instance.
      */
-    public function __construct($data, $snapToken, $subs, $template, $kop, $order)
+    public function __construct($order, $snapToken, $subs, $template)
     {
-        $this->data = $data;
+        $this->order = $order;
         $this->snapToken = $snapToken;
         $this->subs = $subs;
         $this->template = $template;
-        $this->kop = $kop;
-        $this->order = $order;
+
         
     }
 
@@ -41,7 +35,7 @@ class orderMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Checkout Website',
+            subject: 'Payment Success',
         );
     }
 
@@ -51,11 +45,9 @@ class orderMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'orderMail',
+            view: 'finishMail',
         );
-    
     }
-    
 
     /**
      * Get the attachments for the message.
@@ -66,8 +58,4 @@ class orderMail extends Mailable
     {
         return [];
     }
-
-    
 }
-
-

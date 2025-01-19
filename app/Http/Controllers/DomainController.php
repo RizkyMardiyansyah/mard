@@ -109,8 +109,11 @@ class DomainController extends Controller
     {
         // dd($request);
         $data = $request->all(); // Mengambil semua data dari request
+        $timestamp = date('ymdHi');
+        $orderId = 'OD' . $timestamp . rand(100, 999);
 
         $order=Order::create([
+            'orderId' => $orderId,
             'domain' => $data['domain'],
             'template' => $data['template'],
             'nik' => $data['nik'],
@@ -127,6 +130,9 @@ class DomainController extends Controller
             'siup' => $request->file('siup') ? $request->file('siup')->store('documents') : null,
             'npwp' => $request->file('npwp') ? $request->file('npwp')->store('documents') : null,
         ]);
+        
+        $template = template::where ('id', $order->template)->first();
+        $subs = subscription::where ('id', $order->subscription)->first();
 
         // Handle file uploads
         if ($request->hasFile('ktp') && $request->file('ktp')->isValid()) {
@@ -150,16 +156,18 @@ class DomainController extends Controller
         \Midtrans\Config::$isSanitized =true;
        \Midtrans\Config::$is3ds = true;        
         
-
+       
         $params = array(
             'transaction_details' => array(
-                'order_id' => 'order_' . rand(),
+                'order_id' => $orderId,
                 'gross_amount' => $data['total_payment'],
             ),
             'customer_details' => array(
                 'first_name' => $data['name'],
                 'email' => $data['email'],
-            )
+                'phone' => $data['phone_number'],
+            ),        
+            
         );
         
         try {
@@ -173,7 +181,7 @@ class DomainController extends Controller
             
             
 
-            Mail::to($data['email'])->send(new orderMail($data, $snapToken, $subs, $template, $kop));
+            Mail::to($data['email'])->send(new orderMail($data, $snapToken, $subs, $template, $kop, $order));
     
             return redirect()->route('payment', ['snapKey' => $snapToken]);
     

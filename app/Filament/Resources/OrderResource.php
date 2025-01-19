@@ -110,6 +110,9 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('orderId')
                             ->disabled()
                             ->reactive(),
+                        Forms\Components\TextInput::make('paymentType')
+                            ->disabled()
+                            ->reactive(),
                         Forms\Components\TextInput::make('snapKey')
                             ->disabled()
                             ->maxLength(255)
@@ -147,6 +150,9 @@ class OrderResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('orderid')
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('domain')
                     ->sortable()
                     ->searchable(),

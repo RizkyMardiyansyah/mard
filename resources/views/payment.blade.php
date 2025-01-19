@@ -90,19 +90,19 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div style="background: #66B2FF; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" class="StepOfWizard col-4 active">
                                   <div class="step">
-                                    <img src="img/hosting.svg" alt="Hosting">
+                                    <img class="stepIcon" src="../img/hosting.svg" alt="Hosting">
                                   </div>
                                   <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
                                 </div>
                                 <div style="background: #66B2FF;" class="StepOfWizard col-4 active">
                                   <div class="step">
-                                    <img src="img/form.svg" alt="Form">
+                                    <img class="stepIcon" src="../img/form.svg" alt="Form">
                                   </div>
                                   <h6 data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h6>
                                 </div>
                                 <div style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;" class="StepOfWizard col-4 active">
                                   <div class="step">
-                                    <img src="img/pay.svg" alt="Payment">
+                                    <img class="stepIcon" src="../img/pay.svg" alt="Payment">
                                   </div>
                                   <h6 data-lang-en="Payment" data-lang-id="Pembayaran"></h6>
                                 </div>
@@ -111,10 +111,10 @@
 
                         <div class="cart">
                             <div class="section">
-                                <h5 class="form-section" data-lang-en="Terms and Conditions" data-lang-id="Syarat dan Ketentuan">
+                                <h5 class="form-section" data-lang-en="Terms and Conditions" data-lang-id="Syarat dan Ketentuan">Terms and Conditions</h5>
                                     <h6 data-lang-en="Take a moment to review the terms before completing your payment, including delivery time, refund policy, and contact information for support." 
                                         data-lang-id="Harap baca syarat dan ketentuan berikut sebelum menyelesaikan pembayaran Anda, termasuk waktu pengiriman website, kebijakan pengembalian dana, dan info kontak untuk bantuan.">
-                                    </h6>
+                                        Take a moment to review the terms before completing your payment, including delivery time, refund policy, and contact information for support.</h6>
                             </div>
                             <ul>
                                 <!-- New Point: Checkout Information Email -->
@@ -122,17 +122,20 @@
                                     data-lang-id="Anda telah dikirimi email informasi checkout yang berisi detail pesanan dan instruksi pembayaran.">
                                     You have been sent a checkout information email containing details of your order and payment instructions.
                                 </li>
-                                <li data-lang-en="Your website will be ready within a maximum of 2x24 hours after payment is completed." 
-                                    data-lang-id="Website Anda akan siap paling lama dalam 2x24 jam setelah pembayaran selesai.">
-                                    Your website will be ready within a maximum of 2x24 hours after payment is completed.
+                                <li data-lang-en="Make your payment within 48 hours after checkout to keep your order valid. Otherwise, it will be automatically canceled." 
+                                    data-lang-id="Lakukan pembayaran sebelum 48 jam setelah checkout untuk menjaga pesanan Anda tetap berlaku. Jika tidak, pesanan akan dibatalkan otomatis.">
+                                    Make your payment within 48 hours after checkout to keep your order valid. Otherwise, it will be automatically canceled.
                                 </li>
-                                <!-- New Point: Order Expiration -->
-                                <li data-lang-en="If payment is not made within 2x24 hours after checkout, your order will be canceled. To proceed, please place a new order." 
-                                    data-lang-id="Jika pembayaran belum dilakukan dalam 2x24 jam setelah checkout, pesanan Anda akan dibatalkan. Untuk melanjutkan, silakan ulangi pemesanan.">
-                                    If payment is not made within 2x24 hours after checkout, your order will be canceled. To proceed, please place a new order.
+                                <li data-lang-en="Your website will be ready and fully operational within 24 hours after payment." 
+                                    data-lang-id="Website Anda akan selesai dan siap digunakan dalam waktu maksimal 24 jam setelah pembayaran.">
+                                    Your website will be ready and fully operational within 24 hours after payment.
                                 </li>
-                                <li data-lang-en="If your website is not completed within the specified time frame, you will receive a 100% refund." 
-                                    data-lang-id="Jika website Anda belum selesai dalam waktu tersebut, Anda akan mendapatkan refund 100%.">
+                                <li data-lang-en="If your website is not ready in 24 hours , you will receive a 100% refund." 
+                                    data-lang-id="Jika website Anda belum siap dalam 24 jam, Anda akan mendapatkan refund 100%.">
+                                    If your website is not ready in 24 hours, you will receive a 100% refund.
+                                </li>
+                                <li data-lang-en="If your website is not ready within the specified time frame, you will receive a 100% refund." 
+                                    data-lang-id="Jika website Anda belum siap dalam waktu tersebut, Anda akan mendapatkan refund 100%.">
                                     If your website is not completed within the specified time frame, you will receive a 100% refund.
                                 </li>
                                 <li data-lang-en="Ensure the information provided during registration is accurate and complete." 
@@ -140,18 +143,24 @@
                                     Ensure the information provided during registration is accurate and complete.
                                 </li>                                
                                 <!-- Deliverables Section -->
-                                <li data-lang-en="Upon completion of your website, you will receive your website credentials, along with a guide to help you edit and manage your website." 
-                                    data-lang-id="Setelah website Anda selesai, Anda akan menerima kredensial website Anda, beserta panduan untuk membantu Anda mengedit dan mengelola website.">
-                                    Upon completion of your website, you will receive your website credentials, along with a guide to help you edit and manage your website.
+                                <li data-lang-en="Once your website is ready, you will receive your website credentials along with an easy-to-follow guide to help you edit and manage your website." 
+                                    data-lang-id="Setelah website Anda siap, Anda akan menerima kredensial website Anda beserta panduan mudah yang membantu Anda mengedit dan mengelola website Anda.">
+                                    Once your website is ready, you will receive your website credentials along with an easy-to-follow guide to help you edit and manage your website.
+                                </li>
+                                <!-- Business email matching domain -->
+                                <li
+                                    data-lang-en="You will also get a custom business email matching your domain, You can contact us to claim your email." 
+                                    data-lang-id="Anda juga akan mendapatkan email bisnis khusus yang sesuai dengan domain Anda, Anda bisa menghubungi kami untuk klaim email Anda.">
+                                    You will also get a custom business email matching your domain, You can contact us to claim your email.
                                 </li>  
                                 <li data-lang-en="By completing your payment, you agree to our Privacy Policy and Terms of Service." 
                                     data-lang-id="Dengan menyelesaikan pembayaran, Anda menyetujui Kebijakan Privasi dan Syarat Layanan kami.">
                                     By completing your payment, you agree to our Privacy Policy and Terms of Service.
                                 </li>                              
                                 <!-- Contact Information Section -->
-                                <li data-lang-en="If you have any questions or need assistance, feel free to contact us." 
-                                    data-lang-id="Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi kami.">
-                                    If you have any questions or need assistance, feel free to contact us.
+                                <li data-lang-en="To claim your refund or if you have any further questions, please don't hesitate to contact us." 
+                                    data-lang-id="Untuk klaim pengembalian dana atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.">
+                                    To claim your refund or if you have any further questions, please don't hesitate to contact us.
                                 </li>
                             </ul>
                             <div class="form-check">
@@ -167,34 +176,33 @@
                 <div class="serv col-md-4 col-12">                
                     <div class="cart order">
                         <div>   
-                            <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
+                            <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan">Order Summary</h5>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex justify-content-left">
-                                    <p class="cart-title" data-lang-en="Domain (" data-lang-id="Domain ("></p><p style="margin-right: 2px" class="cart-title" id="domainYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)"></p>
+                                    <p class="cart-title">Domain (</p><p style="margin-right: 2px" class="cart-title" id="domainYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Years)</p>
                                 </div>
                                 <p class="cart-title" id="domain-price" class=" price"></p>
                             </div>
                             <span class="cart-des" id="selected-domain">-</span>
                             <div class="d-flex justify-content-between align-items-center">
-                                <p class="cart-title" data-lang-en="Web Template" data-lang-id="Web Template"></p>
+                                <p class="cart-title">Web Template</p>
                                 <p class="cart-title" id="template-price" class=" price"></p>
                             </div>
                             <span class="cart-des" id="selected-template">-</span>
 
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex justify-content-left">
-                                    <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan ("></p><p style="margin-right: 2px" class="cart-title" id="subYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)"></p>
+                                    <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan (">Subscription (</p><p style="margin-right: 2px" class="cart-title" id="subYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Years)</p>
                                 </div>
                                     <p class="cart-title" id="subs-price-cart" class=" price">Rp. 0</p>
                             </div>
                             <span class="cart-des" id="" data-lang-en="Subscription fee for website management service." data-lang-id="Biaya langganan untuk layanan pengelolaan website"></span>
 
                             <div class="Subtotal d-flex justify-content-between align-items-center">
-                                <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal"></h5>
+                                <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal">Subtotal</h5>
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
                             </div>                
-                            <button data-lang-en="Pay" data-lang-id="Bayar" id="pay-button" type="submit" class="w-100 btn btn-primary" disabled></button>
-                            {{-- <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>  --}}
+                            <button style="font-weight: bolder" data-lang-en="Pay" data-lang-id="Bayar" id="pay-button" type="submit" class="w-100 btn btn-primary" disabled>Pay</button>
                         </div>
                     </div>
                 </div>      
@@ -212,9 +220,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
-<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="MIDTRANS_CLIENT_KEY"></script>
+<script src="{{ config('midtrans.API') }}" data-client-key="MIDTRANS_CLIENT_KEY"></script>
 
 <script>
+    sessionStorage.clear();
+
     document.addEventListener('DOMContentLoaded', function () {
         const checkbox = document.getElementById('acceptTerms');
         const payButton = document.getElementById('pay-button');
@@ -235,6 +245,7 @@
         snap.pay('{{ $order->snapKey }}', {
           // Optional
           onSuccess: function(result){
+           
             Swal.fire({
                 title: 'Success!',
                 text: 'Your payment was successful.',
@@ -244,10 +255,12 @@
             }).then(() => {              
 
                 var snapKey = '{{ $order->snapKey }}';
-                var orderId = result.order_id; // order_id yang didapat dari Snap API result
+                var orderId = result.order_id;
+                var paymentType = result.payment_type;
+                
 
                 // Arahkan ke route updateStatus dengan parameter snapKey dan orderId
-                window.location.href = "/update-status?snapKey=" + snapKey + "&orderId=" + orderId;
+                window.location.href = "/update-status?snapKey=" + snapKey + "&paymentType=" + paymentType;
             });
 
           },
