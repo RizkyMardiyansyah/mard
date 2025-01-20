@@ -115,7 +115,7 @@
                                     <h6 style="text-align:center; font-family: Poppins;">{{ $order->updated_at->translatedFormat('d F Y | H:i:s') }}</h6>
                             </div>
                             <div>
-                                <p class="cart-title" data-lang-en="Dear" data-lang-id="Yth">Dear <b class="cart-title">{{ $order->name }}</b>,</p>
+                                <p class="cart-title">Dear, <strong class="cart-title">{{ $order->name }}</strong></p>
                                 <p class="cart-title" data-lang-en="Thank you for your payment! We have successfully received your payment. Please find your order details below:" data-lang-id="Terima kasih atas pembayaran Anda! Pembayaran Anda telah kami terima dengan sukses. Silakan lihat detail pesanan Anda di bawah ini:">
                                     Thank you for your payment! We have successfully received your payment. Please find your order details below:
                                 </p>
@@ -156,7 +156,7 @@
                                             <div class="p-3">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div class="d-flex justify-content-left">
-                                                        <p class="cart-title">Domain (</p><p style="margin-right: 2px" class="cart-title">{{ $subs->year }}</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Years)</p>
+                                                        <p class="cart-title">Domain (</p><p class="cart-title">{{ $subs->year }}</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Years)</p>
                                                     </div>
                                                     <p class="cart-title" id="domain-price" class=" price">{{ $order->domainCost == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->domainCost, 2, ',', '.') }}</p>
                                                 </div>
@@ -169,14 +169,14 @@
                     
                                                 <div class="mt-3 d-flex justify-content-between align-items-center">
                                                     <div class="d-flex justify-content-left">
-                                                        <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan (">Subscription (</p><p style="margin-right: 2px" class="cart-title">{{ $subs->year }}</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Years)</p>
+                                                        <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan (">Subscription</p><p class="cart-title">{{ $subs->year }}</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Years)</p>
                                                     </div>
                                                         <p class="cart-title" id="subs-price-cart" class=" price">{{ $subs->price == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $subs->price, 2, ',', '.') }}</p>
                                                 </div>
                                                 <span class="cart-des" id="" data-lang-en="Subscription fee for website management service." data-lang-id="Biaya langganan untuk layanan pengelolaan website"></span>
                     
                                                 <div class="Subtotal d-flex justify-content-between align-items-center">
-                                                    <h5 style="font-weight: 700 !important;" class="cart-title" data-lang-en="Total Payment" data-lang-id="Total Pembayaran">Total Payment</h5>
+                                                    <h5 style="font-weight: 700 !important;" class="cart-title">Total</h5>
                                                     <h5 style="font-weight:  700 !important;" class="cart-title" class="price">{{ $order->total_payment == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->total_payment, 2, ',', '.') }}</h5>
                                                 </div>  
                                             </div>              

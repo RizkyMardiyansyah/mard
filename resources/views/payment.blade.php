@@ -170,7 +170,7 @@
                                 </label>
                             </div>                             
                         </div>
-                    {{-- </div>                                --}}
+                    {{-- </div>--}}
                 </div> 
                 {{-- Cart --}}
                 <div class="serv col-md-4 col-12">                
@@ -199,7 +199,7 @@
                             <span class="cart-des" id="" data-lang-en="Subscription fee for website management service." data-lang-id="Biaya langganan untuk layanan pengelolaan website"></span>
 
                             <div class="Subtotal d-flex justify-content-between align-items-center">
-                                <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal">Subtotal</h5>
+                                <h5 class="cart-title">Total</h5>
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
                             </div>                
                             <button style="font-weight: bolder" data-lang-en="Pay" data-lang-id="Bayar" id="pay-button" type="submit" class="w-100 btn btn-primary" disabled>Pay</button>
@@ -224,7 +224,6 @@
 
 <script>
     sessionStorage.clear();
-
     document.addEventListener('DOMContentLoaded', function () {
         const checkbox = document.getElementById('acceptTerms');
         const payButton = document.getElementById('pay-button');
@@ -238,22 +237,19 @@
         });
     });
 </script>
-
     <script type="text/javascript">
       document.getElementById('pay-button').onclick = function(){
-        // SnapToken acquired from previous step
+        
         snap.pay('{{ $order->snapKey }}', {
-          // Optional
-          onSuccess: function(result){
-           
+          
+          onSuccess: function(result){           
             Swal.fire({
                 title: 'Success!',
                 text: 'Your payment was successful.',
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 1500
-            }).then(() => {              
-
+            }).then(() => {        
                 var snapKey = '{{ $order->snapKey }}';
                 var orderId = result.order_id;
                 var paymentType = result.payment_type;

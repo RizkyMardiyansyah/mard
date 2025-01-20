@@ -150,7 +150,7 @@
                         <span class="cart-des" >Biaya langganan untuk layanan pengelolaan website</span>
                 
                         <div class="total-price" style="display: flex; justify-content: space-between; font-weight: bold;">
-                            <strong>Subtotal</strong>
+                            <strong>Total</strong>
                             <div class="price"><span>Rp. {{ number_format($data['total_payment'], 2, ',', '.') }}</span></div>
                         </div>
                     </div>
@@ -183,7 +183,7 @@
         </div>
         <div class="footer">
             <div class="footer">
-                <p>Copyright © <span id="year"></span> | {{ ucfirst(strtolower(config('app.name'))) }}</p>
+                <p>Copyright © <span id="year"></span> | {{ ucwords(strtolower(config('app.name'))) }}</p>
             </div>
 
     </div>

@@ -16,31 +16,18 @@ use Illuminate\Support\Facades\Mail;
 
 class paymentController extends Controller
 {
-    public function index($snapKey)
+    public function index($snapKey, Request $request)
     {   
        
         $order = order::where('snapKey', $snapKey)->first();
         $subs = subscription::where ('id', $order->subscription)->first();
         $template = template::where ('id', $order->template)->first();
-        $snap = $snapKey;
-
         $routeName = request()->route()->getName();
-        Cookie::queue('snapkey', $snap, 1);                
+        
+        if ($request->route()->getName() == 'finish') {
+            return view('finish', compact('order', 'subs', 'template', 'snapKey'));
+        }
         return view('payment', compact('order','subs','template','snapKey'));
-    }
-
-    public function finish()
-    {       
-        $snapkey = Cookie::get('snapkey');
-        $order = order::where('snapKey', $snapkey)->first();
-        $subs = subscription::where ('id', $order->subscription)->first();
-        $template = template::where ('id', $order->template)->first();
-
-        $routeName = request()->route()->getName();
-
-    
-        return view('finish', compact('order', 'subs', 'template', 'snapKey'));
-
     }
 
 
@@ -62,7 +49,7 @@ class paymentController extends Controller
         $subs = subscription::where ('id', $order->subscription)->first();
         
         Mail::to($order->email)->send(new finishMail($order, $snapKey, $subs, $template));
-        return redirect()->route('finish', ['snapKey' => $snapKey]);
+        return view('finish', compact('order', 'subs', 'template', 'snapKey'));
         
     }
 
