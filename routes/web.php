@@ -20,6 +20,8 @@ use App\Models\template;
 
 // Rute untuk halaman home
 Route::get('/', [DomainController::class, 'index'])->name('home');
+Route::get('/website', [DomainController::class, 'index'])->name('website');
+Route::post('/website', [DomainController::class, 'index'])->name('website');
 Route::get('/subscription', [DomainController::class, 'index'])->name('subscription');
 Route::get('/cart', [DomainController::class, 'index'])->name('cart');
 Route::get('/payment/{snapKey}', [paymentController::class, 'index'])->name('payment');

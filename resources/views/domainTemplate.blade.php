@@ -21,9 +21,17 @@
         }
     }
     
-
     #home{
         background-color: #FAFAFA;
+    }
+    #domain {
+    border: 1px solid #ccc;
+    outline: none; /* Hilangkan outline bawaan */
+    transition: border-color 0.3s; /* Animasi transisi saat warna berubah */
+    }
+
+    #domain:focus {
+        border-color: #488EFE !important;
     }
 
 </style>
@@ -62,22 +70,28 @@
         <div class="row">
             
             <div class="serv col-md-8 col-12">                
-                    {{-- <div class="container"> --}}
+                    {{-- <div class="container"> --}}                       
                         <div class="cart stepHead">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div style="border-radius:10px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class=" StepOfWizard col-4 active">
+                            <div class="d-flex align-items-center">
+                                <div style="border-radius:10px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class=" StepOfWizard col-3 active">
                                   <div class="step">
-                                    <img class="stepIcon" src="img/hosting.svg" alt="Hosting">
+                                    <img class="stepIcon" src="img/domain.svg" alt="Hosting">
                                   </div>
-                                  <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
+                                  <h6>Website</h6>
                                 </div>
-                                <div class="StepOfWizard col-4 ">
+                                <div class=" StepOfWizard col-3">
+                                    <div class="step">
+                                      <img class="stepIcon" src="img/hosting.svg" alt="Hosting">
+                                    </div>
+                                    <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
+                                  </div>
+                                <div class="StepOfWizard col-3 ">
                                   <div class="step">
                                     <img class="stepIcon" src="img/form.svg" alt="Form">
                                   </div>
                                   <h6 data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h6>
                                 </div>
-                                <div class="StepOfWizard col-4">
+                                <div class="StepOfWizard col-3">
                                   <div class="step">
                                     <img class="stepIcon" src="img/pay.svg" alt="Payment">
                                   </div>
@@ -86,45 +100,77 @@
                             </div>
                         </div>
                         
-                        <div class="cart">                              
+                        <div id="searchDomain" class="visible cart domain" style="height: 500px">
                             <div class="stepBody">
                                 <div class="section" style="margin-bottom: 20px">
-                                    <h5 class="form-section" data-lang-en="Subscription" data-lang-id="Langanan"></h5>
+                                    <h5 class="form-section">Domain</h5>
+                                    <h6 data-lang-en="Get a domain name that reflects your business and builds trust with your audience, Your success starts with the right choice." data-lang-id="Dapatkan nama domain yang mencerminkan bisnis Anda dan membangun kepercayaan dengan audiens Anda, Kesuksesan Anda dimulai dari pilihan yang tepat.">Get a domain name that reflects your business and builds trust with your audience, Your success starts with the right choice.</h6>
+                                </div>           
+                                <form  id="domainForm" class="d-flex align-items-center w-100" style="gap: 16px;">                                            
+                                    <input type="text" id="domain" name="domain" required placeholder="Find your domain..."/>
+                                    <button id="domainBtn" type="submit" class="btn btn-primary" style="opacity: 100%; padding:15px;"><b data-lang-en="Search" data-lang-id="Cari">Search</b></button>
+                                </form>
+                                    <div style="margin-top: 50px" class="spinner" id="spinner"></div>
+                                    <div style="margin-top: 20px;" id="result"></div>
+                            </div>                            
+                        </div>
+
+                        <div id="searchTemplate" class="visible cart">                              
+                            <div class="stepBody">
+                                <div class="section" style="margin-bottom: 20px">
+                                    <h5 class="form-section">Template</h5>
                                     <h6 data-lang-en="Choose the perfect subscription package for you, let us handle your website services and maintenance effortlessly." data-lang-id="Pilih paket langganan terbaik Anda, biarkan kami mengurus layanan dan perawatan website Anda dengan mudah."> </h6>
-                                </div>
-                                
-                                <form class="align-items-center row">
-                                    <div class="form-group col-md-6 col-12 mb-4">
-                                        <label class="form-label" for="subs" data-lang-en="Choose Packet" data-lang-id="Pilih Paket"></label>
-                                        <div class="custom-select-wrapper">
-                                            <select name="subs" id="subs" class="custom-select form-control" onchange="updatePrice()">
-                                                <option value="" disabled selected data-lang-en="Select Packet" data-lang-id="Pilih Paket"></option>
-                                                @foreach ($subs as $sub)
-                                                    <option value="{{ $sub->id }}" data-years="{{ $sub->year }}" data-price="{{ $sub->price }}" data-desc="{{ $sub->description }}" data-subId="{{ $sub->id }}" @if ($sub->id == 1) selected @endif>{{ $sub->title }}</option>
-                                                @endforeach
-                                            </select>
+                                </div>                                
+                                <form id="searchTemplateForm" action="{{ route('website') }}" method="POST">
+                                    @csrf 
+                                    
+                                    <div class="row d-flex justify-content-between align-items-center ">
+                                        <div class="col-md-6 col-12">
+                                            <div class="btn-group tabs" role="group" aria-label="Tipe Template">
+                                                <input type="radio" class="btn-check" name="type" id="all" value="all" 
+                                                    {{ request('type') == 'all' ? 'checked' : '' }} checked>
+                                                <label class="btn btn-outline-primary" for="all">ALL</label>
+                                        
+                                                <input type="radio" class="btn-check" name="type" id="basic" value="Basic"
+                                                    {{ request('type') == 'basic' ? 'checked' : '' }}>
+                                                <label class="btn btn-outline-primary" for="basic">BASIC</label>
+                                        
+                                                <input type="radio" class="btn-check" name="type" id="premium" value="Premium"
+                                                    {{ request('type') == 'premium' ? 'checked' : '' }}>
+                                                <label class="btn btn-outline-primary" for="premium">PREMIUM</label>
+                                            </div>
+                                        </div>
+                                    
+                                       
+                                        <div class="col-md-6 col-12">
+                                            <div class="input-group">
+                                                <input type="text" name="search" id="search" class="form-control" placeholder="Find your template..." required>
+                                                <button style="opacity: 100%; margin-top:0px" class="btn btn-primary" type="submit">Search</button>
+                                            </div>
                                         </div>
                                     </div>
                                     
-                                    <div style="display: flex; flex-direction: column; align-items: flex-end;" class="form-group col-md-6 col-12 mb-4">
-                                        <div id="discoutContainer" style="display: flex; align-items: center;">    
-                                            <p id="hemat" class="display-price" data-lang-en="Save " data-lang-id="Hemat"></p>
-                                            <p id="discount"></p>
-                                        </div>
-                                        <div style="display: flex; align-items: center;">
-                                            <p id="subs-price" class="display-price">Rp. 0</p>
-                                            <p id="yeartext">/Year</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group  col-12 mb-4">
-                                        <p class="cart-title" id="subs-desc" class="price display-price"></p>
-                                    </div>
+                                    
+                                    <!-- Spinner untuk loading animation -->
+                                    <div style="margin-top: 50px" class="spinner" id="spinnerr" style="display: none;"></div>
                                 </form>
+                            
+                                <div class=" row" id="templateContainer">
+                                    @foreach($templates as $template)
+                                        @include('partials.template_card_web', ['template' => $template])
+                                    @endforeach
+                                </div>
+                            
+                                <!-- Menampilkan Pagination -->
+                                <div class="pagination justify-content-center mt-4" id="paginationLinks">
+                                    {{ $templates->appends(request()->query())->links('pagination::bootstrap-4') }}
+                                </div>
+                
+                                </div>
                             </div>
-                        </div>
-                    {{-- </div>             --}}
+                    {{-- </div> --}}
             </div> 
-            <div class="serv col-md-4 col-12">                
+            <div id="OrderSummary" class="serv col-md-4 col-12">                
                     <div class="cart order">
                         <div>   
                             <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
@@ -154,7 +200,7 @@
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
                             </div>
 
-                            <button id="next-button"  class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya"></button>
+                            <button id="next-button"  class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya">Next</button>
                         </div>
                     </div>
                 
@@ -166,330 +212,390 @@
     @include('partials.footer')
 
 
-<!-- Script untuk AJAX Pencarian -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    function updatePrice() {
-        // Ambil elemen dropdown dan elemen harga
-        const selectElement = document.getElementById('subs');
-        const priceElement = document.getElementById('subs-price');
-        const discountElement = document.getElementById('discount');
-        const descElement = document.getElementById('subs-desc');
-        const domainYearsElement = document.getElementById('domainYears');
-        const subYearsElement = document.getElementById('subYears');
-
-        // Ambil harga dari atribut data-price pada opsi yang dipilih
-        const selectedOption = selectElement.options[selectElement.selectedIndex];
-        const price = parseInt(selectedOption.getAttribute('data-price') || "0", 10);
-        const desc = selectedOption.getAttribute('data-desc');
-        const subId = selectedOption.getAttribute('data-subId');
-        const subYears = selectedOption.getAttribute('data-years');
-
-        // Ambil harga paket pertama (subscription 1) yang sudah diketahui
-        const package1Price = parseInt(document.querySelector('option[value="1"]').getAttribute('data-price') || "0", 10);
-    
-
-        // Hitung diskon
-        const grossPrice = package1Price * subYears;
-        const discount = grossPrice - price;
-        const discountPercentage = (discount / grossPrice) * 100;
-
-        // Tampilkan deskripsi dan harga di elemen yang sesuai
-        descElement.textContent = desc || '';
-        subYearsElement.textContent = subYears || '1';
-        domainYearsElement.textContent = subYears || '1';
-        priceElement.textContent = `Rp. ${price.toLocaleString('id-ID')}`;
-        
-        if (discountPercentage === 0) {
-            document.getElementById('discoutContainer').style.display = 'none';
-        } else {
-            document.getElementById('discoutContainer').style.display = 'flex';
-        }
-
-        // Tampilkan diskon di elemen discount
-        discountElement.textContent = `${discountPercentage.toFixed()}%`;
-
-        // Simpan harga langganan ke localStorage
-        sessionStorage.setItem("subsPrice", price);
-        sessionStorage.setItem("subId", subId);
-
-        // Perbarui harga domain berdasarkan tahun langganan
-        updateDomainPrice(subYears);
-
-        // Perbarui subtotal
-        updateSubtotal(price);
-    }
-
-    function updateDomainPrice(subYears) {
-        const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        
-        // Kalikan harga domain dengan jumlah tahun yang dipilih
-        const selectElement = document.getElementById('subs');
-        const selectedOption = selectElement.options[selectElement.selectedIndex];
-        const Years = selectedOption.getAttribute('data-years');
-
-        const updatedDomainPrice = domainPrice * Years;
-        sessionStorage.setItem("updatedDomainPrice", updatedDomainPrice);
-
-        // Perbarui harga domain di tampilan
-        document.getElementById('domain-price').textContent = `Rp. ${updatedDomainPrice.toLocaleString('id-ID')}`;
-    }
-
-    function updateSubtotal(subsPrice = 0) {
-        // Ambil harga domain yang telah diperbarui dari localStorage
-        const updatedDomainPrice = parseInt(sessionStorage.getItem("updatedDomainPrice") || "0", 10);
-
-        // Ambil harga template dari localStorage
-        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-
-        const Subtotal = updatedDomainPrice + templatePrice + subsPrice;
-
-        // Format harga ke dalam format Rupiah
-        const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
-
-        // Tampilkan subtotal di elemen yang sesuai
-        document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
-
-        sessionStorage.setItem('subtotal', Subtotal);
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        // localStorage.clear();
-        document.getElementById('subs').dispatchEvent(new Event('change'));
-
-        // Ambil elemen harga dari subs-price
-        const priceElement = document.getElementById('subs-price');
-        const subsPrice = parseInt(priceElement.textContent.replace(/[^\d]/g, '') || "0", 10);
-
-        // Ambil data lain dari localStorage
-        const domain = sessionStorage.getItem("domain") || "-";
-        const template = sessionStorage.getItem("template") || "-";
-        const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-
-        // Tampilkan dokumen jika domain mengandung ".co.id"
-        if (domain.toLowerCase().includes('.co.id')) {
-            $('#doc').addClass('visible');
-        } else {
-            $('#doc').removeClass('visible');
-        }
-
-        // Jika data tidak valid, redirect ke halaman utama
-        if (!domain || domain === "-" || !template || template === "-") {
-            window.location.href = '/';
-        }
-
-        // Tampilkan data di halaman
-        const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
-        document.getElementById("selected-domain").innerText = domain;
-        document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
-        document.getElementById("selected-template").innerText = template;
-        document.getElementById("template-price").innerText = formatRupiah(templatePrice);
-
-        // Perbarui subtotal saat halaman dimuat
-        updateSubtotal(subsPrice);
-    });
-
-
-
-    function updateDomainPrice(subYears) {
-        const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        
-        // Kalikan harga domain dengan jumlah tahun yang dipilih
-        const selectElement = document.getElementById('subs');
-        const selectedOption = selectElement.options[selectElement.selectedIndex];
-        const Years = selectedOption.getAttribute('data-years');
-
-        const updatedDomainPrice = domainPrice * Years;
-        sessionStorage.setItem("updatedDomainPrice", updatedDomainPrice);
-
-        // Perbarui harga domain di tampilan
-        document.getElementById('domain-price').textContent = `Rp. ${updatedDomainPrice.toLocaleString('id-ID')}`;
-    }
-
-    function updateSubtotal(subsPrice = 0) {
-        // Ambil harga domain yang telah diperbarui dari localStorage
-        const updatedDomainPrice = parseInt(sessionStorage.getItem("updatedDomainPrice") || "0", 10);
-
-        // Ambil harga template dari localStorage
-        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-
-        const Subtotal = updatedDomainPrice + templatePrice + subsPrice;
-
-        // Format harga ke dalam format Rupiah
-        const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
-
-        // Tampilkan subtotal di elemen yang sesuai
-        document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
-
-        sessionStorage.setItem('subtotal', Subtotal);
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        // localStorage.clear();
-        document.getElementById('subs').dispatchEvent(new Event('change'));
-
-        // Ambil elemen harga dari subs-price
-        const priceElement = document.getElementById('subs-price');
-        const subsPrice = parseInt(priceElement.textContent.replace(/[^\d]/g, '') || "0", 10);
-
-        // Ambil data lain dari localStorage
-        const domain = sessionStorage.getItem("domain") || "-";
-        const template = sessionStorage.getItem("template") || "-";
-        const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-
-        // Tampilkan dokumen jika domain mengandung ".co.id"
-        if (domain.toLowerCase().includes('.co.id')) {
-            $('#doc').addClass('visible');
-        } else {
-            $('#doc').removeClass('visible');
-        }
-
-        // Jika data tidak valid, redirect ke halaman utama
-        if (!domain || domain === "-" || !template || template === "-") {
-            window.location.href = '/';
-        }
-
-        // Tampilkan data di halaman
-        const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
-        document.getElementById("selected-domain").innerText = domain;
-        document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
-        document.getElementById("selected-template").innerText = template;
-        document.getElementById("template-price").innerText = formatRupiah(templatePrice);
-
-        // Perbarui subtotal saat halaman dimuat
-        updateSubtotal(subsPrice);
-    });
-
-    // Fungsi untuk navigasi ke halaman /cart
-    $('.cart .btn-primary').on('click', function () {
-        const domainPrice = $('#domain-price').text();
-        const template = $('#selected-template').text();
-        // const templateId = $('#selected-template-id').text();
-        const templatePrice = $('#template-price').text();
-        const subYears = $('#subYears').text();
-
-        // Simpan data ke localStorage
-        sessionStorage.setItem('newDomainPrice', domainPrice);
-        sessionStorage.setItem('template', template);
-        // sessionStorage.setItem('templateId', templateId);
-        sessionStorage.setItem('templatePrice', templatePrice);
-        sessionStorage.setItem('year', subYears);
-        
-
-        // Navigasi ke halaman /cart
-        window.location.href = '/cart';
-    });
-</script> 
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-//   JS untuk toggle bahasa
-        window.onload = function () {
-            // Ambil preferensi bahasa dari localStorage
-            const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-
-            // Atur posisi toggle sesuai bahasa tersimpan
-            const languageToggle = document.getElementById('languageToggle');
-            languageToggle.checked = (savedLanguage === 'en');
-            
-            // Set bahasa saat halaman dimuat
-            switchLanguage(savedLanguage);
-            updateToggleText(savedLanguage);
-        };
-
-        // Tambahkan event listener pada toggle
-        const toggleCheckbox = document.getElementById('languageToggle');
-
-        toggleCheckbox.addEventListener('change', function () {
-            const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
-
-            // Simpan preferensi bahasa ke localStorage
-            localStorage.setItem('preferredLanguage', selectedLang);
-
-            // Ubah bahasa dan teks toggle
-            switchLanguage(selectedLang);
-            updateToggleText(selectedLang);
-        });
-
-        function switchLanguage(lang) {
-            const elements = document.querySelectorAll('[data-lang-en]');
-
-            elements.forEach(element => {
-                element.textContent = element.getAttribute('data-lang-' + lang);
-            });
-        }
-
-        function updateToggleText(lang) {
-            const toggleInner = document.querySelector('.toggle-inner');
-            toggleInner.textContent = lang === 'en' ? 'EN' : 'IN';
-        }
-//   End JS untuk toggle bahasa
-
-
-    window.onscroll = function() {
-        const navbar = document.getElementById('navbar');
-        const floatingButton = document.getElementById("floatingButton");
+        //   JS untuk toggle bahasa
+                window.onload = function () {
+                    // Ambil preferensi bahasa dari localStorage
+                    const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
         
-        // Memeriksa scroll untuk navbar
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        // Menampilkan/menyembunyikan tombol berdasarkan scroll
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            floatingButton.style.display = "block";
-        } else {
-            floatingButton.style.display = "none";
-        }
-    };
-
-    // Fungsi untuk menggulir ke atas saat tombol diklik
-    function topFunction() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Smooth scroll untuk navigasi di halaman yang sama
-document.querySelectorAll('a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-
-        if (targetId && targetId.startsWith('/#')) {
-            const targetElement = document.querySelector(targetId.slice(1)); // Menghapus '/' agar selector valid
-
-            if (targetElement) { // Periksa apakah elemen target ada
-                e.preventDefault(); // Mencegah navigasi default
-                const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
+                    // Atur posisi toggle sesuai bahasa tersimpan
+                    const languageToggle = document.getElementById('languageToggle');
+                    languageToggle.checked = (savedLanguage === 'en');
+                    
+                    // Set bahasa saat halaman dimuat
+                    switchLanguage(savedLanguage);
+                    updateToggleText(savedLanguage);
+                };
+        
+                // Tambahkan event listener pada toggle
+                const toggleCheckbox = document.getElementById('languageToggle');
+        
+                toggleCheckbox.addEventListener('change', function () {
+                    const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
+        
+                    // Simpan preferensi bahasa ke localStorage
+                    localStorage.setItem('preferredLanguage', selectedLang);
+        
+                    // Ubah bahasa dan teks toggle
+                    switchLanguage(selectedLang);
+                    updateToggleText(selectedLang);
                 });
+        
+                function switchLanguage(lang) {
+                    const elements = document.querySelectorAll('[data-lang-en]');
+        
+                    elements.forEach(element => {
+                        element.textContent = element.getAttribute('data-lang-' + lang);
+                    });
+                }
+        
+                function updateToggleText(lang) {
+                    const toggleInner = document.querySelector('.toggle-inner');
+                    toggleInner.textContent = lang === 'en' ? 'EN' : 'IN';
+                }
+        //   End JS untuk toggle bahasa
+        
+        
+            window.onscroll = function() {
+                const navbar = document.getElementById('navbar');
+                const floatingButton = document.getElementById("floatingButton");
+                
+                // Memeriksa scroll untuk navbar
+                if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+        
+                // Menampilkan/menyembunyikan tombol berdasarkan scroll
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    floatingButton.style.display = "block";
+                } else {
+                    floatingButton.style.display = "none";
+                }
+            };
+        
+            // Fungsi untuk menggulir ke atas saat tombol diklik
+            function topFunction() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        
+            // Smooth scroll untuk navigasi di halaman yang sama
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+        
+                if (targetId && targetId.startsWith('/#')) {
+                    const targetElement = document.querySelector(targetId.slice(1)); // Menghapus '/' agar selector valid
+        
+                    if (targetElement) { // Periksa apakah elemen target ada
+                        e.preventDefault(); // Mencegah navigasi default
+                        const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Pindah ke posisi elemen setelah halaman dimuat
+        window.addEventListener('load', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const targetElement = document.querySelector(hash); // Mencari elemen dengan ID hash
+                if (targetElement) {
+                    const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+        
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth' // Bisa juga diubah menjadi 'auto' jika tidak ingin animasi di sini
+                    });
+                }
+            }
+        });
+    </script>
+    <script>  
+    
+        $(document).ready(function() {
+
+            function updateSubtotal(subsPrice = 0) {
+                const updatedDomainPrice = parseInt(sessionStorage.getItem("domainPrice") || "0", 10);
+                const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
+                const Subtotal = updatedDomainPrice + templatePrice + subsPrice;
+                const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
+                document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
+                sessionStorage.setItem('subtotal', Subtotal);
+             }
+
+        
+            function toggleSections() {
+            const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
+            const domain = sessionStorage.getItem('domain');
+            const domainPrice = sessionStorage.getItem('domainPrice');
+
+            const templateId = sessionStorage.getItem('templateId');
+            const templateTitle = sessionStorage.getItem('template');
+            const templateType = sessionStorage.getItem('templateType');
+            const templatePrice = sessionStorage.getItem('templatePrice');
+
+            if (domain) {  
+                $('#searchTemplate').addClass('visible').show();
+                $('#searchDomain').removeClass('visible').hide();
+                document.getElementById("selected-domain").innerText = domain;
+                document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
+                updateSubtotal();
+                                 
+            } else if (templateId) {
+                $('#searchDomain').addClass('visible').show();
+                $('#searchTemplate').removeClass('visible').hide();
+                document.getElementById("selected-template").innerText = templateTitle;
+                document.getElementById("template-price").innerText = formatRupiah(templatePrice);
+                updateSubtotal();
+            }
+            else {
+                window.location.href = '/web';
             }
         }
-    });
-});
 
-// Pindah ke posisi elemen setelah halaman dimuat
-window.addEventListener('load', () => {
-    const hash = window.location.hash; // Mendapatkan bagian hash dari URL
-    if (hash) {
-        const targetElement = document.querySelector(hash); // Mencari elemen dengan ID hash
-        if (targetElement) {
-            const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+        toggleSections();
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth' // Bisa juga diubah menjadi 'auto' jika tidak ingin animasi di sini
+       
+        $('#searchTemplateForm').on('submit', function(e) {
+            e.preventDefault(); // Mencegah submit standar
+            performSearchOrPagination($(this).attr('action'), 'POST', { 
+                _token: '{{ csrf_token() }}',
+                search: $('#search').val(),
+                type: $('input[name="type"]:checked').val() // Tambahkan tipe yang dipilih
+            });
+        });
+
+        // Event untuk tab tipe template
+        $('input[name="type"]').on('change', function() {
+            $('#searchTemplateForm').submit(); // Submit form saat tab berubah
+        });
+
+        // Event untuk pagination link
+        $(document).on('click', '#paginationLinks a', function(e) {
+            e.preventDefault(); // Mencegah reload halaman
+            let url = $(this).attr('href');
+            performSearchOrPagination(url, 'GET');
+            
+        });
+
+        // Fungsi umum untuk Search atau Pagination
+        function performSearchOrPagination(url, method, data = {}) {
+            $('#spinnerr').show(); // Tampilkan spinner
+
+            $.ajax({
+                url: url,
+                method: method,
+                data: data,
+                success: function(response) {
+                    $('#spinnerr').hide(); // Sembunyikan spinner
+                    $('#templateContainer').html(''); // Kosongkan kontainer
+
+                    // Tampilkan template jika ada hasil
+                    if (response.templates.length > 0) {
+                        $('html, body').animate({scrollTop: $('/#templateContainer').offset().top}, 'fast');
+                        response.templates.forEach(template => {
+                            const imageUrl = `{{ url('storage') }}/${template.image}`;
+                            $('#templateContainer').append(`
+                                <div class="card webtemplate col-md-6 col-12">
+                                    <a href="${template.link}" target="_blank">
+                                        <img src="${imageUrl}" alt="${template.title}">
+                                    </a>
+                                    <div class="d-flex" style="padding: 0px">
+                                        {{-- <div class="card-title">${template.title}</div> --}}
+                                        <div class="card-title">
+                                            <a href="${template.link}" target="_blank" style="text-decoration: none; color: inherit;">
+                                                ${template.title}
+                                            </a>
+                                        </div>
+                                        <div class="d-flex" style="margin-left: auto">
+                                            <a href="/#OrderSummary" class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-type="${template.type}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
+                                            <a href="${template.link}" target="_blank" class="view d-flex align-items-center justify-content-center" data-bs-toggle="tooltip" title="Live Preview"><i class="fas fa-eye"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="" style="padding: 0px; Opacity:50%; font-size:14px; margin-top:auto">       
+                                        <div class="card-title"> <i class="fa fa-shopping-bag me-2"></i>${template.total_pembelian} Purchased</div>
+                                    </div>
+                                </div>
+                            `);
+                        });
+                        
+                    } else {
+                        $('#templateContainer').append('<p>No templates found.</p>');
+                    }
+
+                    // Update pagination links
+                    $('#paginationLinks').html(response.pagination);
+                },
+                error: function() {
+                    $('#spinnerr').hide(); // Sembunyikan spinner
+                    alert('An error occurred. Please try again.');
+                }
             });
         }
-    }
-});
+        });
+    </script>
+    
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function() {
+        $('#domainForm').on('submit', function(e) {
+            e.preventDefault();  // Mencegah refresh halaman
 
+            let domain = $('#domain').val();
+            domain = domain.replace(/\..*/, '');  // Hapus ekstensi jika ada
+
+            $.ajax({
+                url: '{{ route("check.domain") }}',
+                method: 'POST',  // Menggunakan POST
+                data: {
+                    _token: '{{ csrf_token() }}',  // Token CSRF wajib
+                    domain: domain
+                },
+                beforeSend: function() {
+                    // Tampilkan spinner sebelum request dimulai
+                    $('#spinner').show();
+                    $('#result').html('');  // Kosongkan hasil sebelumnya
+                },
+                success: function(response) {
+                    $('#spinner').hide();  // Sembunyikan spinner setelah request berhasil
+
+                    // Memeriksa dan menampilkan hasil
+                    let resultHtml = `
+                    <div class="carddomain ${response.com === 'available' ? 'available' : 'unavailable'}">
+                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                            <p><b>${domain}.com</b> ${response.com === 'unavailable' ? 'Unvailable' : ''}</p>
+                            
+                            <!-- Tombol hanya tampil jika domain tersedia -->
+                            ${response.com === 'available' ? 
+                                '<p class="price">Rp. 200.000</p><a href="/#OrderSummary"> <button class="btn-select" data-domain="' + domain + '.com" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                ''}
+
+                            <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                            ${response.com === 'unavailable' ? 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;" ></button>' : 
+                                ''}
+                        </div>
+                    </div>
+
+                    <div class="carddomain ${response.id === 'available' ? 'available' : 'unavailable'}">
+                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                            <p><b>${domain}.id</b> ${response.id === 'unavailable' ? 'Unvailable' : ''}</p>
+                            
+                            <!-- Tombol hanya tampil jika domain tersedia -->
+                            ${response.id === 'available' ? 
+                                '<p class="price">Rp. 290.000</p><a href="/#OrderSummary"><button class="btn-select" data-domain="' + domain + '.id" data-price="290000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                ''}        
+
+                            <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                            ${response.id === 'unavailable' ? 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                ''}
+                        </div>
+                    </div>
+
+                    <div class="carddomain ${response['co.id'] === 'available' ? 'available' : 'unavailable'}">
+                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                            <p><b>${domain}.co.id</b> ${response['co.id'] === 'unavailable' ? 'Unvailable' : ''}</p>
+                            
+                            <!-- Tombol hanya tampil jika domain tersedia -->
+                            ${response['co.id'] === 'available' ? 
+                                '<p class="price">Rp. 330.000</p><a href="/#OrderSummary"><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                ''}
+                               
+
+                            <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                            ${response['co.id'] === 'unavailable' ? 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                ''}
+                        </div>
+                    </div>
+                    `;
+
+                    $('#result').html(resultHtml);
+                },
+                error: function() {
+                    $('#spinner').hide();  // Sembunyikan spinner jika terjadi kesalahan
+                    alert('Terjadi kesalahan, coba lagi nanti.');
+                }
+            });
+        });
+
+
+        function updateSubtotal(subsPrice = 0) {
+                const updatedDomainPrice = parseInt(sessionStorage.getItem("domainPrice") || "0", 10);
+                const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
+                const Subtotal = updatedDomainPrice + templatePrice + subsPrice;
+                const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
+                document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
+                sessionStorage.setItem('subtotal', Subtotal);
+             }
+   
+
+        // Event listener untuk tombol "Pilih Template"
+        $(document).on('click', '.btn-select', function() {
+            const selectedDomain = $(this).data('domain'); 
+            const selectedPrice = $(this).data('price');
+            $('#selected-domain').text(selectedDomain); 
+            $('#domain-price').text('Rp. ' + selectedPrice.toLocaleString());
+
+            sessionStorage.setItem('domain', selectedDomain);
+            sessionStorage.setItem('domainPrice', selectedPrice);
+
+            updateSubtotal();
+        });
+
+        $(document).on('click', '.select', function() {
+            var selectedTemplate = $(this).data('template-title');
+            var selectedTemplateType = $(this).data('template-type');
+            var selectedTemplateId = $(this).data('template-id');
+            var selectedTemplatePrice = (selectedTemplateType === 'Basic') ? 0 : 500000;
+            $('#selected-template').text(selectedTemplate);
+            $('#selected-template-id').text(selectedTemplateId);
+            $('#template-price').text('Rp. ' + selectedTemplatePrice.toLocaleString());
+
+            sessionStorage.setItem('templateTitle', selectedTemplate);
+            sessionStorage.setItem('templateId', selectedTemplateId);
+            sessionStorage.setItem('templateType', selectedTemplateType);
+            sessionStorage.setItem('templatePrice', selectedTemplatePrice);
+            
+            updateSubtotal();
+            
+        });
+        
+            $('#next-button').on('click', function () {
+                // Periksa apakah ada data yang kosong
+                if (!sessionStorage.getItem("domain") || !sessionStorage.getItem("templateId")) {
+                        Swal.fire({
+                            title: 'Oops!',
+                            text: 'Please select Domain and Template.',
+                            icon: 'warning',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#3085d6',
+                            background: '#fff',
+                            customClass: {
+                                popup: 'animated tada', // Animasi alert
+                            },
+                        });
+                        return; // Jangan lakukan apapun jika ada data yang kosong
+                    }
+
+                // Navigasi ke halaman /cart
+                window.location.href = '/subscription';
+            });
+
+       
+    });
 
 </script> 
+
 </body>
 </html>

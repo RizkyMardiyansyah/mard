@@ -65,20 +65,26 @@
             <div class="serv col-md-8 col-12">                
                     {{-- <div class="container"> --}}
                         <div class="cart stepHead">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div style="border-radius:10px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class=" StepOfWizard col-4 active">
-                                  <div class="step">
-                                    <img class="stepIcon" src="img/hosting.svg" alt="Hosting">
+                            <div class="d-flex align-items-center">
+                                <div style="background: #66B2FF; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" class="StepOfWizard col-3 active">
+                                    <div class="step">
+                                      <img class="stepIcon" src="img/domain.svg" alt="domain">
+                                    </div>
+                                    <h6>Website</h6>
                                   </div>
-                                  <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
-                                </div>
-                                <div class="StepOfWizard col-4 ">
+                                  <div style="border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class="StepOfWizard col-3 active">
+                                    <div class="step">
+                                        <img class="stepIcon" src="img/hosting.svg" alt="Hosting">
+                                      </div>
+                                      <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
+                                  </div>
+                                <div class="StepOfWizard col-3 ">
                                   <div class="step">
                                     <img class="stepIcon" src="img/form.svg" alt="Form">
                                   </div>
                                   <h6 data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h6>
                                 </div>
-                                <div class="StepOfWizard col-4">
+                                <div class="StepOfWizard col-3">
                                   <div class="step">
                                     <img class="stepIcon" src="img/pay.svg" alt="Payment">
                                   </div>
@@ -291,78 +297,7 @@
         // Perbarui subtotal saat halaman dimuat
         updateSubtotal(subsPrice);
     });
-
-
-
-    function updateDomainPrice(subYears) {
-        const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        
-        // Kalikan harga domain dengan jumlah tahun yang dipilih
-        const selectElement = document.getElementById('subs');
-        const selectedOption = selectElement.options[selectElement.selectedIndex];
-        const Years = selectedOption.getAttribute('data-years');
-
-        const updatedDomainPrice = domainPrice * Years;
-        sessionStorage.setItem("updatedDomainPrice", updatedDomainPrice);
-
-        // Perbarui harga domain di tampilan
-        document.getElementById('domain-price').textContent = `Rp. ${updatedDomainPrice.toLocaleString('id-ID')}`;
-    }
-
-    function updateSubtotal(subsPrice = 0) {
-        // Ambil harga domain yang telah diperbarui dari localStorage
-        const updatedDomainPrice = parseInt(sessionStorage.getItem("updatedDomainPrice") || "0", 10);
-
-        // Ambil harga template dari localStorage
-        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-
-        const Subtotal = updatedDomainPrice + templatePrice + subsPrice;
-
-        // Format harga ke dalam format Rupiah
-        const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
-
-        // Tampilkan subtotal di elemen yang sesuai
-        document.getElementById("Subtotal").innerText = formatRupiah(Subtotal);
-
-        sessionStorage.setItem('subtotal', Subtotal);
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        // localStorage.clear();
-        document.getElementById('subs').dispatchEvent(new Event('change'));
-
-        // Ambil elemen harga dari subs-price
-        const priceElement = document.getElementById('subs-price');
-        const subsPrice = parseInt(priceElement.textContent.replace(/[^\d]/g, '') || "0", 10);
-
-        // Ambil data lain dari localStorage
-        const domain = sessionStorage.getItem("domain") || "-";
-        const template = sessionStorage.getItem("template") || "-";
-        const domainPrice = parseInt(sessionStorage.getItem("domainPrice")?.replace(/[^\d]/g, '') || "0", 10);
-        const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
-
-        // Tampilkan dokumen jika domain mengandung ".co.id"
-        if (domain.toLowerCase().includes('.co.id')) {
-            $('#doc').addClass('visible');
-        } else {
-            $('#doc').removeClass('visible');
-        }
-
-        // Jika data tidak valid, redirect ke halaman utama
-        if (!domain || domain === "-" || !template || template === "-") {
-            window.location.href = '/';
-        }
-
-        // Tampilkan data di halaman
-        const formatRupiah = value => value >= 0 ? `Rp. ${value.toLocaleString('id-ID')}` : "";
-        document.getElementById("selected-domain").innerText = domain;
-        document.getElementById("domain-price").innerText = formatRupiah(domainPrice);
-        document.getElementById("selected-template").innerText = template;
-        document.getElementById("template-price").innerText = formatRupiah(templatePrice);
-
-        // Perbarui subtotal saat halaman dimuat
-        updateSubtotal(subsPrice);
-    });
+    
 
     // Fungsi untuk navigasi ke halaman /cart
     $('.cart .btn-primary').on('click', function () {

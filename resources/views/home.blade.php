@@ -110,27 +110,34 @@
 
 {{-- Instal Build Website --}}
 <div class="container" style="margin-top: 100px">
-    <div class="hero-section-home-domain d-flex align-items-center justify-content-center">
+    <div class="hero-section-home-domain align-items-center justify-content-center">
         <div class="hero-overlay-home-domain">
             <div class="container hero-text-domain text-center"> 
-                <div class="row webbuilder">
+                <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <div style="margin-bottom: 20px" class="container">
-                        <h1 style="margin-bottom: 0px" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</h1>
-                        <span data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</span>
+                        <div class="container">
+                            <h1 style="margin-bottom: 0px" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</h1>
+                            <span data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</span>
                         </div>
                         <!-- Form untuk memasukkan nama domain -->            
-                        <form id="domainForm" class="mt-30 mt-lg-30 w-100" action="/web" method="GET">
-                            <div style="margin:0px;" class="form-row d-flex align-items-center slider-search bg-white w-100">
-                                <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" placeholder="Find your domain..."/>
-                                <button type="submit" class="btn cari rounded-pill " style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Search</b></button>
+                        <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
+                            <div style="margin:0px;" class="form-row  d-flex align-items-center slider-search bg-white w-100">
+                                <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" required placeholder="Find your domain..."/>
+                                <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b data-lang-en="Search" data-lang-id="Cari">Search</b></button>
                             </div>
                         </form>
+                        <!-- Spinner untuk loading animation -->
+                        <div style="margin-top: 50px" class="spinner" id="spinner"></div>
+
+                        <!-- Div untuk menampilkan hasil pencarian -->
+                        <div style="margin-top: 50px;" id="result"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    
     
 
     <div style="margin-top: 50px"  class="serv container hero-text">
@@ -231,6 +238,15 @@
             
         </div>
     </div>
+     {{-- Footer Section --}}
+     @include('partials.footer')
+
+
+
+
+
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -238,6 +254,89 @@
 <script> 
     sessionStorage.clear();
      $(document).ready(function() {
+        $('#domainForm').on('submit', function(e) {
+            e.preventDefault();  // Mencegah refresh halaman
+
+            let domain = $('#domain').val();
+            domain = domain.replace(/\..*/, '');  // Hapus ekstensi jika ada
+
+            $.ajax({
+                url: '{{ route("check.domain") }}',
+                method: 'POST',  // Menggunakan POST
+                data: {
+                    _token: '{{ csrf_token() }}',  // Token CSRF wajib
+                    domain: domain
+                },
+                beforeSend: function() {
+                    // Tampilkan spinner sebelum request dimulai
+                    $('#spinner').show();
+                    $('#result').html('');  // Kosongkan hasil sebelumnya
+                },
+                success: function(response) {
+                    $('#spinner').hide();  // Sembunyikan spinner setelah request berhasil
+
+                    // Memeriksa dan menampilkan hasil
+                    let resultHtml = `
+                    <div class="carddomain ${response.com === 'available' ? 'available' : 'unavailable'}">
+                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                            <p><b>${domain}.com</b> ${response.com === 'unavailable' ? 'Unvailable' : ''}</p>
+                            
+                            <!-- Tombol hanya tampil jika domain tersedia -->
+                            ${response.com === 'available' ? 
+                                '<p class="price">Rp. 200.000</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="200000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                ''}
+
+                            <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                            ${response.com === 'unavailable' ? 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                ''}
+                        </div>
+                    </div>
+
+                    <div class="carddomain ${response.id === 'available' ? 'available' : 'unavailable'}">
+                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                            <p><b>${domain}.id</b> ${response.id === 'unavailable' ? 'Unvailable' : ''}</p>
+                            
+                            <!-- Tombol hanya tampil jika domain tersedia -->
+                            ${response.id === 'available' ? 
+                                '<p class="price">Rp. 290.000</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                ''}        
+
+                            <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                            ${response.id === 'unavailable' ? 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                ''}
+                        </div>
+                    </div>
+
+                    <div class="carddomain ${response['co.id'] === 'available' ? 'available' : 'unavailable'}">
+                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                            <p><b>${domain}.co.id</b> ${response['co.id'] === 'unavailable' ? 'Unvailable' : ''}</p>
+                            
+                            <!-- Tombol hanya tampil jika domain tersedia -->
+                            ${response['co.id'] === 'available' ? 
+                                '<p class="price">Rp. 330.000</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                ''}
+                               
+
+                            <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                            ${response['co.id'] === 'unavailable' ? 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                ''}
+                        </div>
+                    </div>
+                    `;
+
+                    $('#result').html(resultHtml);
+                },
+                error: function() {
+                    $('#spinner').hide();  // Sembunyikan spinner jika terjadi kesalahan
+                    alert('Terjadi kesalahan, coba lagi nanti.');
+                }
+            });
+        });
+
+
 
         // Event untuk form pencarian
         $('#searchTemplateForm').on('submit', function(e) {
@@ -248,7 +347,6 @@
                 type: $('input[name="type"]:checked').val() // Tambahkan tipe yang dipilih
             });
         });
-
         // Event untuk tab tipe template
         $('input[name="type"]').on('change', function() {
             $('#searchTemplateForm').submit(); // Submit form saat tab berubah
@@ -275,6 +373,7 @@
 
                     // Tampilkan template jika ada hasil
                     if (response.templates.length > 0) {
+                        $('html, body').animate({scrollTop: $('/#templateContainer').offset().top}, 'fast');
                         response.templates.forEach(template => {
                             const imageUrl = `{{ url('storage') }}/${template.image}`;
                             $('#templateContainer').append(`
@@ -292,7 +391,7 @@
                                         </a>
                                     </div>
                                     <div class="d-flex" style="margin-left: auto">
-                                        <a href="#" class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-type="${template.type}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
+                                        <a class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-type="${template.type}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
                                         <a href="${template.link}" target="_blank" class="view d-flex align-items-center justify-content-center" data-bs-toggle="tooltip" title="Live Preview"><i class="fas fa-eye"></i></a>
                                     </div>
                                 </div>
@@ -320,14 +419,7 @@
         });
 </script>
 
-
-    {{-- Footer Section --}}
-    @include('partials.footer')
-    
-
-    
-
-    <script>
+<script>
     window.onload = function () {
         // Ambil preferensi bahasa dari localStorage
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
@@ -367,7 +459,6 @@
         const toggleInner = document.querySelector('.toggle-inner');
         toggleInner.textContent = lang === 'en' ? 'EN' : 'IN';
     }
-
 
 
     window.onscroll = function() {
@@ -430,6 +521,40 @@ window.addEventListener('load', () => {
         }
     }
 });
+
+$(document).on('click', '.btn-select', function () {
+        const domain = $(this).data('domain');
+        const price = $(this).data('price');
+
+        if (domain) {
+            // Simpan ke sessionStorage
+            sessionStorage.setItem('domain', domain);
+            sessionStorage.setItem('domainPrice', price);
+
+            // Arahkan ke halaman /website
+            window.location.href = '/website';
+        }
+    });
+        // Event handler untuk memilih template
+        $(document).on('click', '.select', function () {
+            const templateId = $(this).data('template-id');
+            const templateTitle = $(this).data('template-title');
+            const templateType = $(this).data('template-type');
+            const templatePrice = (templateType === 'Basic') ? 0 : 500000;
+
+            if (templateId) {
+                // Simpan ke sessionStorage
+                sessionStorage.setItem('template', templateTitle);
+                sessionStorage.setItem('templateId', templateId);
+                sessionStorage.setItem('templateType', templateType);
+                sessionStorage.setItem('templatePrice', templatePrice);
+
+                // Arahkan ke halaman /website
+                window.location.href = '/website';
+            }
+    });
+
+
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -46,7 +46,7 @@
                             <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
                                 <div style="margin:0px;" class="form-row  d-flex align-items-center slider-search bg-white w-100">
                                     <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" value="{{ request('domain') }}" required placeholder="Find your domain..."/>
-                                    <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b>Search</b></button>
+                                    <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b data-lang-en="Search" data-lang-id="Cari">Search</b></button>
                                 </div>
                             </form>
                             <!-- Spinner untuk loading animation -->
@@ -129,39 +129,15 @@
 
             </div>
         </div>
-         
-        <div class="card" id="cart"> 
-            <div>   
-                <h5 data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
-                <div class="d-flex justify-content-between align-items-center">
-                    <p data-lang-en="Domain (1 Year)" data-lang-id="Domain (1 Tahun)">Domain (1 Year)</p>
-                    <p id="domain-price" class=" price"></p>
-                </div>
-                <span id="selected-domain">-</span>
-                <div class="d-flex justify-content-between align-items-center">
-                    <p>Web Template</p>
-                    <p id="template-price" class=" price"></p>
-                </div>
-                <span id="selected-template">-</span>
-                <input type="hidden" id="selected-template-id">
-            </div>
-            <div style="margin-top: auto;">
-                <button class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya">Next</button>
-            </div>
-        </div>
         
-
-
-
-
 
     {{-- Footer Section --}}
     @include('partials.footer')
     <!-- Script untuk AJAX Pencarian -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>  
-     sessionStorage.clear();  
+    <script> 
+    sessionStorage.clear();
         $(document).ready(function() {
 
         // Event untuk form pencarian
@@ -200,6 +176,7 @@
 
                     // Tampilkan template jika ada hasil
                     if (response.templates.length > 0) {
+                        $('html, body').animate({scrollTop: $('/#templateContainer').offset().top}, 'fast');
                         response.templates.forEach(template => {
                             const imageUrl = `{{ url('storage') }}/${template.image}`;
                             $('#templateContainer').append(`
@@ -215,7 +192,7 @@
                                             </a>
                                         </div>
                                         <div class="d-flex" style="margin-left: auto">
-                                            <a href="#" class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-type="${template.type}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
+                                            <a class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-type="${template.type}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
                                             <a href="${template.link}" target="_blank" class="view d-flex align-items-center justify-content-center" data-bs-toggle="tooltip" title="Live Preview"><i class="fas fa-eye"></i></a>
                                         </div>
                                     </div>
@@ -382,12 +359,12 @@ window.addEventListener('load', () => {
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response.com === 'available' ? 
-                                '<p class="price">Rp. 200.000</p><a href="#template"> <button class="btn-select" data-domain="' + domain + '.com" data-price="200000">Pilih Domain</button></a>' : 
+                                '<p class="price">Rp. 200.000</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="200000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                 ''}
 
                             <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
                             ${response.com === 'unavailable' ? 
-                                '<button class="btn-select" style="opacity: 0; pointer-events: none;">Pilih Domain</button>' : 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
                                 ''}
                         </div>
                     </div>
@@ -398,12 +375,12 @@ window.addEventListener('load', () => {
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response.id === 'available' ? 
-                                '<p class="price">Rp. 290.000</p><a href="#template"><button class="btn-select" data-domain="' + domain + '.id" data-price="290000">Pilih Domain</button></a>' : 
+                                '<p class="price">Rp. 290.000</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                 ''}        
 
                             <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
                             ${response.id === 'unavailable' ? 
-                                '<button class="btn-select" style="opacity: 0; pointer-events: none;">Pilih Domain</button>' : 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
                                 ''}
                         </div>
                     </div>
@@ -414,13 +391,13 @@ window.addEventListener('load', () => {
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response['co.id'] === 'available' ? 
-                                '<p class="price">Rp. 330.000</p><a href="#template"><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330000">Pilih Domain</button></a>' : 
+                                '<p class="price">Rp. 330.000</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                 ''}
                                
 
                             <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
                             ${response['co.id'] === 'unavailable' ? 
-                                '<button class="btn-select" style="opacity: 0; pointer-events: none;">Pilih Domain</button>' : 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
                                 ''}
                         </div>
                     </div>
@@ -435,79 +412,37 @@ window.addEventListener('load', () => {
             });
         });
 
-        // Fungsi untuk memeriksa apakah domain atau template sudah dipilih
-        function updateCartVisibility() {
-            const isDomainSelected = $('#selected-domain').text().trim() !== '';
-            const isTemplateSelected = $('#selected-template').text().trim() !== '';
+        $(document).on('click', '.btn-select', function () {
+        const domain = $(this).data('domain');
+        const price = $(this).data('price');
 
-            if (isDomainSelected || isTemplateSelected) {
-                $('#cart').addClass('visible'); // Tampilkan cart dengan menambahkan kelas
-            } else {
-                $('#cart').removeClass('visible'); // Sembunyikan cart dengan menghapus kelas
-            };
+        if (domain) {
+            // Simpan ke sessionStorage
+            sessionStorage.setItem('domain', domain);
+            sessionStorage.setItem('domainPrice', price);
+
+            // Arahkan ke halaman /website
+            window.location.href = '/website';
         }
+    });
+        // Event handler untuk memilih template
+        $(document).on('click', '.select', function () {
+            const templateId = $(this).data('template-id');
+            const templateTitle = $(this).data('template-title');
+            const templateType = $(this).data('template-type');
+            const templatePrice = (templateType === 'Basic') ? 0 : 500000;
 
-        // Event listener untuk tombol "Pilih Domain"
-        
-            $(document).on('click', '.btn-select', function() {
-            const selectedDomain = $(this).data('domain'); // Domain yang dipilih
-            const selectedPrice = $(this).data('price');  // Harga domain
-
-            $('#selected-domain').text(selectedDomain); // Tampilkan nama domain
-            $('#domain-price').text('Rp. ' + selectedPrice.toLocaleString()); // Tampilkan harga domain
-            updateCartVisibility();
-        });
-
-        // Event listener untuk tombol "Pilih Template"
-        $(document).on('click', '.select', function() {
-            var selectedTemplate = $(this).data('template-title');
-            var selectedTemplateType = $(this).data('template-type');
-            var selectedTemplateId = $(this).data('template-id');
-            var selectedTemplatePrice = (selectedTemplateType === 'Basic') ? 0 : 500000;
-            $('#selected-template').text(selectedTemplate);
-            $('#selected-template-id').text(selectedTemplateId);
-            $('#template-price').text('Rp. ' + selectedTemplatePrice.toLocaleString()); // Tampilkan harga domain
-            
-            updateCartVisibility();
-            
-        });
-
-            // Fungsi untuk navigasi ke halaman /cart
-            $('#cart .btn-primary').on('click', function () {
-                const domain = $('#selected-domain').text();
-                const domainPrice = $('#domain-price').text();
-                const template = $('#selected-template').text();
-                const templateId = $('#selected-template-id').text();
-                const templatePrice = $('#template-price').text();
-
-                // Simpan data ke localStorage
-                sessionStorage.setItem('domain', domain);
-                sessionStorage.setItem('domainPrice', domainPrice);
-                sessionStorage.setItem('template', template);
+            if (templateId) {
+                // Simpan ke sessionStorage
+                sessionStorage.setItem('template', templateTitle);
                 sessionStorage.setItem('templateId', templateId);
+                sessionStorage.setItem('templateType', templateType);
                 sessionStorage.setItem('templatePrice', templatePrice);
-                
 
-                // Periksa apakah ada data yang kosong
-                if (!domain || !domainPrice || !template || !templatePrice) {
-                        Swal.fire({
-                            title: 'Oops!',
-                            text: 'Please select Domain and Template.',
-                            icon: 'warning',
-                            confirmButtonText: 'OK',
-                            confirmButtonColor: '#3085d6',
-                            background: '#fff',
-                            customClass: {
-                                popup: 'animated tada', // Animasi alert
-                            },
-                        });
-                        return; // Jangan lakukan apapun jika ada data yang kosong
-                    }
-
-                // Navigasi ke halaman /cart
-                window.location.href = '/subscription';
-            });
-
+                // Arahkan ke halaman /website
+                window.location.href = '/website';
+            }
+        });
        
     });
 

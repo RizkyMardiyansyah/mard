@@ -87,20 +87,26 @@
                 <div class="serv col-md-8 col-12">                
                     {{-- <div class="container"> --}}
                         <div class="cart stepHead">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div style="background: #66B2FF; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" class="StepOfWizard col-4 active">
+                            <div class="d-flex align-items-center">
+                                <div style="background: #66B2FF; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" class="StepOfWizard col-3 active">
+                                    <div class="step">
+                                      <img class="stepIcon" src="img/domain.svg" alt="domain">
+                                    </div>
+                                    <h6>Website</h6>
+                                  </div>
+                                <div style="background: #66B2FF;" class="StepOfWizard col-3 active">
                                   <div class="step">
                                     <img class="stepIcon" src="../img/hosting.svg" alt="Hosting">
                                   </div>
                                   <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
                                 </div>
-                                <div style="background: #66B2FF;" class="StepOfWizard col-4 active">
+                                <div style="background: #66B2FF;" class="StepOfWizard col-3 active">
                                   <div class="step">
                                     <img class="stepIcon" src="../img/form.svg" alt="Form">
                                   </div>
                                   <h6 data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h6>
                                 </div>
-                                <div style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;" class="StepOfWizard col-4 active">
+                                <div style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;" class="StepOfWizard col-3 active">
                                   <div class="step">
                                     <img class="stepIcon" src="../img/pay.svg" alt="Payment">
                                   </div>
