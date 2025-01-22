@@ -96,11 +96,12 @@
                 </a>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
-                <a href="/support" style="text-decoration: none; color: black;">
+                <a href="/iot" style="text-decoration: none; color: black;">
                     <div class="serContainer">
-                        <h3 style="color: black;" data-lang-en="Support and Maintenance" data-lang-id="Dukungan dan Pemeliharaan">Support and Maintenance</h3>
-                        <p data-lang-en="We provide continuous maintenance and support to ensure the seamless operation and efficiency of your applications and systems." 
-                           data-lang-id="Kami menawarkan pemeliharaan dan dukungan berkelanjutan untuk menjamin kelancaran dan efisiensi aplikasi serta sistem Anda.">We provide continuous maintenance and support to ensure the seamless operation and efficiency of your applications and systems.</p>
+                        <h3 style="color: black;" data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi Lengkap IoT">One Stop IoT Solutions</h3>
+                        <p data-lang-en="Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions."
+                        data-lang-id="Solusi IoT One Stop kami menawarkan lebih dari sekadar teknologi, kami menghadirkan masa depan untuk proses bisnis Anda. Dengan solusi kami, kami mengoptimalkan operasi dan mendorong efisiensi bisnis Anda.">Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions.</p>
+
                     </div>
                 </a>
             </div>

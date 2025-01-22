@@ -189,7 +189,7 @@
                         
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex justify-content-left">
-                                    <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan ("></p><p style="margin-right: 2px" class="cart-title" id="subYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)"></p>
+                                    <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan (">Langanan(</p><p style="margin-right: 2px" class="cart-title" id="subYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Year)</p>
                                 </div>
                                     <p class="cart-title" id="subs-price-cart" class=" price">Rp. 0</p>
                             </div>

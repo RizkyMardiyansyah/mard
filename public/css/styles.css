@@ -608,14 +608,17 @@ margin-bottom: 20px;
 
       .available {
         color: white;
-        background-color: rgba(72, 142, 254, 0.2); /* Warna hijau muda untuk tersedia */
+        background-color: rgba(72, 142, 254, 0.5);
+        box-shadow: 0 2px 10px rgba(72, 142, 254, 0.5);
+        backdrop-filter: blur(10px);
         border-radius: 10px;
         border: 1px solid #488EFE;
       }
 
       .unavailable {
         color: white;
-        background-color: rgba(249, 84, 84, 0.5); /* Warna merah muda untuk tidak tersedia */
+        background-color: rgba(249, 84, 84, 0.5);
+        backdrop-filter: blur(10px);
         border-radius: 10px;
         border: 1px solid #F95454;
       }

@@ -42,7 +42,7 @@ Route::post('/check-domain', [DomainController::class, 'checkDomain'])->name('ch
 Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');
 
 Route::get('/dev', function () {return view('developmet');});
-Route::get('/support', function () {return view('support');});
+Route::get('/iot', function () {return view('iot');});
 Route::get('/contact', function () {return view('contact');});
 
 Route::post('/orderstore', [DomainController::class, 'store'])->name('orderstore');
