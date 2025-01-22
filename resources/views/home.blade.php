@@ -195,7 +195,6 @@
 
 {{-- Partner Section --}}
     <div id="partners" class="partner hero-text " style="margin-top: 100px;">
-        
         <div class="row d-flex flex-wrap">
             <div class="serv col-lg-4 col-12 " >
                 <h1 data-lang-en="Partners and Clients" data-lang-id="Mitra dan Klien">Partners and Clients</h1>
@@ -234,22 +233,13 @@
                     <img src="img/spyros.png" alt="Partner 10">
                 </a>
             </div>
-            
-            
         </div>
     </div>
      {{-- Footer Section --}}
      @include('partials.footer')
 
 
-
-
-
-
-
-
-     {{-- baru --}}
-     
+     {{-- baru --}}     
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
      <script> 
@@ -557,9 +547,6 @@
      
      
      </script>
-     
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script>
          document.addEventListener("DOMContentLoaded", function() {
              let images = document.querySelectorAll('.partner-logos img');
