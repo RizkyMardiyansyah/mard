@@ -115,12 +115,12 @@
                             </div>                            
                         </div>
 
-                        <div id="searchTemplate" class="visible cart">                              
+                        <div style="margin-top: 20px" id="searchTemplate" class="visible cart">                              
                             <div class="stepBody">
                                 <div class="section" style="margin-bottom: 20px">
                                     <h5 class="form-section">Template</h5>
-                                    <h6 data-lang-en="Choose the perfect subscription package for you, let us handle your website services and maintenance effortlessly." data-lang-id="Pilih paket langganan terbaik Anda, biarkan kami mengurus layanan dan perawatan website Anda dengan mudah."> </h6>
-                                </div>                                
+                                    <h6 data-lang-en="Select a template that perfectly suits your vision and style, and get started with ease!" data-lang-id="Pilih template yang sesuai dengan visi dan gaya Anda, dan mulailah dengan mudah!"></h6>
+                                </div>                                                               
                                 <form id="searchTemplateForm" action="{{ route('website') }}" method="POST">
                                     @csrf 
                                     
@@ -356,9 +356,9 @@
                 document.getElementById("selected-template").innerText = templateTitle;
                 document.getElementById("template-price").innerText = formatRupiah(templatePrice);
                 updateSubtotal();
-            }
-            else {
-                window.location.href = '/web';
+
+            }else {
+                window.location.href = '/';
             }
         }
 
