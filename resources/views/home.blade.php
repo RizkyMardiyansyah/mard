@@ -248,336 +248,339 @@
 
 
 
+     {{-- baru --}}
+     
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+     <script> 
+         sessionStorage.clear();
+          $(document).ready(function() {
+             $('#domainForm').on('submit', function(e) {
+                 e.preventDefault();  // Mencegah refresh halaman
+     
+                 let domain = $('#domain').val();
+                 domain = domain.replace(/\..*/, '');  // Hapus ekstensi jika ada
+     
+                 $.ajax({
+                     url: '{{ route("check.domain") }}',
+                     method: 'POST',  // Menggunakan POST
+                     data: {
+                         _token: '{{ csrf_token() }}',  // Token CSRF wajib
+                         domain: domain
+                     },
+                     beforeSend: function() {
+                         // Tampilkan spinner sebelum request dimulai
+                         $('#spinner').show();
+                         $('#result').html('');  // Kosongkan hasil sebelumnya
+                     },
+                     success: function(response) {
+                         $('#spinner').hide();  // Sembunyikan spinner setelah request berhasil
+     
+                         // Memeriksa dan menampilkan hasil
+                         let resultHtml = `
+                         <div class="carddomain ${response.com === 'available' ? 'available' : 'unavailable'}">
+                             <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                                 <p><b>${domain}.com</b> ${response.com === 'unavailable' ? 'Unvailable' : ''}</p>
+                                 
+                                 <!-- Tombol hanya tampil jika domain tersedia -->
+                                 ${response.com === 'available' ? 
+                                     '<p class="price">Rp. 200.000</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="200000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                     ''}
+     
+                                 <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                                 ${response.com === 'unavailable' ? 
+                                     '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                     ''}
+                             </div>
+                         </div>
+     
+                         <div class="carddomain ${response.id === 'available' ? 'available' : 'unavailable'}">
+                             <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                                 <p><b>${domain}.id</b> ${response.id === 'unavailable' ? 'Unvailable' : ''}</p>
+                                 
+                                 <!-- Tombol hanya tampil jika domain tersedia -->
+                                 ${response.id === 'available' ? 
+                                     '<p class="price">Rp. 290.000</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                     ''}        
+     
+                                 <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                                 ${response.id === 'unavailable' ? 
+                                     '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                     ''}
+                             </div>
+                         </div>
+     
+                         <div class="carddomain ${response['co.id'] === 'available' ? 'available' : 'unavailable'}">
+                             <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                                 <p><b>${domain}.co.id</b> ${response['co.id'] === 'unavailable' ? 'Unvailable' : ''}</p>
+                                 
+                                 <!-- Tombol hanya tampil jika domain tersedia -->
+                                 ${response['co.id'] === 'available' ? 
+                                     '<p class="price">Rp. 330.000</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                     ''}
+                                    
+     
+                                 <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                                 ${response['co.id'] === 'unavailable' ? 
+                                     '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                     ''}
+                             </div>
+                         </div>
+                         `;
+     
+                         $('#result').html(resultHtml);
+                     },
+                     error: function() {
+                         $('#spinner').hide();  // Sembunyikan spinner jika terjadi kesalahan
+                         alert('Terjadi kesalahan, coba lagi nanti.');
+                     }
+                 });
+             });
+     
+     
+     
+             // Event untuk form pencarian
+             $('#searchTemplateForm').on('submit', function(e) {
+                 e.preventDefault(); // Mencegah submit standar
+                 performSearchOrPagination($(this).attr('action'), 'POST', { 
+                     _token: '{{ csrf_token() }}',
+                     search: $('#search').val(),
+                     type: $('input[name="type"]:checked').val() // Tambahkan tipe yang dipilih
+                 });
+             });
+             // Event untuk tab tipe template
+             $('input[name="type"]').on('change', function() {
+                 $('#searchTemplateForm').submit(); // Submit form saat tab berubah
+             });
+     
+             // Event untuk pagination link
+             $(document).on('click', '#paginationLinks a', function(e) {
+                 e.preventDefault(); // Mencegah reload halaman
+                 let url = $(this).attr('href');
+                 performSearchOrPagination(url, 'GET'); // Pagination menggunakan GET
+             });
+     
+             // Fungsi umum untuk Search atau Pagination
+             function performSearchOrPagination(url, method, data = {}) {
+                 $('#spinnerr').show(); // Tampilkan spinner
+     
+                 $.ajax({
+                     url: url,
+                     method: method,
+                     data: data,
+                     success: function(response) {
+                         $('#spinnerr').hide(); // Sembunyikan spinner
+                         $('#templateContainer').html(''); // Kosongkan kontainer
+     
+                         // Tampilkan template jika ada hasil
+                         if (response.templates.length > 0) {
+                             $('html, body').animate({scrollTop: $('#searchTemplateForm').offset().top - 80}, 'fast');
+                             response.templates.forEach(template => {
+                                 const imageUrl = `{{ url('storage') }}/${template.image}`;
+                                 $('#templateContainer').append(`
+                                 
+     
+                                 <div class="card webtemplate col-lg-4 col-md-6 col-12">
+                                     <a href="${template.link}" target="_blank">
+                                         <img src="${imageUrl}" alt="${template.title}">
+                                     </a>
+                                     <div class="d-flex" style="padding: 0px">
+                                         {{-- <div class="card-title">${template.title}</div> --}}
+                                         <div class="card-title">
+                                             <a href="${template.link}" target="_blank" style="text-decoration: none; color: inherit;">
+                                                 ${template.title}
+                                             </a>
+                                         </div>
+                                         <div class="d-flex" style="margin-left: auto">
+                                             <a class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-type="${template.type}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
+                                             <a href="${template.link}" target="_blank" class="view d-flex align-items-center justify-content-center" data-bs-toggle="tooltip" title="Live Preview"><i class="fas fa-eye"></i></a>
+                                         </div>
+                                     </div>
+                                     <div class="" style="padding: 0px; Opacity:50%; font-size:14px; margin-top:auto">       
+                                         <div class="card-title"> <i class="fa fa-shopping-bag me-2"></i>${template.total_pembelian} Purchased</div>
+                                     </div>
+                                     
+                                 </div>
+     
+                                 `);
+                             });
+                         } else {
+                             $('#templateContainer').append('<p>No templates found.</p>');
+                         }
+     
+                         // Update pagination links
+                         $('#paginationLinks').html(response.pagination);
+                     },
+                     error: function() {
+                         $('#spinnerr').hide(); // Sembunyikan spinner
+                         alert('An error occurred. Please try again.');
+                     }
+                 });
+             }
+             });
+     </script>
+     
+     <script>
+         window.onload = function () {
+             // Ambil preferensi bahasa dari localStorage
+             const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+     
+             // Atur posisi toggle sesuai bahasa tersimpan
+             const languageToggle = document.getElementById('languageToggle');
+             languageToggle.checked = (savedLanguage === 'en');
+             
+             // Set bahasa saat halaman dimuat
+             switchLanguage(savedLanguage);
+             updateToggleText(savedLanguage);
+         };
+     
+         // Tambahkan event listener pada toggle
+         const toggleCheckbox = document.getElementById('languageToggle');
+     
+         toggleCheckbox.addEventListener('change', function () {
+             const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
+     
+             // Simpan preferensi bahasa ke localStorage
+             localStorage.setItem('preferredLanguage', selectedLang);
+     
+             // Ubah bahasa dan teks toggle
+             switchLanguage(selectedLang);
+             updateToggleText(selectedLang);
+         });
+     
+         function switchLanguage(lang) {
+             const elements = document.querySelectorAll('[data-lang-en]');
+     
+             elements.forEach(element => {
+                 element.textContent = element.getAttribute('data-lang-' + lang);
+             });
+         }
+     
+         function updateToggleText(lang) {
+             const toggleInner = document.querySelector('.toggle-inner');
+             toggleInner.textContent = lang === 'en' ? 'EN' : 'IN';
+         }
+     
+     
+         window.onscroll = function() {
+             const navbar = document.getElementById('navbar');
+             const floatingButton = document.getElementById("floatingButton");
+             
+             // Memeriksa scroll untuk navbar
+             if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                 navbar.classList.add('scrolled');
+             } else {
+                 navbar.classList.remove('scrolled');
+             }
+     
+             // Menampilkan/menyembunyikan tombol berdasarkan scroll
+             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                 floatingButton.style.display = "block";
+             } else {
+                 floatingButton.style.display = "none";
+             }
+         };
+     
+         // Fungsi untuk menggulir ke atas saat tombol diklik
+         function topFunction() {
+             window.scrollTo({ top: 0, behavior: 'smooth' });
+         }
+     
+         // Smooth scroll untuk navigasi di halaman yang sama
+     document.querySelectorAll('a').forEach(anchor => {
+         anchor.addEventListener('click', function(e) {
+             const targetId = this.getAttribute('href');
+     
+             if (targetId && targetId.startsWith('/#')) {
+                 const targetElement = document.querySelector(targetId.slice(1)); // Menghapus '/' agar selector valid
+     
+                 if (targetElement) { // Periksa apakah elemen target ada
+                     e.preventDefault(); // Mencegah navigasi default
+                     const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+     
+                     window.scrollTo({
+                         top: offsetPosition,
+                         behavior: 'smooth'
+                     });
+                 }
+             }
+         });
+     });
+     
+     // Pindah ke posisi elemen setelah halaman dimuat
+     window.addEventListener('load', () => {
+         const hash = window.location.hash; // Mendapatkan bagian hash dari URL
+         if (hash) {
+             const targetElement = document.querySelector(hash); // Mencari elemen dengan ID hash
+             if (targetElement) {
+                 const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+     
+                 window.scrollTo({
+                     top: offsetPosition,
+                     behavior: 'smooth' // Bisa juga diubah menjadi 'auto' jika tidak ingin animasi di sini
+                 });
+             }
+         }
+     });
+     
+     $(document).on('click', '.btn-select', function () {
+             const domain = $(this).data('domain');
+             const price = $(this).data('price');
+     
+             if (domain) {
+                 // Simpan ke sessionStorage
+                 sessionStorage.setItem('domain', domain);
+                 sessionStorage.setItem('domainPrice', price);
+     
+                 // Arahkan ke halaman /website
+                 window.location.href = '/website';
+             }
+         });
+             // Event handler untuk memilih template
+             $(document).on('click', '.select', function () {
+                 const templateId = $(this).data('template-id');
+                 const templateTitle = $(this).data('template-title');
+                 const templateType = $(this).data('template-type');
+                 const templatePrice = (templateType === 'Basic') ? 0 : 500000;
+     
+                 if (templateId) {
+                     // Simpan ke sessionStorage
+                     sessionStorage.setItem('template', templateTitle);
+                     sessionStorage.setItem('templateId', templateId);
+                     sessionStorage.setItem('templateType', templateType);
+                     sessionStorage.setItem('templatePrice', templatePrice);
+     
+                     // Arahkan ke halaman /website
+                     window.location.href = '/website';
+                 }
+         });
+     
+     
+     </script>
+     
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script>
+         document.addEventListener("DOMContentLoaded", function() {
+             let images = document.querySelectorAll('.partner-logos img');
+             let index = 0;
+     
+             // Fungsi untuk merubah opacity secara acak
+             function changeOpacityRandomly() {
+                 // Set opacity semua gambar ke 30%
+                 images.forEach(img => img.classList.remove('active'));
+     
+                 // Pilih gambar secara acak
+                 let randomIndex = Math.floor(Math.random() * images.length);
+                 images[randomIndex].classList.add('active');
+             }
+     
+             // Panggil fungsi untuk merubah opacity setiap detik
+             setInterval(changeOpacityRandomly, 1000);
+         });
+     </script>
+     
+     </body>
+     </html>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-<script> 
-    sessionStorage.clear();
-     $(document).ready(function() {
-        $('#domainForm').on('submit', function(e) {
-            e.preventDefault();  // Mencegah refresh halaman
-
-            let domain = $('#domain').val();
-            domain = domain.replace(/\..*/, '');  // Hapus ekstensi jika ada
-
-            $.ajax({
-                url: '{{ route("check.domain") }}',
-                method: 'POST',  // Menggunakan POST
-                data: {
-                    _token: '{{ csrf_token() }}',  // Token CSRF wajib
-                    domain: domain
-                },
-                beforeSend: function() {
-                    // Tampilkan spinner sebelum request dimulai
-                    $('#spinner').show();
-                    $('#result').html('');  // Kosongkan hasil sebelumnya
-                },
-                success: function(response) {
-                    $('#spinner').hide();  // Sembunyikan spinner setelah request berhasil
-
-                    // Memeriksa dan menampilkan hasil
-                    let resultHtml = `
-                    <div class="carddomain ${response.com === 'available' ? 'available' : 'unavailable'}">
-                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                            <p><b>${domain}.com</b> ${response.com === 'unavailable' ? 'Unvailable' : ''}</p>
-                            
-                            <!-- Tombol hanya tampil jika domain tersedia -->
-                            ${response.com === 'available' ? 
-                                '<p class="price">Rp. 200.000</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="200000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
-                                ''}
-
-                            <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
-                            ${response.com === 'unavailable' ? 
-                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
-                                ''}
-                        </div>
-                    </div>
-
-                    <div class="carddomain ${response.id === 'available' ? 'available' : 'unavailable'}">
-                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                            <p><b>${domain}.id</b> ${response.id === 'unavailable' ? 'Unvailable' : ''}</p>
-                            
-                            <!-- Tombol hanya tampil jika domain tersedia -->
-                            ${response.id === 'available' ? 
-                                '<p class="price">Rp. 290.000</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
-                                ''}        
-
-                            <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
-                            ${response.id === 'unavailable' ? 
-                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
-                                ''}
-                        </div>
-                    </div>
-
-                    <div class="carddomain ${response['co.id'] === 'available' ? 'available' : 'unavailable'}">
-                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                            <p><b>${domain}.co.id</b> ${response['co.id'] === 'unavailable' ? 'Unvailable' : ''}</p>
-                            
-                            <!-- Tombol hanya tampil jika domain tersedia -->
-                            ${response['co.id'] === 'available' ? 
-                                '<p class="price">Rp. 330.000</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
-                                ''}
-                               
-
-                            <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
-                            ${response['co.id'] === 'unavailable' ? 
-                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
-                                ''}
-                        </div>
-                    </div>
-                    `;
-
-                    $('#result').html(resultHtml);
-                },
-                error: function() {
-                    $('#spinner').hide();  // Sembunyikan spinner jika terjadi kesalahan
-                    alert('Terjadi kesalahan, coba lagi nanti.');
-                }
-            });
-        });
-
-
-
-        // Event untuk form pencarian
-        $('#searchTemplateForm').on('submit', function(e) {
-            e.preventDefault(); // Mencegah submit standar
-            performSearchOrPagination($(this).attr('action'), 'POST', { 
-                _token: '{{ csrf_token() }}',
-                search: $('#search').val(),
-                type: $('input[name="type"]:checked').val() // Tambahkan tipe yang dipilih
-            });
-        });
-        // Event untuk tab tipe template
-        $('input[name="type"]').on('change', function() {
-            $('#searchTemplateForm').submit(); // Submit form saat tab berubah
-        });
-
-        // Event untuk pagination link
-        $(document).on('click', '#paginationLinks a', function(e) {
-            e.preventDefault(); // Mencegah reload halaman
-            let url = $(this).attr('href');
-            performSearchOrPagination(url, 'GET'); // Pagination menggunakan GET
-        });
-
-        // Fungsi umum untuk Search atau Pagination
-        function performSearchOrPagination(url, method, data = {}) {
-            $('#spinnerr').show(); // Tampilkan spinner
-
-            $.ajax({
-                url: url,
-                method: method,
-                data: data,
-                success: function(response) {
-                    $('#spinnerr').hide(); // Sembunyikan spinner
-                    $('#templateContainer').html(''); // Kosongkan kontainer
-
-                    // Tampilkan template jika ada hasil
-                    if (response.templates.length > 0) {
-                        $('html, body').animate({scrollTop: $('/#templateContainer').offset().top}, 'fast');
-                        response.templates.forEach(template => {
-                            const imageUrl = `{{ url('storage') }}/${template.image}`;
-                            $('#templateContainer').append(`
-                            
-
-                            <div class="card webtemplate col-lg-4 col-md-6 col-12">
-                                <a href="${template.link}" target="_blank">
-                                    <img src="${imageUrl}" alt="${template.title}">
-                                </a>
-                                <div class="d-flex" style="padding: 0px">
-                                    {{-- <div class="card-title">${template.title}</div> --}}
-                                    <div class="card-title">
-                                        <a href="${template.link}" target="_blank" style="text-decoration: none; color: inherit;">
-                                            ${template.title}
-                                        </a>
-                                    </div>
-                                    <div class="d-flex" style="margin-left: auto">
-                                        <a class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-type="${template.type}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
-                                        <a href="${template.link}" target="_blank" class="view d-flex align-items-center justify-content-center" data-bs-toggle="tooltip" title="Live Preview"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="" style="padding: 0px; Opacity:50%; font-size:14px; margin-top:auto">       
-                                    <div class="card-title"> <i class="fa fa-shopping-bag me-2"></i>${template.total_pembelian} Purchased</div>
-                                </div>
-                                
-                            </div>
-
-                            `);
-                        });
-                    } else {
-                        $('#templateContainer').append('<p>No templates found.</p>');
-                    }
-
-                    // Update pagination links
-                    $('#paginationLinks').html(response.pagination);
-                },
-                error: function() {
-                    $('#spinnerr').hide(); // Sembunyikan spinner
-                    alert('An error occurred. Please try again.');
-                }
-            });
-        }
-        });
-</script>
-
-<script>
-    window.onload = function () {
-        // Ambil preferensi bahasa dari localStorage
-        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-
-        // Atur posisi toggle sesuai bahasa tersimpan
-        const languageToggle = document.getElementById('languageToggle');
-        languageToggle.checked = (savedLanguage === 'en');
-        
-        // Set bahasa saat halaman dimuat
-        switchLanguage(savedLanguage);
-        updateToggleText(savedLanguage);
-    };
-
-    // Tambahkan event listener pada toggle
-    const toggleCheckbox = document.getElementById('languageToggle');
-
-    toggleCheckbox.addEventListener('change', function () {
-        const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
-
-        // Simpan preferensi bahasa ke localStorage
-        localStorage.setItem('preferredLanguage', selectedLang);
-
-        // Ubah bahasa dan teks toggle
-        switchLanguage(selectedLang);
-        updateToggleText(selectedLang);
-    });
-
-    function switchLanguage(lang) {
-        const elements = document.querySelectorAll('[data-lang-en]');
-
-        elements.forEach(element => {
-            element.textContent = element.getAttribute('data-lang-' + lang);
-        });
-    }
-
-    function updateToggleText(lang) {
-        const toggleInner = document.querySelector('.toggle-inner');
-        toggleInner.textContent = lang === 'en' ? 'EN' : 'IN';
-    }
-
-
-    window.onscroll = function() {
-        const navbar = document.getElementById('navbar');
-        const floatingButton = document.getElementById("floatingButton");
-        
-        // Memeriksa scroll untuk navbar
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        // Menampilkan/menyembunyikan tombol berdasarkan scroll
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            floatingButton.style.display = "block";
-        } else {
-            floatingButton.style.display = "none";
-        }
-    };
-
-    // Fungsi untuk menggulir ke atas saat tombol diklik
-    function topFunction() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Smooth scroll untuk navigasi di halaman yang sama
-document.querySelectorAll('a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-
-        if (targetId && targetId.startsWith('/#')) {
-            const targetElement = document.querySelector(targetId.slice(1)); // Menghapus '/' agar selector valid
-
-            if (targetElement) { // Periksa apakah elemen target ada
-                e.preventDefault(); // Mencegah navigasi default
-                const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-});
-
-// Pindah ke posisi elemen setelah halaman dimuat
-window.addEventListener('load', () => {
-    const hash = window.location.hash; // Mendapatkan bagian hash dari URL
-    if (hash) {
-        const targetElement = document.querySelector(hash); // Mencari elemen dengan ID hash
-        if (targetElement) {
-            const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth' // Bisa juga diubah menjadi 'auto' jika tidak ingin animasi di sini
-            });
-        }
-    }
-});
-
-$(document).on('click', '.btn-select', function () {
-        const domain = $(this).data('domain');
-        const price = $(this).data('price');
-
-        if (domain) {
-            // Simpan ke sessionStorage
-            sessionStorage.setItem('domain', domain);
-            sessionStorage.setItem('domainPrice', price);
-
-            // Arahkan ke halaman /website
-            window.location.href = '/website';
-        }
-    });
-        // Event handler untuk memilih template
-        $(document).on('click', '.select', function () {
-            const templateId = $(this).data('template-id');
-            const templateTitle = $(this).data('template-title');
-            const templateType = $(this).data('template-type');
-            const templatePrice = (templateType === 'Basic') ? 0 : 500000;
-
-            if (templateId) {
-                // Simpan ke sessionStorage
-                sessionStorage.setItem('template', templateTitle);
-                sessionStorage.setItem('templateId', templateId);
-                sessionStorage.setItem('templateType', templateType);
-                sessionStorage.setItem('templatePrice', templatePrice);
-
-                // Arahkan ke halaman /website
-                window.location.href = '/website';
-            }
-    });
-
-
-</script>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let images = document.querySelectorAll('.partner-logos img');
-        let index = 0;
-
-        // Fungsi untuk merubah opacity secara acak
-        function changeOpacityRandomly() {
-            // Set opacity semua gambar ke 30%
-            images.forEach(img => img.classList.remove('active'));
-
-            // Pilih gambar secara acak
-            let randomIndex = Math.floor(Math.random() * images.length);
-            images[randomIndex].classList.add('active');
-        }
-
-        // Panggil fungsi untuk merubah opacity setiap detik
-        setInterval(changeOpacityRandomly, 1000);
-    });
-</script>
-
-</body>
-</html>
+     {{-- end baru --}}

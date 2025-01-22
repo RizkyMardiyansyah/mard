@@ -176,7 +176,7 @@
 
                     // Tampilkan template jika ada hasil
                     if (response.templates.length > 0) {
-                        $('html, body').animate({scrollTop: $('/#templateContainer').offset().top}, 'fast');
+                        $('html, body').animate({scrollTop: $('#searchTemplateForm').offset().top - 80}, 'fast');
                         response.templates.forEach(template => {
                             const imageUrl = `{{ url('storage') }}/${template.image}`;
                             $('#templateContainer').append(`

@@ -13,115 +13,71 @@ use Illuminate\Support\Facades\Mail;
 
 class DomainController extends Controller
 {
-    // public function index(Request $request)
-    // {   
-    //     $search = $request->input('search');
-    //     $type = $request->input('type', 'all'); 
-
-    //     // Cek apakah ada pencarian
-    //     if ($search) {
-    //         $templates = Template::where('title', 'LIKE', "%{$search}%")
-    //                             ->paginate(9); // Sesuaikan jumlah per halaman
-    //     }
-    //     // Cek apakah ada tipe selain 'all'
-    //     else if ($type != 'all') {
-    //         $templates = Template::where('type', 'LIKE', "%{$type}%")
-    //                             ->paginate(9); // Sesuaikan jumlah per halaman
-    //     } else {
-    //         // Default jika tidak ada pencarian dan tipe 'all'
-    //         $templates = Template::paginate(9); 
-    //     }
-        
-    //     $templates->getCollection()->transform(function ($template) {
-    //         $template->total_pembelian = $template->total_pembelian; // Pastikan sudah ada atribut total_pembelian
-    //         return $template;
-    //     });
-
-    //     // Mengecek apakah request menggunakan ajax
-    //     if ($request->ajax()) {
-    //         return response()->json([
-    //             'templates' => $templates->items(),
-    //             'pagination' => (string) $templates->links('pagination::bootstrap-4')
-    //         ]);
-    //     }
-
-
-    //     // subscriptions
-    //     $subs= subscription::all();
-
-
-    //     if ($request->is('website')) {
-
-    //         return view('domainTemplate', compact('templates', 'search', 'type'));
-    //     }
-    //     if ($request->is('subscription')) {
-    //         return view('subscription', compact('subs'));
-    //     }
-    //     if ($request->is('cart')) {
-    //         return view('cart', compact('templates', 'search', 'type'));
-    //     }
-    //     if ($request->is('/')) {
-    //         return view('home', compact('templates', 'search', 'type'));
-    //     }
-
-    //     return view('domain-check', compact('templates', 'search', 'type'));
-    // }
-    
     public function index(Request $request)
-    {   
-        $search = $request->input('search');
-        $type = $request->input('type', 'all'); 
+{   
+    if ($request->is('website')){
+        $pagination=10;
+    }
+    else{
+        $pagination=9;
+    }
+    $search = $request->input('search');
+    $type = $request->input('type', 'all'); 
     
-        // Tentukan jumlah pagination berdasarkan request
-        $perPage = $request->is('website') ? 10 : 9;
-    
-        // Cek apakah ada pencarian
-        if ($search) {
-            $templates = Template::where('title', 'LIKE', "%{$search}%")
-                                ->paginate($perPage); // Gunakan $perPage
-        }
-        // Cek apakah ada tipe selain 'all'
-        else if ($type != 'all') {
-            $templates = Template::where('type', 'LIKE', "%{$type}%")
-                                ->paginate($perPage); // Gunakan $perPage
-        } else {
-            // Default jika tidak ada pencarian dan tipe 'all'
-            $templates = Template::paginate($perPage); // Gunakan $perPage
-        }
-        
-        $templates->getCollection()->transform(function ($template) {
-            $template->total_pembelian = $template->total_pembelian; // Pastikan sudah ada atribut total_pembelian
-            return $template;
-        });
-    
-        // Mengecek apakah request menggunakan ajax
-        if ($request->ajax()) {
-            return response()->json([
-                'templates' => $templates->items(),
-                'pagination' => (string) $templates->links('pagination::bootstrap-4')
-            ]);
-        }
-    
-        // subscriptions
-        $subs = subscription::all();
-    
-        // Kondisi untuk menentukan view yang akan digunakan
-        if ($request->is('website')) {
-            return view('domainTemplate', compact('templates', 'search', 'type'));
-        }
-        if ($request->is('subscription')) {
-            return view('subscription', compact('subs'));
-        }
-        if ($request->is('cart')) {
-            return view('cart', compact('templates', 'search', 'type'));
-        }
-        if ($request->is('/')) {
-            return view('home', compact('templates', 'search', 'type'));
-        }
-    
-        return view('domain-check', compact('templates', 'search', 'type'));
+
+    // Cek apakah ada pencarian
+    if ($search) {
+        $templates = Template::where('title', 'LIKE', "%{$search}%")
+                             ->paginate($pagination); // Sesuaikan jumlah per halaman
+    }
+    // Cek apakah ada tipe selain 'all'
+    else if ($type != 'all') {
+        $templates = Template::where('type', 'LIKE', "%{$type}%")
+                             ->paginate($pagination); // Sesuaikan jumlah per halaman
+    } else {
+        // Default jika tidak ada pencarian dan tipe 'all'
+        $templates = Template::paginate($pagination); 
     }
     
+    
+    $templates->getCollection()->transform(function ($template) {
+        $template->total_pembelian = $template->total_pembelian; // Pastikan sudah ada atribut total_pembelian
+        return $template;
+    });
+
+    // Mengecek apakah request menggunakan ajax
+    if ($request->ajax()) {
+        return response()->json([
+            'templates' => $templates->items(),
+            'pagination' => (string) $templates->links('pagination::bootstrap-4')
+        ]);
+    }
+
+
+    // subscriptions
+    $subs= subscription::all();
+
+
+    if ($request->is('website')) {
+
+        return view('domainTemplate', compact('templates', 'search', 'type'));
+    }
+    if ($request->is('subscription')) {
+        return view('subscription', compact('subs'));
+    }
+    if ($request->is('cart')) {
+        return view('cart', compact('templates', 'search', 'type'));
+    }
+    if ($request->is('/')) {
+        return view('home', compact('templates', 'search', 'type'));
+    }
+
+    return view('domain-check', compact('templates', 'search', 'type'));
+
+    
+}
+
+
 
 
 
@@ -130,7 +86,7 @@ class DomainController extends Controller
         $domainName = preg_replace('/\.[a-zA-Z]+$/', '', $request->domain);
         $results = [];
 
-        
+        // Cek domain .com menggunakan API baru
         $comUrl = "https://web-cms.biznetgio.com/domain-checker/$domainName.com";
         $comResponse = Http::get($comUrl)->json(); // Decode JSON response to an array
 
@@ -140,7 +96,7 @@ class DomainController extends Controller
             $results['com'] = 'unavailable';
         }
 
-        
+        // Cek domain .id menggunakan RDAP PANDI
         $idUrl = "https://rdap.pandi.id/rdap/domain/$domainName.id";
         $idResponse = Http::get($idUrl);
         if ($idResponse->status() == 404) {
@@ -149,7 +105,7 @@ class DomainController extends Controller
             $results['id'] = 'unavailable';
         }
 
-       
+        // Cek domain .co.id menggunakan RDAP PANDI
         $coIdUrl = "https://rdap.pandi.id/rdap/domain/$domainName.co.id";
         $coIdResponse = Http::get($coIdUrl);
         if ($coIdResponse->status() == 404) {
@@ -160,8 +116,6 @@ class DomainController extends Controller
 
         return response()->json($results);
     }
-
-    
 
     public function store(Request $request)
     {
