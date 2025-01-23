@@ -106,7 +106,7 @@
                                   </div>
                                   <h6 data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h6>
                                 </div>
-                                <div style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;" class="StepOfWizard col-3 active">
+                                <div style="border-top-right-radius: 10px; border-bottom-right-radius: 10px; box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);" class="StepOfWizard col-3 active">
                                   <div class="step">
                                     <img class="stepIcon" src="../img/pay.svg" alt="Payment">
                                   </div>

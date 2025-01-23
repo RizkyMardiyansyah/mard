@@ -73,12 +73,12 @@
                     {{-- <div class="container"> --}}                       
                         <div class="cart stepHead">
                             <div class="d-flex align-items-center">
-                                <div class=" StepOfWizard col-3 active activeNow">
-                                  <div class="step">
-                                    <img class="stepIcon" src="img/domain.svg" alt="Hosting">
+                                <div style="border-radius:10px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);" class=" StepOfWizard col-3 active">
+                                    <div class="step">
+                                      <img class="stepIcon" src="img/domain.svg" alt="Hosting">
+                                    </div>
+                                    <h6>Website</h6>
                                   </div>
-                                  <h6>Website</h6>
-                                </div>
                                 <div class=" StepOfWizard col-3">
                                     <div class="step">
                                       <img class="stepIcon" src="img/hosting.svg" alt="Hosting">

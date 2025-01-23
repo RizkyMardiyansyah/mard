@@ -89,7 +89,7 @@
                                       </div>
                                       <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
                                     </div>
-                                    <div style="border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class="StepOfWizard col-3 active">
+                                    <div style="border-top-right-radius: 50px; border-bottom-right-radius: 50px; box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);" class="StepOfWizard col-3 active">
                                       <div class="step">
                                         <img class="stepIcon" src="img/form.svg" alt="Form">
                                       </div>
