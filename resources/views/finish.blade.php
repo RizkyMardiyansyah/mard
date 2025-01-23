@@ -227,7 +227,7 @@
                                                 </li>                                          
                                             </ul>
                                         </div>
-                                        <a href="/" style="font-weight: bolder" data-lang-en="Home Page" data-lang-id="Halaman Utama" type="submit" class="w-100 btn btn-primary">Home Page</a>
+                                        <a href="/" style="font-weight: bolder" data-lang-en="Home Page" data-lang-id="Halaman Utama" type="submit" class="nextBtn w-100 btn btn-primary">Home Page</a>
                                     </div>
                                 </div>
 

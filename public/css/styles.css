@@ -1,3 +1,8 @@
+.nextBtn{
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  padding: 15px !important;
+  font-weight: bolder;
+}
 .finishCart{
   width: 70%;
 }
@@ -190,9 +195,21 @@
   padding: 0px !important; 
   margin-bottom: 20px;
 }
-.cart .active{
-  background: linear-gradient(to right,  #66B2FF, #007BFF);
+.cart .firstActive{
+  background: #66B2FF; 
+  border-top-left-radius: 10px; 
+  border-bottom-left-radius: 10px;
+}
+
+.cart .active{  
   transition: transform 0.5s ease;
+}
+.cart .activeNow{
+  background: linear-gradient(to right,  #66B2FF, #007BFF);
+  border-radius:10px; 
+  border-top-right-radius: 50px; 
+  border-bottom-right-radius: 50px; 
+  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
 }
 .stepIcon {
   filter: invert(39%) sepia(99%) saturate(2132%) hue-rotate(193deg) brightness(96%) contrast(105%);
@@ -571,7 +588,7 @@ margin-bottom: 20px;
         border-radius: 38px;
         padding: 5px;
         padding-right: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       }
       .view {
         font-family: "Raleway", sans-serif;
@@ -651,7 +668,7 @@ margin-bottom: 20px;
         border-radius: 10px ;
         padding: 15px;  
         width: 100%;
-        flex: 1; /* Agar input mengambil ruang sebanyak mungkin */
+        flex: 1;
         border: 1px solid #ccc;
       }
 
@@ -701,7 +718,7 @@ margin-bottom: 20px;
           object-position: top;
           object-fit: cover;
           overflow: hidden;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       }
 
       .card-title {
@@ -785,9 +802,8 @@ margin-bottom: 20px;
       }
       .serContainer:hover{
         margin-top: -10px;
-        box-shadow: 0 2px 10px rgba(92, 149, 255, 0.5);
-        background: linear-gradient(to right, #488EFE, #007BFF);
-        /* background: linear-gradient(to right, #488EFE, #3f42e3); */
+        background: linear-gradient(45deg, #488EFE, #2A6AC9);           
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(92, 149, 255, 0.5);
         p{
           /* color: #010A44 !important; */
@@ -1107,7 +1123,7 @@ html {
             font-weight: bold;
         }
         .hero-text h1{
-            
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             color: white;
             font-weight:900;
             font-size: 55px;
@@ -1115,6 +1131,7 @@ html {
         .hero-text-domain h1{
           margin-top: 0px;
           color: #fff;
+          text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
           /* text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5); */
           font-weight:900;
           font-size: 55px;
@@ -1277,8 +1294,8 @@ html {
         .btn:hover{
             color: white;
             border:none;
-            background-color:#488EFE; 
-            
+            background: linear-gradient(45deg, #488EFE, #2A6AC9);           
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             opacity: 100%;
             
         }

@@ -98,9 +98,9 @@
             <div class="serv col-lg-3 col-md-6 col-12">
                 <a href="/iot" style="text-decoration: none; color: black;">
                     <div class="serContainer">
-                        <h3 style="color: black;" data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi Lengkap IoT">One Stop IoT Solutions</h3>
+                        <h3 style="color: black;" data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi IoT Lengkap">One Stop IoT Solutions</h3>
                         <p data-lang-en="Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions."
-                        data-lang-id="Solusi IoT One Stop kami menawarkan lebih dari sekadar teknologi, kami menghadirkan masa depan untuk proses bisnis Anda. Dengan solusi kami, kami mengoptimalkan operasi dan mendorong efisiensi bisnis Anda.">Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions.</p>
+                        data-lang-id="Solusi IoT Lengkap kami menawarkan lebih dari sekadar teknologi, kami menghadirkan masa depan untuk proses bisnis Anda. Dengan solusi kami, kami mengoptimalkan operasi dan mendorong efisiensi bisnis Anda.">Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions.</p>
 
                     </div>
                 </a>
@@ -124,7 +124,7 @@
                         <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
                             <div style="margin:0px;" class="form-row  d-flex align-items-center slider-search bg-white w-100">
                                 <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" required placeholder="Find your domain..."/>
-                                <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; background-color:#488EFE; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"><b data-lang-en="Search" data-lang-id="Cari">Search</b></button>
+                                <button type="submit" class="btn btn-primary rounded-pill" style="height:100%; margin:0px; opacity: 100%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"><b data-lang-en="Search" data-lang-id="Cari">Search</b></button>
                             </div>
                         </form>
                         <!-- Spinner untuk loading animation -->
@@ -198,7 +198,7 @@
     <div id="partners" class="partner hero-text " style="margin-top: 100px;">
         <div class="row d-flex flex-wrap">
             <div class="serv col-lg-4 col-12 " >
-                <h1 data-lang-en="Partners and Clients" data-lang-id="Mitra dan Klien">Partners and Clients</h1>
+                <h1 style="text-shadow: none;" data-lang-en="Partners and Clients" data-lang-id="Mitra dan Klien">Partners and Clients</h1>
                 <p data-lang-en="Trusted partners and satisfied clients who have collaborated to develop their business ideas." 
                 data-lang-id="Mitra terpercaya dan klien puas yang telah bekerjasama mengembangkan ide bisnis mereka.">Trusted partners and satisfied clients who have collaborated to develop their business ideas.</p>
             </div>
@@ -238,6 +238,11 @@
     </div>
      {{-- Footer Section --}}
      @include('partials.footer')
+
+
+     
+
+
 
 
      {{-- baru --}}     

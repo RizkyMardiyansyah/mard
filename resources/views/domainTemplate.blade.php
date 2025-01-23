@@ -73,7 +73,7 @@
                     {{-- <div class="container"> --}}                       
                         <div class="cart stepHead">
                             <div class="d-flex align-items-center">
-                                <div style="border-radius:10px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class=" StepOfWizard col-3 active">
+                                <div class=" StepOfWizard col-3 active activeNow">
                                   <div class="step">
                                     <img class="stepIcon" src="img/domain.svg" alt="Hosting">
                                   </div>
@@ -170,7 +170,7 @@
                             </div>
                     {{-- </div> --}}
             </div> 
-            <div id="OrderSummary" class="serv col-md-4 col-12">                
+            <div id="order" class="serv col-md-4 col-12">                
                     <div class="cart order">
                         <div>   
                             <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
@@ -200,7 +200,7 @@
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
                             </div>
 
-                            <button id="next-button"  class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya">Next</button>
+                            <button id="next-button"  class="w-100 nextBtn btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya">Next</button>
                         </div>
                     </div>
                 
@@ -417,7 +417,7 @@
                                             </a>
                                         </div>
                                         <div class="d-flex" style="margin-left: auto">
-                                            <a href="/#OrderSummary" class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-type="${template.type}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
+                                            <a href="/#order" class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-type="${template.type}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
                                             <a href="${template.link}" target="_blank" class="view d-flex align-items-center justify-content-center" data-bs-toggle="tooltip" title="Live Preview"><i class="fas fa-eye"></i></a>
                                         </div>
                                     </div>
@@ -476,7 +476,7 @@
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response.com === 'available' ? 
-                                '<p class="price">Rp. 200.000</p><a href="/#OrderSummary"> <button class="btn-select" data-domain="' + domain + '.com" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                '<p class="price">Rp. 200.000</p><a href="#order"> <button class="btn-select" data-domain="' + domain + '.com" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                 ''}
 
                             <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
@@ -492,7 +492,7 @@
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response.id === 'available' ? 
-                                '<p class="price">Rp. 290.000</p><a href="/#OrderSummary"><button class="btn-select" data-domain="' + domain + '.id" data-price="290000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                '<p class="price">Rp. 290.000</p><a href="#order"><button class="btn-select" data-domain="' + domain + '.id" data-price="290000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                 ''}        
 
                             <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
@@ -508,7 +508,7 @@
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response['co.id'] === 'available' ? 
-                                '<p class="price">Rp. 330.000</p><a href="/#OrderSummary"><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                '<p class="price">Rp. 330.000</p><a href="#order"><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                 ''}
                                
 

@@ -195,7 +195,7 @@
                                 <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal"></h5>
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
                             </div>                
-                            <button id="next-button" type="submit"  class="w-100 btn btn-primary" data-lang-en="Checkout" data-lang-id="Checkout" ></button>
+                            <button id="next-button" type="submit"  class="nextBtn w-100 btn btn-primary" data-lang-en="Checkout" data-lang-id="Checkout" ></button>
                         </div>
                     </div>
             </div>           

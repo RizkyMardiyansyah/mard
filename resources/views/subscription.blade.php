@@ -66,13 +66,13 @@
                     {{-- <div class="container"> --}}
                         <div class="cart stepHead">
                             <div class="d-flex align-items-center">
-                                <div style="background: #66B2FF; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" class="StepOfWizard col-3 active">
+                                <div style=" class="StepOfWizard col-3 active">
                                     <div class="step">
                                       <img class="stepIcon" src="img/domain.svg" alt="domain">
                                     </div>
                                     <h6>Website</h6>
                                   </div>
-                                  <div style="border-top-right-radius: 50px; border-bottom-right-radius: 50px;" class="StepOfWizard col-3 active">
+                                  <div class="StepOfWizard col-3 active activeNow">
                                     <div class="step">
                                         <img class="stepIcon" src="img/hosting.svg" alt="Hosting">
                                       </div>
@@ -161,7 +161,7 @@
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
                             </div>
 
-                            <button id="next-button"  class="w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya"></button>
+                            <button id="next-button"  class="nextBtn w-100 btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya"></button>
                         </div>
                     </div>
                 

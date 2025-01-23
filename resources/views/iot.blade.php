@@ -1,3 +1,25 @@
+{{-- <style>
+    
+    .custom-container {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, #1e90ff, #87cefa);
+        clip-path: path(
+    'M50 50 Q70 20, 90 50 Q70 80, 50 50 Q30 30, 10 50 Q30 70, 50 50'
+);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+}
+</style> --}}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -41,7 +63,7 @@
             <div class="container hero-text">
                 <div class="row">
                     <div class="col-lg-6 col-12">
-                        <h1 style="text-align: left" data-lang-en="One Stop Internet Of Thnings (IOT) Solutions" data-lang-id="Solusi Lengkap Internet Of Thnings (IOT)">One Stop Internet Of Thnings (IOT) Solutions</h1>
+                        <h1 style="text-align: left" data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi IoT Lengkap">One Stop IoT Solutions</h1>
                     </div>
                     <div class="col-lg-6 col-12"></div>
                 </div>
@@ -55,7 +77,7 @@
     
         <div class="container textabout blog">
             <p data-lang-en="Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions, we connect your business to the future, ensuring seamless integration, real-time data insights, and enhanced operational efficiency. Our team works closely with you to understand your unique challenges and deliver tailored IoT systems that optimize your business performance, streamline processes, and unlock new opportunities for growth." 
-               data-lang-id="Solusi IoT One Stop kami menawarkan lebih dari sekadar teknologi, kami membawa masa depan untuk proses bisnis Anda. Dengan solusi kami, kami menghubungkan bisnis Anda ke masa depan, memastikan integrasi yang lancar, wawasan data waktu nyata, dan peningkatan efisiensi operasional. Tim kami bekerja sama dengan Anda untuk memahami tantangan unik Anda dan memberikan sistem IoT yang disesuaikan untuk mengoptimalkan kinerja bisnis Anda, menyederhanakan proses, dan membuka peluang baru untuk pertumbuhan.">Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions, we connect your business to the future, ensuring seamless integration, real-time data insights, and enhanced operational efficiency. Our team works closely with you to understand your unique challenges and deliver tailored IoT systems that optimize your business performance, streamline processes, and unlock new opportunities for growth.</p>
+               data-lang-id="Solusi IoT Lengkap menawarkan lebih dari sekadar teknologi, kami membawa masa depan untuk proses bisnis Anda. Dengan solusi kami, kami menghubungkan bisnis Anda ke masa depan, memastikan integrasi yang lancar, wawasan data waktu nyata, dan peningkatan efisiensi operasional. Tim kami bekerja sama dengan Anda untuk memahami tantangan unik Anda dan memberikan sistem IoT yang disesuaikan untuk mengoptimalkan kinerja bisnis Anda, menyederhanakan proses, dan membuka peluang baru untuk pertumbuhan.">Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions, we connect your business to the future, ensuring seamless integration, real-time data insights, and enhanced operational efficiency. Our team works closely with you to understand your unique challenges and deliver tailored IoT systems that optimize your business performance, streamline processes, and unlock new opportunities for growth.</p>
             
             <p data-lang-en="With our One Stop IoT Solutions, we don't just provide cutting-edge technology, we offer an integrated approach that ensures continuous innovation and improvement. From smart sensors and automation systems to cloud-based platforms, our solutions provide you with the tools to monitor, manage, and control your operations more efficiently than ever before. By harnessing the power of IoT, we help you make data-driven decisions that maximize productivity and minimize costs." 
                data-lang-id="Dengan Solusi IoT One Stop kami, kami tidak hanya menyediakan teknologi canggih, tetapi kami menawarkan pendekatan terintegrasi yang memastikan inovasi dan perbaikan berkelanjutan. Dari sensor pintar dan sistem otomatisasi hingga platform berbasis cloud, solusi kami memberikan Anda alat untuk memantau, mengelola, dan mengendalikan operasi Anda dengan lebih efisien dari sebelumnya. Dengan memanfaatkan kekuatan IoT, kami membantu Anda membuat keputusan berbasis data yang memaksimalkan produktivitas dan meminimalkan biaya.">With our One Stop IoT Solutions, we don't just provide cutting-edge technology, we offer an integrated approach that ensures continuous innovation and improvement. From smart sensors and automation systems to cloud-based platforms, our solutions provide you with the tools to monitor, manage, and control your operations more efficiently than ever before. By harnessing the power of IoT, we help you make data-driven decisions that maximize productivity and minimize costs.</p>
@@ -65,9 +87,8 @@
         </div>
         
 
-
 {{-- Contact Us Section --}}
-    <div class="servContact container contact hero-text" style="color: black; margin-top: 70px; padding: 30px;">
+    <div class="custom-container servContact container contact hero-text" style="color: black; margin-top: 70px; padding: 30px;">
         <div class="row d-flex flex-wrap">
             
             <div class="col-lg-6 col-12">
@@ -95,7 +116,7 @@
                         <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
                     </div>
                     <div style="text-align: right;">
-                        <button id="message_btn" type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 5px;" data-lang-en="Send Message" data-lang-id="Kirim Pesan"></button>
+                        <button id="message_btn" type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 10px; background: linear-gradient(45deg, #007bff, #0056b3); color: white; border: none;" data-lang-en="Send Message" data-lang-id="Kirim Pesan">Kirim Pesan</button>
                     </div>
                 </form>
             </div>

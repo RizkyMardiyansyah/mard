@@ -208,7 +208,7 @@
                                 <h5 class="cart-title">Total</h5>
                                 <h5 class="cart-title" id="Subtotal" class="price"></h5>
                             </div>                
-                            <button style="font-weight: bolder" data-lang-en="Pay" data-lang-id="Bayar" id="pay-button" type="submit" class="w-100 btn btn-primary" disabled>Pay</button>
+                            <button data-lang-en="Pay" data-lang-id="Bayar" id="pay-button" type="submit" class="nextBtn w-100 btn btn-primary" disabled>Pay</button>
                         </div>
                     </div>
                 </div>      
