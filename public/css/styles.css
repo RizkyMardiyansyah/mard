@@ -217,6 +217,7 @@
   margin-top: 20px;
 }
 .blog h1{
+  width: 50%;
   font-family: "Raleway", sans-serif; 
   color: rgba(0, 0, 0, 0.9) !important;
   font-size: 18px !important;
@@ -230,6 +231,27 @@
   color: #000 !important;
   text-align: justify;
 }
+.servicecolom{
+  padding: 20px;
+  .blogdesc{
+    margin: 0px !important;
+    padding-top: 0px !important;
+    padding-left: 10px !important;
+  }
+}
+.seriviceBlog{
+  padding-top: 0px !important;
+  padding: 40px;
+}
+@media (max-width: 767.98px) { 
+  .seriviceBlog{
+    padding: 0px !important;
+  }
+  .blog h1{
+    width: 100%;
+  }
+}
+
 #discoutContainer{
   filter: drop-shadow(0 2px 1px rgba(191, 200, 208, 1));
   transition: all 0.3s ease;
