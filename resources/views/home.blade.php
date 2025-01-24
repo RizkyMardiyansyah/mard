@@ -1,3 +1,9 @@
+<style>
+    #about, #services, #partners, #domainsearch, #template {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+</style>
 <!doctype html>
 <html lang="en">
   <head>        
@@ -27,9 +33,7 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     
   </head>
-  <body id="home">
-    
-    
+  <body id="home">  
 
     {{-- navbar section --}}
     @include('partials.navbar')
@@ -68,6 +72,7 @@
         </div>
     </div>
     
+    
 {{-- Service Section --}}
     <div id="services" class="services container hero-text ">
         <div class="row">
@@ -99,8 +104,8 @@
                 <a href="/iot" style="text-decoration: none; color: black;">
                     <div class="serContainer">
                         <h3 style="color: black;" data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi IoT Lengkap">One Stop IoT Solutions</h3>
-                        <p data-lang-en="Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions."
-                        data-lang-id="Solusi IoT Lengkap kami menawarkan lebih dari sekadar teknologi, kami menghadirkan masa depan untuk proses bisnis Anda. Dengan solusi kami, kami mengoptimalkan operasi dan mendorong efisiensi bisnis Anda.">Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions.</p>
+                        <p data-lang-en="Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes with our solutions."
+                        data-lang-id="Solusi IoT Lengkap kami menawarkan lebih dari sekadar teknologi, kami menghadirkan masa depan untuk proses bisnis Anda dengan solusi kami.">Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes with our solutions.</p>
 
                     </div>
                 </a>
@@ -110,8 +115,8 @@
     </div>
 
 {{-- Instal Build Website --}}
-<div class="container" style="margin-top: 100px">
-    <div class="hero-section-home-domain align-items-center justify-content-center">
+<div  class="container" style="margin-top: 100px">
+    <div id="domainsearch" class="hero-section-home-domain align-items-center justify-content-center">
         <div class="hero-overlay-home-domain">
             <div class="container hero-text-domain text-center"> 
                 <div class="row">
@@ -127,6 +132,23 @@
                                 <button type="submit" class="btn btn-primary rounded-pill" style="height:100%; margin:0px; opacity: 100%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"><b data-lang-en="Search" data-lang-id="Cari">Search</b></button>
                             </div>
                         </form>
+                        <div id="domainbox" class="justify-content-center" style=" gap: 10px">
+                            <div style="border: 2px solid #51CB5F !important; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); animation: float 3s ease-in-out infinite;" class="card domainBox">
+                                <h6 style="color: #51CB5F;">.com</h6>
+                                <p class="old">Rp.252.000</p>
+                                <p style="color: #51CB5F;" class="new">Rp.199.900</p>
+                            </div>
+                            <div class=" card domainBox">
+                                <h6>.id</h6>
+                                <p class="old">Rp.329.900</p>
+                                <p class="new">Rp.290.900</p>
+                            </div>
+                            <div class="card domainBox">
+                                <h6>.co.id</h6>
+                                <p class="old">Rp.340.900</p>
+                                <p class="new">Rp.330.900</p>
+                            </div>
+                        </div>
                         <!-- Spinner untuk loading animation -->
                         <div style="margin-top: 50px" class="spinner" id="spinner"></div>
 
@@ -138,13 +160,9 @@
         </div>
     </div>
 
-    
-    
 
-    <div style="margin-top: 50px"  class="serv container hero-text">
-
-        <div class="serv container hero-text">
-        
+    <div  style="padding-top: 50px"  class="serv container hero-text">
+        <div id="template" class="serv container hero-text">     
             <!-- Form Pencarian -->
             <form id="searchTemplateForm" action="{{ route('searchtemplate') }}" method="POST">
                 @csrf <!-- Ini untuk melindungi dari CSRF -->
@@ -237,17 +255,29 @@
         </div>
     </div>
      {{-- Footer Section --}}
-     @include('partials.footer')
-
-
-     
-
-
+     @include('partials.footer')  
 
 
      {{-- baru --}}     
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+     <script>
+        const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {           
+            entry.target.classList.add('fade-in', 'visible');
+            observer.unobserve(entry.target);
+            }
+        });
+        }, {
+        threshold: 0.25
+        });
+
+        const elements = document.querySelectorAll('#about, #services, #partners, #domainsearch, #template');
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+     </script>
      <script> 
          sessionStorage.clear();
           $(document).ready(function() {
@@ -267,6 +297,7 @@
                      beforeSend: function() {
                          // Tampilkan spinner sebelum request dimulai
                          $('#spinner').show();
+                         $('#domainbox').hide();
                          $('#result').html('');  // Kosongkan hasil sebelumnya
                      },
                      success: function(response) {
@@ -280,7 +311,7 @@
                                  
                                  <!-- Tombol hanya tampil jika domain tersedia -->
                                  ${response.com === 'available' ? 
-                                     '<p class="price">Rp. 200.000</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="200000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                     '<p class="price">Rp. 199.900</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="19900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                      ''}
      
                                  <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
@@ -296,7 +327,7 @@
                                  
                                  <!-- Tombol hanya tampil jika domain tersedia -->
                                  ${response.id === 'available' ? 
-                                     '<p class="price">Rp. 290.000</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                     '<p class="price">Rp. 290.900</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                      ''}        
      
                                  <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
@@ -312,7 +343,7 @@
                                  
                                  <!-- Tombol hanya tampil jika domain tersedia -->
                                  ${response['co.id'] === 'available' ? 
-                                     '<p class="price">Rp. 330.000</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                     '<p class="price">Rp. 330.900</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                      ''}
                                     
      
@@ -571,7 +602,10 @@
              // Panggil fungsi untuk merubah opacity setiap detik
              setInterval(changeOpacityRandomly, 1000);
          });
+         
      </script>
+     
+     
      
      </body>
      </html>

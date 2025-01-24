@@ -1,3 +1,9 @@
+<style>
+    #domainform, #template {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+</style>
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,7 +46,7 @@
                         <div class="col-lg-8 mx-auto">
                             <div class="container">
                                 <h1 style="margin-bottom: 0px" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</h1>
-                                <span data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</span>
+                                <span  data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</span>
                             </div>
                             <!-- Form untuk memasukkan nama domain -->            
                             <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
@@ -49,6 +55,23 @@
                                     <button type="submit" class="btn rounded-pill" style="height:100%; margin:0px; opacity: 100%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"><b data-lang-en="Search" data-lang-id="Cari">Search</b></button>
                                 </div>
                             </form>
+                            <div id="domainbox" class="justify-content-center" style=" gap: 10px">
+                                <div style="border: 2px solid #51CB5F !important; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); animation: float 3s ease-in-out infinite;" class="card domainBox">
+                                    <h6 style="color: #51CB5F;">.com</h6>
+                                    <p class="old">Rp.252.000</p>
+                                    <p style="color: #51CB5F;" class="new">Rp.199.900</p>
+                                </div>
+                                <div class=" card domainBox">
+                                    <h6>.id</h6>
+                                    <p class="old">Rp.329.900</p>
+                                    <p class="new">Rp.290.900</p>
+                                </div>
+                                <div class="card domainBox">
+                                    <h6>.co.id</h6>
+                                    <p class="old">Rp.340.900</p>
+                                    <p class="new">Rp.330.900</p>
+                                </div>
+                            </div>
                             <!-- Spinner untuk loading animation -->
                             <div style="margin-top: 50px" class="spinner" id="spinner"></div>
 
@@ -62,7 +85,6 @@
 
 
         <div id="template" class=" serv container hero-text">
-
             <div class="serv container hero-text">
                 <div class="col-md-3 col-12"></div>
                 <div class=" col-md-6 col-12 container justify-content-center text-center">
@@ -75,7 +97,6 @@
 
                 </div>
                 <div class="col-md-3 col-12"></div>
-                
                 <div>
                 <!-- Form Pencarian -->
                 <form id="searchTemplateForm" action="{{ route('searchtemplate') }}" method="POST">
@@ -136,6 +157,23 @@
     <!-- Script untuk AJAX Pencarian -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {           
+            entry.target.classList.add('fade-in', 'visible');
+            observer.unobserve(entry.target);
+            }
+        });
+        }, {
+        threshold: 0.25
+        });
+
+        const elements = document.querySelectorAll('#domainform, #template');
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+     </script>
     <script> 
     sessionStorage.clear();
         $(document).ready(function() {
@@ -164,7 +202,8 @@
 
         // Fungsi umum untuk Search atau Pagination
         function performSearchOrPagination(url, method, data = {}) {
-            $('#spinnerr').show(); // Tampilkan spinner
+            $('#spinnerr').show();
+           
 
             $.ajax({
                 url: url,
@@ -346,6 +385,7 @@ window.addEventListener('load', () => {
                 beforeSend: function() {
                     // Tampilkan spinner sebelum request dimulai
                     $('#spinner').show();
+                    $('#domainbox').hide();
                     $('#result').html('');  // Kosongkan hasil sebelumnya
                 },
                 success: function(response) {
@@ -359,7 +399,7 @@ window.addEventListener('load', () => {
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response.com === 'available' ? 
-                                '<p class="price">Rp. 200.000</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="200000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                '<p class="price">Rp. 199.900</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="199900"  data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                 ''}
 
                             <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
@@ -375,7 +415,7 @@ window.addEventListener('load', () => {
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response.id === 'available' ? 
-                                '<p class="price">Rp. 290.000</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                '<p class="price">Rp. 290.900</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                 ''}        
 
                             <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
@@ -391,7 +431,7 @@ window.addEventListener('load', () => {
                             
                             <!-- Tombol hanya tampil jika domain tersedia -->
                             ${response['co.id'] === 'available' ? 
-                                '<p class="price">Rp. 330.000</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330000" data-price="200000" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                '<p class="price">Rp. 330.900</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                 ''}
                                
 
