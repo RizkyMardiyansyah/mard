@@ -118,7 +118,7 @@
         
         <div class="header">
             <div class="kop">
-                <img src="{{ $message->embed(public_path('img/kop.png')) }}" alt="kop" style="max-width: 100%; height: auto;">
+                <img src="{{ config('app.url') }}/img/kop.png" alt="kop" style="max-width: 100%; height: auto;">
 
             </div>
         </div>
