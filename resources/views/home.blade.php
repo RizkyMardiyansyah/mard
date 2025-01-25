@@ -1,4 +1,4 @@
-{{-- <script type="application/ld+json">
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -6,7 +6,7 @@
       "alternateName": ["Mardsoft", "Mard", "Mard Software"],
       "url": "https://www.mardsoft.com/"
     }
-    </script> --}}
+</script>
     <!doctype html>
     <html lang="en">
     <head>        
