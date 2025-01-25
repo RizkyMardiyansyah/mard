@@ -18,7 +18,6 @@
     <div class="" style="padding: 0px; Opacity:50%; font-size:14px; margin-top:auto">       
         <div class="card-title"> <i class="fa fa-shopping-bag me-2"></i>{{ $template->total_pembelian }} Purchased</div>
     </div>
-    
 </div>
 
 

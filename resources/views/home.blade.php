@@ -1,9 +1,3 @@
-<style>
-    #about, #services, #partners, #domainsearch, #template {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-</style>
 {{-- <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -31,6 +25,7 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
       <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     </head>
   <body id="home">  
@@ -82,7 +77,7 @@
                    data-lang-id="Mardsoft menyediakan solusi digital inovatif yang sesuai untuk optimalisasi bisnis Anda, serta mendukung pertumbuhan, dan standar baru dalam industri.">Mardsoft provides innovative digital solutions tailored to optimize your business processes, support growth, and set new standards of excellence in your industry.</p>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">                
-                <a href="/web" style="text-decoration: none; color: black;">
+                <a href="/instant-web-builder" style="text-decoration: none; color: black;">
                     <div class="serContainer">
                         <h3 style="color: black;" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</h3>
                         <p data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." 
@@ -92,7 +87,7 @@
                 
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
-                <a href="/dev" style="text-decoration: none; color: black;">
+                <a href="/custom-app-development" style="text-decoration: none; color: black;">
                     <div class="serContainer">
                         <h3 style="color: black;" data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</h3>
                         <p data-lang-en="Bring your ideas to life with our expert developers, delivering digital solutions and endless innovations to drive your business growth." 
@@ -261,23 +256,6 @@
      {{-- baru --}}     
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-     <script>
-        const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {           
-            entry.target.classList.add('fade-in', 'visible');
-            observer.unobserve(entry.target);
-            }
-        });
-        }, {
-        threshold: 0.25
-        });
-
-        const elements = document.querySelectorAll('#about, #services, #partners, #domainsearch, #template');
-        elements.forEach(element => {
-            observer.observe(element);
-        });
-     </script>
      <script> 
          sessionStorage.clear();
           $(document).ready(function() {

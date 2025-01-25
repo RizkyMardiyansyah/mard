@@ -6,9 +6,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\paymentController;
 use App\Models\template;
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/test', function () {
+    return view('finishmail');
+});
 
 
 
@@ -28,21 +28,15 @@ Route::get('/payment/{snapKey}', [paymentController::class, 'index'])->name('pay
 Route::get('/finish/{snapKey}', [paymentController::class, 'index'])->name('finish');
 
 
-// // Rute untuk halaman domain-check
-// Route::get('/web', [DomainController::class, 'index'])->name('domain-check');
-
-// // Rute pencarian template
-// Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');
-
 Route::get('/orderEmail', [paymentController::class, 'sendEmail']);
 
 
-Route::get('/web', [DomainController::class, 'index']);
+Route::get('/instant-web-builder', [DomainController::class, 'index']);
 Route::post('/check-domain', [DomainController::class, 'checkDomain'])->name('check.domain');
 Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate');
 
-Route::get('/dev', function () {return view('developmet');});
-Route::get('/iot', function () {return view('iot');});
+Route::get('/custom-app-development', function () {return view('developmet');});
+Route::get('/one-stop-iot-solutions', function () {return view('iot');});
 Route::get('/contact', function () {return view('contact');});
 
 Route::post('/orderstore', [DomainController::class, 'store'])->name('orderstore');

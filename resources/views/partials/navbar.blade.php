@@ -56,9 +56,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="/#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-en="Services" data-lang-id="Layanan Kami">Services</a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="/web" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</a></li>
-                            <li><a class="dropdown-item" href="/dev" data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</a></li>
-                            <li><a class="dropdown-item" href="/support" data-lang-en="Support and Maintenance" data-lang-id="Dukungan dan Pemeliharaan">Support and Maintenance</a></li>
+                            <li><a class="dropdown-item" href="/instant-web-builder" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</a></li>
+                            <li><a class="dropdown-item" href="/custom-app-development" data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</a></li>
+                            <li><a class="dropdown-item" href="/one-stop-iot-solutions" data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi IoT Lengkap">One Stop IoT Solutions</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="/#partners" data-lang-en="Partners" data-lang-id="Mitra">Partners</a></li>

@@ -23,6 +23,10 @@ class paymentController extends Controller
         $subs = subscription::where ('id', $order->subscription)->first();
         $template = template::where ('id', $order->template)->first();
         $routeName = request()->route()->getName();
+
+        if ($order->status == 'Developing') {
+            return view('finish', compact('order', 'subs', 'template', 'snapKey'));
+        }
         
         if ($request->route()->getName() == 'finish') {
             return view('finish', compact('order', 'subs', 'template', 'snapKey'));

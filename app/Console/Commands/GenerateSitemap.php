@@ -29,9 +29,9 @@ class GenerateSitemap extends Command
     {
         Sitemap::create()
             ->add(Url::create('/')->setPriority(1.0)->setChangeFrequency('daily'))
-            ->add(Url::create('/web')->setPriority(0.8)->setChangeFrequency('monthly'))
-            ->add(Url::create('/dev')->setPriority(0.8)->setChangeFrequency('monthly'))
-            ->add(Url::create('/support')->setPriority(0.8)->setChangeFrequency('monthly'))
+            ->add(Url::create('/instant-web-builder')->setPriority(0.8)->setChangeFrequency('monthly'))
+            ->add(Url::create('/custom-app-development')->setPriority(0.8)->setChangeFrequency('monthly'))
+            ->add(Url::create('/one-stop-iot-solutions')->setPriority(0.8)->setChangeFrequency('monthly'))
             ->add(Url::create('/contact')->setPriority(0.8)->setChangeFrequency('monthly'))
             ->writeToFile(public_path('sitemap.xml')); 
 

@@ -27,14 +27,14 @@
                 <!-- Our Services -->
                 <div style="margin-bottom: 20px;" class="col-lg-3 col-md-6 col-12 text-left">
                     <h6 style="font-weight:bolder" data-lang-en="Our Services" data-lang-id="Layanan Kami">Our Services</h6>
-                    <a href="/web" style="color: inherit; text-decoration: none;">
+                    <a href="/instant-web-builder" style="color: inherit; text-decoration: none;">
                         <p data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</p>
                     </a>
-                    <a href="/dev" style="color: inherit; text-decoration: none;">
+                    <a href="/custom-app-development" style="color: inherit; text-decoration: none;">
                         <p data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</p>
                     </a>
-                    <a href="/support" style="color: inherit; text-decoration: none;">
-                        <p data-lang-en="Support and Maintenance" data-lang-id="Dukungan dan Pemeliharaan">Support and Maintenance</p>
+                    <a href="/one-stop-iot-solutions" style="color: inherit; text-decoration: none;">
+                        <p data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi IoT Lengkap">One Stop IoT Solutions</p>
                     </a>
                 </div>
 
