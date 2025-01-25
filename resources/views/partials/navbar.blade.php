@@ -62,7 +62,7 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="/#partners" data-lang-en="Partners" data-lang-id="Mitra">Partners</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact" data-lang-en="Contact Us" data-lang-id="Hubungi Kami">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact" data-lang-en="Contact Us" data-lang-id="Kontak">Contact Us</a></li>
                 </ul>
             </div>
         </div>

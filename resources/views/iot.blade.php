@@ -61,24 +61,65 @@
     </div>
 
 {{-- Body Section --}}
-<div class="container servBody hero-text ">  
-    <div class="container">
-    
-        <div class="container textabout blog">
-            <p data-lang-en="Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions, we connect your business to the future, ensuring seamless integration, real-time data insights, and enhanced operational efficiency. Our team works closely with you to understand your unique challenges and deliver tailored IoT systems that optimize your business performance, streamline processes, and unlock new opportunities for growth." 
-               data-lang-id="Solusi IoT Lengkap menawarkan lebih dari sekadar teknologi, kami membawa masa depan untuk proses bisnis Anda. Dengan solusi kami, kami menghubungkan bisnis Anda ke masa depan, memastikan integrasi yang lancar, wawasan data waktu nyata, dan peningkatan efisiensi operasional. Tim kami bekerja sama dengan Anda untuk memahami tantangan unik Anda dan memberikan sistem IoT yang disesuaikan untuk mengoptimalkan kinerja bisnis Anda, menyederhanakan proses, dan membuka peluang baru untuk pertumbuhan.">Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions, we connect your business to the future, ensuring seamless integration, real-time data insights, and enhanced operational efficiency. Our team works closely with you to understand your unique challenges and deliver tailored IoT systems that optimize your business performance, streamline processes, and unlock new opportunities for growth.</p>
-            
-            <p data-lang-en="With our One Stop IoT Solutions, we don't just provide cutting-edge technology, we offer an integrated approach that ensures continuous innovation and improvement. From smart sensors and automation systems to cloud-based platforms, our solutions provide you with the tools to monitor, manage, and control your operations more efficiently than ever before. By harnessing the power of IoT, we help you make data-driven decisions that maximize productivity and minimize costs." 
-               data-lang-id="Dengan Solusi IoT One Stop kami, kami tidak hanya menyediakan teknologi canggih, tetapi kami menawarkan pendekatan terintegrasi yang memastikan inovasi dan perbaikan berkelanjutan. Dari sensor pintar dan sistem otomatisasi hingga platform berbasis cloud, solusi kami memberikan Anda alat untuk memantau, mengelola, dan mengendalikan operasi Anda dengan lebih efisien dari sebelumnya. Dengan memanfaatkan kekuatan IoT, kami membantu Anda membuat keputusan berbasis data yang memaksimalkan produktivitas dan meminimalkan biaya.">With our One Stop IoT Solutions, we don't just provide cutting-edge technology, we offer an integrated approach that ensures continuous innovation and improvement. From smart sensors and automation systems to cloud-based platforms, our solutions provide you with the tools to monitor, manage, and control your operations more efficiently than ever before. By harnessing the power of IoT, we help you make data-driven decisions that maximize productivity and minimize costs.</p>
-            
-            <p data-lang-en="Our team of experts works closely with you to implement scalable IoT solutions that adapt to your business growth. We take care of every aspect — from installation and configuration to ongoing support and updates — so you can focus on what matters most: growing your business. With our One Stop IoT Solutions, you will be able to stay ahead of the competition and future-proof your operations." 
-               data-lang-id="Tim ahli kami bekerja sama dengan Anda untuk mengimplementasikan solusi IoT yang dapat diskalakan yang dapat beradaptasi dengan pertumbuhan bisnis Anda. Kami menangani setiap aspek — mulai dari pemasangan dan konfigurasi hingga dukungan dan pembaruan berkelanjutan — sehingga Anda dapat fokus pada hal yang paling penting: mengembangkan bisnis Anda. Dengan Solusi IoT One Stop kami, Anda akan dapat tetap unggul dari pesaing dan mempersiapkan operasi Anda untuk masa depan.">Our team of experts works closely with you to implement scalable IoT solutions that adapt to your business growth. We take care of every aspect — from installation and configuration to ongoing support and updates — so you can focus on what matters most: growing your business. With our One Stop IoT Solutions, you will be able to stay ahead of the competition and future-proof your operations.</p>
+<div class="blogContainer container servBody hero-text ">     
+    <div class="container textabout blog">
+        <p data-lang-en="Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions, we connect your business to the future, ensuring seamless integration, real-time data insights, and enhanced operational efficiency. Our team works closely with you to understand your unique challenges and deliver tailored IoT systems that optimize your business performance, streamline processes, and unlock new opportunities for growth." 
+           data-lang-id="Solusi IoT Lengkap menawarkan lebih dari sekadar teknologi, kami membawa masa depan untuk proses bisnis Anda. Dengan solusi kami, kami menghubungkan bisnis Anda ke masa depan, memastikan integrasi yang lancar, wawasan data waktu nyata, dan peningkatan efisiensi operasional. Tim kami bekerja sama dengan Anda untuk memahami tantangan unik Anda dan memberikan sistem IoT yang disesuaikan untuk mengoptimalkan kinerja bisnis Anda, menyederhanakan proses, dan membuka peluang baru untuk pertumbuhan.">Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes. With our solutions, we connect your business to the future, ensuring seamless integration, real-time data insights, and enhanced operational efficiency. Our team works closely with you to understand your unique challenges and deliver tailored IoT systems that optimize your business performance, streamline processes, and unlock new opportunities for growth.</p>
+        <p data-lang-en="With our One Stop IoT Solutions, we don't just provide cutting-edge technology, we offer an integrated approach that ensures continuous innovation and improvement. From smart sensors and automation systems to cloud-based platforms, our solutions provide you with the tools to monitor, manage, and control your operations more efficiently than ever before. By harnessing the power of IoT, we help you make data-driven decisions that maximize productivity and minimize costs." 
+           data-lang-id="Dengan Solusi IoT One Stop kami, kami tidak hanya menyediakan teknologi canggih, tetapi kami menawarkan pendekatan terintegrasi yang memastikan inovasi dan perbaikan berkelanjutan. Dari sensor pintar dan sistem otomatisasi hingga platform berbasis cloud, solusi kami memberikan Anda alat untuk memantau, mengelola, dan mengendalikan operasi Anda dengan lebih efisien dari sebelumnya. Dengan memanfaatkan kekuatan IoT, kami membantu Anda membuat keputusan berbasis data yang memaksimalkan produktivitas dan meminimalkan biaya.">With our One Stop IoT Solutions, we don't just provide cutting-edge technology, we offer an integrated approach that ensures continuous innovation and improvement. From smart sensors and automation systems to cloud-based platforms, our solutions provide you with the tools to monitor, manage, and control your operations more efficiently than ever before. By harnessing the power of IoT, we help you make data-driven decisions that maximize productivity and minimize costs.</p>
+        <p data-lang-en="Our team of experts works closely with you to implement scalable IoT solutions that adapt to your business growth. We take care of every aspect — from installation and configuration to ongoing support and updates — so you can focus on what matters most: growing your business. With our One Stop IoT Solutions, you will be able to stay ahead of the competition and future-proof your operations." 
+           data-lang-id="Tim ahli kami bekerja sama dengan Anda untuk mengimplementasikan solusi IoT yang dapat diskalakan yang dapat beradaptasi dengan pertumbuhan bisnis Anda. Kami menangani setiap aspek — mulai dari pemasangan dan konfigurasi hingga dukungan dan pembaruan berkelanjutan — sehingga Anda dapat fokus pada hal yang paling penting: mengembangkan bisnis Anda. Dengan Solusi IoT One Stop kami, Anda akan dapat tetap unggul dari pesaing dan mempersiapkan operasi Anda untuk masa depan.">Our team of experts works closely with you to implement scalable IoT solutions that adapt to your business growth. We take care of every aspect — from installation and configuration to ongoing support and updates — so you can focus on what matters most: growing your business. With our One Stop IoT Solutions, you will be able to stay ahead of the competition and future-proof your operations.</p>
+    </div>
+    {{-- <div class="seriviceBlog container textabout blog row">
+        <div class="servicecolom col-md-6 col-12 ">
+            <p class="numbering">01</p>
+                <h1 style="text-shadow: none;" data-lang-en="Web Application Development" data-lang-id="Pengembangan Aplikasi Web">Web Application Development</h1>
+                <p class="blogdesc" data-lang-en="Designing and developing responsive web applications using the latest technologies such as HTML5, CSS, PHP, and JavaScript. These applications are designing to effectively support your business needs." 
+                data-lang-id="Merancang dan mengembangkan aplikasi web responsif menggunakan teknologi terkini seperti HTML5, CSS, PHP, dan JavaScript. Aplikasi dirancang untuk mendukung kebutuhan bisnis Anda secara efisien.">
+                Designing and developing responsive web applications using the latest technologies such as HTML5, CSS, and JavaScript. These applications are designing to effectively support your business needs.</p>
         </div>
+        <div class="servicecolom col-md-6 col-12 ">
+            <p class="numbering">02</p>            
+                <h1 style="text-shadow: none;" data-lang-en="Mobile Application Development" data-lang-id="Pengembangan Aplikasi Selular">Mobile Application Development</h1>
+                <p class="blogdesc" data-lang-en="Developing mobile applications for iOS and Android using frameworks like React Native and Flutter. We ensure faster development, smooth performance, and consistent user experiences tailored to your business needs." 
+                    data-lang-id="Mengembangkan aplikasi mobile untuk iOS dan Android menggunakan framework seperti React Native dan Flutter. Kami memastikan pengembangan cepat, performa mulus, dan pengalaman pengguna konsisten sesuai kebutuhan bisnis Anda.">
+                    Developing mobile applications for iOS and Android using frameworks like React Native and Flutter. We ensure faster development, smooth performance, and consistent user experiences tailored to your business needs.
+                </p>
+           
         
+        </div>
+        <div class="servicecolom col-md-6 col-12 ">
+            <p class="numbering">03</p>               
+                <h1 style="text-shadow: none;" data-lang-en="Enterprise Core System Development" data-lang-id="Pengembangan Sistem Inti Perusahaan">Enterprise Core System Development</h1>
+                <p class="blogdesc" data-lang-en="Developing mission-critical core systems like ERP, CRM, and SCM to enhance efficiency and drive business growth with robust and scalable solutions." 
+                    data-lang-id="Mengembangkan sistem inti penting seperti ERP, CRM, dan SCM untuk meningkatkan efisiensi dan mendorong pertumbuhan bisnis dengan solusi yang kuat dan skalabel.">
+                    Developing mission-critical core systems like ERP, CRM, and SCM to enhance efficiency and drive business growth with robust and scalable solutions.
+                </p>
+       
+        </div>
+        <div class="servicecolom col-md-6 col-12 ">
+            <p class="numbering">04</p>
+                <h1 style="text-shadow: none;" data-lang-en="Application Maintenance and Support" data-lang-id="Layanan Pemeliharaan dan Dukungan Aplikasi">Application Maintenance and Support</h1>
+                <p class="blogdesc" data-lang-en="Providing ongoing maintenance, bug fixes, and technical support for applications to ensure they continue to function optimally and adapt to evolving business needs." 
+                data-lang-id="Menyediakan pemeliharaan berkelanjutan, perbaikan bug, dan dukungan teknis untuk aplikasi agar tetap berfungsi secara optimal dan dapat menyesuaikan dengan kebutuhan bisnis yang terus berkembang.">
+                Providing ongoing maintenance, bug fixes, and technical support for applications to ensure they continue to function optimally and adapt to evolving business needs.
+            </p>
+        
+        </div>
+    </div> --}}
 
-{{-- Contact Us Section --}}
-    <div class="custom-container servContact container contact hero-text" style="color: black; margin-top: 70px; padding: 30px;">
-        <div class="row d-flex flex-wrap">
+    <div class="servContact contact hero-text" style="color: black; padding: 30px;">
+        <div class="serv row d-flex" style="text-align: center">
+            <div class="col-md-3 col-12"></div>
+            <div class=" col-md-6 col-12 container justify-content-center text-center">
+                <h3 class="template" lang="en" data-lang-en="Contact Us" data-lang-id="Hubungi Kami">Contact Us</h3>
+                <p class="template-description" lang="en" 
+                data-lang-en="Partner with us to create digital solutions for business. Reach out today and let’s turn your vision into reality."
+                data-lang-id="Bermitra dengan kami untuk menciptakan solusi digital untuk bisnis Anda. Hubungi kami hari ini dan wujudkan visi Anda.">
+                Partner with us to create digital solutions for business. Reach out today and let’s turn your vision into reality.
+                </p>
+            </div>
+            <div class="col-md-3 col-12"></div>
             
             <div class="col-lg-6 col-12">
                 
@@ -86,7 +127,7 @@
             </div>
            
             <div class="col-lg-6 col-12 mb-4">
-                <h1 style="color: black;" data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h1>
+                
                 <form id="contact-form" style="max-width: 100%; margin-top: 20px;" method="POST" action="{{ route('contactStore') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
@@ -104,15 +145,13 @@
                     <div class="form-group mb-3">
                         <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
                     </div>
-                    <div style="text-align: right;">
-                        <button id="message_btn" type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 10px; background: linear-gradient(45deg, #007bff, #0056b3); color: white; border: none;" data-lang-en="Send Message" data-lang-id="Kirim Pesan">Kirim Pesan</button>
+                    <div >
+                        <button id="message_btn" type="submit" class="nextBtn btn btn-primary w-100" data-lang-en="Send Message" data-lang-id="Kirim Pesan"></button>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
-
-</div>
+    </div>    
 </div>
 
 
@@ -204,231 +243,3 @@
             }
         });
     </script>
-    
-    
-
-    <script>
-    window.onload = function () {
-        // Ambil preferensi bahasa dari localStorage
-        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-
-        // Atur posisi toggle sesuai bahasa tersimpan
-        const languageToggle = document.getElementById('languageToggle');
-        languageToggle.checked = (savedLanguage === 'en');
-        
-        // Set bahasa saat halaman dimuat
-        switchLanguage(savedLanguage);
-        updateToggleText(savedLanguage);
-    };
-
-    // Tambahkan event listener pada toggle
-    const toggleCheckbox = document.getElementById('languageToggle');
-
-    toggleCheckbox.addEventListener('change', function () {
-        const selectedLang = toggleCheckbox.checked ? 'en' : 'id';
-
-        // Simpan preferensi bahasa ke localStorage
-        localStorage.setItem('preferredLanguage', selectedLang);
-
-        // Ubah bahasa dan teks toggle
-        switchLanguage(selectedLang);
-        updateToggleText(selectedLang);
-    });
-
-    function switchLanguage(lang) {
-        const elements = document.querySelectorAll('[data-lang-en]');
-
-        elements.forEach(element => {
-            element.textContent = element.getAttribute('data-lang-' + lang);
-        });
-    }
-
-    function updateToggleText(lang) {
-        const toggleInner = document.querySelector('.toggle-inner');
-        toggleInner.textContent = lang === 'en' ? 'EN' : 'IN';
-    }
-
-
-
-    window.onscroll = function() {
-        const navbar = document.getElementById('navbar');
-        const floatingButton = document.getElementById("floatingButton");
-        
-        // Memeriksa scroll untuk navbar
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        // Menampilkan/menyembunyikan tombol berdasarkan scroll
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            floatingButton.style.display = "block";
-        } else {
-            floatingButton.style.display = "none";
-        }
-    };
-
-    // Fungsi untuk menggulir ke atas saat tombol diklik
-    function topFunction() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Smooth scroll untuk navigasi di halaman yang sama
-document.querySelectorAll('a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-
-        if (targetId && targetId.startsWith('/#')) {
-            const targetElement = document.querySelector(targetId.slice(1)); // Menghapus '/' agar selector valid
-
-            if (targetElement) { // Periksa apakah elemen target ada
-                e.preventDefault(); // Mencegah navigasi default
-                const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-});
-
-// Pindah ke posisi elemen setelah halaman dimuat
-window.addEventListener('load', () => {
-    const hash = window.location.hash; // Mendapatkan bagian hash dari URL
-    if (hash) {
-        const targetElement = document.querySelector(hash); // Mencari elemen dengan ID hash
-        if (targetElement) {
-            const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth' // Bisa juga diubah menjadi 'auto' jika tidak ingin animasi di sini
-            });
-        }
-    }
-});
-</script>
-
-{{-- <script>
-    const translations = {
-        en: [
-            "Ensure the longevity and performance of your applications with our Application Maintenance and Support services. Our team of experts is dedicated to keeping your systems running smoothly, minimizing downtime, and optimizing performance. With a focus on continuous updates, monitoring, and troubleshooting, we ensure your applications remain secure, stable, and aligned with your business objectives.",
-            "Our services go beyond routine maintenance; we proactively identify and resolve potential issues before they impact your business. Leveraging the latest tools and techniques, we provide updates, scalability enhancements, and performance tuning to keep your applications future-ready and aligned with technological advancements.",
-            "Partner with us for reliable Application Maintenance and Support, and let us handle the technical complexities so you can focus on growing your business. Together, we will ensure your applications remain robust, efficient, and capable of supporting your business growth."
-        ],
-        id: [
-            "Pastikan aplikasi Anda tetap andal dan berfungsi optimal dengan layanan Pemeliharaan dan Dukungan Aplikasi kami. Tim ahli kami berkomitmen untuk menjaga sistem Anda berjalan lancar, meminimalkan waktu henti, dan mengoptimalkan kinerja. Dengan fokus pada pembaruan berkelanjutan, pemantauan, dan pemecahan masalah, kami memastikan aplikasi Anda tetap aman, stabil, dan sesuai dengan tujuan bisnis Anda.",
-            "Layanan kami melampaui pemeliharaan rutin; kami secara proaktif mengidentifikasi dan menyelesaikan potensi masalah sebelum berdampak pada bisnis Anda. Dengan memanfaatkan alat dan teknik terbaru, kami menyediakan pembaruan, peningkatan skalabilitas, dan penyempurnaan kinerja untuk memastikan aplikasi Anda siap menghadapi masa depan dan sejalan dengan perkembangan teknologi.",
-            "Bermitra dengan kami untuk layanan Pemeliharaan dan Dukungan Aplikasi yang andal, dan biarkan kami menangani kompleksitas teknis sehingga Anda dapat fokus pada pertumbuhan bisnis Anda. Bersama-sama, kami akan memastikan aplikasi Anda tetap kuat, efisien, dan mampu mendukung pertumbuhan bisnis Anda."
-        ]
-    };
-
-    // Objek terjemahan
-    const translations = {
-        en: [
-            "Bring your ideas to life with our tailored digital solutions through our custom web application development services. Our expert team is dedicated to delivering unlimited innovations that drive your business growth. With a focus on advanced technologies such as web and mobile, we create web applications that are optimized, secure, and customized to meet your business’s unique needs.",
-            "We are committed not only to developing applications but also to providing trusted and professional services that support the continuous modernization and management of your applications. We leverage cutting-edge techniques and technologies to ensure your applications are always up-to-date, secure, and performing at their best.",
-            "Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry."
-        ],
-        id: [
-            "Wujudkan ide Anda dengan solusi digital yang disesuaikan melalui layanan pengembangan aplikasi web kami. Tim ahli kami berkomitmen untuk membawa inovasi tak terbatas yang mendorong pertumbuhan bisnis Anda. Dengan fokus pada teknologi canggih seperti web, dan mobile, kami menciptakan aplikasi web yang optimal dan aman, disesuaikan dengan kebutuhan unik bisnis Anda.",
-            "Kami tidak hanya berfokus pada pengembangan aplikasi, tetapi juga berkomitmen untuk menyediakan layanan yang terpercaya dan profesional untuk mendukung modernisasi serta pengelolaan aplikasi Anda secara berkelanjutan. Kami memanfaatkan teknik dan teknologi mutakhir untuk memastikan aplikasi Anda selalu diperbarui, aman, dan berfungsi dengan maksimal.",
-            "Partner dengan kami hari ini untuk memanfaatkan keahlian dan pengalaman kami dalam merancang dan mengelola aplikasi yang siap membawa bisnis Anda ke level berikutnya. Bersama-sama, kami akan menggunakan teknik modern dan teknologi maju untuk membantu Anda tetap berada di garis depan inovasi dan meraih keunggulan kompetitif di industri Anda."
-        ]
-    };
-
-    // Fungsi untuk mengganti bahasa
-    function switchLanguage(lang) {
-        const paragraphs = document.querySelectorAll('.container.textabout.blog p');
-        translations[lang].forEach((text, index) => {
-            if (paragraphs[index]) {
-                paragraphs[index].innerText = text;
-            }
-        });
-    }
-
-    // Fungsi untuk memperbarui teks toggle
-    function updateToggleText(lang) {
-        document.querySelector('.toggle-inner').textContent = lang === 'en' ? 'EN' : 'IN';
-    }
-
-    // Inisialisasi saat halaman dimuat
-    window.onload = () => {
-        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-        const languageToggle = document.getElementById('languageToggle');
-        languageToggle.checked = (savedLanguage === 'id');
-        switchLanguage(savedLanguage);
-        updateToggleText(savedLanguage);
-
-        // Event listener untuk toggle bahasa
-        languageToggle.addEventListener('change', function () {
-            const lang = this.checked ? 'id' : 'en';
-            localStorage.setItem('preferredLanguage', lang);
-            switchLanguage(lang);
-            updateToggleText(lang);
-        });
-
-        // Smooth scroll untuk navigasi di halaman yang sama
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Pindah ke posisi elemen setelah halaman dimuat
-        const hash = window.location.hash;
-        if (hash) {
-            const targetElement = document.querySelector(hash);
-            if (targetElement) {
-                const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    };
-
-    // Fungsi untuk scroll-to-top button
-    window.onscroll = function () {
-        const navbar = document.getElementById('navbar');
-        const floatingButton = document.getElementById("floatingButton");
-
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        floatingButton.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
-    };
-
-    function topFunction() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-</script>
-
-const translations = {
-en: [
-    "Ensure the longevity and performance of your applications with our Application Maintenance and Support services. Our team of experts is dedicated to keeping your systems running smoothly, minimizing downtime, and optimizing performance. With a focus on continuous updates, monitoring, and troubleshooting, we ensure your applications remain secure, stable, and aligned with your business objectives.",
-    "Our services go beyond routine maintenance; we proactively identify and resolve potential issues before they impact your business. Leveraging the latest tools and techniques, we provide updates, scalability enhancements, and performance tuning to keep your applications future-ready and aligned with technological advancements.",
-    "Partner with us for reliable Application Maintenance and Support, and let us handle the technical complexities so you can focus on growing your business. Together, we will ensure your applications remain robust, efficient, and capable of supporting your business growth."
-],
-id: [
-    "Pastikan aplikasi Anda tetap andal dan berfungsi optimal dengan layanan Pemeliharaan dan Dukungan Aplikasi kami. Tim ahli kami berkomitmen untuk menjaga sistem Anda berjalan lancar, meminimalkan waktu henti, dan mengoptimalkan kinerja. Dengan fokus pada pembaruan berkelanjutan, pemantauan, dan pemecahan masalah, kami memastikan aplikasi Anda tetap aman, stabil, dan sesuai dengan tujuan bisnis Anda.",
-    "Layanan kami melampaui pemeliharaan rutin; kami secara proaktif mengidentifikasi dan menyelesaikan potensi masalah sebelum berdampak pada bisnis Anda. Dengan memanfaatkan alat dan teknik terbaru, kami menyediakan pembaruan, peningkatan skalabilitas, dan penyempurnaan kinerja untuk memastikan aplikasi Anda siap menghadapi masa depan dan sejalan dengan perkembangan teknologi.",
-    "Bermitra dengan kami untuk layanan Pemeliharaan dan Dukungan Aplikasi yang andal, dan biarkan kami menangani kompleksitas teknis sehingga Anda dapat fokus pada pertumbuhan bisnis Anda. Bersama-sama, kami akan memastikan aplikasi Anda tetap kuat, efisien, dan mampu mendukung pertumbuhan bisnis Anda."
-]
-}; --}}

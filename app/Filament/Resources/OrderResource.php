@@ -146,7 +146,7 @@ class OrderResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('orderid')
+                Tables\Columns\TextColumn::make('orderId')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('domain')
