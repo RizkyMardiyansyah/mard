@@ -43,10 +43,10 @@ class paymentController extends Controller
         
 
         $order = Order::where('snapKey', $snapKey)->first();        
-            $currentDateTime = Carbon::now()->format('Y-m-d H:i:s');
-            $order->update(['status' => 'Developing']);
-            $order->update(['paymentType' => $paymentType]);
-            $order->update(['terms_and_condition_at' => $currentDateTime]);
+        $currentDateTime = Carbon::now()->format('Y-m-d H:i:s');
+        $order->update(['status' => 'Developing']);
+        $order->update(['paymentType' => $paymentType]);
+        $order->update(['terms_and_condition_at' => $currentDateTime]);
 
         $order = order::where('snapKey', $snapKey)->first();
         $template = template::where ('id', $order->template)->first();

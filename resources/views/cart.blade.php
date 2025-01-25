@@ -279,33 +279,32 @@
             event.preventDefault();
         }else{
             
-            event.preventDefault(); // Mencegah form submit langsung
-Swal.fire({
-    title: "Are you sure?",
-    text: "Do you want to proceed with the checkout?",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#488EFE",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, Checkout!"
-}).then((result) => {
-    if (result.isConfirmed) {
-        // Jika pengguna mengkonfirmasi, lakukan submit form
-        document.getElementById('personal-info-form').submit();
-
+        event.preventDefault();
         Swal.fire({
-            title: 'Please wait...',
-            html: `<div style="text-align: center;">
-                    <div class="spinner" style="display: inline-block; margin: 10px auto;"></div>
-                </div>`,
-            allowOutsideClick: false,
-            showConfirmButton: false
-        });
+            title: "Are you sure?",
+            text: "Do you want to proceed with the checkout?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#488EFE",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Checkout!"
+        }).then((result) => 
+        {
+            if (result.isConfirmed) 
+            { document.getElementById('personal-info-form').submit();
+                Swal.fire({
+                    title: 'Please wait...',
+                    html: `<div style="text-align: center;">
+                            <div class="spinner" style="display: inline-block; margin: 10px auto;"></div>
+                        </div>`,
+                    allowOutsideClick: false,
+                    showConfirmButton: false
+                });
 
-    } else {
-        Swal.close();
-    }
-});
+            } else {
+                Swal.close();
+            }
+        });
 
         }
     });

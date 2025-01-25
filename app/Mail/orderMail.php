@@ -18,21 +18,18 @@ class orderMail extends Mailable
     public $snapToken;
     public $subs;
     public $template;
-    public $kop;
     public $order;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($data, $snapToken, $subs, $template, $kop, $order)
+    public function __construct($data, $snapToken, $subs, $template, $order)
     {
         $this->data = $data;
         $this->snapToken = $snapToken;
         $this->subs = $subs;
         $this->template = $template;
-        $this->kop = $kop;
-        $this->order = $order;
-        
+        $this->order = $order;        
     }
 
     /**
