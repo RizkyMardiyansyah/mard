@@ -125,8 +125,7 @@
     </style>
 </head>
 <body>
-    <div class="container" style="padding: 0px; width:600px;">
-        
+    <div style="padding: 0px;">
         <div class="header">
             <div class="kop">
                 <img src="{{ config('app.url') }}/img/kop.png" alt="kop" style="max-width: 100%; height: auto;">
@@ -143,7 +142,7 @@
                                 <p class="detail"><strong>Rincian Pembayaran</strong></p>
                                 <div  class="mt-2" style="display: flex; justify-content: space-between;">
                                     <span>Status Pembayaran</span> 
-                                    <div class="price berhasil">Berhasil</div>
+                                    <div class="price">Berhasil</div>
                                 </div>
                                 <div  class="mt-2" style="display: flex; justify-content: space-between;">
                                     <span>ID Pemesanan</span>

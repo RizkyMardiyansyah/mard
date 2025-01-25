@@ -12,6 +12,7 @@ use Illuminate\Queue\SerializesModels;
 class finishMail extends Mailable
 {
     use Queueable, SerializesModels;
+    public $pdfPath;
     public $order;
     public $snapToken;
     public $subs;
@@ -19,8 +20,9 @@ class finishMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($order, $snapToken, $subs, $template)
+    public function __construct($order, $snapToken, $subs, $template, $pdfPath)
     {
+        $this->pdfPath = $pdfPath;
         $this->order = $order;
         $this->snapToken = $snapToken;
         $this->subs = $subs;
@@ -56,6 +58,8 @@ class finishMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [
+            $this->pdfPath
+        ];
     }
 }

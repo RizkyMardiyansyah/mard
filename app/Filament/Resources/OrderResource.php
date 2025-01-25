@@ -95,15 +95,12 @@ class OrderResource extends Resource
                     Section::make('Supporting Document')->schema([
                         Forms\Components\FileUpload::make('ktp')
                             ->disk('public')
-                            ->image()
                             ->default(null),
                         Forms\Components\FileUpload::make('siup')
                             ->disk('public')
-                            ->image()
                             ->default(null),
                         Forms\Components\FileUpload::make('npwp')
                             ->disk('public')
-                            ->image()
                             ->default(null),
                     ]),
                     Section::make('Paymet Information')->schema([                        
@@ -123,22 +120,21 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('domainCost')
                             ->mask(RawJs::make('$money($input)'))
                             ->prefix('IDR')
-                            ->numeric()
                             ->default(null),
                         Forms\Components\TextInput::make('templateCost')
                             ->mask(RawJs::make('$money($input)'))
                             ->prefix('IDR')
-                            ->numeric()
                             ->default(null),
                         Forms\Components\TextInput::make('subscriptionCost')
                             ->mask(RawJs::make('$money($input)'))
                             ->prefix('IDR')
-                            ->numeric()
                             ->default(null),
                         Forms\Components\TextInput::make('total_payment')
                             ->mask(RawJs::make('$money($input)'))
                             ->prefix('IDR')
-                            ->numeric()
+                            ->default(null),
+                        Forms\Components\FileUpload::make('invoice')
+                            ->disk('public')
                             ->default(null),
                         
                     ]),

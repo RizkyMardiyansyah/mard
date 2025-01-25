@@ -64,7 +64,7 @@
     <div id="services" class="services container hero-text ">
         <div class="row">
             
-            <div class="serv col-md-8 col-12">                
+            <div class="serv col-lg-8 col-12">                
                     {{-- <div class="container"> --}}                       
                         <div class="cart stepHead">
                             <div class="d-flex align-items-center">
@@ -165,7 +165,7 @@
                             </div>
                     {{-- </div> --}}
             </div> 
-            <div id="order" class="serv col-md-4 col-12">                
+            <div id="order" class="serv col-lg-4 col-12">                
                     <div class="cart order">
                         <div>   
                             <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>

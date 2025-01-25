@@ -13,6 +13,7 @@ use App\Mail\orderMail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class paymentController extends Controller
 {
@@ -51,8 +52,19 @@ class paymentController extends Controller
         $order = order::where('snapKey', $snapKey)->first();
         $template = template::where ('id', $order->template)->first();
         $subs = subscription::where ('id', $order->subscription)->first();
-        
-        Mail::to($order->email)->send(new finishMail($order, $snapKey, $subs, $template));
+
+        $pdf = Pdf::loadView('invoice', compact('order', 'subs', 'template', 'snapKey'));
+
+        $pdfName = "invoice-{$order->orderId}.pdf";
+        $pdfPath = storage_path("app/public/{$pdfName}");
+
+
+        $pdf->save($pdfPath);
+
+        $order->update(['invoice' => $pdfName]);
+
+// Kirim email dengan lampiran PDF
+Mail::to($order->email)->send(new finishMail($order, $snapKey, $subs, $template, $pdfPath));
         return view('finish', compact('order', 'subs', 'template', 'snapKey'));
         
     }

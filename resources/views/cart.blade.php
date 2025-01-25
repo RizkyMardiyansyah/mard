@@ -66,7 +66,7 @@
         <form id="personal-info-form" method="POST" action="{{ route('orderstore') }}" enctype="multipart/form-data">
             <div class="row">
                 @csrf
-                <div class="serv col-md-8 col-12">                
+                <div class="serv col-lg-8 col-12">                
                     <div class="">
                         {{-- <div class="container"> --}}
                             <div class="cart stepHead">
@@ -160,7 +160,7 @@
                     </div>
                                
             </div> 
-            <div class="serv col-md-4 col-12">                
+            <div class="serv col-lg-4 col-12">                
                     <div class="cart order">
                         <div>   
                             <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
