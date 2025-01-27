@@ -1,24 +1,26 @@
-#domainbox {
+@media (max-width: 768px) {
+  .card.domainBox {
+    gap: 1px;
+      width: auto;
+      .new{
+        font-size: 11px;
+      }
+      .old{
+        font-size: 10px;
+      };
+      h6{
+        font-size: 16px;
+      }
+  }
+
+}
+
+.domainBox{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-}
-
-.card.domainBox {
-  width: 200px; /* Ukuran tetap untuk kartu */
-  margin: 10px; /* Jarak antar kartu */
-}
-
-@media (max-width: 768px) {
-  .card.domainBox {
-      width: 150px;
-  }
-  
-}
-
-.domainBox{
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.8) !important;
   color: white;
