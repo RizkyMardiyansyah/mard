@@ -40,31 +40,27 @@ class paymentController extends Controller
     public function updateStatus(Request $request)
     {
         $snapKey = $request->input('snapKey');
-        $paymentType = $request->input('paymentType');
-        
-
-        $order = Order::where('snapKey', $snapKey)->first();        
-        $currentDateTime = Carbon::now()->format('Y-m-d H:i:s');
-        $order->update(['status' => 'Developing']);
-        $order->update(['paymentType' => $paymentType]);
-        $order->update(['terms_and_condition_at' => $currentDateTime]);
-
+        $paymentType = $request->input('paymentType');      
+        $order = Order::where('snapKey', $snapKey)->first();  
         $order = order::where('snapKey', $snapKey)->first();
         $template = template::where ('id', $order->template)->first();
         $subs = subscription::where ('id', $order->subscription)->first();
 
-        $pdf = Pdf::loadView('invoice', compact('order', 'subs', 'template', 'snapKey'));
-
-        $pdfName = "invoice-{$order->orderId}.pdf";
-        $pdfPath = storage_path("app/public/{$pdfName}");
-
-
-        $pdf->save($pdfPath);
-
-        $order->update(['invoice' => $pdfName]);
-
-// Kirim email dengan lampiran PDF
-Mail::to($order->email)->send(new finishMail($order, $snapKey, $subs, $template, $pdfPath));
+        if ($order->status !== 'Developing') 
+        {
+            $currentDateTime = Carbon::now()->format('Y-m-d H:i:s');
+            $order->update(['status' => 'Developing']);
+            $order->update(['paymentType' => $paymentType]);
+            $order->update(['terms_and_condition_at' => $currentDateTime]);   
+        
+            $pdf = Pdf::loadView('invoice', compact('order', 'subs', 'template', 'snapKey'));
+            $pdfName = "INVOICE-{$order->orderId}.pdf";
+            $pdfPath = storage_path("app/public/{$pdfName}");
+            $pdf->save($pdfPath);
+            $order->update(['invoice' => $pdfName]);
+    
+            Mail::to($order->email)->send(new finishMail($order, $snapKey, $subs, $template, $pdfPath));
+        }        
         return view('finish', compact('order', 'subs', 'template', 'snapKey'));
         
     }

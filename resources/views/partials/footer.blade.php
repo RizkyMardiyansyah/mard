@@ -86,7 +86,13 @@
     </div>
 
 
-    
+    <script>
+        document.querySelectorAll('.view').forEach((button) => {
+        button.addEventListener('click', () => {
+            button.classList.add('viewClicked');
+        });
+        });
+    </script>
     <script>
         //   JS untuk toggle bahasa
                 window.onload = function () {

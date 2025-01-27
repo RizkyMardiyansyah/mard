@@ -162,7 +162,7 @@
                                                 </div>
                                                 <span class="cart-des">{{ $order->domain }}</span>
                                                 <div class="mt-2 d-flex justify-content-between align-items-center">
-                                                    <p class="cart-title">Web Template</p>
+                                                    <p class="cart-title">Website Template</p>
                                                     <p class="cart-title" class=" price">{{ $order->tetemplateCostmola == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->tetemplateCostmola, 2, ',', '.') }}</p>
                                                 </div>
                                                 <span class="cart-des">{{ $template->title }}</span>
@@ -241,6 +241,16 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-  
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    Swal.fire({
+        title: 'Success!',
+        text: 'Your payment was successful.',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500,
+        });
+    });
+</script>  
 </body>
 </html>

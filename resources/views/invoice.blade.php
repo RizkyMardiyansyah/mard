@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Pemberitahuan Pemesanan</title>
     <style>
-        .containerButton{
-            padding-top: 50px;
-            text-align: center;
+        .container span {
+            flex-grow: 1;
         }
-        .total-price{
-            color: #488EFE !important;
-            font-size: 25px !important;
-            text-transform: uppercase;
+        .price {
+            text-align: right;
         }
         .detail{
             color: #488EFE;
@@ -23,25 +22,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 20px; /* opsional, untuk memberi jarak */
+            margin-top: 20px;
         }
         .cart-des{
             color: rgba(0, 0, 0, 0.6) !important;
         }
         body {
-            font-family: "Raleway", sans-serif;
+            font-family: "Raleway", sans-serif !important;
             line-height: 1.6;
             color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 70%;
-            margin: 20px auto;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background-color: #fff;
-            /* padding: 20px; */
+            font-size: 12px !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
         .tittle {
             font-weight: bolder;
@@ -49,23 +41,9 @@
             color: #488EFE;
         }
         .header img {
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            width: 100%; /* Lebar penuh */
+            width: 100%;
             height: auto;
-        }
-        .content {
-            padding-top: 0px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .content a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        .content a:hover {
-            text-decoration: underline;
-        }
+        }        
         .footer {
             text-align: center;
             margin-top: 30px;
@@ -75,155 +53,102 @@
         h3 {
             margin-top: 0;
         }
-        .order-details {
-            margin-top: 20px;            
+        .order-details {           
+            font-family: "Raleway", sans-serif;    
         }
-        .order-details p {
-            margin: 5px 0;
-        }
-        .total-price {
-            margin-top: 20px !important;
-            padding-top: 20px;
-            border-top: 1px solid;
-            font-weight: bold;
-            font-size: 16px;
-            color: #333;
-        }
-        
-        .btn {
+        .note{
+            font-size: 6px !important
             font-family: "Raleway", sans-serif;
-            border-radius: 10px;
-            color: white !important;
-            /* margin-top: 10px; */
-            padding: 10px;
-            width: auto;
-            border:none;
-            transition: 0.9s;
-            background-color:#488EFE;
-            backdrop-filter: blur(30px);
-            text-decoration: none !important;
-            padding: 10px !important;
-        }
-        .btn:hover{
-            text-decoration: none !important;
         }
         .price{
             margin-left: auto;
         }
-        .berhasil{
-            background-color: #51CB5F;
-            text-transform: uppercase;
-            color: white !important;
-            font-weight: bolder;
-            padding: 5px;
-            padding-left: 10px !important;
-            padding-right: 10px !important;
-            border-radius: 30px;
-            justify-content: center;
-            text-align: center;
+        .totalPayment{
+            color: #488EFE !important;
+            font-weight: bolder !important;
         }
     </style>
+    
 </head>
 <body>
-    <div style="padding: 0px;">
-        <div class="header">
-            <div class="kop">
-                <img src="{{ config('app.url') }}/img/kop.png" alt="kop" style="max-width: 100%; height: auto;">
-            </div>
+    <div style="margin: -45px; padding:0px;" class="header">
+        <div class="kop">
+            <img src="img/kop.png" alt="kop" style="max-width: 100%; height: auto;">
         </div>
-        <div class="content">
-            <div class="content">
-                <h2 class="tittle" style="font-size: bolder;">Payment Success</h2>
-                <p>Yth. {{ $order['name'] }},</p>
-                <p>Terima kasih atas pembayaran Anda! Pembayaran Anda telah kami terima dengan sukses. Silakan lihat detail pesanan Anda di bawah ini:</p>
-                <div style="padding: 0px" class="cart mb-4">
-                        <div class="container" style="border: none">
-                            <div class="order-details">
-                                <p class="detail"><strong>Rincian Pembayaran</strong></p>
-                                <div  class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <span>Status Pembayaran</span> 
-                                    <div class="price">Berhasil</div>
-                                </div>
-                                <div  class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <span>ID Pemesanan</span>
-                                    <div class="price "><strong>{{ $order['orderId']}}</strong></div>
-                                </div>                         
-                                <div  class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <span>Waktu Pembayaran</span>
-                                    <div class="price"><strong>{{ $order['updated_at']->translatedFormat('d F Y | H:i:s') }}</strong></div>
-                                </div>
-                                <div  class="mt-2" style="display: flex; justify-content: space-between; text-transform: capitalize;">
-                                    <span>Metode Pembayaran</span>
-                                    <div class="price"><strong>{{ $order['paymentType'] }}</strong></div>
-                                </div>                        
-                            </div>
-                        </div>
-                        
-                        <div class="container" style="border: none">
-                            <div class="order-details">
-                                <p class="detail mt-4"><strong>Rincian Pemesanan</strong></p>
-                                <div class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <strong>Domain ({{ $subs['year'] }} Tahun)</strong>
-                                    <div class="price"><span >{{ $order['domainCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['domainCost'], 2, ',', '.') }}</span></div>
-                                </div>
-                                <span class="cart-des" id="selected-domain">{{ $order->domain }}</span>
-                                <div class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <strong>Website Template</strong>
-                                    <div class="price"><span>{{ $order['templateCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['templateCost'], 2, ',', '.') }}</span></div>
-                                </div>
-                                <span class="cart-des" id="selected-template">{{ $template['title'] }}</span>
-                        
-                                <div  class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <strong>Langanan ({{ $subs['year'] }} Tahun)</strong>
-                                    <div class="price"><span>{{ $subs->price == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $subs->price, 2, ',', '.') }}</span></div>
-                                </div>
-                                <span class="cart-des" >Biaya langganan untuk layanan pengelolaan website</span>
-                        
-                                <div class="total-price" style="display: flex; justify-content: space-between; font-weight: bold;">
-                                    <strong>Total</strong>
-                                    <div class="price"><span>{{ $order['total_payment'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->total_payment, 2, ',', '.') }}</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-0 cart mb-4">
-                            
-                            <ul class="pl-5 pt-3 m-0">
-                                <div class="section p-0">
-                                    <p class="detail mt-4"><strong>Catatan</strong></p>
-                                </div>
-                                <!-- Website readiness and guarantee -->
-                                <li class="cart-title">Websitemu akan selesai dan siap digunakan dalam waktu maksimal 24 jam setelah pembayaran ({{ $order['updated_at']->addHours(24)->format('d M F H:i:s') }}).</li>
-                                <!-- Credentials and guide for website management -->
-                                <li class="cart-title">Setelah website Anda siap, Anda akan menerima kredensial website Anda beserta panduan mudah yang membantu Anda mengedit dan mengelola website Anda.</li>
-                                <!-- Business email matching domain -->
-                                <li class="cart-title">Anda juga akan mendapatkan email bisnis khusus yang sesuai dengan domain Anda, Anda bisa menghubungi kami untuk klaim email Anda.</li>
-                                <!-- Refund guarantee if website is not ready on time -->
-                                <li class="cart-title">Jika website Anda belum siap pada {{ $order['updated_at']->addHours(24)->format('d F Y H:i:s') }}, Anda akan mendapatkan refund 100%.</li>
-                                <!-- Contact information for refund or further questions -->
-                                <li class="cart-title">Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</li>                                             
-                            </ul>
-                        </div>
-                </div>                
-                
-                <div class="d-flex row">
-                    <div class=" col-md-6 col-12 flex-column ">                       
-                    </div>
-                    <div class=" col-md-6 col-12 flex-column ">
-                            
-                        <p style="margin-top: 50px;">Hormat kami,</p>
-                        <p style="pa"><strong>{{ config('app.name') }}</strong></p>
-                        <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895340307548" target="_blank"> Rizky Mardiyansyah (0895340307548)</a>
-                    </div>
-                </div>          
-            </div>
-            
+    </div>    
+    <div class="container" style="padding: 0px; margin-top:40px;">         
+        <div class="order-details w-100">
+            <h2 class="tittle" style="font-size: bolder;">INVOICE</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <tr>                                   
+                    <td style="padding: 10px;">Pelangan</td>
+                    <td style="padding: 10px;">:  {{ $order['name'] }}</td>
+                    <td style="padding: 10px;">ID Pemesanan</td>
+                    <td style="padding: 10px;">:  {{ $order['orderId'] }}</td>
+                </tr>
+                <tr>                                   
+                    <td style="padding: 10px;">Tanggal</td>
+                    <td style="padding: 10px;">:  {{ $order['updated_at']->translatedFormat('d F Y | H:i:s') }}</td>
+                    <td style="padding: 10px;">Pembayaran</td>
+                    <td style="padding: 10px;" style="text-transform: capitalize">:  {{ $order['paymentType'] }}</td>
+                </tr>
+            </table>
         </div>
+        <div class="order-details">
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <tr style="background-color: #488EFE; color:white; font-weight:bolder;">
+                    <th style="text-align: left; padding: 10px; border: 1px solid #ddd; width: 15%;">Item</th>
+                    <th style="text-align: left; padding: 10px; border: 1px solid #ddd; width: 40%;">Deskripsi</th>
+                    <th style="text-align: left; padding: 10px; border: 1px solid #ddd; width: 20%;">Durasi</th>
+                    <th style="text-align: left; padding: 10px; border: 1px solid #ddd; width: 25%;">Harga</th>
+                </tr>                    
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Domain</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;" class="cart-des">{{ $order->domain }}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">{{ $subs['year'] }} Tahun</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">{{ $order['domainCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['domainCost'], 2, ',', '.') }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Templat</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;"class="cart-des">{{ $template['title'] }}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Selamanya</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">{{ $order['templateCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['templateCost'], 2, ',', '.') }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Langanan</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;"class="cart-des">Biaya langganan untuk layanan pengelolaan website</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">{{ $subs['year'] }} Tahun</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">{{ $subs->price == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $subs->price, 2, ',', '.') }}</td>
+                </tr>
+                <tr>
+                    <td class="totalPayment" colspan="3" style="padding: 10px; border-top: 1px solid #488EFE;border: 1px solid #ddd;">TOTAL PEMBAYARAN</td>
+                    <td class="totalPayment" style="padding: 10px; border-top: 1px solid #488EFE;border: 1px solid #ddd;">{{ $order['total_payment'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->total_payment, 2, ',', '.') }}</td>
+                </tr>
+            </table>
+        </div>            
+        <div>
+            <p class="detail mt-4"><strong>Catatan</strong></p>            
+            <ul class="pl-5">
+                <li class="note">Websitemu akan selesai dan siap digunakan dalam waktu maksimal 24 jam setelah pembayaran ({{ $order['updated_at']->addHours(24)->format('d M F H:i:s') }}).</li>
+                <li class="note">Setelah website Anda siap, Anda akan menerima kredensial website Anda beserta panduan mudah yang membantu Anda mengedit dan mengelola website Anda.</li>
+                <li class="note">Anda juga akan mendapatkan email bisnis khusus yang sesuai dengan domain Anda, Anda bisa menghubungi kami untuk klaim email Anda.</li>
+                <li class="note">Jika website Anda belum siap pada {{ $order['updated_at']->addHours(24)->format('d F Y H:i:s') }}, Anda akan mendapatkan refund 100%.</li>
+                <li class="note">Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</li>                                             
+            </ul>
+        </div>  
+        <div class="d-flex row">
+            <div class=" col-md-6 col-12 flex-column "></div>
+            <div class=" col-md-6 col-12 flex-column ">   
+                <p style="margin-top: 50px;">Hormat kami,</p>
+                <p style="pa"><strong>{{ config('app.name') }}</strong></p>
+                <a style="margin-top:40px; color: black; text-decoration:inherit;" href="https://wa.me/62895340307548" target="_blank"> Rizky Mardiyansyah (0895340307548)</a>
+            </div>
+        </div>          
+    </div>  
+    <div class="footer">
         <div class="footer">
-            <div class="footer">
-                <p>Copyright © <span id="year"></span> | {{ ucwords(strtolower(config('app.name'))) }}</p>
-            </div>
+            <p>Copyright © <span id="year"></span> | {{ ucwords(strtolower(config('app.name'))) }}</p>
         </div>
     </div>
 </body>
-
 </html>

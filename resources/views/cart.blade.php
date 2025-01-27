@@ -321,10 +321,7 @@
         const templatePrice = parseInt(sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0", 10);
         const subsPrice = parseInt(sessionStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0", 10);
         const subtotal = parseInt(sessionStorage.getItem("subtotal")?.replace(/[^\d]/g, '') || "0", 10);
-        // const subscription = sessionStorage.getItem('subId');
-        // const renewalCost = sessionStorage.getItem('templatePrice');
-        // const totalPayment = sessionStorage.getItem('subtotal');
-
+       
         if (domain.toLowerCase().includes('.co.id')) {
             $('#doc').addClass('visible');
         } else {
@@ -349,7 +346,6 @@
         document.getElementById("Subtotal").innerText = formatRupiah(subtotal);
         
 
-        // document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("domain").value = sessionStorage.getItem("domain") || "-";
         document.getElementById("templateId").value = sessionStorage.getItem("templateId") || "-";
         document.getElementById("subscription").value = sessionStorage.getItem("subId") || "-";
@@ -357,9 +353,6 @@
         document.getElementById("renewal_cost").value = sessionStorage.getItem("templatePrice")?.replace(/[^\d]/g, '') || "0";
         document.getElementById("hosting_cost").value = sessionStorage.getItem("subsPrice")?.replace(/[^\d]/g, '') || "0";
         document.getElementById("total_payment").value = sessionStorage.getItem("subtotal")?.replace(/[^\d]/g, '') || "0";
-
-
-
 
     });
 

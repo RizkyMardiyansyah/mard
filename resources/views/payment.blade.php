@@ -213,54 +213,44 @@
 
 {{-- Footer Section --}}
 @include('partials.footer')
+{{-- End Footer --}}
 
-<!-- Script untuk AJAX Pencarian -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
 <script src="{{ config('midtrans.API') }}" data-client-key="MIDTRANS_CLIENT_KEY"></script>
-
 <script>
     sessionStorage.clear();
     document.addEventListener('DOMContentLoaded', function () {
         const checkbox = document.getElementById('acceptTerms');
         const payButton = document.getElementById('pay-button');
-
-        // Pastikan tombol "Pay" awalnya dinonaktifkan
-        payButton.disabled = true;
-
-        // Tambahkan event listener untuk checkbox
+        payButton.disabled = true;    
         checkbox.addEventListener('change', function () {
             payButton.disabled = !this.checked;
         });
     });
 </script>
-    <script type="text/javascript">
-      document.getElementById('pay-button').onclick = function(){
-        
+<script type="text/javascript">
+    document.getElementById('pay-button').onclick = function(){
+  
         snap.pay('{{ $order->snapKey }}', {
           
-          onSuccess: function(result){           
+          onSuccess: function(result)
+          { 
+            var snapKey = '{{ $order->snapKey }}';
+            var orderId = result.order_id;
+            var paymentType = result.payment_type;
+            window.location.href = "/update-status?snapKey=" + snapKey + "&paymentType=" + paymentType;
             Swal.fire({
-                title: 'Success!',
-                text: 'Your payment was successful.',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1500
-            }).then(() => {        
-                var snapKey = '{{ $order->snapKey }}';
-                var orderId = result.order_id;
-                var paymentType = result.payment_type;
-                
-
-                // Arahkan ke route updateStatus dengan parameter snapKey dan orderId
-                window.location.href = "/update-status?snapKey=" + snapKey + "&paymentType=" + paymentType;
+                title: 'Please wait...',
+                html: `<div style="text-align: center;">
+                       <div class="spinner" style="display: inline-block; margin: 10px auto;"></div>
+                       </div>`,
+                allowOutsideClick: false,
+                showConfirmButton: false
             });
-
           },
-          // Optional
+         
           onPending: function(result){
             Swal.fire({
                 title: 'Pending!',
@@ -268,11 +258,10 @@
                 icon: 'info',
                 confirmButtonText: 'OK'
             }).then(() => {
-                // Lakukan tindakan tambahan jika diperlukan
-                console.log(result); // Untuk debugging
+                console.log(result);
             });
           },
-          // Optional
+
           onError: function(result){
             Swal.fire({
                 title: 'Error!',
@@ -280,13 +269,12 @@
                 icon: 'error',
                 confirmButtonText: 'OK'
             }).then(() => {
-                // Lakukan tindakan tambahan jika diperlukan
-                console.error(result); // Untuk debugging
+                console.error(result);
             });
           }
         });
       };
-    </script>
+</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

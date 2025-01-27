@@ -76,7 +76,9 @@
             margin-top: 0;
         }
         .order-details {
-            margin-top: 20px;            
+            margin-top: 20px;   
+            border: 1.5px solid #EBEBEC;
+            border-radius: 10px;
         }
         .order-details p {
             margin: 5px 0;
@@ -84,6 +86,7 @@
         .total-price {
             margin-top: 20px !important;
             padding-top: 20px;
+            padding: 5px;
             border-top: 1px solid;
             font-weight: bold;
             font-size: 16px;
@@ -122,6 +125,17 @@
             justify-content: center;
             text-align: center;
         }
+        .orderDetail{
+            padding: 5px;
+        }
+        .sectionBody{
+            padding: 5px;
+        }
+        .sectionTitle{
+            text-align: center !important;
+            padding: 5px;
+            border-bottom: 1.5px solid #EBEBEC;
+        }
     </style>
 </head>
 <body>
@@ -134,76 +148,77 @@
         </div>
         <div class="content">
             <div class="content">
-                <h2 class="tittle" style="font-size: bolder;">Payment Success</h2>
+                <h2 class="tittle" style="font-size: bolder;">Pembayaran Berhasil</h2>
                 <p>Yth. {{ $order['name'] }},</p>
                 <p>Terima kasih atas pembayaran Anda! Pembayaran Anda telah kami terima dengan sukses. Silakan lihat detail pesanan Anda di bawah ini:</p>
                 <div style="padding: 0px" class="cart mb-4">
-                        <div class="container" style="border: none">
                             <div class="order-details">
-                                <p class="detail"><strong>Rincian Pembayaran</strong></p>
-                                <div  class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <span>Status Pembayaran</span> 
-                                    <div class="price berhasil">Berhasil</div>
+                                <div class="sectionTitle">
+                                    <p class="detail"><strong>Rincian Pembayaran</strong></p>
                                 </div>
-                                <div  class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <span>ID Pemesanan</span>
-                                    <div class="price "><strong>{{ $order['orderId']}}</strong></div>
-                                </div>                         
-                                <div  class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <span>Waktu Pembayaran</span>
-                                    <div class="price"><strong>{{ $order['updated_at']->translatedFormat('d F Y | H:i:s') }}</strong></div>
-                                </div>
-                                <div  class="mt-2" style="display: flex; justify-content: space-between; text-transform: capitalize;">
-                                    <span>Metode Pembayaran</span>
-                                    <div class="price"><strong>{{ $order['paymentType'] }}</strong></div>
+                                <div class="sectionBody">
+                                    <div class="orderDetail mt-2" style="display: flex; justify-content: space-between;">
+                                        <span>Status Pembayaran</span> 
+                                        <div class="price berhasil">Berhasil</div>
+                                    </div>
+                                    <div class="orderDetail mt-2" style="display: flex; justify-content: space-between;">
+                                        <span>ID Pemesanan</span>
+                                        <div class="price "><strong>{{ $order['orderId']}}</strong></div>
+                                    </div>                         
+                                    <div class="orderDetail mt-2" style="display: flex; justify-content: space-between;">
+                                        <span>Waktu Pembayaran</span>
+                                        <div class="price"><strong>{{ $order['updated_at']->translatedFormat('d F Y | H:i:s') }}</strong></div>
+                                    </div>
+                                    <div class="orderDetail mt-2" style="display: flex; justify-content: space-between; text-transform: capitalize;">
+                                        <span>Metode Pembayaran</span>
+                                        <div class="price"><strong>{{ $order['paymentType'] }}</strong></div>
+                                    </div>
                                 </div>                        
-                            </div>
-                        </div>
-                        
-                        <div class="container" style="border: none">
+                            </div>                       
+                                        
                             <div class="order-details">
-                                <p class="detail mt-4"><strong>Rincian Pemesanan</strong></p>
-                                <div class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <strong>Domain ({{ $subs['year'] }} Tahun)</strong>
-                                    <div class="price"><span >{{ $order['domainCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['domainCost'], 2, ',', '.') }}</span></div>
+                                <div class="sectionTitle">
+                                    <p class="detail mt-4"><strong>Rincian Pemesanan</strong></p>
                                 </div>
-                                <span class="cart-des" id="selected-domain">{{ $order->domain }}</span>
-                                <div class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <strong>Website Template</strong>
-                                    <div class="price"><span>{{ $order['templateCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['templateCost'], 2, ',', '.') }}</span></div>
-                                </div>
-                                <span class="cart-des" id="selected-template">{{ $template['title'] }}</span>
-                        
-                                <div  class="mt-2" style="display: flex; justify-content: space-between;">
-                                    <strong>Langanan ({{ $subs['year'] }} Tahun)</strong>
-                                    <div class="price"><span>{{ $subs->price == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $subs->price, 2, ',', '.') }}</span></div>
-                                </div>
-                                <span class="cart-des" >Biaya langganan untuk layanan pengelolaan website</span>
-                        
-                                <div class="total-price" style="display: flex; justify-content: space-between; font-weight: bold;">
-                                    <strong>Total</strong>
-                                    <div class="price"><span>{{ $order['total_payment'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->total_payment, 2, ',', '.') }}</span></div>
+                                <div class="sectionBody">
+                                    <div class="orderDetail">
+                                        <div class="mt-2" style="display: flex; justify-content: space-between; padding:5px; padding-bottom:0px;">
+                                            <strong>Domain ({{ $subs['year'] }} Tahun)</strong>
+                                            <span class="price">{{ $order['domainCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['domainCost'], 2, ',', '.') }}</span>
+                                        </div>
+                                        <span class="cart-des" id="selected-domain" style="padding:5px; padding-top:0px;">{{ $order->domain }}</span>
+                                    </div>
+                                    <div class="orderDetail">
+                                        <div class="mt-2" style="display: flex; justify-content: space-between; padding:5px; padding-bottom:0px;">
+                                            <strong>Templat Website</strong>
+                                            <span class="price">{{ $order['templateCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['templateCost'], 2, ',', '.') }}</span>
+                                        </div>
+                                        <span class="cart-des" style="padding:5px; padding-top:0px;">{{ $template['title'] }}</span>
+                                    </div>
+                                    <div class="orderDetail">
+                                        <div  class="mt-2" style="display: flex; justify-content: space-between; padding:5px; padding-bottom:0px;">
+                                            <strong>Langanan ({{ $subs['year'] }} Tahun)</strong>
+                                            <div class="price"><span>{{ $subs->price == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $subs->price, 2, ',', '.') }}</span></div>
+                                        </div>
+                                        <span class="cart-des" style="padding:5px; padding-top:0px;">Biaya langganan untuk layanan pengelolaan website</span>
+                                    </div>
+                                    <div class="total-price" style="display: flex; justify-content: space-between; font-weight: bold; ">
+                                        <strong>Total</strong>
+                                        <div class="price"><span>{{ $order['total_payment'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->total_payment, 2, ',', '.') }}</span></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="p-0 cart mb-4">
-                            
-                            <ul class="pl-5 pt-3 m-0">
-                                <div class="section p-0">
-                                    <p class="detail mt-4"><strong>Catatan</strong></p>
-                                </div>
-                                <!-- Website readiness and guarantee -->
-                                <li class="cart-title">Websitemu akan selesai dan siap digunakan dalam waktu maksimal 24 jam setelah pembayaran ({{ $order['updated_at']->addHours(24)->format('d M F H:i:s') }}).</li>
-                                <!-- Credentials and guide for website management -->
-                                <li class="cart-title">Setelah website Anda siap, Anda akan menerima kredensial website Anda beserta panduan mudah yang membantu Anda mengedit dan mengelola website Anda.</li>
-                                <!-- Business email matching domain -->
-                                <li class="cart-title">Anda juga akan mendapatkan email bisnis khusus yang sesuai dengan domain Anda, Anda bisa menghubungi kami untuk klaim email Anda.</li>
-                                <!-- Refund guarantee if website is not ready on time -->
-                                <li class="cart-title">Jika website Anda belum siap pada {{ $order['updated_at']->addHours(24)->format('d F Y H:i:s') }}, Anda akan mendapatkan refund 100%.</li>
-                                <!-- Contact information for refund or further questions -->
-                                <li class="cart-title">Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</li>                                             
-                            </ul>
-                        </div>
+                        
+                    <div class="order-details" style="border: 0px;">
+                        <p class="detail mt-4"><strong>Catatan</strong></p>
+                        <ul class="pl-5 pt-3 m-0">
+                            <li>Websitemu akan selesai dan siap digunakan dalam waktu maksimal 24 jam setelah pembayaran ({{ $order['updated_at']->addHours(24)->format('d M F H:i:s') }}).</li>
+                            <li>Setelah website Anda siap, Anda akan menerima kredensial website Anda beserta panduan mudah yang membantu Anda mengedit dan mengelola website Anda.</li>
+                            <li>Anda juga akan mendapatkan email bisnis khusus yang sesuai dengan domain Anda, Anda bisa menghubungi kami untuk klaim email Anda.</li>
+                            <li>Jika website Anda belum siap pada {{ $order['updated_at']->addHours(24)->format('d F Y H:i:s') }}, Anda akan mendapatkan refund 100%.</li>
+                            <li>Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</li>                                             
+                        </ul>
+                    </div>
                 </div>                
                 
                 <div class="d-flex row">
