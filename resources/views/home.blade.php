@@ -127,7 +127,7 @@
                                 <button type="submit" class="btn btn-primary rounded-pill" style="height:100%; margin:0px; opacity: 100%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"><b data-lang-en="Search" data-lang-id="Cari">Search</b></button>
                             </div>
                         </form>
-                        <div id="domainbox" class="justify-content-center" style=" gap: 10px">
+                        <div id="domainbox" class="justify-content-center" style="gap: 10px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
                             <div style="border: 2px solid #51CB5F !important; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); animation: float 3s ease-in-out infinite;" class="card domainBox">
                                 <h6 style="color: #51CB5F;">.com</h6>
                                 <p class="old">Rp.252.000</p>

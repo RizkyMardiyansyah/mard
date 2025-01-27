@@ -1,6 +1,22 @@
-#domainbox{
+#domainbox {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
+
+.card.domainBox {
+  width: 200px; /* Ukuran tetap untuk kartu */
+  margin: 10px; /* Jarak antar kartu */
+}
+
+@media (max-width: 768px) {
+  .card.domainBox {
+      width: 150px;
+  }
+}
+
 .domainBox{
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.8) !important;
