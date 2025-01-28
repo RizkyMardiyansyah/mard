@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\RawJs;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -50,12 +51,12 @@ class TemplateResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->required()
                     ->disk('public')
-                    ->image(),
-                
-                Forms\Components\TextInput::make('like')
-                    ->nullable()
-                    ->numeric(),
-                Forms\Components\TextInput::make('buy')
+                    ->image(),                
+                Forms\Components\TextInput::make('price')
+                    ->mask(RawJs::make('$money($input)'))
+                    ->prefix('IDR')
+                    ->default(null),
+                Forms\Components\TextInput::make('purchases')
                     ->nullable()
                     ->numeric(),
             ]),
@@ -86,11 +87,10 @@ class TemplateResource extends Resource
                         'heroicon-m-document-duplicate' => 'Basic',
                         'heroicon-m-star' => 'Premium',
                     ]),  
-                Tables\Columns\TextColumn::make('buy')
+                Tables\Columns\TextColumn::make('purchases')
                     ->numeric()
                     ->sortable()
-                    ->alignRight()
-                    ->getStateUsing(fn (Template $record) => $record->total_pembelian),
+                    ->alignRight(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

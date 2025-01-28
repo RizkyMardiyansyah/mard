@@ -25,27 +25,24 @@ class DomainController extends Controller
     $type = $request->input('type', 'all'); 
     
 
-    // Cek apakah ada pencarian
     if ($search) {
         $templates = Template::where('title', 'LIKE', "%{$search}%")
-                             ->paginate($pagination); // Sesuaikan jumlah per halaman
+                            ->orderBy('purchases', 'desc')
+                            ->paginate($pagination);
     }
-    // Cek apakah ada tipe selain 'all'
+   
     else if ($type != 'all') {
         $templates = Template::where('type', 'LIKE', "%{$type}%")
-                             ->paginate($pagination); // Sesuaikan jumlah per halaman
-    } else {
-        // Default jika tidak ada pencarian dan tipe 'all'
-        $templates = Template::paginate($pagination); 
+                            ->orderBy('purchases', 'desc')                     
+                            ->paginate($pagination);
+    } 
+    else {
+    
+        $templates = Template::orderBy('purchases', 'desc')
+                         ->paginate($pagination); 
     }
     
-    
-    $templates->getCollection()->transform(function ($template) {
-        $template->total_pembelian = $template->total_pembelian; // Pastikan sudah ada atribut total_pembelian
-        return $template;
-    });
-
-    // Mengecek apakah request menggunakan ajax
+      
     if ($request->ajax()) {
         return response()->json([
             'templates' => $templates->items(),
@@ -54,7 +51,7 @@ class DomainController extends Controller
     }
 
 
-    // subscriptions
+    
     $subs= subscription::all();
 
 
@@ -149,6 +146,7 @@ class DomainController extends Controller
         ]);
 
         $template = Template::find($order->template);
+        $template->update(['purchases' => $template->purchases + 1]);
         $subs = Subscription::find($order->subscription);
 
         // Midtrans

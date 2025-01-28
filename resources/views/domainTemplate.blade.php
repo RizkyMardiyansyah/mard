@@ -173,12 +173,12 @@
                                 <div class="d-flex justify-content-left">
                                     <p class="cart-title">Domain (</p><p style="margin-right: 2px" class="cart-title" id="domainYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Years)</p>
                                 </div>
-                                <p class="cart-title" id="domain-price" class=" price">Rp.0</p>
+                                <p class="cart-title" id="domain-price" class=" price">Rp. 0</p>
                             </div>
                             <span class="cart-des" id="selected-domain">-</span>
                             <div class="d-flex justify-content-between align-items-center">
                                 <p class="cart-title" data-lang-en="Website Template" data-lang-id="Template Website">Website Template</p>
-                                <p class="cart-title" id="template-price" class=" price">Rp.0</p>
+                                <p class="cart-title" id="template-price" class=" price">Rp. 0</p>
                             </div>
                             <span class="cart-des" id="selected-template">-</span>
                         
@@ -186,13 +186,13 @@
                                 <div class="d-flex justify-content-left">
                                     <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan (">Langanan(</p><p style="margin-right: 2px" class="cart-title" id="subYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Year)</p>
                                 </div>
-                                    <p class="cart-title" id="subs-price-cart" class=" price">Rp.0</p>
+                                    <p class="cart-title" id="subs-price-cart" class=" price">Rp. 0</p>
                             </div>
                             <span class="cart-des" id="" data-lang-en="Subscription fee for website management service." data-lang-id="Biaya langganan untuk layanan pengelolaan website">Subscription fee for website management service.</span>
 
                             <div class="Subtotal d-flex justify-content-between align-items-center">
                                 <h5 class="cart-title" data-lang-en="Total Amount" data-lang-id="Total Biaya">Total Amount</h5>
-                                <h5 class="cart-title" id="Subtotal" class="price">Rp.0</h5>
+                                <h5 class="cart-title" id="Subtotal" class="price">Rp. 0</h5>
                             </div>
 
                             <button id="next-button"  class="w-100 nextBtn btn btn-primary" data-lang-en="Next" data-lang-id="Selanjutnya">Next</button>
@@ -307,12 +307,12 @@
                                             </a>
                                         </div>
                                         <div class="d-flex" style="margin-left: auto">
-                                            <a href="/#order" class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-type="${template.type}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
+                                            <a href="/#order" class="view select d-flex align-items-center justify-content-center" data-template-id="${template.id}" data-template-price="${template.price}" data-template-title="${template.title}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
                                             <a href="${template.link}" target="_blank" class="view d-flex align-items-center justify-content-center" data-bs-toggle="tooltip" title="Live Preview"><i class="fas fa-eye"></i></a>
                                         </div>
                                     </div>
                                     <div class="" style="padding: 0px; Opacity:50%; font-size:14px; margin-top:auto">       
-                                        <div class="card-title"> <i class="fa fa-shopping-bag me-2"></i>${template.total_pembelian} Purchased</div>
+                                        <div class="card-title"> <i class="fa fa-shopping-bag me-2"></i>${template.purchases} Purchased</div>
                                     </div>
                                 </div>
                             `);
@@ -445,16 +445,14 @@
 
         $(document).on('click', '.select', function() {
             var selectedTemplate = $(this).data('template-title');
-            var selectedTemplateType = $(this).data('template-type');
+            var selectedTemplatePrice = parseInt($(this).data('template-price'), 10);
             var selectedTemplateId = $(this).data('template-id');
-            var selectedTemplatePrice = (selectedTemplateType === 'Basic') ? 0 : 500000;
             $('#selected-template').text(selectedTemplate);
             $('#selected-template-id').text(selectedTemplateId);
             $('#template-price').text('Rp. ' + selectedTemplatePrice.toLocaleString());
 
             sessionStorage.setItem('template', selectedTemplate);
             sessionStorage.setItem('templateId', selectedTemplateId);
-            sessionStorage.setItem('templateType', selectedTemplateType);
             sessionStorage.setItem('templatePrice', selectedTemplatePrice);
             
             updateSubtotal();
