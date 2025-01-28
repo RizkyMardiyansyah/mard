@@ -135,15 +135,20 @@
                 <li class="note">Jika website Anda belum siap pada {{ $order['updated_at']->addHours(24)->format('d F Y H:i:s') }}, Anda akan mendapatkan refund 100%.</li>
                 <li class="note">Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</li>                                             
             </ul>
-        </div>  
-        <div class="d-flex row">
-            <div class=" col-md-6 col-12 flex-column "></div>
-            <div class=" col-md-6 col-12 flex-column ">   
-                <p style="margin-top: 50px;">Hormat kami,</p>
-                <p style="pa"><strong>{{ config('app.name') }}</strong></p>
-                <a style="margin-top:40px; color: black; text-decoration:inherit;" href="https://wa.me/62895340307548" target="_blank"> Rizky Mardiyansyah (0895340307548)</a>
-            </div>
-        </div>          
+        </div> 
+        <table style="margin-top: 50px;">
+            <tr>
+                <td style="width: 50%"></td>
+                <td style="width: 50%">
+                    <div class="flex-column ">  
+                        <p>Hormat kami,</p>
+                        <p><strong>{{ config('app.name') }}</strong></p>
+                        <a style="color: black; text-decoration:inherit; margin-top:20px;" href="https://wa.me/62895340307548" target="_blank"> Rizky Mardiyansyah</a>
+                        <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895340307548" target="_blank">0895340307548</a>
+                    </div>
+                </td>
+            </tr>
+        </table>        
     </div>  
     <div class="footer">
         <div class="footer">

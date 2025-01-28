@@ -163,31 +163,31 @@
             <div class="serv col-lg-4 col-12">                
                     <div class="cart order">
                         <div>   
-                            <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan"></h5>
+                            <h5 style="text-align:center" data-lang-en="Order Summary" data-lang-id="Ringkasan Pemesanan">Order Summary</h5>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex justify-content-left">
-                                    <p class="cart-title" data-lang-en="Domain (" data-lang-id="Domain ("></p><p style="margin-right: 2px" class="cart-title" id="domainYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)"></p>
+                                    <p class="cart-title">Domain (</p><p style="margin-right: 2px" class="cart-title" id="domainYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Years)</p>
                                 </div>
-                                <p class="cart-title" id="domain-price" class=" price"></p>
+                                <p class="cart-title" id="domain-price" class=" price">Rp.0</p>
                             </div>
                             <span class="cart-des" id="selected-domain">-</span>
                             <div class="d-flex justify-content-between align-items-center">
-                                <p class="cart-title" data-lang-en="Web Template" data-lang-id="Web Template"></p>
+                                <p class="cart-title" data-lang-en="Website Template" data-lang-id="Template Website">Website Template</p>
                                 <p class="cart-title" id="template-price" class=" price"></p>
                             </div>
                             <span class="cart-des" id="selected-template">-</span>
 
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex justify-content-left">
-                                    <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan ("></p><p style="margin-right: 2px" class="cart-title" id="subYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)"></p>
+                                    <p class="cart-title" data-lang-en="Subscription (" data-lang-id="Langanan (">Subscription (</p><p style="margin-right: 2px" class="cart-title" id="subYears">1</p><p class="cart-title" data-lang-en="Years)" data-lang-id="Tahun)">Years)</p>
                                 </div>
-                                    <p class="cart-title" id="subs-price-cart" class=" price">Rp. 0</p>
+                                    <p class="cart-title" id="subs-price-cart" class=" price">Rp.0</p>
                             </div>
                             <span class="cart-des" id="" data-lang-en="Subscription fee for website management service." data-lang-id="Biaya langganan untuk layanan pengelolaan website"></span>
 
                             <div class="Subtotal d-flex justify-content-between align-items-center">
-                                <h5 class="cart-title" data-lang-en="Subtotal" data-lang-id="Subtotal"></h5>
-                                <h5 class="cart-title" id="Subtotal" class="price"></h5>
+                                <h5 class="cart-title" data-lang-en="Total Amount" data-lang-id="Total Biaya">Total Amount</h5>
+                                <h5 class="cart-title" id="Subtotal" class="price">Rp.0</h5>
                             </div>                
                             <button id="next-button" type="submit"  class="nextBtn w-100 btn btn-primary" data-lang-en="Checkout" data-lang-id="Checkout" ></button>
                         </div>

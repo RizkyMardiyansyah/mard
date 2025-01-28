@@ -138,7 +138,7 @@
                         </div>
                         <span class="cart-des" id="selected-domain">{{ $data['domain'] }}</span>
                         <div style="display: flex; justify-content: space-between;">
-                            <strong>Templat Website</strong>
+                            <strong>Template Website</strong>
                             <div class="price"><span>Rp. {{ $data['template_cost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format($data['templateCost'], 2, ',', '.') }}</span></div>
                         </div>
                         <span class="cart-des" id="selected-template">{{ $template['title'] }}</span>
@@ -150,7 +150,7 @@
                         <span class="cart-des" >Biaya langganan untuk layanan pengelolaan website</span>
                 
                         <div class="total-price" style="display: flex; justify-content: space-between; font-weight: bold;">
-                            <strong>Total</strong>
+                            <strong>Total Biaya</strong>
                             <div class="price"><span>Rp. {{ number_format($data['total_payment'], 2, ',', '.') }}</span></div>
                         </div>
                     </div>
@@ -169,15 +169,19 @@
             
 
                 <p style="margin-top: 50px">Jika Anda membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami melalui layanan pelanggan kami.</p>
-                <div class="d-flex row">
-                    <div class=" col-md-6 col-12 flex-column ">  
-                    </div>
-                    <div class=" col-md-6 col-12 flex-column ">  
-                        <p style="margin-top: 50px;">Hormat kami,</p>
-                        <p style="pa"><strong>{{ config('app.name') }}</strong></p>
-                        <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895340307548" target="_blank"> Rizky Mardiyansyah (0895340307548)</a>
-                    </div>
-                </div>
+                <table style="margin-top: 50px;">
+                    <tr>
+                        <td style="width: 50%"></td>
+                        <td style="width: 50%">
+                            <div class="flex-column ">  
+                                <p>Hormat kami,</p>
+                                <p><strong>{{ config('app.name') }}</strong></p>
+                                <a style="color: black; text-decoration:inherit; margin-top:20px;" href="https://wa.me/62895340307548" target="_blank"> Rizky Mardiyansyah</a>
+                                <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895340307548" target="_blank">0895340307548</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
             
         </div>

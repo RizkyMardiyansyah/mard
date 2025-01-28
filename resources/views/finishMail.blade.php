@@ -190,7 +190,7 @@
                                     </div>
                                     <div class="orderDetail">
                                         <div class="mt-2" style="display: flex; justify-content: space-between; padding:5px; padding-bottom:0px;">
-                                            <strong>Templat Website</strong>
+                                            <strong>Website Template</strong>
                                             <span class="price">{{ $order['templateCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['templateCost'], 2, ',', '.') }}</span>
                                         </div>
                                         <span class="cart-des" style="padding:5px; padding-top:0px;">{{ $template['title'] }}</span>
@@ -203,7 +203,7 @@
                                         <span class="cart-des" style="padding:5px; padding-top:0px;">Biaya langganan untuk layanan pengelolaan website</span>
                                     </div>
                                     <div class="total-price" style="display: flex; justify-content: space-between; font-weight: bold; ">
-                                        <strong>Total</strong>
+                                        <strong>Total Biaya</strong>
                                         <div class="price"><span>{{ $order['total_payment'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->total_payment, 2, ',', '.') }}</span></div>
                                     </div>
                                 </div>
@@ -221,16 +221,19 @@
                     </div>
                 </div>                
                 
-                <div class="d-flex row">
-                    <div class=" col-md-6 col-12 flex-column ">                       
-                    </div>
-                    <div class=" col-md-6 col-12 flex-column ">
-                            
-                        <p style="margin-top: 50px;">Hormat kami,</p>
-                        <p style="pa"><strong>{{ config('app.name') }}</strong></p>
-                        <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895340307548" target="_blank"> Rizky Mardiyansyah (0895340307548)</a>
-                    </div>
-                </div>          
+                <table style="margin-top: 50px;">
+                    <tr>
+                        <td style="width: 50%"></td>
+                        <td style="width: 50%">
+                            <div class="flex-column ">  
+                                <p>Hormat kami,</p>
+                                <p><strong>{{ config('app.name') }}</strong></p>
+                                <a style="color: black; text-decoration:inherit; margin-top:20px;" href="https://wa.me/62895340307548" target="_blank"> Rizky Mardiyansyah</a>
+                                <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895340307548" target="_blank">0895340307548</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>          
             </div>
             
         </div>

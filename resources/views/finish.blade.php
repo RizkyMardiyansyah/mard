@@ -162,7 +162,7 @@
                                                 </div>
                                                 <span class="cart-des">{{ $order->domain }}</span>
                                                 <div class="mt-2 d-flex justify-content-between align-items-center">
-                                                    <p class="cart-title">Website Template</p>
+                                                    <p class="cart-title"  data-lang-en="Website Template" data-lang-id="Template Website">Website Template</p>
                                                     <p class="cart-title" class=" price">{{ $order->tetemplateCostmola == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->tetemplateCostmola, 2, ',', '.') }}</p>
                                                 </div>
                                                 <span class="cart-des">{{ $template->title }}</span>
@@ -176,7 +176,7 @@
                                                 <span class="cart-des" id="" data-lang-en="Subscription fee for website management service." data-lang-id="Biaya langganan untuk layanan pengelolaan website"></span>
                     
                                                 <div class="Subtotal d-flex justify-content-between align-items-center">
-                                                    <h5 style="font-weight: 700 !important;" class="cart-title">Total</h5>
+                                                    <h5 style="font-weight: 700 !important;" class="cart-title" data-lang-en="Total Amount" data-lang-id="Total Biaya">Total Amount</h5>
                                                     <h5 style="font-weight:  700 !important;" class="cart-title" class="price">{{ $order->total_payment == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->total_payment, 2, ',', '.') }}</h5>
                                                 </div>  
                                             </div>              
