@@ -75,40 +75,50 @@
 
 
 {{-- Contact Us Section --}}
-    <div class="servContact container contact hero-text" style="color: black; margin-top: 70px; padding: 30px;">
-        <div class="row d-flex flex-wrap">
+<div class="servContact contact hero-text container" style="color: black; margin-bottom: 100px;">
+    <div class="serv row d-flex" style="text-align: center">
+        <div class="col-md-3 col-12"></div>
+        <div class=" col-md-6 col-12 container justify-content-center text-center">
+            <h3 class="template" lang="en" data-lang-en="Contact Us" data-lang-id="Hubungi Kami">Contact Us</h3>
+            <p style="color: rgba(0, 0, 0, 0.9) !important;" class="template-description" lang="en" 
+            data-lang-en="Partner with us today, and let’s transform your ideas into a successful future reality."
+            data-lang-id="Bermitra dengan kami hari ini, dan mari wujudkan ide-ide Anda menjadi kenyataan yang sukses di masa depan.">
+            Partner with us today, and let’s transform your ideas into a successful future reality.
+            </p>
+        </div>
+        <div class="col-md-3 col-12"></div>
+        
+        <div class="col-lg-6 col-12">
             
-            <div class="col-lg-6 col-12">
-                
-                <img src="img/contactUs.svg" alt="Contact Us" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 8px;">
-            </div>
-           
-            <div class="col-lg-6 col-12 mb-4">
-                <h1 style="color: black;" data-lang-en="Contact Us" data-lang-id="Hubungi Kami"></h1>
-                <form id="contact-form" style="max-width: 100%; margin-top: 20px;" method="POST" action="{{ route('contactStore') }}" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group mb-3">
-                        <input type="text" id="name" name="name" class="form-control" required placeholder="Name..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="email" id="email" name="email" class="form-control" required placeholder="Email..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="text" id="company" name="company" class="form-control" placeholder="Company..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    </div>
-                    <div class="form-group mb-3">
-                        <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-                    </div>
-                    <div style="text-align: right;">
-                        <button id="message_btn" type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 5px;" data-lang-en="Send Message" data-lang-id="Kirim Pesan"></button>
-                    </div>
-                </form>
-            </div>
+            <img src="img/contactUs.svg" alt="Contact Us" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+       
+        <div class="col-lg-6 col-12 mb-4">
+            
+            <form id="contact-form" style="max-width: 100%; margin-top: 20px;" method="POST" action="{{ route('contactStore') }}" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group mb-3">
+                    <input type="text" id="name" name="name" class="form-control" required placeholder="Name..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                </div>
+                <div class="form-group mb-3">
+                    <input type="email" id="email" name="email" class="form-control" required placeholder="Email..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                </div>
+                <div class="form-group mb-3">
+                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                </div>
+                <div class="form-group mb-3">
+                    <input type="text" id="company" name="company" class="form-control" placeholder="Company..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                </div>
+                <div class="form-group mb-3">
+                    <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+                </div>
+                <div >
+                    <button id="message_btn" type="submit" class="nextBtn btn btn-primary w-100" data-lang-en="Send Message" data-lang-id="Kirim Pesan"></button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 
     {{-- Footer Section --}}

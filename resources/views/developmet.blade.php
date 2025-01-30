@@ -85,13 +85,13 @@
             
             </div>
         </div>
-
+        
         <div class="servContact contact hero-text container" style="color: black;">
             <div class="serv row d-flex" style="text-align: center">
                 <div class="col-md-3 col-12"></div>
                 <div class=" col-md-6 col-12 container justify-content-center text-center">
                     <h3 class="template" lang="en" data-lang-en="Contact Us" data-lang-id="Hubungi Kami">Contact Us</h3>
-                    <p class="template-description" lang="en" 
+                    <p style="color: rgba(0, 0, 0, 0.9) !important;" class="template-description" lang="en" 
                     data-lang-en="Partner with us today, and let’s transform your ideas into a successful future reality."
                     data-lang-id="Bermitra dengan kami hari ini, dan mari wujudkan ide-ide Anda menjadi kenyataan yang sukses di masa depan.">
                     Partner with us today, and let’s transform your ideas into a successful future reality.

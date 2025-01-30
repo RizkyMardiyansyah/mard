@@ -179,14 +179,10 @@
     margin-bottom: 20px;
     color: #333;
   };
-  input{
+  input, textarea{
     border-radius: 15px !important;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #00000010 !important;
   };
-  textarea{
-    border-radius: 15px !important; 
-    background-color: rgba(0, 0, 0, 0.1);
-  }
   .btn{
     font-weight: bold;
     width: auto;
