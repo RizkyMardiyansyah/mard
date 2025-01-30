@@ -96,7 +96,7 @@
                 </a>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
-                <a href="/iot" style="text-decoration: none; color: black;">
+                <a href="/one-stop-iot-solutions" style="text-decoration: none; color: black;">
                     <div class="serContainer">
                         <h3 style="color: black;" data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi IoT Lengkap">One Stop IoT Solutions</h3>
                         <p data-lang-en="Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes with our solutions."
