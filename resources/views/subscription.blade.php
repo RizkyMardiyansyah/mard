@@ -58,7 +58,7 @@
         <div class="row">
             
             <div class="serv col-lg-8 col-12">                
-                    {{-- <div class="container"> --}}
+                
                         <div class="cart stepHead">
                             <div class="d-flex align-items-center">
                                 <div style="background: #66B2FF; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" class="StepOfWizard col-3 active">

@@ -48,6 +48,7 @@
         {{ session('success') }}
     </div>
 @endif
+
 <!doctype html>
     <html lang="en">
     <head>        
