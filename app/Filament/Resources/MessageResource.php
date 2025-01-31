@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use PhpParser\Node\Stmt\Label;
 
 class MessageResource extends Resource
 {
@@ -26,24 +27,37 @@ class MessageResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->disabled()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
+                    ->disabled()
                     ->email()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('phone')
+                    ->disabled()
                     ->tel()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('company')
+                    ->disabled()
                     ->maxLength(255)
                     ->default(null),
                 Forms\Components\Textarea::make('message')
+                    ->disabled()
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('status')
-                    ->required(),
+                Forms\Components\Radio::make('status')
+                    ->columnSpanFull()
+                    ->required()
+                    ->options([
+                        'unread' => 'unread',
+                        'read' => 'Read',
+                        'responded' => 'Responded',
+                    ])
+                    ->default('unread')
+                    ->inline(),
             ]);
     }
 
@@ -52,23 +66,32 @@ class MessageResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
+                    ->sortable()    
                     ->searchable(),
                 Tables\Columns\TextColumn::make('company')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('status'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('status')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->Label('Date')
+                    ->dateTime()
+                    ->sortable(),
+                    // ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('created_at', 'desc')
+
             ->filters([
                 //
             ])

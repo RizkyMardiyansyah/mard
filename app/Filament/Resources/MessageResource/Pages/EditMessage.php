@@ -14,6 +14,15 @@ class EditMessage extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            Actions\Action::make('send_email')
+                ->label('Email')
+                ->url(fn ($record) => 'mailto:' . $record->email)
+                ->openUrlInNewTab(),
+            Actions\Action::make('send_whatsapp')
+                ->label('WhatsApp')
+                ->url(fn ($record) => 'https://wa.me/' . preg_replace('/^0/', '62', $record->phone))
+                ->openUrlInNewTab(),
         ];
+        
     }
 }

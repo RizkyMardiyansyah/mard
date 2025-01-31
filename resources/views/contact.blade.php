@@ -120,7 +120,6 @@
     </div>
 </div>
 
-
     {{-- Footer Section --}}
     @include('partials.footer')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -131,7 +130,8 @@
                 icon: 'success',
                 title: 'Success!',
                 text: '{{ session('success') }}',
-                showConfirmButton: false
+                showConfirmButton: false,
+                timer: 1500
             });
         @elseif(session('error'))
             Swal.fire({
@@ -180,7 +180,7 @@
             }else{
             event.preventDefault();
             Swal.fire({
-                title: "send a message?",
+                title: "Send a Message?",
                 text: "Do you want to send us a message?",
                 icon: "warning",
                 showCancelButton: true,

@@ -149,7 +149,8 @@
                 icon: 'success',
                 title: 'Success!',
                 text: '{{ session('success') }}',
-                showConfirmButton: false
+                showConfirmButton: false,
+                timer: 1500
             });
         @elseif(session('error'))
             Swal.fire({
@@ -198,7 +199,7 @@
             }else{
             event.preventDefault();
             Swal.fire({
-                title: "send a message?",
+                title: "Send a Message?",
                 text: "Do you want to send us a message?",
                 icon: "warning",
                 showCancelButton: true,
