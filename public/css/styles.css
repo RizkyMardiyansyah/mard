@@ -181,7 +181,8 @@
   };
   input, textarea{
     border-radius: 15px !important;
-    background-color: #00000010 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #00000008 !important;
   };
   .btn{
     font-weight: bold;
