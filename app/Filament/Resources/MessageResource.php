@@ -77,9 +77,16 @@ class MessageResource extends Resource
                 Tables\Columns\TextColumn::make('company')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('status')
+                Tables\Columns\BadgeColumn::make('status')
                     ->sortable()
-                    ->searchable(),
+                    ->colors([
+                        'warning',
+                        'primary' => 'read',
+                        'success' => 'responded', 
+                    ])
+                    ->icons([
+                        'heroicon-m-check-circle'
+                    ]),
                 Tables\Columns\TextColumn::make('created_at')
                     ->Label('Date')
                     ->dateTime()

@@ -168,7 +168,7 @@ class OrderResource extends Resource
                         
                     ])
                     ->icons([
-                        'heroicon-m-x',
+                        'heroicon-m-x-circle',
                         'heroicon-m-currency-dollar' => 'Paying',
                         'heroicon-m-code-bracket' => 'Developing',
                         'heroicon-m-globe-alt' => 'Online',
