@@ -150,15 +150,19 @@ class OrderResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('domain')
+                    ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name')
+                    ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
-                ->sortable()->sortable()
+                    ->formatStateUsing(fn ($state) => ucwords($state))
+                    ->sortable()->sortable()
                     ->searchable(),
                 Tables\Columns\BadgeColumn::make('status')
+                    ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable()
                     ->colors([
                         'warning',
@@ -174,7 +178,7 @@ class OrderResource extends Resource
                         'heroicon-m-globe-alt' => 'Online',
                         'heroicon-m-receipt-percent' => 'Renewing',
                         'heroicon-m-x-circle' => 'Offline',
-                    ]),
+                    ]),  
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

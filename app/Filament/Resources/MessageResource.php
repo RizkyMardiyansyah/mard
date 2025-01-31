@@ -22,6 +22,13 @@ class MessageResource extends Resource
     protected static ?string $navigationGroup = 'Operations';
     protected static ?int $navigationSort = 4;
 
+    public static function getNavigationBadge(): ?string
+    {
+        $count = static::getModel()::where('status', 'unread')->count();
+
+        return $count > 0 ? (string) $count : null;
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -62,23 +69,28 @@ class MessageResource extends Resource
     }
 
     public static function table(Table $table): Table
-    {
+    { 
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
+                    ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
+                    ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable()    
                     ->searchable(),
                 Tables\Columns\TextColumn::make('company')
+                    ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\BadgeColumn::make('status')
                     ->sortable()
+                    ->formatStateUsing(fn ($state) => ucwords($state))
                     ->colors([
                         'warning',
                         'primary' => 'read',

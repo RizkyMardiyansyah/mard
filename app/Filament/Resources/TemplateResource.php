@@ -70,12 +70,14 @@ class TemplateResource extends Resource
                 Tables\Columns\ImageColumn::make('image')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title')
+                    ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('link')
                     ->sortable()
-                    ->searchable(),    
+                    ->searchable(),     
                 Tables\Columns\BadgeColumn::make('type')
+                    ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable()
                     ->colors([
                         'primary',
