@@ -94,7 +94,7 @@
         });
     </script>
     <script>
-        //   JS untuk toggle bahasa
+        
                 window.onload = function () {
                     // Ambil preferensi bahasa dari localStorage
                     const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
@@ -134,7 +134,7 @@
                     const toggleInner = document.querySelector('.toggle-inner');
                     toggleInner.textContent = lang === 'en' ? 'EN' : 'IN';
                 }
-        //   End JS untuk toggle bahasa
+        
         
         
             window.onscroll = function() {

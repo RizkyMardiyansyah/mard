@@ -41,8 +41,29 @@
             <div class="container hero-text">
                 <div class="row">
                     <div class="col-lg-6 col-12">
-                        <h1 data-lang-en="Digital Solutions for Optimal Innovation" data-lang-id="Solusi Digital untuk Inovasi Optimal">Digital Solutions for Optimal Innovation</h1>
-                        <p data-lang-en="Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence." data-lang-id="Mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru.">Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence.</p>
+                        <div class="tagline">
+                            <h1 data-lang-en="No More" 
+                                data-lang-id="Tingalkan">
+                                No More
+                            </h1>
+                           
+                                <h1 class="digital" data-lang-en="Papers" 
+                                    data-lang-id="Kertas">
+                                    Papers
+                                </h1>
+                            
+                            <h1>,</h1>
+                            <br>
+                            <h1 data-lang-en="Say Hello to" 
+                                data-lang-id="Saatnya">
+                                Say Hello to 
+                            </h1>
+                            <h1 class="digital">
+                                Digital
+                            </h1>
+                        </div>
+                        
+                        <p data-lang-en="Let's bring your digital ideas to life with our infinite innovations, elevating your business and setting a new standard of excellence." data-lang-id="Mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru.">Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence.</p>
                         <a href="/contact">
                             <button type="submit" class="btn"><b style="color:white;" data-lang-en="Get In Touch" data-lang-id="Hubungi Kami">Get In Touch</b></button>
                         </a>
