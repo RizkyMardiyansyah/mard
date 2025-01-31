@@ -78,19 +78,19 @@
                                     <div class="step">
                                       <img class="stepIcon" src="img/hosting.svg" alt="Hosting">
                                     </div>
-                                    <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
+                                    <h6 data-lang-en="Subscription" data-lang-id="Langganan">Subscription</h6>
                                   </div>
                                 <div class="StepOfWizard col-3 ">
                                   <div class="step">
                                     <img class="stepIcon" src="img/form.svg" alt="Form">
                                   </div>
-                                  <h6 data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h6>
+                                  <h6 data-lang-en="Profile" data-lang-id="Profil">Profile</h6>
                                 </div>
                                 <div class="StepOfWizard col-3">
                                   <div class="step">
                                     <img class="stepIcon" src="img/pay.svg" alt="Payment">
                                   </div>
-                                  <h6 data-lang-en="Payment" data-lang-id="Pembayaran"></h6>
+                                  <h6 data-lang-en="Payment" data-lang-id="Pembayaran">Payment</h6>
                                 </div>
                             </div>
                         </div>

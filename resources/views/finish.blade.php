@@ -92,19 +92,19 @@
                                   <div class="step">
                                     <img class="stepIcon" src="../img/hosting.svg" alt="Hosting">
                                   </div>
-                                  <h6 data-lang-en="Subscription" data-lang-id="Langganan"></h6>
+                                  <h6 data-lang-en="Subscription" data-lang-id="Langganan">Subscription</h6>
                                 </div>
                                 <div style="background: #66B2FF;" class="StepOfWizard col-3 active">
                                   <div class="step">
                                     <img class="stepIcon" src="../img/form.svg" alt="Form">
                                   </div>
-                                  <h6 data-lang-en="Personal Information" data-lang-id="Informasi Personal"></h6>
+                                  <h6 data-lang-en="Profile" data-lang-id="Profil">Profile</h6>
                                 </div>
                                 <div style="border-top-right-radius: 10px; border-bottom-right-radius: 10px; box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);" class="StepOfWizard col-3 active">
                                   <div class="step">
                                     <img class="stepIcon" src="../img/pay.svg" alt="Payment">
                                   </div>
-                                  <h6 data-lang-en="Payment" data-lang-id="Pembayaran"></h6>
+                                  <h6 data-lang-en="Payment" data-lang-id="Pembayaran">Payment</h6>
                                 </div>
                               </div>
                         </div>
@@ -186,34 +186,30 @@
                                                 <p  class="cart-title" style="text-align:center; font-weight:bold" data-lang-en="Note" data-lang-id="Catatan">Note</p>
                                             </div>
                                             <ul class="pl-5 pt-3 m-0">
-                                                <!-- Website readiness and guarantee -->
                                                 <li class="cart-title" 
                                                     data-lang-en="Your website will be ready and fully operational within 24 hours after payment ({{ $order->updated_at->addHours(24)->format('d M F H:i:s') }})." 
                                                     data-lang-id="Websitemu akan selesai dan siap digunakan dalam waktu maksimal 24 jam setelah pembayaran ({{ $order->updated_at->addHours(24)->format('d M F H:i:s') }}).">
                                                     Your website will be ready and fully operational within 24 hours after payment ({{ $order->updated_at->addHours(24)->format('d F Y H:i:s') }}).
                                                 </li>
                                             
-                                                <!-- Credentials and guide for website management -->
                                                 <li class="cart-title" 
                                                     data-lang-en="Once your website is ready, you will receive your website credentials along with an easy-to-follow guide to help you edit and manage your website." 
                                                     data-lang-id="Setelah website Anda siap, Anda akan menerima kredensial website Anda beserta panduan mudah yang membantu Anda mengedit dan mengelola website Anda.">
                                                     Once your website is ready, you will receive your website credentials along with an easy-to-follow guide to help you edit and manage your website.
                                                 </li>
-                                                <!-- Business email matching domain -->
+                                                
                                                 <li class="cart-title" 
                                                     data-lang-en="You will also get a custom business email matching your domain, You can contact us to claim your email." 
                                                     data-lang-id="Anda juga akan mendapatkan email bisnis khusus yang sesuai dengan domain Anda, Anda bisa menghubungi kami untuk klaim email Anda.">
                                                     You will also get a custom business email matching your domain, You can contact us to claim your email.
                                                 </li>
 
-                                                <!-- Refund guarantee if website is not ready on time -->
                                                 <li class="cart-title" 
                                                     data-lang-en="If your website is not ready at {{ $order->updated_at->addHours(24)->format('d F Y H:i:s') }}, you will receive a 100% refund." 
                                                     data-lang-id="Jika website Anda belum siap pada {{ $order->updated_at->addHours(24)->format('d F Y H:i:s') }}, Anda akan mendapatkan refund 100%.">
                                                     If your website is not ready at {{ $order->updated_at->addHours(24)->format('d M Y H:i:s') }}, you will receive a 100% refund.
                                                 </li>
                                             
-                                                <!-- Contact information for refund or further questions -->
                                                 <li class="cart-title" 
                                                     data-lang-en="To claim your refund or if you have any further questions, please don't hesitate to contact us." 
                                                     data-lang-id="Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.">
