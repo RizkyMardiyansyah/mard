@@ -17,7 +17,10 @@ body{
   font-size: 60px !important;
 }
 
+
+
 @media (max-width: 768px) {
+  
   .card.domainBox {
     gap: 1px;
       width: auto;
@@ -311,9 +314,8 @@ body{
   transition: transform 0.5s ease;
 }
 .stepIcon {
-  
+  filter: invert(39%) sepia(99%) saturate(2132%) hue-rotate(193deg) brightness(96%) contrast(105%);
 }
-
 .StepOfWizard {
   display: flex;
   align-items: center;
@@ -879,7 +881,7 @@ margin-bottom: 20px;
       .serContainer{
         transition: 0.3s;
         border: 1px solid #fff;
-        padding: 30px;
+        padding: 25px;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -887,27 +889,58 @@ margin-bottom: 20px;
       .serv{
         padding: 10px;
       }
-      .serv h3{
+      
+      /* .serv h3{
         font-weight: bolder;
         font-size: 25px;
         line-height: 30px;
         color: rgba(0, 0, 0, 0.8) !important;
+      } */
+      .serv h3 {
+        padding: 30px 0 8px;
+        position: relative;
+        font-weight: bolder;
+        font-size: 25px;
+        line-height: 30px;
+        color: rgba(0, 0, 0, 0.8) !important;
+        z-index: 1;
       }
+      
+      .serv h3::before {
+        content: "";
+        position: absolute;
+        bottom: 8px;
+        height: 14px;
+        transform: skew(-12deg) translateX(-2%);
+        background: linear-gradient(to right, rgba(72, 142, 254, 0.1), rgba(72, 142, 254, 0.6));
+        z-index: -1;
+      }
+      .serv .web::before {
+        width: 50px;
+      }
+      .serv .app::before {
+        width: 100px;
+      }
+      .serv .iot::before {
+        width: 70px;
+      }
+      
+      
       .serContainer:hover{
         margin-top: -10px;
         background: linear-gradient(45deg, #488EFE, #2A6AC9);           
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(92, 149, 255, 0.5);
         p{
-          /* color: #010A44 !important; */
           color: rgba(255, 255, 255, 0.8) !important;
         }
         h3{
           color: white !important;
-        /* background: linear-gradient(to right, #488EFE, #A7C6FF);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent; */
-      }
+        }
+        .btn{
+          background-color: white;
+          color: #488EFE;
+        }
       }
       /* Styling button melayang */
       .services{

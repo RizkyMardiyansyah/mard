@@ -50,7 +50,7 @@
                                 data-lang-id="Kertas">
                                 Papers
                             </h1>                            
-                            <h1>,</h1>
+                            <h1 style="margin-right: 5px">,</h1>
                             <br>
                             <h1 data-lang-en="Say Hello to" 
                                 data-lang-id="Saatnya">
@@ -59,9 +59,10 @@
                             <h1 class="digital">
                                 Digital
                             </h1>
+                            
                         </div>
                         
-                        <p data-lang-en="Let's bring your digital ideas to life with our infinite innovations, elevating your business, and setting a new standard of excellence." 
+                        <p class="subsTag" data-lang-en="Let's bring your digital ideas to life with our infinite innovations, elevating your business, and setting a new standard of excellence." 
                             data-lang-id="Mari wujudkan ide digital Anda dengan inovasi tanpa batas dari kami, tingkatkan bisnis Anda, dan tetapkan standar keunggulan baru.">
                             Let's bring your digital ideas to life with our infinite innovations, elevating your business and setting a new standard of excellence.</p>
                         <a style="margin-top: 10px; font-weight:bolder;" href="/contact" class="btn btn-primary" data-lang-en="Get in Touch" data-lang-id="Hubungi Kami">
@@ -101,10 +102,13 @@
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">                
                 <a href="/instant-web-builder" style="text-decoration: none; color: black;">
-                    <div class="serContainer">
-                        <h3 style="color: black;" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</h3>
-                        <p data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." 
-                           data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</p>
+                    <div class="serContainer ">
+                        <h3 class="web" style="color: black;" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</h3>
+                        <p data-lang-en="A quick solution to build your professional website. Choose your domain, select your template, and your website will be ready to go online." 
+                           data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select your template, and your website will be ready to go online.</p>
+                        <a style="width:100%; margin-top: 10px; font-weight:bolder;" href="/instant-web-builder" class="btn learn" data-lang-en="Learn More" data-lang-id="Lebih Lanjut">
+                            Learn More
+                        </a>
                     </div>
                 </a>
                 
@@ -112,19 +116,24 @@
             <div class="serv col-lg-3 col-md-6 col-12">
                 <a href="/custom-app-development" style="text-decoration: none; color: black;">
                     <div class="serContainer">
-                        <h3 style="color: black;" data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</h3>
+                        <h3 class="app" style="color: black;" data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</h3>
                         <p data-lang-en="Let's bring your digital ideas to life with our expert developers, delivering solutions with endless innovation to drive your business growth." 
                         data-lang-id="Wujudkan ide Anda dengan pengembang ahli kami, menghadirkan solusi digital dan inovasi tanpa batas untuk mendorong pertumbuhan bisnis Anda.">Let's bring your digital ideas to life with our expert developers, delivering solutions with endless innovation to drive your business growth.</p>
+                        <a style="width:100%; margin-top: 10px; font-weight:bolder;" href="/custom-app-development" class="btn learn" data-lang-en="Learn More" data-lang-id="Lebih Lanjut">
+                            Learn More
+                        </a>
                     </div>
                 </a>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">
                 <a href="/one-stop-iot-solutions" style="text-decoration: none; color: black;">
                     <div class="serContainer">
-                        <h3 style="color: black;" data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi IoT Lengkap">One Stop IoT Solutions</h3>
-                        <p data-lang-en="Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes with our solutions."
-                        data-lang-id="Solusi IoT Lengkap kami menawarkan lebih dari sekadar teknologi, kami menghadirkan masa depan untuk proses bisnis Anda dengan solusi kami.">Our One Stop IoT Solutions offer more than just technology, we bring a future for your business processes with our solutions.</p>
-
+                        <h3 class="iot" style="color: black;" data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi IoT Lengkap">One Stop IoT Solutions</h3>
+                        <p data-lang-en="Our One-Stop IoT Solutions offer more than just technology, we bring the future to your business processes with smart solutions."
+                        data-lang-id="Solusi IoT Lengkap kami menawarkan lebih dari sekadar teknologi, kami menghadirkan masa depan untuk proses bisnis Anda dengan solusi kami.">Our One-Stop IoT Solutions offer more than just technology, we bring the future to your business processes with smart solutions.</p>
+                        <a style="width:100%; margin-top: 10px; font-weight:bolder;" href="/one-stop-iot-solutions" class="btn learn" data-lang-en="Learn More" data-lang-id="Lebih Lanjut">
+                            Learn More
+                        </a>
                     </div>
                 </a>
             </div>
@@ -141,7 +150,7 @@
                     <div class="col-lg-8 mx-auto">
                         <div class="container">
                             <h1 style="margin-bottom: 0px" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</h1>
-                            <span data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</span>
+                            <span data-lang-en="A quick solution to build your professional website. Choose your domain, select your template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select your template, and your website will be ready to go online.</span>
                         </div>
                         <!-- Form untuk memasukkan nama domain -->            
                         <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">

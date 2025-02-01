@@ -31,7 +31,7 @@
                         <div class="col-lg-8 mx-auto">
                             <div class="container">
                                 <h1 style="margin-bottom: 0px" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</h1>
-                                <span  data-lang-en="A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</span>
+                                <span  data-lang-en="A quick solution to build your professional website. Choose your domain, select your template, and your website will be ready to go online." data-lang-id="Solusi cepat untuk membangun website profesional Anda. Pilih domain, pilih template, dan website Anda siap untuk online.">A quick solution to build your professional website. Choose your domain, select a template, and your website will be ready to go online.</span>
                             </div>
                             <!-- Form untuk memasukkan nama domain -->            
                             <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
