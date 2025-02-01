@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\MessageResource\Pages;
 use App\Filament\Resources\MessageResource\RelationManagers;
-use App\Models\Message;
+use App\Models\message;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -16,8 +16,7 @@ use PhpParser\Node\Stmt\Label;
 
 class MessageResource extends Resource
 {
-    protected static ?string $model = Message::class;
-
+    protected static ?string $model = message::class;
     protected static ?string $navigationIcon = 'heroicon-m-chat-bubble-bottom-center-text';
     protected static ?string $navigationGroup = 'Operations';
     protected static ?int $navigationSort = 4;
