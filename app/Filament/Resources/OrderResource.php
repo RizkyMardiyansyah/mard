@@ -107,6 +107,9 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('orderId')
                             ->disabled()
                             ->reactive(),
+                        Forms\Components\TextInput::make('referal')
+                            ->disabled()
+                            ->reactive(),
                         Forms\Components\TextInput::make('paymentType')
                             ->disabled()
                             ->reactive(),
@@ -178,7 +181,10 @@ class OrderResource extends Resource
                         'heroicon-m-globe-alt' => 'Online',
                         'heroicon-m-receipt-percent' => 'Renewing',
                         'heroicon-m-x-circle' => 'Offline',
-                    ]),  
+                    ]),
+                Tables\Columns\TextColumn::make('referal')
+                    ->sortable()
+                    ->searchable(),  
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

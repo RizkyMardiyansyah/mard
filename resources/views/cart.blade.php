@@ -118,6 +118,10 @@
                                     <input type="hidden" id="snap-token" name="snap_token">
                                     
                                     <div class="form-group">
+                                        <label class="form-label" for="nik">Referral Code</label>
+                                        <input  type="text" id="referal" name="referal" class="form-control" placeholder="Referral Code (Optional)" required mainlength="16">
+                                    </div>
+                                    <div class="form-group">
                                         <label class="form-label" for="nik">NIK</label>
                                         <input  type="text" id="nik" name="nik" class="form-control" placeholder="Enter your NIK" required mainlength="16">
                                     </div>
@@ -187,7 +191,7 @@
                             <span class="cart-des" id="" data-lang-en="Subscription fee for website management service." data-lang-id="Biaya langganan untuk layanan pengelolaan website"></span>
 
                             <div class="Subtotal d-flex justify-content-between align-items-center">
-                                <h5 class="cart-title" data-lang-en="Total Amount" data-lang-id="Total Biaya">Total Amount</h5>
+                                <h5 style="color: rgba(0, 0, 0, 0.8) !important;" class="cart-title" data-lang-en="Total Amount" data-lang-id="Total Biaya">Total Amount</h5>
                                 <h5 class="cart-title" id="Subtotal" class="price">Rp. 0</h5>
                             </div>                
                             <button id="next-button" type="submit"  class="nextBtn w-100 btn btn-primary" data-lang-en="Checkout" data-lang-id="Checkout" ></button>

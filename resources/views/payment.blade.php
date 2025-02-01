@@ -199,7 +199,7 @@
                             <span class="cart-des" id="" data-lang-en="Subscription fee for website management service." data-lang-id="Biaya langganan untuk layanan pengelolaan website"></span>
 
                             <div class="Subtotal d-flex justify-content-between align-items-center">
-                                <h5 class="cart-title" data-lang-en="Total Amount" data-lang-id="Total Biaya">Total Amount</h5>
+                                <h5 style="color: rgba(0, 0, 0, 0.8) !important;" class="cart-title" data-lang-en="Total Amount" data-lang-id="Total Biaya">Total Amount</h5>
                                 <h5 class="cart-title" id="Subtotal" class="price">Rp. 0</h5>
                             </div>                
                             <button data-lang-en="Pay" data-lang-id="Bayar" id="pay-button" type="submit" class="nextBtn w-100 btn btn-primary" disabled>Pay</button>

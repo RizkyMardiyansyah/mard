@@ -449,8 +449,8 @@ body{
 }
 
 .Subtotal h5{
-  font-weight: normal !important;
-  font-size: 25px !important;
+  font-weight: bold !important;
+  font-size: 20px !important;
 }
 
 .Subtotal #Subtotal{

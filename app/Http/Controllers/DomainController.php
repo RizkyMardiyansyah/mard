@@ -130,6 +130,7 @@ class DomainController extends Controller
             'orderId' => $orderId,
             'domain' => $data['domain'],
             'template' => $data['template'],
+            'referal' => $data['referal'],
             'nik' => $data['nik'],
             'name' => $data['name'],
             'email' => $data['email'],
