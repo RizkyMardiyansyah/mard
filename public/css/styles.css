@@ -17,6 +17,21 @@ body{
   font-size: 60px !important;
 }
 
+/* Mengatur lebar input nomor telepon */
+#phone {
+  padding-left: 50px !important;
+  width: 100% !important; /* Memastikan input mengisi seluruh lebar form */
+  padding-left: 50px; /* Memberi ruang untuk kode negara */
+}
+
+/* Menyesuaikan container input */
+.iti { 
+  width: 100% !important;
+}
+
+.iti__country-list {
+  width: auto !important; /* Memastikan dropdown negara tetap tidak mempengaruhi lebar */
+}
 
 
 @media (max-width: 768px) {

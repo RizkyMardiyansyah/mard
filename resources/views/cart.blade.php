@@ -56,6 +56,8 @@
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
       <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
+      <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
     </head>
 
   <body id="home">
@@ -129,7 +131,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="phone_number" data-lang-en="Phone Number" data-lang-id="Nomor Telepon"></label>
-                                        <input type="tel" id="phone_number" name="phone_number" class="form-control" placeholder="Enter your phone number" required maxlength="255">
+                                        <input type="tel" id="phone_number" name="phone_number" class="form-control" required maxlength="255">
                                     </div>
                                 
                             </div>
@@ -205,7 +207,16 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="MIDTRANS_CLIENT_KEY"></script>
-
+<script>
+    const input = document.querySelector("#phone_number");
+    const iti = window.intlTelInput(input, {
+        initialCountry: "id", 
+        nationalMode: false,
+        separateDialCode: true, 
+        preferredCountries: ["id", "us", "gb"],
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"
+    });
+</script>
 <script>
     document.getElementById('next-button').addEventListener('click', function(event) {
         const inputs = {
@@ -242,7 +253,6 @@
         validateInput(inputs.nik, /^\d{16}$/, 16, 16, 'Required valid NIK.');
         validateInput(inputs.name, null, 1, null, 'Required.');
         validateInput(inputs.email, /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, 1, null, 'Required valid email.');
-        validateInput(inputs.phone_number, /^\d{10,15}$/, 10, 15, 'Required valid phone number.');
 
         if (docSection.classList.contains('visible')) {
         // Periksa file input dengan memeriksa files.length

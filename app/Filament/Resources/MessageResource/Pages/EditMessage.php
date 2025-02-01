@@ -25,10 +25,10 @@ class EditMessage extends EditRecord
                 ->openUrlInNewTab()
 
                 ->openUrlInNewTab(),
-            Actions\Action::make('send_whatsapp')
+                Actions\Action::make('send_whatsapp')
                 ->label('WhatsApp')
-                ->url(fn ($record) => 'https://wa.me/' . preg_replace('/^0/', '62', $record->phone))
-                ->openUrlInNewTab(),
+                ->url(fn ($record) => 'https://wa.me/' . preg_replace('/[^0-9+]/', '', preg_replace('/^0/', '62', $record->phone)))
+                ->openUrlInNewTab(),            
         ];
         
     }
