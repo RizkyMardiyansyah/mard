@@ -147,7 +147,7 @@
                         <form style="margin-top: 20px"  id="domainForm" class="mt-30 mt-lg-30 w-100">
                             <div style="margin:0px;" class="form-row  d-flex align-items-center slider-search bg-white w-100">
                                 <input type="text" id="domain" name="domain" class="rounded-pill border-0 mr-lg-50" required placeholder="Find your domain..."/>
-                                <button type="submit" class="btn btn-primary rounded-pill" style="height:100%; margin:0px; opacity: 100%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"><b data-lang-en="Search" data-lang-id="Cari">Search</b></button>
+                                <button type="submit" class="btn btn-primary rounded-pill" style="width:150px; height:100%; margin:0px; opacity: 100%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"><b data-lang-en="Search" data-lang-id="Cari">Search</b></button>
                             </div>
                         </form>
                         <div id="domainbox" class="justify-content-center" style="gap: 10px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
