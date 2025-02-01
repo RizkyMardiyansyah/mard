@@ -171,7 +171,7 @@
                         <div style="margin-top: 50px" class="spinner" id="spinner"></div>
 
                         <!-- Div untuk menampilkan hasil pencarian -->
-                        <div style="margin-top: 50px;" id="result"></div>
+                        <div id="result"></div>
                     </div>
                 </div>
             </div>
@@ -306,54 +306,56 @@
      
                          // Memeriksa dan menampilkan hasil
                          let resultHtml = `
-                         <div class="carddomain ${response.com === 'available' ? 'available' : 'unavailable'}">
-                             <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                                 <p><b>${domain}.com</b> ${response.com === 'unavailable' ? 'Unvailable' : ''}</p>
-                                 
-                                 <!-- Tombol hanya tampil jika domain tersedia -->
-                                 ${response.com === 'available' ? 
-                                     '<p class="price">Rp. 199.900</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="19900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
-                                     ''}
-     
-                                 <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
-                                 ${response.com === 'unavailable' ? 
-                                     '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
-                                     ''}
-                             </div>
-                         </div>
-     
-                         <div class="carddomain ${response.id === 'available' ? 'available' : 'unavailable'}">
-                             <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                                 <p><b>${domain}.id</b> ${response.id === 'unavailable' ? 'Unvailable' : ''}</p>
-                                 
-                                 <!-- Tombol hanya tampil jika domain tersedia -->
-                                 ${response.id === 'available' ? 
-                                     '<p class="price">Rp. 290.900</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
-                                     ''}        
-     
-                                 <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
-                                 ${response.id === 'unavailable' ? 
-                                     '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
-                                     ''}
-                             </div>
-                         </div>
-     
-                         <div class="carddomain ${response['co.id'] === 'available' ? 'available' : 'unavailable'}">
-                             <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                                 <p><b>${domain}.co.id</b> ${response['co.id'] === 'unavailable' ? 'Unvailable' : ''}</p>
-                                 
-                                 <!-- Tombol hanya tampil jika domain tersedia -->
-                                 ${response['co.id'] === 'available' ? 
-                                     '<p class="price">Rp. 330.900</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
-                                     ''}
+                         <div class="domainContaier">
+                            <div class="carddomain ${response.com === 'available' ? 'available' : 'unavailable'}">
+                                <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                                    <p><b>${domain}.com</b> ${response.com === 'unavailable' ? 'Unvailable' : ''}</p>
                                     
-     
-                                 <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
-                                 ${response['co.id'] === 'unavailable' ? 
-                                     '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
-                                     ''}
-                             </div>
-                         </div>
+                                    <!-- Tombol hanya tampil jika domain tersedia -->
+                                    ${response.com === 'available' ? 
+                                        '<p class="price">Rp. 199.900</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="19900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                        ''}
+        
+                                    <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                                    ${response.com === 'unavailable' ? 
+                                        '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                        ''}
+                                </div>
+                            </div>
+        
+                            <div class="carddomain ${response.id === 'available' ? 'available' : 'unavailable'}">
+                                <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                                    <p><b>${domain}.id</b> ${response.id === 'unavailable' ? 'Unvailable' : ''}</p>
+                                    
+                                    <!-- Tombol hanya tampil jika domain tersedia -->
+                                    ${response.id === 'available' ? 
+                                        '<p class="price">Rp. 290.900</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                        ''}        
+        
+                                    <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                                    ${response.id === 'unavailable' ? 
+                                        '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                        ''}
+                                </div>
+                            </div>
+        
+                            <div class="carddomain ${response['co.id'] === 'available' ? 'available' : 'unavailable'}">
+                                <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                                    <p><b>${domain}.co.id</b> ${response['co.id'] === 'unavailable' ? 'Unvailable' : ''}</p>
+                                    
+                                    <!-- Tombol hanya tampil jika domain tersedia -->
+                                    ${response['co.id'] === 'available' ? 
+                                        '<p class="price">Rp. 330.900</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                        ''}
+                                        
+        
+                                    <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
+                                    ${response['co.id'] === 'unavailable' ? 
+                                        '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
+                                        ''}
+                                </div>
+                            </div>
+                        </div>
                          `;
      
                          $('#result').html(resultHtml);

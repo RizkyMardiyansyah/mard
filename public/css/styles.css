@@ -1,6 +1,9 @@
 body{
   font-family: "Raleway", sans-serif;
 }
+.domainContaier{
+  margin-top: 30px;
+}
 .tagline h1{
   display: inline;
 }
@@ -569,7 +572,7 @@ body{
   border-radius: 8px !important;
   background:transparent;
   color: rgba(0, 0, 0, 0.8);
-  font-weight: bold;
+  font-weight: bolder;
   transition: all 0.9s ease;
   margin-right: 10px;
   font-size: 12px !important;
@@ -756,7 +759,7 @@ margin-bottom: 20px;
         border-radius: 10px; /* Membuat sudut sedikit membulat */
         z-index: 1; /* Agar berada di atas elemen lain */
       }
-
+      
       #domainForm input{
         border-radius: 10px ;
         padding: 15px;  
@@ -1364,6 +1367,7 @@ html {
             padding: 10px;
             width: 150px;
             border:none;
+            font-weight: bolder;
             transition: all 0.3s ease;
             background-color:#488EFE;
             backdrop-filter: blur(30px);
