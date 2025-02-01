@@ -10,13 +10,20 @@ class EditMessage extends EditRecord
 {
     protected static string $resource = MessageResource::class;
 
+    protected function beforeFill(): void
+    {
+        $this->record->update(['status' => 'read']);
+    }
+
     protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),
             Actions\Action::make('send_email')
                 ->label('Email')
-                ->url(fn ($record) => 'mailto:' . $record->email)
+                ->url(fn ($record) => 'https://mail.google.com/mail/?view=cm&to=' . $record->email)
+                ->openUrlInNewTab()
+
                 ->openUrlInNewTab(),
             Actions\Action::make('send_whatsapp')
                 ->label('WhatsApp')
