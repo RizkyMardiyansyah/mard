@@ -12,7 +12,7 @@ use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 
 class Dashboard extends \Filament\Pages\Dashboard
 {
-    protected static ?string $navigationIcon = 'heroicon-m-squares-2x2';
+    protected static ?string $navigationIcon = 'heroicon-m-squares-plus';
     
     protected static ?string $navigationGroup = 'Dashboard';
 

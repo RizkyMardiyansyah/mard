@@ -102,7 +102,7 @@ class AdminPanelProvider extends PanelProvider
             ->navigationItems([
                 NavigationItem::make('Themes')
                     ->url('/admin/themes')
-                    ->icon('heroicon-m-paint-brush')
+                    ->icon('heroicon-m-swatch')
                     ->isActiveWhen(fn () => request()->is('admin/themes'))
                     ->group('Settings')
                     ->sort(8),

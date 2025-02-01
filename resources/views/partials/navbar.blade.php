@@ -51,7 +51,7 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item"><a class="nav-link" href="/#home"  data-lang-en="Home" data-lang-id="Beranda">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/"  data-lang-en="Home" data-lang-id="Beranda">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/#about" data-lang-en="About" data-lang-id="Tentang Kami">About</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="/#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-en="Services" data-lang-id="Layanan Kami">Services</a>

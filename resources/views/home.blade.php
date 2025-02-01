@@ -45,13 +45,11 @@
                             <h1 data-lang-en="No More" 
                                 data-lang-id="Tingalkan">
                                 No More
-                            </h1>
-                           
-                                <h1 class="digital" data-lang-en="Papers" 
-                                    data-lang-id="Kertas">
-                                    Papers
-                                </h1>
-                            
+                            </h1>                           
+                            <h1 class="digital" data-lang-en="Papers" 
+                                data-lang-id="Kertas">
+                                Papers
+                            </h1>                            
                             <h1>,</h1>
                             <br>
                             <h1 data-lang-en="Say Hello to" 
@@ -63,9 +61,11 @@
                             </h1>
                         </div>
                         
-                        <p data-lang-en="Let's bring your digital ideas to life with our infinite innovations, elevating your business and setting a new standard of excellence." data-lang-id="Mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru.">Bringing your ideas to life with our digital solutions and infinite innovations, elevating your business and setting a new standard of excellence.</p>
-                        <a href="/contact">
-                            <button type="submit" class="btn"><b style="color:white;" data-lang-en="Get In Touch" data-lang-id="Hubungi Kami">Get In Touch</b></button>
+                        <p data-lang-en="Let's bring your digital ideas to life with our infinite innovations, elevating your business, and setting a new standard of excellence." 
+                            data-lang-id="Mari wujudkan ide digital Anda dengan inovasi tanpa batas dari kami, tingkatkan bisnis Anda, dan tetapkan standar keunggulan baru.">
+                            Let's bring your digital ideas to life with our infinite innovations, elevating your business and setting a new standard of excellence.</p>
+                        <a style="margin-top: 10px; font-weight:bolder;" href="/contact" class="btn btn-primary" data-lang-en="Get in Touch" data-lang-id="Hubungi Kami">
+                            Get in Touch
                         </a>
                     </div>
                     <div class="col-lg-6 col-12"></div>
@@ -82,8 +82,9 @@
             </div>
             <div class="col-lg-6 col-12 order-lg-1 textabout">
                 <h1 data-lang-en="About Us" data-lang-id="Tentang Kami">About Us</h1>
-                <p data-lang-en="Mitra Adidaya Rekayasa Digital (MARD) also known as Mardsoft, is committed to bringing your ideas to life with our advanced digital solutions and infinite innovations. Our mission is to elevate your business and set a new standard of excellence in the ever-evolving digital landscape. We focus on creating tailored strategies that address your unique challenges, optimize operations, and drive sustainable growth." 
-                data-lang-id="Mitra Adidaya Rekayasa Digital (MARD) yang juga dikenal sebagai Mardsoft, berkomitmen untuk mewujudkan ide Anda dengan solusi digital dan inovasi tak terbatas. Misi kami adalah untuk meningkatkan bisnis Anda dan menetapkan standar keunggulan baru di dunia digital yang terus berkembang. Kami fokus pada pembuatan strategi yang disesuaikan untuk mengatasi tantangan unik anda, dan mengoptimalkan operasional.">Mitra Adidaya Rekayasa Digital (MARD) also known as Mardsoft is committed to bringing your ideas to life with our advanced digital solutions and infinite innovations. Our mission is to elevate your business and set a new standard of excellence in the ever-evolving digital landscape. We focus on creating tailored strategies that address your unique challenges, optimize operations, and drive sustainable growth.</p>
+                <p data-lang-en="Mitra Adidaya Rekayasa Digital (MARD), also known as Mardsoft, is here to bring your digital ideas to life with our infinite innovations. We invite you to leave behind old ways and step into a more efficient digital era that will accelerate the growth of your business. With solutions tailored to address the unique challenges of every business, We are committed to helping you optimize operations and unlock your business's full potential."                
+                data-lang-id="Mitra Adidaya Rekayasa Digital (MARD), yang juga dikenal sebagai Mardsoft, hadir untuk mewujudkan ide digital Anda menjadi kenyataan dengan inovasi tanpa batas dari kami. Kami mengajak Anda untuk meninggalkan cara lama dan melangkah menuju era digital yang lebih efisien untuk mempercepat pertumbuhan bisnis Anda. Dengan solusi yang dirancang khusus untuk menghadapi tantangan unik setiap bisnis, Kami berkomitmen mengoptimalkan potensi penuh bisnis Anda.">
+                Mitra Adidaya Rekayasa Digital (MARD), also known as Mardsoft, is here to bring your digital ideas to life with our infinite innovations. We invite you to leave behind old ways and step into a more efficient digital era that will accelerate the growth of your business. With solutions tailored to address the unique challenges of every business, We are committed to helping you optimize operations and unlock your business's full potential.</p>
             </div>
         </div>
     </div>
@@ -94,8 +95,9 @@
         <div class="row">
             <div class="serv our col-lg-3 col-md-6 col-12 order-lg-4">
                 <h1 data-lang-en="Our Services" data-lang-id="Layanan Kami">Our Services</h1>
-                <p data-lang-en="Mardsoft provides innovative digital solutions tailored to optimize your business processes, support growth, and set new standards of excellence in your industry." 
-                   data-lang-id="Mardsoft menyediakan solusi digital inovatif yang sesuai untuk optimalisasi bisnis Anda, serta mendukung pertumbuhan, dan standar baru dalam industri.">Mardsoft provides innovative digital solutions tailored to optimize your business processes, support growth, and set new standards of excellence in your industry.</p>
+                <p data-lang-en="Mardsoft provides innovative digital solutions tailored to optimize your business processes, support growth, and unlock your business's full potential." 
+                   data-lang-id="Mardsoft menyediakan solusi digital inovatif yang sesuai untuk optimalisasi bisnis Anda, serta mendukung pertumbuhan, dan potensi penuh bisnis Anda.">
+                   Mardsoft provides innovative digital solutions tailored to optimize your business processes, support growth, and unlock your business's full potential.</p>
             </div>
             <div class="serv col-lg-3 col-md-6 col-12">                
                 <a href="/instant-web-builder" style="text-decoration: none; color: black;">
@@ -111,8 +113,8 @@
                 <a href="/custom-app-development" style="text-decoration: none; color: black;">
                     <div class="serContainer">
                         <h3 style="color: black;" data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</h3>
-                        <p data-lang-en="Bring your ideas to life with our expert developers, delivering digital solutions and endless innovations to drive your business growth." 
-                        data-lang-id="Wujudkan ide Anda dengan pengembang ahli kami, menghadirkan solusi digital dan inovasi tanpa batas untuk mendorong pertumbuhan bisnis Anda.">Bring your ideas to life with our expert developers, delivering digital solutions and endless innovations to drive your business growth.</p>
+                        <p data-lang-en="Let's bring your digital ideas to life with our expert developers, delivering solutions with endless innovation to drive your business growth." 
+                        data-lang-id="Wujudkan ide Anda dengan pengembang ahli kami, menghadirkan solusi digital dan inovasi tanpa batas untuk mendorong pertumbuhan bisnis Anda.">Let's bring your digital ideas to life with our expert developers, delivering solutions with endless innovation to drive your business growth.</p>
                     </div>
                 </a>
             </div>
