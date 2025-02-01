@@ -160,20 +160,20 @@
                             </div>
                         </form>
                         <div id="domainbox" class="justify-content-center" style="gap: 10px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
-                            <div style="border: 2px solid #51CB5F !important; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); animation: float 3s ease-in-out infinite;" class="card domainBox">
-                                <h6 style="color: #51CB5F;">.com</h6>
-                                <p class="old">Rp.252.000</p>
-                                <p style="color: #51CB5F;" class="new">Rp.199.900</p>
+                            <div style="border: 2px solid #6cfc7d !important; box-shadow: 0 4px 6px rgba(108, 252, 125, 0.2); animation: float 3s ease-in-out infinite;" class="card domainBox">
+                                <h6 style="color: #6cfc7d;">.com</h6>
+                                <p class="old">Rp.199.900</p>
+                                <p style="color: #6cfc7d;" class="new">Rp.99.900</p>
                             </div>
                             <div class=" card domainBox">
                                 <h6>.id</h6>
-                                <p class="old">Rp.329.900</p>
-                                <p class="new">Rp.290.900</p>
+                                <p class="old">Rp.252.900</p>
+                                <p class="new">Rp.190.900</p>
                             </div>
                             <div class="card domainBox">
                                 <h6>.co.id</h6>
-                                <p class="old">Rp.340.900</p>
-                                <p class="new">Rp.330.900</p>
+                                <p class="old">Rp.300.000</p>
+                                <p class="new">Rp.230.900</p>
                             </div>
                         </div>
                         <!-- Spinner untuk loading animation -->
@@ -214,7 +214,7 @@
                 
                     <!-- Input Search -->
                     <div class="col-md-6 col-12">
-                        <div class="input-group">
+                        <div class="input-group" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border-radius:10px;">
                             <input type="text" name="search" id="search" class="form-control" placeholder="Find your template..." required>
                             <button style="opacity: 100%; margin-top:0px" class="btn btn-primary" type="submit">Search</button>
                         </div>
@@ -322,7 +322,7 @@
                                     
                                     <!-- Tombol hanya tampil jika domain tersedia -->
                                     ${response.com === 'available' ? 
-                                        '<p class="price">Rp. 199.900</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="19900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                        '<p class="price">Rp. 99.900</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="99900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                         ''}
         
                                     <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
@@ -338,7 +338,7 @@
                                     
                                     <!-- Tombol hanya tampil jika domain tersedia -->
                                     ${response.id === 'available' ? 
-                                        '<p class="price">Rp. 290.900</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="290900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                        '<p class="price">Rp. 190.900</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="190900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                         ''}        
         
                                     <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
@@ -354,7 +354,7 @@
                                     
                                     <!-- Tombol hanya tampil jika domain tersedia -->
                                     ${response['co.id'] === 'available' ? 
-                                        '<p class="price">Rp. 330.900</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="330900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
+                                        '<p class="price">Rp. 230.900</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="230900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
                                         ''}
                                         
         
