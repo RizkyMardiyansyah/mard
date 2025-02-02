@@ -37,7 +37,7 @@
       <meta name="title" content="Mitra Adidaya Rekayasa Digital">
       <meta property="og:site_name" content="Mitra Adidaya Rekayasa Digital">
       <meta property="og:title" content="Mardsoft | Instant Web Builder Step Two">
-      <meta property="og:description" content="Penyedia solusi digital untuk optimasi bisnis Anda.">
+      <meta property="og:description" content="No more papers, Let's bring your digital ideas to life with our solutions. We are committed to helping you optimize operations and unlock your business's full potential.">
       <meta property="og:url" content="https://www.mardsoft.com">
       <meta property="og:image" content="https://www.mardsoft.com/img/og-image.png">
       <title>Mardsoft | Instant Web Builder Step Two</title>
