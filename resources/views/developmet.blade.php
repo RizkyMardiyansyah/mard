@@ -120,7 +120,7 @@
                             <input type="tel" id="phone" name="phone" class="form-control" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
                         </div>
                         <div class="form-group mb-3">
-                            <input type="text" id="company" name="company" class="form-control" placeholder="Company..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                            <input type="text" id="company" name="company" class="form-control" placeholder="Company (Optional)" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
                         </div>
                         <div class="form-group mb-3">
                             <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
