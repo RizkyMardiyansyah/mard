@@ -370,7 +370,7 @@
                                         <p class="oldPrice" style="font-size:14px !important; text-align:center !important;">Rp. 199.900</p>
                                         <p class="fixedPrice" style="color:#000000 !important; font-size:20px !important;">Rp. 99.900</p>
                                     </div>
-                                    <a href="/#order">
+                                    <a href="#order">
                                         <button class="btn-select" data-domain="${domain}.com" data-price="99900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button>
                                     </a>
                                 </div>` 
@@ -393,7 +393,7 @@
                                         <p class="oldPrice" style="font-size:14px !important; text-align:center !important;">Rp. 252.900</p>
                                         <p class="fixedPrice" style="color:#000000 !important; font-size:20px !important;">Rp.190.900</p>
                                     </div>
-                                    <a href="/#order">
+                                    <a href="#order">
                                         <button class="btn-select" data-domain="${domain}.id" data-price="190900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button>
                                     </a>
                                 </div>` 
@@ -416,7 +416,7 @@
                                         <p class="oldPrice" style="font-size:14px !important; text-align:center !important;">Rp. 300.000</p>
                                         <p class="fixedPrice" style="color:#000000 !important; font-size:20px !important;">Rp.130.900</p>
                                     </div>
-                                    <a href="/#order">
+                                    <a href="#order">
                                         <button class="btn-select" data-domain="${domain}.co.id" data-price="130900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button>
                                     </a>
                                 </div>` 

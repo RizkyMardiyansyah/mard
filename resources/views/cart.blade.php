@@ -145,21 +145,19 @@
                                 <div class="section">
                                     <h5 class="form-section" style="color: black;" data-lang-en="Supporting Documents" data-lang-id="Dokumen Pendukung"></h5>
                                     <h6 data-lang-en="Submit the necessary documents to register your .co.id domain seamlessly." data-lang-id="Unggah dokumen yang diperlukan untuk mendaftarkan domain .co.id Anda dengan mudah."> </h6>
+                                </div>                               
+                                <div class="form-group">
+                                    <label class="form-label" for="ktp">KTP</label>
+                                    <input type="file" id="ktp" name="ktp" class="form-control">
                                 </div>
-                               
-                                    <div class="form-group">
-                                        <label class="form-label" for="ktp">KTP</label>
-                                        <input type="file" id="ktp" name="ktp" class="form-control">
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="siup">SIUP</label>
-                                        <input type="file" id="siup" name="siup" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="npwp">NPWP</label>
-                                        <input type="file" id="npwp" name="npwp" class="form-control">
-                                    </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="siup">SIUP</label>
+                                    <input type="file" id="siup" name="siup" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="npwp">NPWP</label>
+                                    <input type="file" id="npwp" name="npwp" class="form-control">
+                                </div>
                             </div>
                         {{-- </div> --}}
                     </div>

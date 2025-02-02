@@ -51,6 +51,7 @@ class TemplateResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->required()
                     ->disk('public')
+                    ->downloadable()
                     ->image(),                
                 Forms\Components\TextInput::make('price')
                     ->mask(RawJs::make('$money($input)'))

@@ -116,14 +116,22 @@ class DomainController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->except(['ktp', 'siup', 'npwp']);
         $timestamp = date('ymdHi');
         $orderId = 'OD' . $timestamp . rand(100, 999);
 
-        // Simpan file hanya sekali
-        $ktpPath = $request->file('ktp') ? $request->file('ktp')->store('documents') : null;
-        $siupPath = $request->file('siup') ? $request->file('siup')->store('documents') : null;
-        $npwpPath = $request->file('npwp') ? $request->file('npwp')->store('documents') : null;
+        $files = ['ktp', 'siup', 'npwp'];
+        $uploadedFiles = [];
+
+        foreach ($files as $file) {
+            if ($request->hasFile($file) && $request->file($file)->isValid()) {
+                $filename = $request->file($file)->hashName();
+                $request->file($file)->move(storage_path('app/public'), $filename);
+                $uploadedFiles[$file] = $filename;
+            } else {
+                $uploadedFiles[$file] = null;
+            }
+        }
         
         // Buat Order
         $order = Order::create([
@@ -141,11 +149,12 @@ class DomainController extends Controller
             'templateCost' => $data['templateCost'] ?? 0,
             'subscriptionCost' => $data['subscriptionCost'] ?? 0,
             'total_payment' => $data['total_payment'] ?? 0,
-            'ktp' => $ktpPath,
-            'siup' => $siupPath,
-            'npwp' => $npwpPath,
+            'ktp' => $uploadedFiles['ktp'],
+            'siup' => $uploadedFiles['siup'],
+            'npwp' => $uploadedFiles['npwp'],
         ]);
-        
+
+
         $template = Template::find($order->template);
         $template->update(['purchases' => $template->purchases + 1]);
         $subs = Subscription::find($order->subscription);
@@ -181,89 +190,6 @@ class DomainController extends Controller
     }
 
 
-
-
-    // public function store(Request $request)
-    // {
-
-    //     $data = $request->all();
-    //     $timestamp = date('ymdHi');
-    //     $orderId = 'OD' . $timestamp . rand(100, 999);
-
-    //     $order=Order::create([
-    //         'orderId' => $orderId,
-    //         'domain' => $data['domain'],
-    //         'template' => $data['template'],
-    //         'nik' => $data['nik'],
-    //         'name' => $data['name'],
-    //         'email' => $data['email'],
-    //         'phone_number' => $data['phone_number'],
-    //         'status' => $data['status'],
-    //         'subscription' => $data['subscription'],
-    //         'domainCost' => $data['domainCost'] ?? 0,
-    //         'templateCost' => $data['templateCost'] ?? 0,
-    //         'subscriptionCost' => $data['subscriptionCost'] ?? 0,
-    //         'total_payment' => $data['total_payment'] ?? 0,
-    //         'ktp' => $request->file('ktp') ? $request->file('ktp')->store('documents') : null,
-    //         'siup' => $request->file('siup') ? $request->file('siup')->store('documents') : null,
-    //         'npwp' => $request->file('npwp') ? $request->file('npwp')->store('documents') : null,
-    //     ]);
-        
-    //     $template = template::where ('id', $order->template)->first();
-    //     $subs = subscription::where ('id', $order->subscription)->first();
-
-    //     if ($request->hasFile('ktp') && $request->file('ktp')->isValid()) {
-    //         $validated['ktp'] = $request->file('ktp')->store('ktp_' . time(), 'public');
-    //     }
-
-    //     if ($request->hasFile('siup') && $request->file('siup')->isValid()) {
-    //         $validated['siup'] = $request->file('siup')->store('siup_' . time(), 'public');
-    //     }
-
-    //     if ($request->hasFile('npwp') && $request->file('npwp')->isValid()) {
-    //         $validated['npwp'] = $request->file('npwp')->store('npwp_' . time(), 'public');
-    //     }
-
-    //     \Midtrans\Config::$serverKey =config('midtrans.serverKey');
-    //     \Midtrans\Config::$isProduction = false;
-    //     \Midtrans\Config::$isSanitized =true;
-    //     \Midtrans\Config::$is3ds = true;        
-        
-       
-    //     $params = array(
-    //         'transaction_details' => array(
-    //             'order_id' => $orderId,
-    //             'gross_amount' => $data['total_payment'],
-    //         ),
-    //         'customer_details' => array(
-    //             'first_name' => $data['name'],
-    //             'email' => $data['email'],
-    //             'phone' => $data['phone_number'],
-    //         ),        
-            
-    //     );
-        
-    //     try {
-    //         $snapToken = \Midtrans\Snap::getSnapToken($params);
-    
-    //         $order->update(['snapKey' => $snapToken]);
-
-    //         $subs = subscription::where ('id', $data['subscription'])->first();
-    //         $template = template::where ('id', $data['template'])->first();
-    //         $kop = public_path('img/kop.png');
-            
-            
-
-    //         Mail::to($data['email'])->send(new orderMail($data, $snapToken, $subs, $template, $kop, $order));
-    
-    //         return redirect()->route('payment', ['snapKey' => $snapToken]);
-    
-    //     } catch (\Exception $e) {
-    //         return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
-    //     }
-    // }
-    
-    // Controller untuk menampilkan view payment.blade
     public function payment($snapKey)
     {
         // Ambil data berdasarkan snapKey

@@ -45,9 +45,7 @@ class OrderResource extends Resource
         $count = static::getModel()::where('status', 'Developing')->count();
 
         return $count > 0 ? (string) $count : null;
-    }
-
-    
+    }  
 
 
     public static function form(Form $form): Form
@@ -95,12 +93,15 @@ class OrderResource extends Resource
                     Section::make('Supporting Document')->schema([
                         Forms\Components\FileUpload::make('ktp')
                             ->disk('public')
+                            ->downloadable()
                             ->default(null),
                         Forms\Components\FileUpload::make('siup')
                             ->disk('public')
+                            ->downloadable()
                             ->default(null),
                         Forms\Components\FileUpload::make('npwp')
                             ->disk('public')
+                            ->downloadable()
                             ->default(null),
                     ]),
                     Section::make('Paymet Information')->schema([                        
@@ -122,22 +123,31 @@ class OrderResource extends Resource
                             ->reactive(),
                         Forms\Components\TextInput::make('domainCost')
                             ->mask(RawJs::make('$money($input)'))
+                            ->numeric()
                             ->prefix('IDR')
-                            ->default(null),
+                            ->stripCharacters(',')
+                            ->default(0),
                         Forms\Components\TextInput::make('templateCost')
                             ->mask(RawJs::make('$money($input)'))
+                            ->numeric()
                             ->prefix('IDR')
-                            ->default(null),
+                            ->stripCharacters(',')
+                            ->default(0),
                         Forms\Components\TextInput::make('subscriptionCost')
                             ->mask(RawJs::make('$money($input)'))
+                            ->numeric()
                             ->prefix('IDR')
-                            ->default(null),
+                            ->stripCharacters(',')
+                            ->default(0),
                         Forms\Components\TextInput::make('total_payment')
                             ->mask(RawJs::make('$money($input)'))
+                            ->numeric()
                             ->prefix('IDR')
-                            ->default(null),
+                            ->stripCharacters(',')
+                            ->default(0),
                         Forms\Components\FileUpload::make('invoice')
                             ->disk('public')
+                            ->downloadable()
                             ->default(null),
                         
                     ]),
