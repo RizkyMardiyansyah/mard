@@ -189,7 +189,7 @@
     </div>
 
 
-    <div  style="padding-top: 50px"  class="serv container hero-text">
+    <div  style="padding-top: 30px"  class="serv container hero-text">
         <div id="template" class="serv container hero-text">     
             <!-- Form Pencarian -->
             <form id="searchTemplateForm" action="{{ route('searchtemplate') }}" method="POST">
@@ -197,7 +197,7 @@
                 
                 <div class="row d-flex justify-content-between align-items-center ">
                     <!-- Tabs untuk memilih tipe template -->
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-6 col-12 mt-4">
                         <div class="btn-group tabs" role="group" aria-label="Tipe Template">
                             <input type="radio" class="btn-check" name="type" id="all" value="all" 
                                 {{ request('type') == 'all' ? 'checked' : '' }} checked>
@@ -214,7 +214,7 @@
                     </div>
                 
                     <!-- Input Search -->
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-6 col-12 mt-4">
                         <div class="input-group" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border-radius:10px;">
                             <input type="text" name="search" id="search" class="form-control" placeholder="Find your template..." required>
                             <button style="opacity: 100%; margin-top:0px" class="btn btn-primary" type="submit">Search</button>
