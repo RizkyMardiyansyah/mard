@@ -72,10 +72,12 @@ class TemplateResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title')
                     ->formatStateUsing(fn ($state) => ucwords($state))
+                    ->copyable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('link')
                     ->sortable()
+                    ->copyable()
                     ->searchable(),     
                 Tables\Columns\BadgeColumn::make('type')
                     ->formatStateUsing(fn ($state) => ucwords($state))

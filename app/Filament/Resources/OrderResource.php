@@ -161,17 +161,21 @@ class OrderResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('orderId')
                     ->sortable()
+                    ->copyable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('domain')
                     ->formatStateUsing(fn ($state) => ucwords($state))
+                    ->copyable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name')
                     ->formatStateUsing(fn ($state) => ucwords($state))
+                    ->copyable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->formatStateUsing(fn ($state) => ucwords($state))
+                    ->copyable()
                     ->sortable()->sortable()
                     ->searchable(),
                 Tables\Columns\BadgeColumn::make('status')
@@ -194,6 +198,7 @@ class OrderResource extends Resource
                     ]),
                 Tables\Columns\TextColumn::make('referal')
                     ->sortable()
+                    ->copyable()
                     ->searchable(),  
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

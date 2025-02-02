@@ -73,18 +73,22 @@ class MessageResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->formatStateUsing(fn ($state) => ucwords($state))
+                    ->copyable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->formatStateUsing(fn ($state) => ucwords($state))
+                    ->copyable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
                     ->formatStateUsing(fn ($state) => ucwords($state))
+                    ->copyable()
                     ->sortable()    
                     ->searchable(),
                 Tables\Columns\TextColumn::make('company')
                     ->formatStateUsing(fn ($state) => ucwords($state))
+                    ->copyable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\BadgeColumn::make('status')
