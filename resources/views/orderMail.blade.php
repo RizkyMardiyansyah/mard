@@ -168,7 +168,7 @@
                 </div>
             
 
-                <p style="margin-top: 50px">Jika Anda membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami melalui layanan pelanggan kami.</p>
+                <p style="margin-top: 50px">Jika Anda membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
                 <table style="margin-top: 50px;">
                     <tr>
                         <td style="width: 50%"></td>
@@ -176,8 +176,8 @@
                             <div class="flex-column ">  
                                 <p>Hormat kami,</p>
                                 <p><strong>{{ config('app.name') }}</strong></p>
-                                <a style="color: black; text-decoration:inherit; margin-top:20px;" href="https://wa.me/62895340307548" target="_blank"> Rizky Mardiyansyah</a>
-                                <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895340307548" target="_blank">0895340307548</a>
+                                <a style="color: black; text-decoration:inherit; margin-top:20px;" href="https://wa.me/62895405543809" target="_blank"> Rizky Mardiyansyah</a>
+                                <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895405543809" target="_blank">0895-4055-43809</a>
                             </div>
                         </td>
                     </tr>

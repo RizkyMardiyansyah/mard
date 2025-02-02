@@ -59,7 +59,7 @@ class paymentController extends Controller
             $pdf->save($pdfPath);
             $order->update(['invoice' => $pdfName]);
     
-            Mail::to($order->email)->send(new finishMail($order, $snapKey, $subs, $template, $pdfPath));
+            Mail::to($order->email)->queue(new finishMail($order, $snapKey, $subs, $template, $pdfPath));
         }        
         return view('finish', compact('order', 'subs', 'template', 'snapKey'));
         

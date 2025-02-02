@@ -124,7 +124,7 @@ class DomainController extends Controller
         $ktpPath = $request->file('ktp') ? $request->file('ktp')->store('documents') : null;
         $siupPath = $request->file('siup') ? $request->file('siup')->store('documents') : null;
         $npwpPath = $request->file('npwp') ? $request->file('npwp')->store('documents') : null;
-
+        
         // Buat Order
         $order = Order::create([
             'orderId' => $orderId,
@@ -145,7 +145,7 @@ class DomainController extends Controller
             'siup' => $siupPath,
             'npwp' => $npwpPath,
         ]);
-
+        
         $template = Template::find($order->template);
         $template->update(['purchases' => $template->purchases + 1]);
         $subs = Subscription::find($order->subscription);
