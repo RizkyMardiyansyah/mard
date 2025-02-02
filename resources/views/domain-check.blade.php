@@ -252,55 +252,74 @@
 
                     // Memeriksa dan menampilkan hasil
                     let resultHtml = `                    
-                    <div class="domainContaier">
-                        <div class="carddomain ${response.com === 'available' ? 'available' : 'unavailable'}">
-                             <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                                 <p><b>${domain}.com</b> ${response.com === 'unavailable' ? 'Unvailable' : ''}</p>
-                                 
-                                 <!-- Tombol hanya tampil jika domain tersedia -->
-                                 ${response.com === 'available' ? 
-                                     '<p class="price">Rp. 99.900</p><a> <button class="btn-select" data-domain="' + domain + '.com" data-price="99900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
-                                     ''}
-     
-                                 <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
-                                 ${response.com === 'unavailable' ? 
-                                     '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
-                                     ''}
-                             </div>
-                         </div>
-     
-                         <div class="carddomain ${response.id === 'available' ? 'available' : 'unavailable'}">
-                             <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                                 <p><b>${domain}.id</b> ${response.id === 'unavailable' ? 'Unvailable' : ''}</p>
-                                 
-                                 <!-- Tombol hanya tampil jika domain tersedia -->
-                                 ${response.id === 'available' ? 
-                                     '<p class="price">Rp. 190.900</p><a><button class="btn-select" data-domain="' + domain + '.id" data-price="190900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
-                                     ''}        
-     
-                                 <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
-                                 ${response.id === 'unavailable' ? 
-                                     '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
-                                     ''}
-                             </div>
-                         </div>
-     
-                         <div class="carddomain ${response['co.id'] === 'available' ? 'available' : 'unavailable'}">
-                             <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
-                                 <p><b>${domain}.co.id</b> ${response['co.id'] === 'unavailable' ? 'Unvailable' : ''}</p>
-                                 
-                                 <!-- Tombol hanya tampil jika domain tersedia -->
-                                 ${response['co.id'] === 'available' ? 
-                                     '<p class="price">Rp. 230.900</p><a><button class="btn-select" data-domain="' + domain + '.co.id"data-price="230900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button></a>' : 
-                                     ''}
-                                    
-     
-                                 <!-- Tombol ini hanya akan ditampilkan jika domain tidak tersedia, namun di-disable agar tidak bisa diklik -->
-                                 ${response['co.id'] === 'unavailable' ? 
-                                     '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' : 
-                                     ''}
-                             </div>
-                         </div>
+                    <div class="carddomain ${response.com === 'available' ? 'available' : 'unavailable'}">
+                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                            <p><b>${domain}.com</b> ${response.com === 'unavailable' ? 'Unavailable' : ''}</p>
+
+                            ${response.com === 'available' ? 
+                                `<div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                        <p class="oldPrice" style="font-size:14px !important; text-align:center !important;">Rp. 199.900</p>
+                                        <p class="fixedPrice" style="font-size:20px !important; margin-top:5px !important;">Rp. 99.900</p>
+                                    </div>
+                                    <a>
+                                        <button class="btn-select" data-domain="${domain}.com" data-price="99900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button>
+                                    </a>
+                                </div>` 
+                                : ''
+                            }
+
+                            ${response.com === 'unavailable' ? 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' 
+                                : ''
+                            }
+                        </div>
+                    </div>
+                    <div class="carddomain ${response.id === 'available' ? 'available' : 'unavailable'}">
+                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                            <p><b>${domain}.id</b> ${response.id === 'unavailable' ? 'Unavailable' : ''}</p>
+
+                            ${response.id === 'available' ? 
+                                `<div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                        <p class="oldPrice" style="font-size:14px !important; text-align:center !important;">Rp. 252.900</p>
+                                        <p class="fixedPrice" style="margin-top:5px !important; font-size:20px !important;">Rp. 190.900</p>
+                                    </div>
+                                    <a>
+                                        <button class="btn-select" data-domain="${domain}.id" data-price="190900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button>
+                                    </a>
+                                </div>` 
+                                : ''
+                            }
+
+                            ${response.id === 'unavailable' ? 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' 
+                                : ''
+                            }
+                        </div>
+                    </div>
+                    <div class="carddomain ${response['co.id'] === 'available' ? 'available' : 'unavailable'}">
+                        <div class="domain-info" style="display: flex; justify-content: space-between; align-items: center;">
+                            <p><b>${domain}.co.id</b> ${response['co.id'] === 'unavailable' ? 'Unavailable' : ''}</p>
+
+                            ${response['co.id'] === 'available' ? 
+                                `<div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                        <p class="oldPrice" style="font-size:14px !important; text-align:center !important;">Rp. 300.000</p>
+                                        <p class="fixedPrice" style="margin-top:5px !important; font-size:20px !important;">Rp. 130.900</p>
+                                    </div>
+                                    <a>
+                                        <button class="btn-select" data-domain="${domain}.co.id" data-price="130900" data-lang-en="Select Domain" data-lang-id="Pilih Domain">Select Domain</button>
+                                    </a>
+                                </div>` 
+                                : ''
+                            }
+
+                            ${response.id === 'unavailable' ? 
+                                '<button class="btn-select" style="opacity: 0; pointer-events: none;"></button>' 
+                                : ''
+                            }
+                        </div>
                     </div>
                     `;
 

@@ -1,6 +1,22 @@
 body{
   font-family: "Raleway", sans-serif;
 }
+.fixedPrice{
+  line-height: normal !important;
+  margin: 0px !important;
+  font-weight: bold !important;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
+.oldPrice{
+  color: rgba(0, 0, 0, 0.5) !important;
+  line-height: 0px !important;
+  margin: 0px !important;
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
 .domainContaier{
   margin-top: 30px;
 }
@@ -1567,7 +1583,11 @@ html {
             flex-direction: column;
           }
           .StepOfWizard h6 {
-            margin-top: 0px;
+            margin-top: -8px;
+            font-size: 9px !important;
+          }
+          .subPrice{
+            align-items: center !important;
           }
           
           #cart {     

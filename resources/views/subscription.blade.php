@@ -108,7 +108,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div style="display: flex; flex-direction: column; align-items: flex-end;" class="form-group col-md-6 col-12 mb-4">
+                                    <div style="display: flex; flex-direction: column; align-items: flex-end;" class="subPrice form-group col-md-6 col-12 mb-4">
                                         <div id="discoutContainer" style="display: flex; align-items: center;">    
                                             <p id="hemat" class="display-price" data-lang-en="Save " data-lang-id="Hemat"></p>
                                             <p id="discount"></p>
