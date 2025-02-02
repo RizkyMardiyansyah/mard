@@ -1,25 +1,3 @@
-{{-- <style>
-    
-    .custom-container {
-        width: 300px;
-        height: 300px;
-        background: linear-gradient(135deg, #1e90ff, #87cefa);
-        clip-path: path(
-    'M50 50 Q70 20, 90 50 Q70 80, 50 50 Q30 30, 10 50 Q30 70, 50 50'
-);
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s, box-shadow 0.3s;
-}
-</style> --}}
-
 <!doctype html>
     <html lang="en">
     <head>        
@@ -42,6 +20,15 @@
       <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
       <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Mitra Adidaya Rekayasa Digital",
+          "alternateName": ["Mardsoft", "Mard", "Mard Software"],
+          "url": "https://www.mardsoft.com/"
+        }
+    </script>
     </head>
 
   <body>

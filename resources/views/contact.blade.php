@@ -38,7 +38,15 @@
       
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
       <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
-
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Mitra Adidaya Rekayasa Digital",
+          "alternateName": ["Mardsoft", "Mard", "Mard Software"],
+          "url": "https://www.mardsoft.com/"
+        }
+    </script>
     </head>
 
   <body>
@@ -48,34 +56,7 @@
     {{-- navbar section --}}
     @include('partials.navbar')
 
-    {{-- <div style="height: 80vh; background: url(img/dev.jpg) no-repeat center center/cover;" class="hero-section">
-        <div style="background-color: rgba(0, 0, 0, 0.3);" class="hero-overlay">
-            <div class="container hero-text">
-                <div class="row">
-                    <div class="col-lg-6 col-12"></div>
-                    <div class="col-lg-6 col-12">
-                        <h1 style="text-align: right" data-lang-en="Custom Application Development" data-lang-id="Custom Application Development"></h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-
-<div class="servBody hero-text ">  
-    <div class="">
-    </div>
-        <div class="container textabout blog">
-        <p data-lang-en="Bring your ideas to life with our tailored digital solutions through our custom web application development services. Our expert team is dedicated to delivering unlimited innovations that drive your business growth. With a focus on advanced technologies such as web and mobile, we create web applications that are optimized, secure, and customized to meet your business’s unique needs." 
-        data-lang-id="Wujudkan ide Anda dengan solusi digital yang disesuaikan melalui layanan pengembangan aplikasi web kami. Tim ahli kami berkomitmen untuk membawa inovasi tak terbatas yang mendorong pertumbuhan bisnis Anda. Dengan fokus pada teknologi canggih seperti web, dan mobile, kami menciptakan aplikasi web yang optimal dan aman, disesuaikan dengan kebutuhan unik bisnis Anda."></p>
-        <p data-lang-en="We are committed not only to developing applications but also to providing trusted and professional services that support the continuous modernization and management of your applications. We leverage cutting-edge techniques and technologies to ensure your applications are always up-to-date, secure, and performing at their best." 
-        data-lang-id="Kami tidak hanya berfokus pada pengembangan aplikasi, tetapi juga berkomitmen untuk menyediakan layanan yang terpercaya dan profesional untuk mendukung modernisasi serta pengelolaan aplikasi Anda secara berkelanjutan. Kami memanfaatkan teknik dan teknologi mutakhir untuk memastikan aplikasi Anda selalu diperbarui, aman, dan berfungsi dengan maksimal."></p>
-        <p data-lang-en="Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry." 
-        data-lang-id="Partner dengan kami hari ini untuk memanfaatkan keahlian dan pengalaman kami dalam merancang dan mengelola aplikasi yang siap membawa bisnis Anda ke level berikutnya. Bersama-sama, kami akan menggunakan teknik modern dan teknologi maju untuk membantu Anda tetap berada di garis depan inovasi dan meraih keunggulan kompetitif di industri Anda."></p>
-    </div>
-</div> --}}
-
-   
 
 
 {{-- Contact Us Section --}}

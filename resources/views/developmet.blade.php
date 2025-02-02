@@ -20,6 +20,15 @@
       <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
       <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Mitra Adidaya Rekayasa Digital",
+          "alternateName": ["Mardsoft", "Mard", "Mard Software"],
+          "url": "https://www.mardsoft.com/"
+        }
+    </script>
     </head>
 
   <body>
