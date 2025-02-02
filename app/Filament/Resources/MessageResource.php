@@ -6,6 +6,7 @@ use App\Filament\Resources\MessageResource\Pages;
 use App\Filament\Resources\MessageResource\RelationManagers;
 use App\Models\message;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -32,6 +33,16 @@ class MessageResource extends Resource
     {
         return $form
             ->schema([
+            Section::make('Message')->schema([
+                // Section::make('')->schema([
+                // Forms\Components\DateTimePicker::make('created_at')
+                //     ->disabled()
+                //     ->date()
+                //     ->label(''),
+                // ])
+                // ->columns(2)
+                // ->compact(),
+                
                 Forms\Components\TextInput::make('name')
                     ->disabled()
                     ->required()
@@ -55,8 +66,8 @@ class MessageResource extends Resource
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\Radio::make('status')
-                    ->columnSpanFull()
                     ->required()
+                    ->columnSpanFull()
                     ->options([
                         'unread' => 'unread',
                         'read' => 'Read',
@@ -64,6 +75,8 @@ class MessageResource extends Resource
                     ])
                     ->default('unread')
                     ->inline(),
+                ])
+                ->columns(2),
             ]);
     }
 

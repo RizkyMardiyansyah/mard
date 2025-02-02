@@ -31,9 +31,11 @@ class SubscriptionResource extends Resource
             Section::make('Subscription Form')->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
+                    ->columnSpanFull()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->required()
+                    ->columnSpanFull()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('year')
                     ->required()
@@ -45,7 +47,8 @@ class SubscriptionResource extends Resource
                     ->prefix('IDR')
                     ->stripCharacters(','), 
                     
-                ]),
+                ])
+                ->columns(2),
             ]);
     }
 

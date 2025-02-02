@@ -36,10 +36,27 @@ class TemplateResource extends Resource
             Section::make('Template Form')->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
+                    ->columnSpanFull()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('link')
                     ->required()
+                    ->columnSpanFull()
                     ->maxLength(255),
+                
+                Forms\Components\FileUpload::make('image')
+                    ->required()
+                    ->disk('public')
+                    ->downloadable()
+                    ->columnSpanFull()
+                    ->image(),                
+                
+                Forms\Components\TextInput::make('purchases')
+                    ->nullable()
+                    ->numeric(),
+                Forms\Components\TextInput::make('price')
+                    ->mask(RawJs::make('$money($input)'))
+                    ->prefix('IDR')
+                    ->default(null),
                 Forms\Components\Radio::make('type')
                     ->required()
                     ->options([
@@ -47,20 +64,9 @@ class TemplateResource extends Resource
                         'Premium' => 'Premium',
                     ])
                     ->default('Basic')
+                    ->columnSpanFull()
                     ->inline(), 
-                Forms\Components\FileUpload::make('image')
-                    ->required()
-                    ->disk('public')
-                    ->downloadable()
-                    ->image(),                
-                Forms\Components\TextInput::make('price')
-                    ->mask(RawJs::make('$money($input)'))
-                    ->prefix('IDR')
-                    ->default(null),
-                Forms\Components\TextInput::make('purchases')
-                    ->nullable()
-                    ->numeric(),
-            ]),
+            ])->columns(2),
         ]);
     }
 

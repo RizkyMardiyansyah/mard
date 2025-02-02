@@ -57,10 +57,6 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('domain')
                             ->required()
                             ->maxLength(255),
-                        Forms\Components\Select::make('template')
-                            ->required()
-                            ->options(template::pluck('title', 'id')->toArray())
-                            ->reactive(),
                         Forms\Components\Select::make('status')
                             ->options(
                                 [
@@ -73,14 +69,20 @@ class OrderResource extends Resource
                             )
                             ->default('Paying')
                             ->required(),
-                    ]),
-                    Section::make('Personal Information')->schema([
-                        Forms\Components\TextInput::make('nik')
+                        Forms\Components\Select::make('template')
                             ->required()
-                            ->maxLength(255),
+                            ->options(template::pluck('title', 'id')->toArray())
+                            ->columnSpanFull()
+                            ->reactive(),
+                        
+                    ])->columns(2),
+                    Section::make('Personal Information')->schema([
                         Forms\Components\TextInput::make('name')
                             ->required()
                             ->maxLength(255),
+                        Forms\Components\TextInput::make('nik')
+                            ->required()
+                            ->maxLength(255),                        
                         Forms\Components\TextInput::make('email')
                             ->email()
                             ->required()
@@ -89,7 +91,7 @@ class OrderResource extends Resource
                             ->tel()
                             ->required()
                             ->maxLength(255),
-                    ]),
+                    ])->columns(2),
                     Section::make('Supporting Document')->schema([
                         Forms\Components\FileUpload::make('ktp')
                             ->disk('public')
@@ -111,16 +113,22 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('referal')
                             ->disabled()
                             ->reactive(),
-                        Forms\Components\TextInput::make('paymentType')
-                            ->disabled()
-                            ->reactive(),
                         Forms\Components\TextInput::make('snapKey')
                             ->disabled()
                             ->maxLength(255)
                             ->default(null),
+                        Forms\Components\TextInput::make('paymentType')
+                            ->disabled()
+                            ->reactive(),                        
                         Forms\Components\Select::make('subscription')
                             ->options(subscription::pluck('title', 'id')->toArray())
                             ->reactive(),
+                        Forms\Components\TextInput::make('subscriptionCost')
+                            ->mask(RawJs::make('$money($input)'))
+                            ->numeric()
+                            ->prefix('IDR')
+                            ->stripCharacters(',')
+                            ->default(0),
                         Forms\Components\TextInput::make('domainCost')
                             ->mask(RawJs::make('$money($input)'))
                             ->numeric()
@@ -132,25 +140,21 @@ class OrderResource extends Resource
                             ->numeric()
                             ->prefix('IDR')
                             ->stripCharacters(',')
-                            ->default(0),
-                        Forms\Components\TextInput::make('subscriptionCost')
-                            ->mask(RawJs::make('$money($input)'))
-                            ->numeric()
-                            ->prefix('IDR')
-                            ->stripCharacters(',')
-                            ->default(0),
+                            ->default(0),                        
                         Forms\Components\TextInput::make('total_payment')
                             ->mask(RawJs::make('$money($input)'))
+                            ->label('Total Amount')
                             ->numeric()
                             ->prefix('IDR')
                             ->stripCharacters(',')
+                            ->columnSpanFull()
                             ->default(0),
                         Forms\Components\FileUpload::make('invoice')
                             ->disk('public')
                             ->downloadable()
+                            ->columnSpanFull()
                             ->default(null),
-                        
-                    ]),
+                    ])->columns(2),
                 // ]),
             ]);
     }
