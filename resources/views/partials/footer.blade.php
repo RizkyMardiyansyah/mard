@@ -166,11 +166,10 @@
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
         
-                if (targetId && targetId.startsWith('/#')) {
-                    const targetElement = document.querySelector(targetId.slice(1)); // Menghapus '/' agar selector valid
-        
-                    if (targetElement) { // Periksa apakah elemen target ada
-                        e.preventDefault(); // Mencegah navigasi default
+                if (targetId && (targetId.startsWith('/#') || targetId.startsWith('/website#'))) {
+                    const targetElement = document.querySelector(targetId.slice(1));        
+                    if (targetElement) {
+                        e.preventDefault();
                         const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
         
                         window.scrollTo({

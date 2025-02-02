@@ -11,7 +11,7 @@
             </a>
         </div>
         <div class="d-flex" style="margin-left: auto">
-            <a href="#order" class="view select d-flex align-items-center justify-content-center" data-template-pembelian="{{ $template->total_pembelian }}" data-template-id="{{ $template->id }}" data-template-price="{{ $template->price }}" data-template-title="{{ $template->title }}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
+            <a href="/#order" class="view select d-flex align-items-center justify-content-center" data-template-pembelian="{{ $template->total_pembelian }}" data-template-id="{{ $template->id }}" data-template-price="{{ $template->price }}" data-template-title="{{ $template->title }}" data-bs-toggle="tooltip" title="Pilih Template"><i class="fas fa-check"></i></a>
             <a href="{{ $template->link }}" target="_blank" class="view d-flex align-items-center justify-content-center" data-bs-toggle="tooltip" title="Live Preview"><i class="fas fa-eye"></i></a>
         </div>
     </div>
