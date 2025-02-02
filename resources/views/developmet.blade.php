@@ -26,7 +26,7 @@
           "@type": "WebSite",
           "name": "Mitra Adidaya Rekayasa Digital",
           "alternateName": ["Mardsoft", "Mard", "Mard Software"],
-          "url": "https://www.mardsoft.com/"
+          "url": "https://mardsoft.com/"
         }
     </script>
     </head>
