@@ -10,6 +10,9 @@ use illuminate\Database\Eloquent\Relations\HasMany;
 class template extends Model
 {
     use HasFactory;
+    protected $casts = [
+        'tag' => 'array',
+    ];
     protected $guarded = [];
         protected static function boot()
     {
