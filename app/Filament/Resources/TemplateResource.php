@@ -51,7 +51,8 @@ class TemplateResource extends Resource
                 
                 Forms\Components\TextInput::make('purchases')
                     ->nullable()
-                    ->numeric(),
+                    ->numeric()
+                    ->default(0),
                 Forms\Components\TextInput::make('price')
                     ->mask(RawJs::make('$money($input)'))
                     ->prefix('IDR')
