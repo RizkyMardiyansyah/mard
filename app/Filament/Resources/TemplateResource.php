@@ -47,8 +47,7 @@ class TemplateResource extends Resource
                     ->required()
                     ->disk('public')
                     ->downloadable()
-                    ->columnSpanFull()
-                    ->image(),                
+                    ->columnSpanFull(),               
                 
                 Forms\Components\TextInput::make('purchases')
                     ->nullable()
@@ -56,7 +55,7 @@ class TemplateResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->mask(RawJs::make('$money($input)'))
                     ->prefix('IDR')
-                    ->default(null),
+                    ->default(0),
                 Forms\Components\Radio::make('type')
                     ->required()
                     ->options([
