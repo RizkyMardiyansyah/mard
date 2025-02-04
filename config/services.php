@@ -13,10 +13,6 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
-    'openai' => [
-        'key' => env('OPENAI_API_KEY'),
-        'url' => 'https://api.openai.com/v1/chat/completions',
-    ],
 
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),

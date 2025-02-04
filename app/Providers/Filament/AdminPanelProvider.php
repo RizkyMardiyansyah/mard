@@ -97,7 +97,6 @@ class AdminPanelProvider extends PanelProvider
                     ->label('My Profile')
                     ->url('/admin/my-profile')
                     ->icon('heroicon-o-user'),
-                
             ])
 
             ->navigationItems([
