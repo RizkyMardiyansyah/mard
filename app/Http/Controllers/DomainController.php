@@ -23,7 +23,7 @@ class DomainController extends Controller
     }
     $search = $request->input('search');
     $type = $request->input('type', 'all'); 
-    
+    $category = $request->input('category', 'all'); 
 
     if ($search) {
         $templates = Template::where('title', 'LIKE', "%{$search}%")

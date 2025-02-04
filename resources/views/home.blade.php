@@ -198,11 +198,11 @@
                 
                 <div class="row d-flex justify-content-between align-items-center ">
                     <!-- Tabs untuk memilih tipe template -->
-                    <div class="col-md-6 col-12 mt-4">
+                    <div class="col-md-5 col-12 mt-4">
                         <div class="btn-group tabs" role="group" aria-label="Tipe Template">
                             <input type="radio" class="btn-check" name="type" id="all" value="all" 
                                 {{ request('type') == 'all' ? 'checked' : '' }} checked>
-                            <label class="btn btn-outline-primary" for="all">ALL</label>
+                            <label class="btn btn-outline-primary" for="all" data-lang-en="ALL" data-lang-id="SEMUA">ALL</label>
                     
                             <input type="radio" class="btn-check" name="type" id="basic" value="Basic"
                                 {{ request('type') == 'basic' ? 'checked' : '' }}>
@@ -213,9 +213,18 @@
                             <label class="btn btn-outline-primary" for="premium">PREMIUM</label>
                         </div>
                     </div>
+                    <div class="col-md-2 col-12 mt-4" style="align-item:right;">
+                        <select style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border-radius:10px; height:45px; font-weight:normal; " class="form-select" id="categorySelect" name="category" aria-label="Category">
+                            <option value="all" data-lang-en="Category" data-lang-id="Kategori">Category</option>
+                            <option value="all" {{ request('type') == 'all' ? 'selected' : '' }} data-lang-en="all" data-lang-id="Semua">All</option>
+                            <option value="Website" {{ request('type') == 'Website' ? 'selected' : '' }}>Website</option>
+                            <option value="System" {{ request('type') == 'System' ? 'selected' : '' }}>System</option>
+                        </select>
+                    </div>
+                    
                 
                     <!-- Input Search -->
-                    <div class="col-md-6 col-12 mt-4">
+                    <div class="col-md-5 col-12 mt-4">
                         <div class="input-group" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border-radius:10px;">
                             <input type="text" name="search" id="search" class="form-control" placeholder="Find your template..." required>
                             <button style="opacity: 100%; margin-top:0px" class="btn btn-primary" type="submit">Search</button>
@@ -401,13 +410,14 @@
      
              // Event untuk form pencarian
              $('#searchTemplateForm').on('submit', function(e) {
-                 e.preventDefault(); // Mencegah submit standar
-                 performSearchOrPagination($(this).attr('action'), 'POST', { 
-                     _token: '{{ csrf_token() }}',
-                     search: $('#search').val(),
-                     type: $('input[name="type"]:checked').val() // Tambahkan tipe yang dipilih
-                 });
-             });
+                e.preventDefault(); // Mencegah submit standar
+                performSearchOrPagination($(this).attr('action'), 'POST', { 
+                    _token: '{{ csrf_token() }}',
+                    search: $('#search').val(),
+                    type: $('input[name="type"]:checked').val(),
+                    category: $('#categorySelect').val()
+                });
+            });
              // Event untuk tab tipe template
              $('input[name="type"]').on('change', function() {
                  $('#searchTemplateForm').submit(); // Submit form saat tab berubah

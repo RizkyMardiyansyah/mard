@@ -21,10 +21,12 @@ class ContactController extends Controller
             //     'message' => 'required|string',
             // ]);
             $validated = $request->all();
-            Mail::to($validated['email'])->queue(new clientContactMail($validated));
-            Mail::to('hi@mardsoft.com')->queue(new ContactMail($validated));
+            $message = Message::create($validated);
+            if ($message) {
+                Mail::to($validated['email'])->queue(new clientContactMail($validated));
+                Mail::to('hi@mardsoft.com')->queue(new ContactMail($validated));
+            }
 
-            Message::create($validated);
             return redirect()->back()->with('success', 'Your message has been sent successfully.');
 
         } catch (\Exception $e) {
