@@ -213,14 +213,14 @@
                             <label class="btn btn-outline-primary" for="premium">PREMIUM</label>
                         </div>
                     </div>
-                    <div class="col-md-2 col-12 mt-4" style="align-item:right;">
+                    {{-- <div class="col-md-2 col-12 mt-4" style="align-item:right;">
                         <select style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border-radius:10px; height:45px; font-weight:normal; " class="form-select" id="categorySelect" name="category" aria-label="Category">
                             <option value="all" data-lang-en="Category" data-lang-id="Kategori">Category</option>
                             <option value="all" {{ request('type') == 'all' ? 'selected' : '' }} data-lang-en="all" data-lang-id="Semua">All</option>
                             <option value="Website" {{ request('type') == 'Website' ? 'selected' : '' }}>Website</option>
                             <option value="System" {{ request('type') == 'System' ? 'selected' : '' }}>System</option>
                         </select>
-                    </div>
+                    </div> --}}
                     
                 
                     <!-- Input Search -->

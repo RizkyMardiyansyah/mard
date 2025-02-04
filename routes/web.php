@@ -38,6 +38,7 @@ Route::post('/search', [DomainController::class, 'index'])->name('searchtemplate
 Route::get('/custom-app-development', function () {return view('developmet');});
 Route::get('/one-stop-iot-solutions', function () {return view('iot');});
 Route::get('/contact', function () {return view('contact');});
+Route::get('/faq', function () {return view('guide');});
 
 Route::post('/orderstore', [DomainController::class, 'store'])->name('orderstore');
 Route::get('/update-status', [paymentController::class, 'updateStatus'])->name('updateStatus');
