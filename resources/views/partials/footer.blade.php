@@ -55,17 +55,17 @@
                 <!-- Social Media Icons Section -->
                 <div class="order-md-2 col-lg-6 col-md-6 col-12 d-flex justify-content-lg-end justify-content-md-end justify-content-start">
                     <footer class="mt-4 ml-md-auto">
-                        <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
+                        {{-- <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
                             <i class="fab fa-github fs-5"></i>
+                        </a> --}}
+                        <a href="https://web.facebook.com/mardsoft" class="me-3" style="color: inherit; text-decoration: none;" title="Facebook">
+                            <i class="fab fa-facebook fs-3"></i>
                         </a>
-                        <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
-                            <i class="fab fa-x-twitter fs-5"></i>
+                        <a href="https://www.instagram.com/hi.mardsoft/" class="me-3" style="color: inherit; text-decoration: none;" title="Instagram">
+                            <i class="fab fa-instagram fs-3"></i>
                         </a>
-                        <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
-                            <i class="fab fa-instagram fs-5"></i>
-                        </a>
-                        <a href="#" style="color: inherit; text-decoration: none;">
-                            <i class="fab fa-linkedin fs-5"></i>
+                        <a href="https://www.linkedin.com/company/mardsoft/" target="_blank" style="color: inherit; text-decoration: none;" title="LinkedIn">
+                            <i class="fab fa-linkedin fs-3"></i>
                         </a>
                     </footer>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="order-md-1 copyright col-lg-6 col-md-6 col-12 ">
                     <footer class="mt-4 text-left">
                         <p style="text-transform:capitalize;" class="mb-0">
-                            Copyright © <span id="year"></span> | {{ ucfirst(strtolower(config('app.name'))) }}.
+                            Copyright <span id="year"></span>,  <span style="margin-left: 10px">PT {{ ucfirst(strtolower(config('app.name'))) }}.</span>
                         </p>
                         
                         <script>

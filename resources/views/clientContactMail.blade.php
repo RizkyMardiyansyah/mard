@@ -47,12 +47,12 @@
             padding: 20px;
             margin-bottom: 20px;
         }
-        .footer {
+        /* .footer {
             text-align: center;
             margin-top: 30px;
             font-size: 0.9em;
             color: #777;
-        }
+        } */
     </style>
 </head>
 <body>
@@ -79,7 +79,7 @@
                             <div class="flex-column ">  
                                 <p>Hormat kami,</p>
                                 <p><strong>{{ config('app.name') }}</strong></p>
-                                <a style="color: black; text-decoration:inherit; margin-top:20px;" href="https://wa.me/62895405543809" target="_blank"> Rizky Mardiyansyah</a>
+                                <span style="color: black; text-decoration:inherit; margin-top:20px;" href="https://wa.me/62895405543809" target="_blank"> Rizky Mardiyansyah</span>
                                 <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895405543809" target="_blank">0895-4055-43809</a>
                             </div>
                         </td>
@@ -103,7 +103,7 @@
                             <div class="flex-column">  
                                 <p>Best regards,</p>
                                 <p><strong>{{ config('app.name') }}</strong></p>
-                                <a style="color: black; text-decoration: inherit; margin-top: 20px;" href="https://wa.me/62895405543809" target="_blank">Rizky Mardiyansyah</a>
+                                <p style="color: black; text-decoration: inherit; margin-top: 20px;" href="https://wa.me/62895405543809" target="_blank"><span>Rizky Mardiyansyah</span></p>
                                 <a style="color: black; text-decoration: inherit;" href="https://wa.me/62895405543809" target="_blank">0895-4055-43809</a>
                             </div>
                         </td>
@@ -111,12 +111,39 @@
                 </table>
             </div>
         </div>
-        <div class="footer">
-            <div class="footer">
-                <p>Copyright © <span id="year"></span> | {{ ucwords(strtolower(config('app.name'))) }}</p>
+        <div style="width: 100%; background-color: #222; color: #fff; padding: 20px; font-family: Arial, sans-serif;">
+            <div style="max-width: 600px; margin: auto;">
+                
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="width: 48%; margin-bottom: 20px;">
+                        <img src="https://mardsoft.com/img/MardPutih.svg" alt="Logo" style="height: 40px;">
+                    </div>
+                    
+                    <div style="width: 48%; margin-bottom: 20px;">
+                        <span>PT {{ ucfirst(strtolower(config('app.name'))) }}.</span>
+                        <p><b>Cakung Timur</b>, Jakarta Timur, DKI Jakarta, 13910, Indonesia</p>
+                        
+                        <div style="text-align: center; margin-top:20px;">
+                            <a href="https://web.facebook.com/mardsoft" style="text-decoration: none; margin: 0 10px;">
+                                <img src="{{ config('app.url') }}/img/facebook.png" alt="Facebook" width="24" height="24">
+                            </a>
+                            <a href="https://www.instagram.com/hi.mardsoft/" style="text-decoration: none; margin: 0 10px;">
+                                <img src="{{ config('app.url') }}/img/instagram.png" alt="Instagram" width="24" height="24">
+                            </a>
+                            <a href="https://www.linkedin.com/company/mardsoft/" style="text-decoration: none; margin: 0 10px;">
+                                <img src="{{ config('app.url') }}/img/linkedin.png" alt="Linkedin" width="24" height="24">
+                            </a>
+                        </div>                        
+                    </div>
+                </div>
+                 <hr style="color: #fff">            
+                <div style="margin-top: 20px; text-align: center;">
+                    <p>Copyright <?php echo date('Y'); ?>, <span style="margin-left: 10px">PT {{ ucfirst(strtolower(config('app.name'))) }}.</span></p>
+                </div>
             </div>
-
-    </div>
+        </div>
+      
     </div>
 </body>
 
