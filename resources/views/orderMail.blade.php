@@ -169,28 +169,56 @@
             
 
                 <p style="margin-top: 50px">Jika Anda membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
-                <table style="margin-top: 50px;">
-                    <tr>
-                        <td style="width: 50%"></td>
-                        <td style="width: 50%">
-                            <div class="flex-column ">  
-                                <p>Hormat kami,</p>
-                                <p><strong>{{ config('app.name') }}</strong></p>
-                                <a style="color: black; text-decoration:inherit; margin-top:20px;" href="https://wa.me/62895405543809" target="_blank"> Rizky Mardiyansyah</a>
-                                <a style="color: black; text-decoration:inherit;" href="https://wa.me/62895405543809" target="_blank">0895-4055-43809</a>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
+                    <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
+                        <img width="20px" src="{{ config('app.url') }}/img/email.png" alt="">
+                        hi@mardsoft.com
+                    </a>
+                </p>                
+                <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
+                    <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
+                        <img width="20px" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
+                        0895-4055-43809
+                    </a>
+                </p>
+                <div style="margin-top: 50px;" class="flex-column">  
+                    <p>Best regards,</p>                    
+                    <p style="color: black; text-decoration: inherit; margin-top: 20px;" href="https://wa.me/62895405543809" target="_blank"><span>Rizky Mardiyansyah</span></p>
+                    <p><strong>PT {{ config('app.name') }}</strong></p>
+                </div>
             </div>
             
         </div>
-        <div class="footer">
-            <div class="footer">
-                <p>Copyright © <span id="year"></span> | {{ ucwords(strtolower(config('app.name'))) }}</p>
+        <div style="background-color: #222; color: #fff; padding: 20px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+            <div style="max-width: 600px; margin: auto;">           
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="width: 48%; margin-bottom: 20px; display: flex; align-item:center;">
+                        <img src="https://mardsoft.com/img/MardPutih.png" alt="Logo" style="width: 50%;">
+                    </div>                    
+                    <div style="width: 48%; margin-bottom: 20px;">
+                        <span>PT {{ ucfirst(strtolower(config('app.name'))) }}.</span>
+                        <p><b>Cakung Timur</b>, Jakarta Timur, DKI Jakarta, 13910, Indonesia</p>
+                        
+                        <div style="text-align: center; margin-top:20px;">
+                            <a href="https://web.facebook.com/mardsoft" style="text-decoration: none; margin: 0 10px;">
+                                <img src="{{ config('app.url') }}/img/facebook.png" alt="Facebook" width="30" height="30">
+                            </a>
+                            <a href="https://www.instagram.com/hi.mardsoft/" style="text-decoration: none; margin: 0 10px;">
+                                <img src="{{ config('app.url') }}/img/instagram.png" alt="Instagram" width="30" height="30">
+                            </a>
+                            <a href="https://www.linkedin.com/company/mardsoft/" style="text-decoration: none; margin: 0 10px;">
+                                <img src="{{ config('app.url') }}/img/linkedin.png" alt="Linkedin" width="30" height="30">
+                            </a>
+                        </div>                        
+                    </div>
+                </div>
+                 <hr style="color: #EBEBEC">            
+                <div style="margin-top: 20px; text-align: center; font-size: 0.9em;">
+                    <p>Copyright <?php echo date('Y'); ?>, <span style="margin-left: 10px">PT {{ ucwords(strtolower(config('app.name'))) }}.</span></p>
+                </div>
             </div>
-
-    </div>
+        </div>
     </div>
 </body>
 

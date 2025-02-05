@@ -27,7 +27,7 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Message from'. ($this->validated['name'] ?? 'User')
+            subject: 'New Message from '. ($this->validated['name'] ?? 'User')
         );
     }
 

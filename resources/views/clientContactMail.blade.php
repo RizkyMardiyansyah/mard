@@ -47,12 +47,7 @@
             padding: 20px;
             margin-bottom: 20px;
         }
-        /* .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #777;
-        } */
+        
     </style>
 </head>
 <body>
@@ -74,17 +69,13 @@
                 <p>Jika Anda membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
                 <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
                     <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
-                        <svg width="20" height="20" viewBox="0 0 1.25 1.25" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#488EFE" fill-rule="evenodd" d="m0.448 0.708 0.177 0.121 0.171 -0.118 0.382 0.377q-0.015 0.005 -0.032 0.005H0.104c-0.014 0 -0.027 -0.003 -0.039 -0.007zM1.25 0.399v0.591c0 0.015 -0.003 0.03 -0.009 0.043l-0.375 -0.37zM0 0.402l0.378 0.258 -0.371 0.366A0.106 0.106 0 0 1 0 0.99zM1.146 0.156c0.058 0 0.104 0.047 0.104 0.104v0.037L0.625 0.728 0 0.301v-0.04C0 0.203 0.047 0.156 0.104 0.156z"/>
-                        </svg> 
+                        <img width="20px" src="{{ config('app.url') }}/img/email.png" alt="">
                         hi@mardsoft.com
                     </a>
                 </p>                
                 <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
                     <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
-                        <svg width="20" height="20" viewBox="0 0 1.5 1.5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.282.218A.74.74 0 0 0 .756 0a.744.744 0 0 0-.743.743.74.74 0 0 0 .099.371L.007 1.5l.394-.103a.74.74 0 0 0 .355.09c.41 0 .743-.333.743-.743a.74.74 0 0 0-.217-.526m-.187.681C1.076.89.985.845.968.838S.939.829.926.847C.914.866.878.907.867.92Q.852.938.827.925C.802.912.749.896.678.833.623.784.585.723.575.704S.574.675.583.666L.611.633C.62.622.623.614.63.602Q.637.584.628.569C.619.554.586.468.571.431.556.395.541.4.529.399L.493.398a.07.07 0 0 0-.05.023C.426.44.378.485.378.576s.067.18.076.192.131.2.317.28q.052.022.106.039a.25.25 0 0 0 .117.007c.036-.005.11-.045.125-.088s.015-.081.011-.088C1.125.91 1.113.906 1.095.897z" fill="#488EFE"/>
-                        </svg>  
+                        <img width="20px" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
                         0895-4055-43809
                     </a>
                 </p>
@@ -104,20 +95,15 @@
                 <p>We greatly appreciate your interest. Our team will reach out to you shortly to further discuss potential collaboration opportunities.</p>
                 <p>We believe that through the right collaboration, we can create innovative solutions that add value to your business. We look forward to the opportunity to work together.</p>
                 <p>If you need further assistance, please do not hesitate to contact us:</p>
-    
                 <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
                     <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
-                        <svg width="20" height="20" viewBox="0 0 1.25 1.25" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#488EFE" fill-rule="evenodd" d="m0.448 0.708 0.177 0.121 0.171 -0.118 0.382 0.377q-0.015 0.005 -0.032 0.005H0.104c-0.014 0 -0.027 -0.003 -0.039 -0.007zM1.25 0.399v0.591c0 0.015 -0.003 0.03 -0.009 0.043l-0.375 -0.37zM0 0.402l0.378 0.258 -0.371 0.366A0.106 0.106 0 0 1 0 0.99zM1.146 0.156c0.058 0 0.104 0.047 0.104 0.104v0.037L0.625 0.728 0 0.301v-0.04C0 0.203 0.047 0.156 0.104 0.156z"/>
-                        </svg> 
+                        <img width="20px" src="{{ config('app.url') }}/img/email.png" alt="">
                         hi@mardsoft.com
                     </a>
                 </p>                
                 <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
                     <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
-                        <svg width="20" height="20" viewBox="0 0 1.5 1.5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.282.218A.74.74 0 0 0 .756 0a.744.744 0 0 0-.743.743.74.74 0 0 0 .099.371L.007 1.5l.394-.103a.74.74 0 0 0 .355.09c.41 0 .743-.333.743-.743a.74.74 0 0 0-.217-.526m-.187.681C1.076.89.985.845.968.838S.939.829.926.847C.914.866.878.907.867.92Q.852.938.827.925C.802.912.749.896.678.833.623.784.585.723.575.704S.574.675.583.666L.611.633C.62.622.623.614.63.602Q.637.584.628.569C.619.554.586.468.571.431.556.395.541.4.529.399L.493.398a.07.07 0 0 0-.05.023C.426.44.378.485.378.576s.067.18.076.192.131.2.317.28q.052.022.106.039a.25.25 0 0 0 .117.007c.036-.005.11-.045.125-.088s.015-.081.011-.088C1.125.91 1.113.906 1.095.897z" fill="#488EFE"/>
-                        </svg>  
+                        <img width="20px" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
                         0895-4055-43809
                     </a>
                 </p>
@@ -133,10 +119,9 @@
                 
                 
                 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="width: 48%; margin-bottom: 20px;">
+                    <div style="width: 48%; margin-bottom: 20px; display: flex; align-item:center;">
                         <img src="https://mardsoft.com/img/MardPutih.png" alt="Logo" style="width: 50%;">
-                    </div>
-                    
+                    </div>                    
                     <div style="width: 48%; margin-bottom: 20px;">
                         <span>PT {{ ucfirst(strtolower(config('app.name'))) }}.</span>
                         <p><b>Cakung Timur</b>, Jakarta Timur, DKI Jakarta, 13910, Indonesia</p>
@@ -154,8 +139,8 @@
                         </div>                        
                     </div>
                 </div>
-                 <hr style="color: #fff">            
-                <div style="margin-top: 20px; text-align: center;">
+                 <hr style="color: #EBEBEC">            
+                <div style="margin-top: 20px; text-align: center; font-size: 0.9em;">
                     <p>Copyright <?php echo date('Y'); ?>, <span style="margin-left: 10px">PT {{ ucwords(strtolower(config('app.name'))) }}.</span></p>
                 </div>
             </div>
