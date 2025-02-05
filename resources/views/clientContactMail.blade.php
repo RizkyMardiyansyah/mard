@@ -67,13 +67,12 @@
                 <p>Kami sangat menghargai ketertarikan Anda. Tim kami akan segera menghubungi Anda untuk mendiskusikan lebih lanjut mengenai peluang kerja sama yang dapat kita jalin.</p>
                 <p>Kami percaya bahwa melalui kolaborasi yang tepat, kita dapat menciptakan solusi inovatif yang memberikan nilai tambah bagi bisnis Anda. Kami menantikan kesempatan untuk bekerja sama dengan Anda.</p> 
                 <p>Jika Anda membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
-                <a style="margin:5px; width:200px; display: flex; align-items: center; gap: 8px; background:#488EFE; border-radius:10px; padding:10px; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; justify-content:center;" href="mailto:hi@mardsoft.com" target="_blank">
+                <a style="width:200px; display: flex; align-items: center; gap: 8px;  padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
                     <img width="20px"  style="margin-right: 10px;" src="{{ config('app.url') }}/img/email.png" alt="">
                     hi@mardsoft.com
-                </a>
-                             
+                </a>       
               
-                <a style="margin:5px; width:200px; display: flex; align-items: center; gap: 8px; background:#488EFE; border-radius:10px; padding:10px; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; justify-content:center;" href="https://wa.me/62895405543809" target="_blank">
+                <a style=" width:200px; display: flex; align-items: center; gap: 8px; padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
                     <img width="20px" style="margin-right: 10px;" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
                     0895-4055-43809
                 </a>
@@ -94,13 +93,12 @@
                 <p>We greatly appreciate your interest. Our team will reach out to you shortly to further discuss potential collaboration opportunities.</p>
                 <p>We believe that through the right collaboration, we can create innovative solutions that add value to your business. We look forward to the opportunity to work together.</p>
                 <p>If you need further assistance, please do not hesitate to contact us:</p>
-                <a style="margin:5px; width:200px; display: flex; align-items: center; gap: 8px; background:#488EFE; border-radius:10px; padding:10px; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; justify-content:center;" href="mailto:hi@mardsoft.com" target="_blank">
+                <a style="margin:5px; width:200px; display: flex; align-items: center; gap: 8px;  padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
                     <img width="20px"  style="margin-right: 10px;" src="{{ config('app.url') }}/img/email.png" alt="">
                     hi@mardsoft.com
-                </a>
-                             
+                </a>       
               
-                <a style="margin:5px; width:200px; display: flex; align-items: center; gap: 8px; background:#488EFE; border-radius:10px; padding:10px; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; justify-content:center;" href="https://wa.me/62895405543809" target="_blank">
+                <a style="margin:5px; width:200px; display: flex; align-items: center; gap: 8px; padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
                     <img width="20px" style="margin-right: 10px;" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
                     0895-4055-43809
                 </a>
