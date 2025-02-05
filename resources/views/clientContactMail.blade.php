@@ -77,11 +77,11 @@
                     0895-4055-43809
                 </a>
               
-              <div style="margin-top: 50px;" class="flex-column">  
-                <p>Hormat Kami,</p>                    
-                <p style="color: black; text-decoration: inherit; margin-top: 20px;" href="https://wa.me/62895405543809" target="_blank"><span>Rizky Mardiyansyah</span></p>
-                <p><b>PT {{ config('app.name') }}</b></p>
-              </div>
+                <div style="margin-top: 50px;" class="flex-column">  
+                    <p>Hormat Kami,</p>                    
+                    <p style="margin:0px; color: black; text-decoration: inherit; margin-top: 30px;" href="https://wa.me/62895405543809" target="_blank">Rizky Mardiyansyah</p>
+                    <p style="margin: 0px; margin-top:10px;"><b>PT {{ config('app.name') }}</b></p>
+                </div> 
             </div>
             
             <hr style="margin: 20px 0; border: 1px solid #ccc;">
@@ -89,7 +89,7 @@
             <div class="content">
                 <h2 class="tittle" style="font-size: bolder;">Your Message Has Been Received</h2>
                 <p>Dear {{ $validated['name'] }},</p>
-                <p style="margin-top: 50px;">Thank you for contacting <a href="{{ config('app.url') }}" target="_blank">{{ config('app.name') }}</a>. We have successfully received your message.</p>
+                <p>Thank you for contacting <a href="{{ config('app.url') }}" target="_blank">{{ config('app.name') }}</a>. We have successfully received your message.</p>
                 <p>We greatly appreciate your interest. Our team will reach out to you shortly to further discuss potential collaboration opportunities.</p>
                 <p>We believe that through the right collaboration, we can create innovative solutions that add value to your business. We look forward to the opportunity to work together.</p>
                 <p>If you need further assistance, please do not hesitate to contact us:</p>
@@ -103,11 +103,11 @@
                     0895-4055-43809
                 </a>
               
-              <div style="margin-top: 50px;" class="flex-column">  
-                <p>Best regards,</p>                    
-                <p style="color: black; text-decoration: inherit; margin-top: 20px;" href="https://wa.me/62895405543809" target="_blank"><span>Rizky Mardiyansyah</span></p>
-                <p><b>PT {{ config('app.name') }}</b></p>
-              </div>                        
+                <div style="margin-top: 50px;" class="flex-column">  
+                    <p>Best regards,</p>                    
+                    <p style="margin:0px; color: black; text-decoration: inherit; margin-top: 30px;" href="https://wa.me/62895405543809" target="_blank">Rizky Mardiyansyah</p>
+                    <p style="margin: 0px; margin-top:10px;"><b>PT {{ config('app.name') }}</b></p>
+                  </div>                        
             </div>
         </div>
         <div style="background-color: #222; color: #fff; padding: 20px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">

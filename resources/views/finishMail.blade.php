@@ -218,27 +218,23 @@
                             <li>Jika website Anda belum siap pada {{ $order['updated_at']->addHours(24)->format('d F Y H:i:s') }}, Anda akan mendapatkan refund 100%.</li>
                             <li>Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</li>
                             <li>Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</li>
-                                <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
-                                    <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
-                                        <img width="20px" src="{{ config('app.url') }}/img/email.png" alt="">
-                                        hi@mardsoft.com
-                                    </a>
-                                </p>                
-                                <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
-                                    <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
-                                        <img width="20px" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
-                                        0895-4055-43809
-                                    </a>
-                                </p>                                               
+                            <a style="width:200px; display: flex; align-items: center; gap: 8px;  padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
+                                <img width="20px"  style="margin-right: 10px;" src="{{ config('app.url') }}/img/email.png" alt="">
+                                hi@mardsoft.com
+                            </a>       
+                          
+                            <a style=" width:200px; display: flex; align-items: center; gap: 8px; padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
+                                <img width="20px" style="margin-right: 10px;" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
+                                0895-4055-43809
+                            </a>                                              
                         </ul>
                     </div>
-                </div>
-                
+                </div>              
                 <div style="margin-top: 50px;" class="flex-column">  
-                    <p>Best regards,</p>                    
-                    <p style="color: black; text-decoration: inherit; margin-top: 20px;" href="https://wa.me/62895405543809" target="_blank"><span>Rizky Mardiyansyah</span></p>
-                    <p><strong>PT {{ config('app.name') }}</strong></p>
-                </div>        
+                    <p>Hormat Kami,</p>                    
+                    <p style="margin:0px; color: black; text-decoration: inherit; margin-top: 30px;" href="https://wa.me/62895405543809" target="_blank">Rizky Mardiyansyah</p>
+                    <p style="margin: 0px; margin-top:10px;"><b>PT {{ config('app.name') }}</b></p>
+                </div>       
             </div>
             
         </div>
