@@ -67,23 +67,22 @@
                 <p>Kami sangat menghargai ketertarikan Anda. Tim kami akan segera menghubungi Anda untuk mendiskusikan lebih lanjut mengenai peluang kerja sama yang dapat kita jalin.</p>
                 <p>Kami percaya bahwa melalui kolaborasi yang tepat, kita dapat menciptakan solusi inovatif yang memberikan nilai tambah bagi bisnis Anda. Kami menantikan kesempatan untuk bekerja sama dengan Anda.</p> 
                 <p>Jika Anda membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
-                <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
-                    <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
-                        <img width="20px" src="{{ config('app.url') }}/img/email.png" alt="">
-                        hi@mardsoft.com
-                    </a>
-                </p>                
-                <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
-                    <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
-                        <img width="20px" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
-                        0895-4055-43809
-                    </a>
-                </p>
-                <div style="margin-top: 50px;" class="flex-column">  
-                    <p>Best regards,</p>                    
-                    <p style="color: black; text-decoration: inherit; margin-top: 20px;" href="https://wa.me/62895405543809" target="_blank"><span>Rizky Mardiyansyah</span></p>
-                    <p><strong>PT {{ config('app.name') }}</strong></p>
-                </div>
+                <a style="margin:5px; width:200px; display: flex; align-items: center; gap: 8px; background:#488EFE; border-radius:10px; padding:10px; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; justify-content:center;" href="mailto:hi@mardsoft.com" target="_blank">
+                    <img width="20px"  style="margin-right: 10px;" src="{{ config('app.url') }}/img/email.png" alt="">
+                    hi@mardsoft.com
+                </a>
+                             
+              
+                <a style="margin:5px; width:200px; display: flex; align-items: center; gap: 8px; background:#488EFE; border-radius:10px; padding:10px; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; justify-content:center;" href="https://wa.me/62895405543809" target="_blank">
+                    <img width="20px" style="margin-right: 10px;" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
+                    0895-4055-43809
+                </a>
+              
+              <div style="margin-top: 50px;" class="flex-column">  
+                <p>Hormat Kami,</p>                    
+                <p style="color: black; text-decoration: inherit; margin-top: 20px;" href="https://wa.me/62895405543809" target="_blank"><span>Rizky Mardiyansyah</span></p>
+                <p><b>PT {{ config('app.name') }}</b></p>
+              </div>
             </div>
             
             <hr style="margin: 20px 0; border: 1px solid #ccc;">
@@ -95,23 +94,22 @@
                 <p>We greatly appreciate your interest. Our team will reach out to you shortly to further discuss potential collaboration opportunities.</p>
                 <p>We believe that through the right collaboration, we can create innovative solutions that add value to your business. We look forward to the opportunity to work together.</p>
                 <p>If you need further assistance, please do not hesitate to contact us:</p>
-                <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
-                    <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
-                        <img width="20px" src="{{ config('app.url') }}/img/email.png" alt="">
-                        hi@mardsoft.com
-                    </a>
-                </p>                
-                <p style="display: flex; align-items: center; gap: 8px; margin-left:10px;">
-                    <a style="color: black; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
-                        <img width="20px" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
-                        0895-4055-43809
-                    </a>
-                </p>
-                <div style="margin-top: 50px;" class="flex-column">  
-                    <p>Best regards,</p>                    
-                    <p style="color: black; text-decoration: inherit; margin-top: 20px;" href="https://wa.me/62895405543809" target="_blank"><span>Rizky Mardiyansyah</span></p>
-                    <p><strong>PT {{ config('app.name') }}</strong></p>
-                </div>                        
+                <a style="margin:5px; width:200px; display: flex; align-items: center; gap: 8px; background:#488EFE; border-radius:10px; padding:10px; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; justify-content:center;" href="mailto:hi@mardsoft.com" target="_blank">
+                    <img width="20px"  style="margin-right: 10px;" src="{{ config('app.url') }}/img/email.png" alt="">
+                    hi@mardsoft.com
+                </a>
+                             
+              
+                <a style="margin:5px; width:200px; display: flex; align-items: center; gap: 8px; background:#488EFE; border-radius:10px; padding:10px; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; justify-content:center;" href="https://wa.me/62895405543809" target="_blank">
+                    <img width="20px" style="margin-right: 10px;" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
+                    0895-4055-43809
+                </a>
+              
+              <div style="margin-top: 50px;" class="flex-column">  
+                <p>Best regards,</p>                    
+                <p style="color: black; text-decoration: inherit; margin-top: 20px;" href="https://wa.me/62895405543809" target="_blank"><span>Rizky Mardiyansyah</span></p>
+                <p><b>PT {{ config('app.name') }}</b></p>
+              </div>                        
             </div>
         </div>
         <div style="background-color: #222; color: #fff; padding: 20px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
@@ -119,7 +117,7 @@
                 
                 
                 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="width: 48%; margin-bottom: 20px; display: flex; align-item:center;">
+                    <div style="width: 48%; margin-bottom: 20px; align-item:center;">
                         <img src="https://mardsoft.com/img/MardPutih.png" alt="Logo" style="width: 50%;">
                     </div>                    
                     <div style="width: 48%; margin-bottom: 20px;">
