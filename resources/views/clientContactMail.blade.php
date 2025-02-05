@@ -117,7 +117,7 @@
                 
                 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
                     <div style="width: 48%; margin-bottom: 20px;">
-                        <img src="https://mardsoft.com/img/MardPutih.svg" alt="Logo" style="height: 40px;">
+                        <img src="https://mardsoft.com/img/MardPutih.svg" alt="Logo" style="width: 50%;">
                     </div>
                     
                     <div style="width: 48%; margin-bottom: 20px;">
