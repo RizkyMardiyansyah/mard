@@ -110,9 +110,8 @@
             </div>
             <div class="col-md-3 col-12"></div>
             
-            <div class="col-lg-6 col-12">
-                
-                <img src="img/contactUs.svg" alt="Contact Us" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 8px;">
+            <div class="col-lg-6 col-12" style="padding: 30px;">            
+                <img src="img/contactUs.svg" alt="Contact Us" class="img-fluid" style="width: auto; height: auto;">
             </div>
            
             <div class="col-lg-6 col-12 mb-4">
