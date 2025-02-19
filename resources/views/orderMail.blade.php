@@ -124,9 +124,9 @@
         </div>
         <div class="content">
             <div class="content">
-                <h2 class="tittle" style="font-size: bolder;">Checkout Information</h2>
+                <h2 class="tittle" style="font-size: bolder;">Informasi Pemesanan</h2>
                 {{-- <p>Yth. Rizky Mardiyansyah,</p> --}}
-                <p>Yth. {{ $data['name'] }},</p>
+                <p>Yth {{ $data['name'] }},</p>
                 <p>Terima kasih telah memilih layanan Pembuat Web Instan dari <a href="{{ config('app.url') }}" target="_blank"> {{ config('app.name') }}</a>. Kami dengan senang hati mengonfirmasi bahwa pemesanan Anda telah diterima dengan baik.</p>
                             
                 <p class="detail"><strong>Detail Pemesanan Anda:</strong></p>
@@ -179,6 +179,69 @@
                 </a>
                 <div style="margin-top: 50px;" class="flex-column">  
                     <p>Hormat Kami,</p>                    
+                    <p style="margin:0px; color: black; text-decoration: inherit; margin-top: 30px;" href="https://wa.me/62895405543809" target="_blank">Rizky Mardiyansyah</p>
+                    <p style="margin: 0px; margin-top:10px;"><b>PT {{ config('app.name') }}</b></p>
+                </div>
+            </div>
+
+            <hr style="margin: 20px 0; border: 1px solid #ccc;">
+            
+            <div class="content">
+                <h2 class="tittle" style="font-size: bolder;">Checkout Information</h2>
+                {{-- <p>Yth. Rizky Mardiyansyah,</p> --}}
+                <p>Dear {{ $data['name'] }},</p>
+                <p>Thank you for choosing the Instant Website Builder service from <a href="{{ config('app.url') }}" target="_blank"> {{ config('app.name') }}</a>. We are pleased to confirm that your order has been successfully received.</p>
+                            
+                <p class="detail"><strong>Your Order Details:</strong></p>
+                <div class="container" style="border: none">
+                    <div class="order-details">
+                        <div style="display: flex; justify-content: space-between;">
+                            <strong>Domain ({{ $subs['year'] }} Year)</strong> 
+                            <div class="price"><span >Rp. {{ number_format($data['domainCost'], 2, ',', '.') }}</span></div>
+                        </div>
+                        <span class="cart-des" id="selected-domain">{{ $data['domain'] }}</span>
+                        <div style="display: flex; justify-content: space-between;">
+                            <strong>Website Template</strong>
+                            <div class="price"><span>Rp. {{ $data['template_cost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format($data['templateCost'], 2, ',', '.') }}</span></div>
+                        </div>
+                        <span class="cart-des" id="selected-template">{{ $template['title'] }}</span>
+                
+                        <div style="display: flex; justify-content: space-between;">
+                            <strong>subscription ({{ $subs['year'] }} Year)</strong>
+                            <div class="price"><span>Rp. {{ number_format($data['subscriptionCost'], 2, ',', '.') }}</span></div>
+                        </div>
+                        <span class="cart-des" >Subscription fee for website management services</span>
+                
+                        <div class="total-price" style="display: flex; justify-content: space-between; font-weight: bold;">
+                            <strong>Total Cost</strong>
+                            <div class="price"><span>Rp. {{ number_format($data['total_payment'], 2, ',', '.') }}</span></div>
+                        </div>
+                    </div>
+                </div>
+                    <p>Please complete the payment within 48 hours after checkout ({{ $order['updated_at']->addHours(48)->format('d M F H:i:s') }}) to keep your order valid. Otherwise, the order will be automatically canceled.</P>
+                    <p>Your website will be ready and fully operational within a maximum of 24 hours after payment.</p>
+                    <p>Once your website is ready, you will receive your website credentials along with an easy-to-follow guide to help you edit and manage your website.</p>
+                    <p>You will also receive a custom business email matching your domain. You can contact us to claim your email.</p>
+                    <p>If your website is not ready within 24 hours, you will receive a 100% refund.</p>
+                    <p>To claim a refund or if you have any further questions, please do not hesitate to contact us.</p>
+
+                
+                <div class="containerButton">
+                    <a class="btn btn-primary" href="{{ config('app.url') }}/payment/{{ $snapToken }}" target="_blank">Click here to proceed with payment</a>
+                </div>            
+
+                <p style="margin-top: 50px">If you need any further assistance, please do not hesitate to contact us.</p>
+                <a style="width:200px; display: flex; align-items: center; gap: 8px;  padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
+                    <img width="20px"  style="margin-right: 10px;" src="{{ config('app.url') }}/img/email.png" alt="">
+                    hi@mardsoft.com
+                </a>       
+              
+                <a style=" width:200px; display: flex; align-items: center; gap: 8px; padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
+                    <img width="20px" style="margin-right: 10px;" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
+                    0895-4055-43809
+                </a>
+                <div style="margin-top: 50px;" class="flex-column">  
+                    <p>Best Regards,</p>                    
                     <p style="margin:0px; color: black; text-decoration: inherit; margin-top: 30px;" href="https://wa.me/62895405543809" target="_blank">Rizky Mardiyansyah</p>
                     <p style="margin: 0px; margin-top:10px;"><b>PT {{ config('app.name') }}</b></p>
                 </div>

@@ -93,10 +93,10 @@
             </div>
         </div>
         <div style="background-color: #222; color: #fff; padding: 20px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-            <div style="max-width: 600px; margin: auto;">               
+            <div style="max-width: 600px; margin: auto;">                
                 
                 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="width: 48%; margin-bottom: 20px; display: flex; align-item:center;">
+                    <div style="width: 48%; margin-bottom: 20px; align-item:center;">
                         <img src="https://mardsoft.com/img/MardPutih.png" alt="Logo" style="width: 50%;">
                     </div>                    
                     <div style="width: 48%; margin-bottom: 20px;">

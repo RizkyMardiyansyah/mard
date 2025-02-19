@@ -54,6 +54,8 @@ class DomainController extends Controller
     
     $subs= subscription::all();
 
+    
+
 
     if ($request->is('website')) {
 

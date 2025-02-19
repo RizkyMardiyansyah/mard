@@ -149,7 +149,7 @@
         <div class="content">
             <div class="content">
                 <h2 class="tittle" style="font-size: bolder;">Pembayaran Berhasil</h2>
-                <p>Yth. {{ $order['name'] }},</p>
+                <p>Yth {{ $order['name'] }},</p>
                 <p>Terima kasih atas pembayaran Anda! Pembayaran Anda telah kami terima dengan sukses. Silakan lihat detail pesanan Anda di bawah ini:</p>
                 <div style="padding: 0px" class="cart mb-4">
                             <div class="order-details">
@@ -217,7 +217,6 @@
                             <li>Anda juga akan mendapatkan email bisnis khusus yang sesuai dengan domain Anda, Anda bisa menghubungi kami untuk klaim email Anda.</li>
                             <li>Jika website Anda belum siap pada {{ $order['updated_at']->addHours(24)->format('d F Y H:i:s') }}, Anda akan mendapatkan refund 100%.</li>
                             <li>Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</li>
-                            <li>Untuk klaim refund atau jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</li>
                             <a style="width:200px; display: flex; align-items: center; gap: 8px;  padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
                                 <img width="20px"  style="margin-right: 10px;" src="{{ config('app.url') }}/img/email.png" alt="">
                                 hi@mardsoft.com
@@ -232,6 +231,97 @@
                 </div>              
                 <div style="margin-top: 50px;" class="flex-column">  
                     <p>Hormat Kami,</p>                    
+                    <p style="margin:0px; color: black; text-decoration: inherit; margin-top: 30px;" href="https://wa.me/62895405543809" target="_blank">Rizky Mardiyansyah</p>
+                    <p style="margin: 0px; margin-top:10px;"><b>PT {{ config('app.name') }}</b></p>
+                </div>       
+            </div>
+
+            <hr style="margin: 20px 0; border: 1px solid #ccc;">
+
+            <div class="content">
+                <h2 class="tittle" style="font-size: bolder;">Pembayaran Berhasil</h2>
+                <p>Dear {{ $order['name'] }},</p>
+                <p>Thank you for your payment! We have successfully received your payment. Please find your order details below:</p>
+                <div style="padding: 0px" class="cart mb-4">
+                            <div class="order-details">
+                                <div class="sectionTitle">
+                                    <p class="detail"><strong>Payment Details</strong></p>
+                                </div>
+                                <div class="sectionBody">
+                                    <div class="orderDetail mt-2" style="display: flex; justify-content: space-between;">
+                                        <span>Payment Status</span> 
+                                        <div class="price berhasil">Successful</div>
+                                    </div>
+                                    <div class="orderDetail mt-2" style="display: flex; justify-content: space-between;">
+                                        <span>Order ID</span>
+                                        <div class="price "><strong>{{ $order['orderId']}}</strong></div>
+                                    </div>                         
+                                    <div class="orderDetail mt-2" style="display: flex; justify-content: space-between;">
+                                        <span>Payment Time</span>
+                                        <div class="price"><strong>{{ $order['updated_at']->translatedFormat('d F Y | H:i:s') }}</strong></div>
+                                    </div>
+                                    <div class="orderDetail mt-2" style="display: flex; justify-content: space-between; text-transform: capitalize;">
+                                        <span>Payment Method</span>
+                                        <div class="price"><strong>{{ $order['paymentType'] }}</strong></div>
+                                    </div>
+                                </div>                        
+                            </div>                       
+                                        
+                            <div class="order-details">
+                                <div class="sectionTitle">
+                                    <p class="detail mt-4"><strong>Order Details</strong></p>
+                                </div>
+                                <div class="sectionBody">
+                                    <div class="orderDetail">
+                                        <div class="mt-2" style="display: flex; justify-content: space-between; padding:5px; padding-bottom:0px;">
+                                            <strong>Domain ({{ $subs['year'] }} Year)</strong>
+                                            <span class="price">{{ $order['domainCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['domainCost'], 2, ',', '.') }}</span>
+                                        </div>
+                                        <span class="cart-des" id="selected-domain" style="padding:5px; padding-top:0px;">{{ $order->domain }}</span>
+                                    </div>
+                                    <div class="orderDetail">
+                                        <div class="mt-2" style="display: flex; justify-content: space-between; padding:5px; padding-bottom:0px;">
+                                            <strong>Website Template</strong>
+                                            <span class="price">{{ $order['templateCost'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order['templateCost'], 2, ',', '.') }}</span>
+                                        </div>
+                                        <span class="cart-des" style="padding:5px; padding-top:0px;">{{ $template['title'] }}</span>
+                                    </div>
+                                    <div class="orderDetail">
+                                        <div  class="mt-2" style="display: flex; justify-content: space-between; padding:5px; padding-bottom:0px;">
+                                            <strong>Subscription ({{ $subs['year'] }} Year)</strong>
+                                            <div class="price"><span>{{ $subs->price == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $subs->price, 2, ',', '.') }}</span></div>
+                                        </div>
+                                        <span class="cart-des" style="padding:5px; padding-top:0px;">Subscription fee for website management services</span>
+                                    </div>
+                                    <div class="total-price" style="display: flex; justify-content: space-between; font-weight: bold; ">
+                                        <strong>Total Cost</strong>
+                                        <div class="price"><span>{{ $order['total_payment'] == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $order->total_payment, 2, ',', '.') }}</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    <div class="order-details" style="border: 0px;">
+                        <p class="detail mt-4"><strong>Notes</strong></p>
+                        <ul class="pl-5 pt-3 m-0">
+                            <li>Your website will be completed and ready to use within a maximum of 24 hours after payment ({{ $order['updated_at']->addHours(24)->format('d M F H:i:s') }}).</li>
+                            <li>Once your website is ready, you will receive your website credentials along with an easy-to-follow guide to help you edit and manage your website.</li>
+                            <li>You will also receive a custom business email matching your domain. Contact us to claim your email.</li>
+                            <li>If your website is not ready by {{ $order['updated_at']->addHours(24)->format('d F Y H:i:s') }}, you will receive a 100% refund.</li>
+                            <li>To claim a refund or if you have any further questions, please do not hesitate to contact us.</li>
+                            <a style="width:200px; display: flex; align-items: center; gap: 8px;  padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="mailto:hi@mardsoft.com" target="_blank">
+                                <img width="20px"  style="margin-right: 10px;" src="{{ config('app.url') }}/img/email.png" alt="">
+                                hi@mardsoft.com
+                            </a>       
+                          
+                            <a style=" width:200px; display: flex; align-items: center; gap: 8px; padding:10px; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;" href="https://wa.me/62895405543809" target="_blank">
+                                <img width="20px" style="margin-right: 10px;" src="{{ config('app.url') }}/img/whatsapp.png" alt="">  
+                                0895-4055-43809
+                            </a>                                              
+                        </ul>
+                    </div>
+                </div>              
+                <div style="margin-top: 50px;" class="flex-column">  
+                    <p>Best Regards,</p>                    
                     <p style="margin:0px; color: black; text-decoration: inherit; margin-top: 30px;" href="https://wa.me/62895405543809" target="_blank">Rizky Mardiyansyah</p>
                     <p style="margin: 0px; margin-top:10px;"><b>PT {{ config('app.name') }}</b></p>
                 </div>       

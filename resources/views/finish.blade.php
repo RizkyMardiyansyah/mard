@@ -142,7 +142,7 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <p class="cart-title" data-lang-en="Payment Status" data-lang-id="Status Pembayaran">Payment Status</p>
                                                     <div id="discoutContainer" style="display: flex; align-items: center;">    
-                                                        <p id="hemat" class="display-price" data-lang-en="Success" data-lang-id="Berhasil"></p>
+                                                        <p id="hemat" class="display-price" data-lang-en="Successful" data-lang-id="Berhasil"></p>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex justify-content-between align-items-center">
