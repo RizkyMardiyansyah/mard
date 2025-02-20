@@ -1071,9 +1071,9 @@ margin-bottom: 20px;
     
       #floatingButton svg {
         transition: 0.9s;
-          margin-top: -20%;
-          width: 50%; /* Atur ukuran SVG sesuai tombol */
-          height: 50%; /* Pastikan SVG proporsional */
+        /* margin-top: -20%; */
+        width: 50%;
+        height: 50%;
       }
       #floatingButton:hover{
         background-color: #488EFE;

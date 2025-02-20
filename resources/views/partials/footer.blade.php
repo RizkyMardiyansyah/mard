@@ -22,6 +22,7 @@
                     <a href="/#partners" style="color: inherit; text-decoration: none;">
                         <p data-lang-en="Partner and Client" data-lang-id="Mitra dan Klien">Partner and Client</p>
                     </a>
+                    
                 </div>
 
                 <!-- Our Services -->

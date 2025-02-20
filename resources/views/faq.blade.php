@@ -166,23 +166,23 @@ button[aria-expanded='true'] {
       <div class="accordion-item">
         <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title" data-lang-en="How do I use the instant web builder?" data-lang-id="Bagaimana cara menggunakan pembuat web instan?">How do I use the instant web builder?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
-          <p data-lang-en="Select your desired domain and template, choose a subscription plan, then fill in your personal information accurately for domain and website registration. Click checkout to place your order, and complete the payment promptly to process your order faster."  
-            data-lang-id="Pilih domain dan template yang kamu inginkan, pilih paket berlangganan, lalu isi informasi pribadimu dengan benar untuk registrasi domain dan website. Klik checkout untuk memproses pesanan, dan segera selesaikan pembayaran agar pesananmu dapat diproses lebih cepat.">
-            Select your desired domain and template, choose a subscription plan, then fill in your personal information accurately for domain and website registration. Click checkout to place your order, and complete the payment promptly to process your order faster.
+          <p data-lang-en="Select your domain and template, choose a subscription pakcage, then fill in your personal information accurately. Click checkout and complete the payment than your website ready to online."  
+            data-lang-id="Pilih domain dan template, pilih paket berlangganan, lalu isi informasi pribadimu. Klik checkout dan segera selesaikan pembayaran maka website kamu siap untuk online.">
+            Select your domain and template, choose a subscription pakcage, then fill in your personal information accurately. Click checkout and complete the payment than your website ready to online.
           </p>
         </div>
       </div>
       <div class="accordion-item">
         <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title" data-lang-en="Is a template an annual cost?" data-lang-id="Apakah template harus dibayar setiap tahun?">Is a template an annual cost?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
-          <p data-lang-en="Absolutely not! You only pay once for the template, and it’s yours forever, no hidden fees, no annual renewals. Plus, we even offer free basic templates so you can get started without worrying about template costs"
-           data-lang-id="Tentu tidak! Anda hanya perlu membayar sekali untuk template, dan itu menjadi milik Anda selamanya tanpa biaya tersembunyi, tanpa perpanjangan tahunan. Bahkan, kami menyediakan template dasar secara gratis, sehingga Anda bisa mulai tanpa memikirkan biaya template!">
-            Absolutely not! You only pay once for the template, and it’s yours forever, no hidden fees, no annual renewals. Plus, we even offer free basic templates so you can get started without worrying about template costs. 
+          <p data-lang-en="Absolutely not! You only pay once for the template, and it’s yours forever, no hidden fees, no annual renewals. Plus, we even offer free basic templates."
+           data-lang-id="Tentu tidak! Anda hanya perlu membayar sekali dan itu menjadi milik Anda selamanya tanpa biaya tersembunyi, tanpa perpanjangan tahunan. Bahkan, kami menyediakan template basic secara gratis.">
+           Absolutely not! You only pay once for the template, and it’s yours forever, no hidden fees, no annual renewals. Plus, we even offer free basic templates. 
         </p>
         </div>
       </div>
       <div class="accordion-item">
-        <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title" data-lang-en="What is Subscription?" data-lang-id="Apa itu Langanan?">What is Subscription?</span><span class="icon" aria-hidden="true"></span></button>
+        <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title" data-lang-en="What is Subscription Package?" data-lang-id="Apa itu Paket Berlanganan?">What is Subscription Package?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
           <p data-lang-en="A subscription package provides ongoing website management, including hosting, performance optimization, and technical support, ensuring your website stays online and runs smoothly."  
             data-lang-id="Paket langganan adalah layanan pengelolaan website berkelanjutan, termasuk hosting, optimalisasi performa, dan dukungan teknis, sehingga website Anda tetap online dan berjalan dengan lancar.">
@@ -191,29 +191,29 @@ button[aria-expanded='true'] {
         </div>
       </div>
       <div class="accordion-item">
-        <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title" data-lang-en="What if I don’t get a response after payment?" data-lang-id="Bagaimana jika saya tidak mendapat respons setelah pembayaran?"> What if I don’t get a response after payment? </span><span class="icon" aria-hidden="true"></span></button>
+        <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title" data-lang-en="What if I don’t get a response after payment?" data-lang-id="Bagaimana jika tidak ada update setelah pembayaran?"> What if I don’t get a response after payment? </span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
-          <p data-lang-en="If you do not receive any updates or responses from us within 24 hours after your payment, you are entitled to a 100% refund. To claim your refund, please contact our support team using the available contact options." 
-            data-lang-id="Jika dalam waktu 24 jam setelah pembayaran Anda belum mendapatkan informasi atau tindak lanjut dari kami, Anda berhak mendapatkan pengembalian dana 100%. Untuk melakukan klaim pengembalian dana, silakan hubungi tim dukungan kami melalui kontak yang tersedia.">
-            If you do not receive any updates or responses from us within 24 hours after your payment, you are entitled to a 100% refund. To claim your refund, please contact our support team using the available contact options.
+          <p data-lang-en="If you do not receive any updates from us within 24 hours after your payment, you are entitled to a 100% refund. To claim your refund, please contact us using the available contact options." 
+            data-lang-id="Jika dalam waktu 24 jam setelah pembayaran Anda update dari kami, Anda berhak mendapatkan pengembalian dana 100%. Untuk klaim pengembalian dana, silakan hubungi kami melalui kontak yang tersedia.">
+            If you do not receive any updates from us within 24 hours after your payment, you are entitled to a 100% refund. To claim your refund, please contact us using the available contact options.
           </p>
         </div>
       </div>
       <div class="accordion-item">
         <button id="accordion-button-6" aria-expanded="false"><span class="accordion-title" data-lang-en="How can I get a business email?" data-lang-id="Bagaimana cara mendapatkan email bisnis?">How can I get a business email?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
-          <p data-lang-en="You can contact our team directly to claim a business email that matches your purchased domain. We will assist you with the setup process so you can use your business email for professional communication." 
-            data-lang-id="Anda bisa langsung menghubungi tim kami untuk mengklaim email bisnis yang sesuai dengan domain yang telah Anda beli. Kami akan membantu Anda dalam proses setup email bisnis agar dapat digunakan untuk kebutuhan komunikasi profesional Anda.">
-            You can contact our team directly to claim a business email that matches your purchased domain. We will assist you with the setup process so you can use your business email for professional communication.
+          <p data-lang-en="You can contact our team directly to claim a business email that matches your purchased domain. We will assist you with to setup your business email for professional communication." 
+            data-lang-id="Anda bisa langsung menghubungi tim kami untuk mengklaim email bisnis yang sesuai dengan domain yang telah Anda beli. Kami akan membantu setup email untuk kebutuhan profesional anda.">
+            You can contact our team directly to claim a business email that matches your purchased domain. We will assist you with to setup your business email for professional communication.
           </p>
         </div>
       </div> 
       <div class="accordion-item">
-        <button id="accordion-button-7" aria-expanded="false"><span class="accordion-title" data-lang-en="Can I request a custom web application?"  data-lang-id="Apakah saya bisa meminta pembuatan aplikasi web kustom?"> Can I request a custom web application?</span><span class="icon" aria-hidden="true"></span> </button>
+        <button id="accordion-button-7" aria-expanded="false"><span class="accordion-title" data-lang-en="Can I request a custom web application?"  data-lang-id="Apakah bisa pembuatan aplikasi kustom?"> Can I request a custom web application?</span><span class="icon" aria-hidden="true"></span> </button>
         <div class="accordion-content">
-            <p data-lang-en="Absolutely! If you need a tailored web application that fits your specific business needs, feel free to reach out to us through our Contact Us page or send us an email. Our team will be happy to discuss your requirements and provide the best solution for your business."
-               data-lang-id="Tentu saja! Jika Anda membutuhkan aplikasi web kustom yang sesuai dengan kebutuhan bisnis Anda, jangan ragu untuk menghubungi kami melalui halaman Contact Us atau kirimkan email kepada kami. Tim kami siap membantu Anda dengan solusi terbaik untuk bisnis Anda.">
-                Absolutely! If you need a tailored web application that fits your specific business needs, feel free to reach out to us through our Contact Us page or send us an email. Our team will be happy to discuss your requirements and provide the best solution for your business.
+            <p data-lang-en="Absolutely! If you need a tailored web application that fits your specific business needs, feel free to reach out to us through our Contact Us page or send us an email."
+               data-lang-id="Tentu saja! Jika Anda membutuhkan aplikasi web kustom yang sesuai dengan kebutuhan bisnis Anda, jangan ragu untuk menghubungi kami melalui halaman Contact Us atau kirimkan email kepada kami.">
+                Absolutely! If you need a tailored web application that fits your specific business needs, feel free to reach out to us through our Contact Us page or send us an email.
             </p>
         </div>
       </div>               
