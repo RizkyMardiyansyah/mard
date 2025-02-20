@@ -124,12 +124,11 @@ button[aria-expanded='true'] {
 <link rel="shortcut icon" href="img/favicon.ico">
 <meta name="title" content="Mitra Adidaya Rekayasa Digital">
 <meta property="og:site_name" content="Mitra Adidaya Rekayasa Digital">
-<meta property="og:title" content="Mitra Adidaya Rekayasa Digital">      
-{{-- <meta property="og:description" content="Penyedia solusi digital untuk optimasi bisnis Anda."> --}}
+<meta property="og:title" content="Mardsoft | FAQ">
 <meta property="og:description" content="No more papers, Let's bring your digital ideas to life with our solutions. We are committed to helping you optimize operations and unlock your business's full potential.">
 <meta property="og:url" content="https://www.mardsoft.com">
 <meta property="og:image" content="https://www.mardsoft.com/img/og-image.png">
-<title>Mitra Adidaya Rekayasa Digital</title>
+<title>Mardsoft | FAQ</title>
 <meta name="keywords" content="jasa buat website jakarta, jasa buat website jakarta timur, jasa buat website jaktim, digital solutions, business optimization, software development, IT consulting, buat website, domain, website, website jakarta, website jakarta timur, website jaktim, software, development, IT consultant jakarta, IT consultant jakarta timur, IT consulting jakarta, IT consulting jakarta timur, IT consultant jaktim, IT consulting jaktim">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -192,25 +191,36 @@ button[aria-expanded='true'] {
         </div>
       </div>
       <div class="accordion-item">
-        <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title">Will we ever discover aliens?</span><span class="icon" aria-hidden="true"></span></button>
+        <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title" data-lang-en="What if I don’t get a response after payment?" data-lang-id="Bagaimana jika saya tidak mendapat respons setelah pembayaran?"> What if I don’t get a response after payment? </span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+          <p data-lang-en="If you do not receive any updates or responses from us within 24 hours after your payment, you are entitled to a 100% refund. To claim your refund, please contact our support team using the available contact options." 
+            data-lang-id="Jika dalam waktu 24 jam setelah pembayaran Anda belum mendapatkan informasi atau tindak lanjut dari kami, Anda berhak mendapatkan pengembalian dana 100%. Untuk melakukan klaim pengembalian dana, silakan hubungi tim dukungan kami melalui kontak yang tersedia.">
+            If you do not receive any updates or responses from us within 24 hours after your payment, you are entitled to a 100% refund. To claim your refund, please contact our support team using the available contact options.
+          </p>
         </div>
       </div>
       <div class="accordion-item">
-        <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">How much does the Earth weigh?</span><span class="icon" aria-hidden="true"></span></button>
+        <button id="accordion-button-6" aria-expanded="false"><span class="accordion-title" data-lang-en="How can I get a business email?" data-lang-id="Bagaimana cara mendapatkan email bisnis?">How can I get a business email?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+          <p data-lang-en="You can contact our team directly to claim a business email that matches your purchased domain. We will assist you with the setup process so you can use your business email for professional communication." 
+            data-lang-id="Anda bisa langsung menghubungi tim kami untuk mengklaim email bisnis yang sesuai dengan domain yang telah Anda beli. Kami akan membantu Anda dalam proses setup email bisnis agar dapat digunakan untuk kebutuhan komunikasi profesional Anda.">
+            You can contact our team directly to claim a business email that matches your purchased domain. We will assist you with the setup process so you can use your business email for professional communication.
+          </p>
         </div>
-      </div>
+      </div> 
       <div class="accordion-item">
-        <button id="accordion-button-6" aria-expanded="false"><span class="accordion-title">How do airplanes stay up?</span><span class="icon" aria-hidden="true"></span></button>
+        <button id="accordion-button-7" aria-expanded="false"><span class="accordion-title" data-lang-en="Can I request a custom web application?"  data-lang-id="Apakah saya bisa meminta pembuatan aplikasi web kustom?"> Can I request a custom web application?</span><span class="icon" aria-hidden="true"></span> </button>
         <div class="accordion-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+            <p data-lang-en="Absolutely! If you need a tailored web application that fits your specific business needs, feel free to reach out to us through our Contact Us page or send us an email. Our team will be happy to discuss your requirements and provide the best solution for your business."
+               data-lang-id="Tentu saja! Jika Anda membutuhkan aplikasi web kustom yang sesuai dengan kebutuhan bisnis Anda, jangan ragu untuk menghubungi kami melalui halaman Contact Us atau kirimkan email kepada kami. Tim kami siap membantu Anda dengan solusi terbaik untuk bisnis Anda.">
+                Absolutely! If you need a tailored web application that fits your specific business needs, feel free to reach out to us through our Contact Us page or send us an email. Our team will be happy to discuss your requirements and provide the best solution for your business.
+            </p>
         </div>
-      </div>
+      </div>               
+      
     </div>
   </div> 
+  
 </div>
 </div>
 
