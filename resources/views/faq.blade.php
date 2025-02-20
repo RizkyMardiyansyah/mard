@@ -176,10 +176,10 @@ button[aria-expanded='true'] {
       <div class="accordion-item">
         <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title" data-lang-en="Is a template an annual cost?" data-lang-id="Apakah template harus dibayar setiap tahun?">Is a template an annual cost?</span><span class="icon" aria-hidden="true"></span></button>
         <div class="accordion-content">
-          <p data-lang-en="A subscription package provides ongoing website management, including hosting, performance optimization, and technical support, ensuring your website stays online and runs smoothly."  
-            data-lang-id="Paket langganan adalah layanan pengelolaan website berkelanjutan, termasuk hosting, optimalisasi performa, dan dukungan teknis, sehingga website Anda tetap online dan berjalan dengan lancar.">
-            A subscription package provides ongoing website management, including hosting, performance optimization, and technical support, ensuring your website stays online and runs smoothly.
-          </p>
+          <p data-lang-en="Absolutely not! You only pay once for the template, and it’s yours forever, no hidden fees, no annual renewals. Plus, we even offer free basic templates so you can get started without worrying about template costs"
+           data-lang-id="Tentu tidak! Anda hanya perlu membayar sekali untuk template, dan itu menjadi milik Anda selamanya tanpa biaya tersembunyi, tanpa perpanjangan tahunan. Bahkan, kami menyediakan template dasar secara gratis, sehingga Anda bisa mulai tanpa memikirkan biaya template!">
+            Absolutely not! You only pay once for the template, and it’s yours forever, no hidden fees, no annual renewals. Plus, we even offer free basic templates so you can get started without worrying about template costs. 
+        </p>
         </div>
       </div>
       <div class="accordion-item">
