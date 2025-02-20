@@ -20,7 +20,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="img/favicon.ico">
 <meta name="title" content="Mitra Adidaya Rekayasa Digital">
-<meta property="og:site_name" content="Mardsoft | Page Not Found">
+<meta property="og:site_name" content="Mardsoft - Page Not Found">
 <meta property="og:title" content="Mitra Adidaya Rekayasa Digital">      
 {{-- <meta property="og:description" content="Penyedia solusi digital untuk optimasi bisnis Anda."> --}}
 <meta property="og:description" content="No more papers, Let's bring your digital ideas to life with our solutions. We are committed to helping you optimize operations and unlock your business's full potential.">
