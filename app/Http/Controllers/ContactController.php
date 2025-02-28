@@ -23,7 +23,7 @@ class ContactController extends Controller
                 'g-recaptcha-response' => [new ReCaptcha()],
                 'hidden_field' => 'prohibited'
             ]);
-            dd($request);
+            // dd($request);
             unset($validated['g-recaptcha-response']);
             unset($validated['hidden_field']);
             $message = Message::create($validated);
