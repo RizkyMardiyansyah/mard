@@ -20,9 +20,12 @@ class ContactController extends Controller
                 'phone' => 'nullable|string|max:20',
                 'company' => 'nullable|string|max:255',
                 'message' => 'required|string',
-                'g-recaptcha-response' => [new ReCaptcha()]
+                'g-recaptcha-response' => [new ReCaptcha()],
+                'hidden_field' => 'prohibited'
             ]);
+            dd($request);
             unset($validated['g-recaptcha-response']);
+            unset($validated['hidden_field']);
             $message = Message::create($validated);
             
             if ($message) {

@@ -136,8 +136,9 @@
                             <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
                         </div>
                         <div >
+                            <input type="text" name="hidden_field" style="display:none;">
                             <button 
-                            id="message_btn"
+                                id="message_btn"
                                 class="g-recaptcha nextBtn btn btn-primary w-100" 
                                 data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" 
                                 data-callback='onSubmit' 
