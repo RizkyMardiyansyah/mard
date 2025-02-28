@@ -29,6 +29,7 @@
           "url": "https://mardsoft.com/"
         }
     </script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
 
   <body>
@@ -135,7 +136,15 @@
                             <textarea id="message" name="message" class="form-control" rows="4" required placeholder="How can we help you today?" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
                         </div>
                         <div >
-                            <button id="message_btn" type="submit" class="nextBtn btn btn-primary w-100" data-lang-en="Send Message" data-lang-id="Kirim Pesan"></button>
+                            <button 
+                            id="message_btn"
+                                class="g-recaptcha nextBtn btn btn-primary w-100" 
+                                data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" 
+                                data-callback='onSubmit' 
+                                data-action='submit'
+                                data-lang-en="Send Message" 
+                                data-lang-id="Kirim Pesan">Send Message
+                            </button>
                         </div>
                     </form>
                 </div>

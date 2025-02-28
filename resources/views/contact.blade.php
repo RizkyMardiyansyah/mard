@@ -48,8 +48,6 @@
         }
     </script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    </head>
-
   <body>
     
     
@@ -100,7 +98,7 @@
                 </div>
                 <div >
                     <button 
-                        id="message_btn"
+                    id="message_btn"
                         class="g-recaptcha nextBtn btn btn-primary w-100" 
                         data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" 
                         data-callback='onSubmit' 
@@ -108,6 +106,7 @@
                         data-lang-en="Send Message" 
                         data-lang-id="Kirim Pesan">Send Message
                     </button>
+                    
                     {{-- <button  type="submit" class="nextBtn btn btn-primary w-100" data-lang-en="Send Message" data-lang-id="Kirim Pesan"></button> --}}
                 </div>
             </form>
@@ -130,6 +129,11 @@
             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"
         });
     </script>
+     {{-- <script>
+        function onSubmit(token) {
+          document.getElementById("contact-form").submit();
+        }
+      </script> --}}
     
     
     
@@ -189,6 +193,7 @@
             event.preventDefault();
             }else{
             event.preventDefault();
+           
             Swal.fire({
                 title: "Send a Message?",
                 text: "Do you want to send us a message?",
@@ -198,13 +203,13 @@
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Yes, Send!"
             }).then((result) => {
-                if (result.isConfirmed) {
-                  
-                    function onSubmit(token) {
-                        document.getElementById('contact-form').submit();
-                    }
+                if (result.isConfirmed) {  
                     
-
+                        
+                        document.getElementById("contact-form").submit();
+                                        
+                    //  document.getElementById('contact-form').submit();                 
+                    
                     Swal.fire({
                         title: 'Please wait...',
                         html: `<div style="text-align: center;">
@@ -213,11 +218,13 @@
                         allowOutsideClick: false,
                         showConfirmButton: false
                     });
+                
 
                 } else {
                     Swal.close();
                 }
             });
+        
 
             }
         });
