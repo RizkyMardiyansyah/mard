@@ -16,9 +16,10 @@ class ReCaptcha implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $response=Http::get("https://www.google.com/recaptcha/api/siteverify",[
-            "secret" => env('RECAPTCHA_SECRET_KEY'),
+            "secret" => 'RECAPTCHA_SECRET_KEY=6Lc1EOUqAAAAAIeHVEyUawbinVMogrIJ04o1LLE5',
             "response" => $value
         ])->json();
+        dd($response);
         if (!$response['success']){
             $fail("ReCaptcha not Valid");
         }

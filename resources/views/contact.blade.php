@@ -101,7 +101,7 @@
                     <button 
                     id="message_btn"
                         class="g-recaptcha nextBtn btn btn-primary w-100" 
-                        data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" 
+                        data-sitekey="6Lc1EOUqAAAAAGeuM38jyhrET2NPKPnAv0jk1qqX" 
                         data-callback='onSubmit' 
                         data-action='submit'
                         data-lang-en="Send Message" 
