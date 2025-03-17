@@ -29,6 +29,7 @@ Route::get('/finish/{snapKey}', [paymentController::class, 'index'])->name('fini
 
 Route::get('api/templateapi', [DomainController::class, 'template']);
 
+Route::get('/api/storage/{filename}', function ($filename) {return redirect("/storage/{$filename}");})->where('filename', '.*');
 
 Route::get('/orderEmail', [paymentController::class, 'sendEmail']);
 
