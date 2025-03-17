@@ -5,6 +5,7 @@ use App\Http\Controllers\DomainController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\paymentController;
 use App\Models\template;
+use Illuminate\Support\Facades\Response;
 
 Route::get('/test', function () {
     return view('finishmail');
@@ -29,7 +30,15 @@ Route::get('/finish/{snapKey}', [paymentController::class, 'index'])->name('fini
 
 Route::get('api/templateapi', [DomainController::class, 'template']);
 
-Route::get('/api/storage/{filename}', function ($filename) {return redirect("/storage/{$filename}");})->where('filename', '.*');
+Route::get('/api/storage/{filename}', function ($filename) {
+    $path = storage_path("app/public/{$filename}");
+
+    if (!file_exists($path)) {
+        return response()->json(['error' => 'File not found.'], 404);
+    }
+
+    return Response::file($path);
+}); 
 
 Route::get('/orderEmail', [paymentController::class, 'sendEmail']);
 
