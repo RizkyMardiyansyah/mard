@@ -1,3 +1,4 @@
+<?php
 return [
     'paths' => ['api/*', 'storage/*'],
     'allowed_methods' => ['*'],
