@@ -76,6 +76,15 @@ class DomainController extends Controller
     
 }
 
+public function template()
+{  
+    $templates = Template::all();
+    return response()->json([
+        'success' => true,
+        'templates' => $templates
+    ]);     
+}
+
 
 
 

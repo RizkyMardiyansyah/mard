@@ -27,6 +27,8 @@ Route::get('/cart', [DomainController::class, 'index'])->name('cart');
 Route::get('/payment/{snapKey}', [paymentController::class, 'index'])->name('payment');
 Route::get('/finish/{snapKey}', [paymentController::class, 'index'])->name('finish');
 
+Route::get('/templateapi', [DomainController::class, 'template']);
+
 
 Route::get('/orderEmail', [paymentController::class, 'sendEmail']);
 
