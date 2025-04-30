@@ -37,7 +37,7 @@
     {{-- navbar section --}}
     @include('partials.navbar')
 
-    <div style="height: 80vh; background: url(img/develop.jpg) no-repeat center center/cover;" class="hero-section">
+    <div style="height: 80vh; background: url(img/development.jpg) no-repeat center center/cover;" class="hero-section">
         <div style="background-color: rgba(0, 0, 0, 0.2);" class="hero-overlay">
             <div class="container hero-text">
                 <div class="row">

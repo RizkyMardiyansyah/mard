@@ -28,8 +28,8 @@
 {{-- Navbar --}}
 <nav  id="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; transition: background-color 0.5s;">
     <div class="container">
-        <a class="navbar-brand blue" href="/"><img  src="../img/NewLogoMardBlue.svg" height="50px" style="padding: 5px;"></a>
-        <a class="navbar-brand white" href="/"><img src="../img/NewLogoMardWhite.svg" height="50px" style="padding: 5px;"></a>
+        <a class="navbar-brand blue" href="/"><img  src="../img/Logo_Blue.svg" height="50px" style="padding: 5px;"></a>
+        <a class="navbar-brand white" href="/"><img src="../img/Logo_White.svg" height="50px" style="padding: 5px;"></a>
         <div class="language-selector order-lg-2">
             <div class="toggle-container">
                 <input type="checkbox" id="languageToggle" class="toggle-checkbox">
@@ -46,7 +46,7 @@
         
         <div style="width: 60%" class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <a id="offcanvas-logo" href="/"><img  src="../img/NewLogoMardBlue.svg" height="40px" style="padding: 5px;"></a>
+                <a id="offcanvas-logo" href="/"><img  src="../img/Logo_Blue.svg" height="40px" style="padding: 5px;"></a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
