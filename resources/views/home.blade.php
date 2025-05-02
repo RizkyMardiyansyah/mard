@@ -1,3 +1,17 @@
+    <style>
+       section {
+      
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease-in-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    </style>
+    
+    
     <!doctype html>
     <html lang="en">
     <head>        
@@ -38,7 +52,8 @@
     
 
 {{-- Jumbotron Section --}}
-    <div class="hero-section">
+    {{-- <div class="hero-section"> --}}
+        <section class="hero-section">
         <div class="hero-overlay">
             <div class="container hero-text">
                 <div class="row">
@@ -75,10 +90,12 @@
                 </div>
             </div>
         </div>
-    </div>
+        </section>
+    {{-- </div> --}}
     
 {{-- About Section --}}
-    <div id="about" class="about hero-text ">
+    {{-- <div id="about" class="about hero-text "> --}}
+        <section id="about" class="about hero-text ">
         <div class="row">
             <div class="col-lg-6 col-12 order-lg-2">
                 <img src="img/about.jpg">
@@ -90,11 +107,13 @@
                 PT Mitra Adidaya Rekayasa Digital (MARD) or also known as Mardsoft, is here to bring your digital ideas to life with our infinite innovations. We invite you to leave behind old ways and step into a more efficient digital era that will accelerate the growth of your business. With solutions tailored to address the unique challenges of every business, We are committed to helping you optimize operations and unlock your business's full potential.</p>
             </div>
         </div>
-    </div>
+    </section>
+    {{-- </div> --}}
     
     
 {{-- Service Section --}}
-    <div id="services" class="services container hero-text ">
+    {{-- <div id="services" class="services container hero-text "> --}}
+        <section id="services" class="services container hero-text ">
         <div class="row">
             <div class="serv our col-lg-3 col-md-6 col-12 order-lg-4">
                 <h1 data-lang-en="Our Services" data-lang-id="Layanan Kami">Our Services</h1>
@@ -141,10 +160,11 @@
             </div>
             
         </div>
-    </div>
+    {{-- </div> --}}
+    </section>
 
-{{-- Instal Build Website --}}
-<div  class="container" style="margin-top: 100px">
+{{-- Instalnt Web builder --}}
+<section  class="container" style="margin-top: 100px">
     <div id="domainsearch" class="hero-section-home-domain align-items-center justify-content-center">
         <div class="hero-overlay-home-domain">
             <div class="container hero-text-domain text-center"> 
@@ -248,10 +268,10 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 {{-- Partner Section --}}
-    <div id="partners" class="partner hero-text " style="margin-top: 100px;">
+    <section id="partners" class="partner hero-text " style="margin-top: 100px;">
         <div class="row d-flex flex-wrap">
             <div class="serv col-lg-4 col-12 " >
                 <h1 style="text-shadow: none;" data-lang-en="Partners and Clients" data-lang-id="Mitra dan Klien">Partners and Clients</h1>
@@ -291,7 +311,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    </section>
      {{-- Footer Section --}}
      @include('partials.footer')  
 
@@ -542,6 +562,22 @@
          });
          
      </script>
+     <script>
+        const sections = document.querySelectorAll('header, section');
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, {
+          threshold: 0.1
+        });
+    
+        sections.forEach(section => {
+          observer.observe(section);
+        });
+      </script>
      
      
      
