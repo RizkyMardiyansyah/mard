@@ -217,7 +217,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
-<script src="{{ config('midtrans.API') }}" data-client-key="MIDTRANS_CLIENT_KEY"></script>
+<script src="{{ config('midtrans.API') }}" data-client-key="{{ config('midtrans.clientKey') }}"></script>
 <script>
     const input = document.querySelector("#phone_number");
     const iti = window.intlTelInput(input, {
