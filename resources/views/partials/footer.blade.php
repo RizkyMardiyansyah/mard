@@ -59,10 +59,10 @@
                         {{-- <a href="#" class="me-3" style="color: inherit; text-decoration: none;">
                             <i class="fab fa-github fs-5"></i>
                         </a> --}}
-                        <a href="https://web.facebook.com/mardsoft" class="me-3" style="color: inherit; text-decoration: none;" title="Facebook">
+                        <a href="https://web.facebook.com/mardsoft" target="_blank" class="me-3" style="color: inherit; text-decoration: none;" title="Facebook">
                             <i class="fab fa-facebook fs-3"></i>
                         </a>
-                        <a href="https://www.instagram.com/hi.mardsoft/" class="me-3" style="color: inherit; text-decoration: none;" title="Instagram">
+                        <a href="https://www.instagram.com/hi.mardsoft/" target="_blank" class="me-3" style="color: inherit; text-decoration: none;" title="Instagram">
                             <i class="fab fa-instagram fs-3"></i>
                         </a>
                         <a href="https://www.linkedin.com/company/mardsoft/" target="_blank" style="color: inherit; text-decoration: none;" title="LinkedIn">
