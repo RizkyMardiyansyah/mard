@@ -12,6 +12,7 @@
       <meta property="og:url" content="https://www.mardsoft.com">
       <meta property="og:image" content="https://www.mardsoft.com/img/og-image.png">
       <title>Mardsoft - Instant Web Builder</title>
+      <meta name="description" content="No more papers, Let's bring your digital ideas to life with our solutions. We are committed to helping you optimize operations and unlock your business's full potential.">
       <meta name="keywords" content="jasa buat website jakarta, jasa buat website jakarta timur, jasa buat website jaktim, digital solutions, business optimization, software development, IT consulting, buat website, domain, website, website jakarta, website jakarta timur, website jaktim, software, development, IT consultant jakarta, IT consultant jakarta timur, IT consulting jakarta, IT consulting jakarta timur, IT consultant jaktim, IT consulting jaktim">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,12 +23,17 @@
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
-          "@type": "WebSite",
+          "@type": "Organization",
           "name": "Mitra Adidaya Rekayasa Digital",
-          "alternateName": ["Mardsoft", "Mard", "Mard Software"],
-          "url": "https://mardsoft.com/"
+          "url": "https://www.mardsoft.com",
+          "logo": "https://www.mardsoft.com/img/icon.png",
+          "sameAs": [
+            "https://www.facebook.com/mardsoft",
+            "https://www.instagram.com/hi.mardsoft",
+            "https://www.linkedin.com/company/mardsoft"
+          ]
         }
-    </script>
+        </script>
     </head>
   <body id="home">
     {{-- navbar section --}}

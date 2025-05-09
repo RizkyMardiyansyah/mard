@@ -14,36 +14,53 @@
     
     <!doctype html>
     <html lang="en">
-    <head>        
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="shortcut icon" href="img/favicon.ico">
-      <meta name="title" content="Mitra Adidaya Rekayasa Digital">
-      <meta property="og:site_name" content="Mitra Adidaya Rekayasa Digital">
-      <meta property="og:title" content="Mitra Adidaya Rekayasa Digital">      
-      {{-- <meta property="og:description" content="Penyedia solusi digital untuk optimasi bisnis Anda."> --}}
-      <meta property="og:description" content="No more papers, Let's bring your digital ideas to life with our solutions. We are committed to helping you optimize operations and unlock your business's full potential.">
-      <meta property="og:url" content="https://www.mardsoft.com">
-      <meta property="og:image" content="https://www.mardsoft.com/img/og-image.png">
-      <title>Mitra Adidaya Rekayasa Digital</title>
-      <meta name="keywords" content="jasa buat website jakarta, jasa buat website jakarta timur, jasa buat website jaktim, digital solutions, business optimization, software development, IT consulting, buat website, domain, website, website jakarta, website jakarta timur, website jaktim, software, development, IT consultant jakarta, IT consultant jakarta timur, IT consulting jakarta, IT consulting jakarta timur, IT consultant jaktim, IT consulting jaktim">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-      <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-      <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "Mitra Adidaya Rekayasa Digital",
-          "alternateName": ["Mardsoft", "Mard", "Mard Software"],
-          "url": "https://mardsoft.com/"
-        }
-    </script>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    </head>
+        <title>Mitra Adidaya Rekayasa Digital</title>
+        <link rel="shortcut icon" href="img/favicon.ico">
+
+        <!-- Meta Description & Keywords -->
+        <meta name="description" content="No more papers, Let's bring your digital ideas to life with our solutions. We are committed to helping you optimize operations and unlock your business's full potential.">
+        <meta name="keywords" content="jasa buat website jakarta, jasa buat website jakarta timur, jasa buat website jaktim, digital solutions, business optimization, software development, IT consulting, buat website, domain, website, website jakarta, website jakarta timur, website jaktim, software, development, IT consultant jakarta, IT consultant jakarta timur, IT consulting jakarta, IT consulting jakarta timur, IT consultant jaktim, IT consulting jaktim">
+
+        <!-- Open Graph Meta -->
+        <meta name="title" content="Mitra Adidaya Rekayasa Digital">
+        <meta property="og:site_name" content="Mitra Adidaya Rekayasa Digital">
+        <meta property="og:title" content="Mitra Adidaya Rekayasa Digital">
+        <meta property="og:description" content="No more papers, Let's bring your digital ideas to life with our solutions. We are committed to helping you optimize operations and unlock your business's full potential.">
+        <meta property="og:url" content="https://www.mardsoft.com">
+        <meta property="og:image" content="https://www.mardsoft.com/img/og-image.png">
+
+        <!-- Fonts & Icons -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+        <!-- CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Mitra Adidaya Rekayasa Digital",
+              "url": "https://www.mardsoft.com",
+              "logo": "https://www.mardsoft.com/img/icon.png",
+              "sameAs": [
+                "https://www.facebook.com/mardsoft",
+                "https://www.instagram.com/hi.mardsoft",
+                "https://www.linkedin.com/company/mardsoft"
+              ]
+            }
+            </script>
+            
+        </head>
+
   <body id="home">  
 
     {{-- navbar section --}}
