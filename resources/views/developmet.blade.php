@@ -37,37 +37,33 @@
         </script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
-
-  <body>
-
-    {{-- navbar section --}}
-    @include('partials.navbar')
-
-    <div style="height: 80vh; background: url(img/development.jpg) no-repeat center center/cover;" class="hero-section">
-        <div style="background-color: rgba(0, 0, 0, 0.2);" class="hero-overlay">
-            <div class="container hero-text">
-                <div class="row">
-                    <div class="col-lg-6 col-12">
-                        <h1 style="text-align: left" data-lang-en="Custom Application Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom Application Development</h1>
+    <body>
+    
+        {{-- navbar section --}}
+        @include('partials.navbar')
+    
+        <div style="height: 80vh; background: url(img/iot.jpg) no-repeat center center/cover;" class="hero-section">
+            <div style="background-color: rgba(0, 0, 0, 0.5);" class="hero-overlay">
+                <div class="container hero-text">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <h1 style="text-align: left" data-lang-en="Custom Application Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom Application Development</h1>
+                        </div>
+                        <div class="col-lg-6 col-12"></div>
                     </div>
-                    <div class="col-lg-6 col-12"></div>
                 </div>
             </div>
         </div>
-    </div>
-
-{{-- Body Section --}}
-<div class="blogContainer container servBody hero-text ">     
-        <div class="container textabout blog">
+    
+    {{-- Body Section --}}
+    <div class="blogContainer container servBody hero-text ">     
+        <div class="container textabout blog">            
             <p data-lang-en="Bring your ideas to life with our tailored digital solutions through our custom web application development services. Our expert team is dedicated to delivering unlimited innovations that drive your business growth. With a focus on advanced technologies such as web and mobile, we create web applications that are optimized, secure, and customized to meet your business’s unique needs." 
             data-lang-id="Wujudkan ide Anda dengan solusi digital yang disesuaikan melalui layanan pengembangan aplikasi web kami. Tim ahli kami berkomitmen untuk membawa inovasi tak terbatas yang mendorong pertumbuhan bisnis Anda. Dengan fokus pada teknologi canggih seperti web, dan mobile, kami menciptakan aplikasi web yang optimal dan aman, disesuaikan dengan kebutuhan unik bisnis Anda.">Bring your ideas to life with our tailored digital solutions through our custom web application development services. Our expert team is dedicated to delivering unlimited innovations that drive your business growth. With a focus on advanced technologies such as web and mobile, we create web applications that are optimized, secure, and customized to meet your business’s unique needs.</p>
             <p data-lang-en="We are committed not only to developing applications but also to providing trusted and professional services that support the continuous modernization and management of your applications. We leverage cutting-edge techniques and technologies to ensure your applications are always up-to-date, secure, and performing at their best." 
             data-lang-id="Kami tidak hanya berfokus pada pengembangan aplikasi, tetapi juga berkomitmen untuk menyediakan layanan yang terpercaya dan profesional untuk mendukung modernisasi serta pengelolaan aplikasi Anda secara berkelanjutan. Kami memanfaatkan teknik dan teknologi mutakhir untuk memastikan aplikasi Anda selalu diperbarui, aman, dan berfungsi dengan maksimal.">We are committed not only to developing applications but also to providing trusted and professional services that support the continuous modernization and management of your applications. We leverage cutting-edge techniques and technologies to ensure your applications are always up-to-date, secure, and performing at their best.</p>
             <p data-lang-en="Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry." 
             data-lang-id="Partner dengan kami hari ini untuk memanfaatkan keahlian dan pengalaman kami dalam merancang dan mengelola aplikasi yang siap membawa bisnis Anda ke level berikutnya. Bersama-sama, kami akan menggunakan teknik modern dan teknologi maju untuk membantu Anda tetap berada di garis depan inovasi dan meraih keunggulan kompetitif di industri Anda.">Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry.</p>
-            
-            
-            
             <div class="seriviceBlog container textabout blog row">
                 <div class="servicecolom col-md-6 col-12 ">
                     <p class="numbering">01</p>
@@ -105,9 +101,10 @@
                 
                 </div>
             </div>
+        
         </div>
-        
-        
+       
+    
         <div class="servContact contact hero-text container" style="color: black;">
             <div class="serv row d-flex" style="text-align: center">
                 <div class="col-md-3 col-12"></div>
@@ -121,8 +118,7 @@
                 </div>
                 <div class="col-md-3 col-12"></div>
                 
-                <div class="col-lg-6 col-12" style="padding: 30px;">
-            
+                <div class="col-lg-6 col-12" style="padding: 30px;">            
                     <img src="img/contactUs.svg" alt="Contact Us" class="img-fluid" style="width: auto; height: auto;">
                 </div>
                
@@ -161,111 +157,106 @@
                 </div>
             </div>
         </div>    
-</div>
-
-   
-
-
-{{-- Contact Us Section --}}
+    </div>
     
-
-
-    {{-- Footer Section --}}
-    @include('partials.footer')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const input = document.querySelector("#phone");
-        const iti = window.intlTelInput(input, {
-            initialCountry: "id", 
-            nationalMode: false,
-            separateDialCode: true, 
-            preferredCountries: ["id", "us", "gb"],
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"
-        });
-    </script>
-    <script>
-        @if(session('success'))
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: '{{ session('success') }}',
-                showConfirmButton: false,
-                timer: 1500
+    
+        {{-- Footer Section --}}
+        @include('partials.footer')
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const input = document.querySelector("#phone");
+            const iti = window.intlTelInput(input, {
+                initialCountry: "id", 
+                nationalMode: false,
+                separateDialCode: true, 
+                preferredCountries: ["id", "us", "gb"],
+                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"
             });
-        @elseif(session('error'))
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: '{{ session('error') }}',
-                confirmButtonText: 'OK'
-            });
-        @endif
-    </script>
-    <script>
-        document.getElementById('message_btn').addEventListener('click', function(event) {
+        </script>
+        <script>
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '{{ session('success') }}',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            @elseif(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ session('error') }}',
+                    confirmButtonText: 'OK'
+                });
+            @endif
+        </script>
+        <script>
+            document.getElementById('message_btn').addEventListener('click', function(event) {
+                    
+                const inputs = {                
+                    name: document.getElementById('name'),
+                    email: document.getElementById('email'),
+                    phone_number: document.getElementById('phone'),
+                    company: document.getElementById('company'),
+                    message: document.getElementById('message')
+                };
                 
-            const inputs = {                
-                name: document.getElementById('name'),
-                email: document.getElementById('email'),
-                phone_number: document.getElementById('phone'),
-                company: document.getElementById('company'),
-                message: document.getElementById('message')
-            };
-            
-            let isValid = true;
+                let isValid = true;
+        
+                const validateInput = (input, regex, minLength, maxLength, customMessage) => {
+                    if (input.value.trim() === '' || 
+                        (minLength && input.value.length < minLength) || 
+                        (maxLength && input.value.length > maxLength) || 
+                        (regex && !regex.test(input.value.trim()))) {
+                        input.style.border = '1px solid red';
+                        input.setCustomValidity(customMessage);
+                        isValid = false;
+                    } else {
+                        input.style.border = '';
+                        input.setCustomValidity('');
+                    }
+                    input.reportValidity();
+                };
+        
+                validateInput(inputs.name, null, 1, null, 'Name is required.');
+                validateInput(inputs.email, /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, 1, null, 'A valid email is required.');
+                validateInput(inputs.message, null, 1, null, 'Message is required.');
+        
+                if (!isValid) {
+                event.preventDefault();
+                }else{
+                event.preventDefault();
+                Swal.fire({
+                    title: "Send a Message?",
+                    text: "Do you want to send us a message?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#488EFE",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, Send!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Jika pengguna mengkonfirmasi, lakukan submit form
+                        document.getElementById('contact-form').submit();
     
-            const validateInput = (input, regex, minLength, maxLength, customMessage) => {
-                if (input.value.trim() === '' || 
-                    (minLength && input.value.length < minLength) || 
-                    (maxLength && input.value.length > maxLength) || 
-                    (regex && !regex.test(input.value.trim()))) {
-                    input.style.border = '1px solid red';
-                    input.setCustomValidity(customMessage);
-                    isValid = false;
-                } else {
-                    input.style.border = '';
-                    input.setCustomValidity('');
-                }
-                input.reportValidity();
-            };
+                        Swal.fire({
+                            title: 'Please wait...',
+                            html: `<div style="text-align: center;">
+                                    <div class="spinner" style="display: inline-block; margin: 10px auto;"></div>
+                                </div>`,
+                            allowOutsideClick: false,
+                            showConfirmButton: false
+                        });
     
-            validateInput(inputs.name, null, 1, null, 'Name is required.');
-            validateInput(inputs.email, /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, 1, null, 'A valid email is required.');
-            validateInput(inputs.phone_number, /^\d{10,15}$/, 10, 15, 'A valid phone number is required.');
-            validateInput(inputs.message, null, 1, null, 'Message is required.');
+                    } else {
+                        Swal.close();
+                    }
+                });
     
-            if (!isValid) {
-            event.preventDefault();
-            }else{
-            event.preventDefault();
-            Swal.fire({
-                title: "Send a Message?",
-                text: "Do you want to send us a message?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#488EFE",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, Send!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Jika pengguna mengkonfirmasi, lakukan submit form
-                    document.getElementById('contact-form').submit();
-
-                    Swal.fire({
-                        title: 'Please wait...',
-                        html: `<div style="text-align: center;">
-                                <div class="spinner" style="display: inline-block; margin: 10px auto;"></div>
-                            </div>`,
-                        allowOutsideClick: false,
-                        showConfirmButton: false
-                    });
-
-                } else {
-                    Swal.close();
                 }
             });
+        </script>
 
-            }
-        });
-    </script>
+
