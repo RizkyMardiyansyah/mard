@@ -289,7 +289,7 @@ body{
 }
 .seriviceBlog{
   padding-top: 0px !important;
-  padding: 40px;
+  /* padding: 40px; */
 }
 @media (max-width: 767.98px) { 
   .seriviceBlog{

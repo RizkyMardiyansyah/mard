@@ -65,44 +65,48 @@
             data-lang-id="Kami tidak hanya berfokus pada pengembangan aplikasi, tetapi juga berkomitmen untuk menyediakan layanan yang terpercaya dan profesional untuk mendukung modernisasi serta pengelolaan aplikasi Anda secara berkelanjutan. Kami memanfaatkan teknik dan teknologi mutakhir untuk memastikan aplikasi Anda selalu diperbarui, aman, dan berfungsi dengan maksimal.">We are committed not only to developing applications but also to providing trusted and professional services that support the continuous modernization and management of your applications. We leverage cutting-edge techniques and technologies to ensure your applications are always up-to-date, secure, and performing at their best.</p>
             <p data-lang-en="Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry." 
             data-lang-id="Partner dengan kami hari ini untuk memanfaatkan keahlian dan pengalaman kami dalam merancang dan mengelola aplikasi yang siap membawa bisnis Anda ke level berikutnya. Bersama-sama, kami akan menggunakan teknik modern dan teknologi maju untuk membantu Anda tetap berada di garis depan inovasi dan meraih keunggulan kompetitif di industri Anda.">Partner with us today to leverage our expertise and experience in designing and managing applications that will take your business to the next level. Together, we will use modern techniques and advanced technologies to help you stay at the forefront of innovation and gain a competitive edge in your industry.</p>
-        </div>
-        <div class="seriviceBlog container textabout blog row">
-            <div class="servicecolom col-md-6 col-12 ">
-                <p class="numbering">01</p>
-                    <h1 style="text-shadow: none;" data-lang-en="Web Application Development" data-lang-id="Pengembangan Aplikasi Web">Web Application Development</h1>
-                    <p class="blogdesc" data-lang-en="Designing and developing responsive web applications using the latest technologies such as HTML5, CSS, PHP, and JavaScript. These applications are designing to effectively support your business needs." 
-                    data-lang-id="Merancang dan mengembangkan aplikasi web responsif menggunakan teknologi terkini seperti HTML5, CSS, PHP, dan JavaScript. Aplikasi dirancang untuk mendukung kebutuhan bisnis Anda secara efisien.">
-                    Designing and developing responsive web applications using the latest technologies such as HTML5, CSS, and JavaScript. These applications are designing to effectively support your business needs.</p>
-            </div>
-            <div class="servicecolom col-md-6 col-12 ">
-                <p class="numbering">02</p>            
-                    <h1 style="text-shadow: none;" data-lang-en="Mobile Application Development" data-lang-id="Pengembangan Aplikasi Selular">Mobile Application Development</h1>
-                    <p class="blogdesc" data-lang-en="Developing mobile applications for iOS and Android using frameworks like React Native and Flutter. We ensure faster development, smooth performance, and consistent user experiences tailored to your business needs." 
-                        data-lang-id="Mengembangkan aplikasi mobile untuk iOS dan Android menggunakan framework seperti React Native dan Flutter. Kami memastikan pengembangan cepat, performa mulus, dan pengalaman pengguna konsisten sesuai kebutuhan bisnis Anda.">
-                        Developing mobile applications for iOS and Android using frameworks like React Native and Flutter. We ensure faster development, smooth performance, and consistent user experiences tailored to your business needs.
-                    </p>
+            
+            
+            
+            <div class="seriviceBlog container textabout blog row">
+                <div class="servicecolom col-md-6 col-12 ">
+                    <p class="numbering">01</p>
+                        <h1 style="text-shadow: none;" data-lang-en="Web Application Development" data-lang-id="Pengembangan Aplikasi Web">Web Application Development</h1>
+                        <p class="blogdesc" data-lang-en="Designing and developing responsive web applications using the latest technologies such as HTML5, CSS, PHP, and JavaScript. These applications are designing to effectively support your business needs." 
+                        data-lang-id="Merancang dan mengembangkan aplikasi web responsif menggunakan teknologi terkini seperti HTML5, CSS, PHP, dan JavaScript. Aplikasi dirancang untuk mendukung kebutuhan bisnis Anda secara efisien.">
+                        Designing and developing responsive web applications using the latest technologies such as HTML5, CSS, and JavaScript. These applications are designing to effectively support your business needs.</p>
+                </div>
+                <div class="servicecolom col-md-6 col-12 ">
+                    <p class="numbering">02</p>            
+                        <h1 style="text-shadow: none;" data-lang-en="Mobile Application Development" data-lang-id="Pengembangan Aplikasi Selular">Mobile Application Development</h1>
+                        <p class="blogdesc" data-lang-en="Developing mobile applications for iOS and Android using frameworks like React Native and Flutter. We ensure faster development, smooth performance, and consistent user experiences tailored to your business needs." 
+                            data-lang-id="Mengembangkan aplikasi mobile untuk iOS dan Android menggunakan framework seperti React Native dan Flutter. Kami memastikan pengembangan cepat, performa mulus, dan pengalaman pengguna konsisten sesuai kebutuhan bisnis Anda.">
+                            Developing mobile applications for iOS and Android using frameworks like React Native and Flutter. We ensure faster development, smooth performance, and consistent user experiences tailored to your business needs.
+                        </p>
+                   
+                
+                </div>
+                <div class="servicecolom col-md-6 col-12 ">
+                    <p class="numbering">03</p>               
+                        <h1 style="text-shadow: none;" data-lang-en="Enterprise Core System Development" data-lang-id="Pengembangan Sistem Inti Perusahaan">Enterprise Core System Development</h1>
+                        <p class="blogdesc" data-lang-en="Developing mission-critical core systems like ERP, CRM, and SCM to enhance efficiency and drive business growth with robust and scalable solutions." 
+                            data-lang-id="Mengembangkan sistem inti penting seperti ERP, CRM, dan SCM untuk meningkatkan efisiensi dan mendorong pertumbuhan bisnis dengan solusi yang kuat dan skalabel.">
+                            Developing mission-critical core systems like ERP, CRM, and SCM to enhance efficiency and drive business growth with robust and scalable solutions.
+                        </p>
                
-            
-            </div>
-            <div class="servicecolom col-md-6 col-12 ">
-                <p class="numbering">03</p>               
-                    <h1 style="text-shadow: none;" data-lang-en="Enterprise Core System Development" data-lang-id="Pengembangan Sistem Inti Perusahaan">Enterprise Core System Development</h1>
-                    <p class="blogdesc" data-lang-en="Developing mission-critical core systems like ERP, CRM, and SCM to enhance efficiency and drive business growth with robust and scalable solutions." 
-                        data-lang-id="Mengembangkan sistem inti penting seperti ERP, CRM, dan SCM untuk meningkatkan efisiensi dan mendorong pertumbuhan bisnis dengan solusi yang kuat dan skalabel.">
-                        Developing mission-critical core systems like ERP, CRM, and SCM to enhance efficiency and drive business growth with robust and scalable solutions.
+                </div>
+                <div class="servicecolom col-md-6 col-12 ">
+                    <p class="numbering">04</p>
+                        <h1 style="text-shadow: none;" data-lang-en="Application Maintenance and Support" data-lang-id="Layanan Pemeliharaan dan Dukungan Aplikasi">Application Maintenance and Support</h1>
+                        <p class="blogdesc" data-lang-en="Providing ongoing maintenance, bug fixes, and technical support for applications to ensure they continue to function optimally and adapt to evolving business needs." 
+                        data-lang-id="Menyediakan pemeliharaan berkelanjutan, perbaikan bug, dan dukungan teknis untuk aplikasi agar tetap berfungsi secara optimal dan dapat menyesuaikan dengan kebutuhan bisnis yang terus berkembang.">
+                        Providing ongoing maintenance, bug fixes, and technical support for applications to ensure they continue to function optimally and adapt to evolving business needs.
                     </p>
-           
-            </div>
-            <div class="servicecolom col-md-6 col-12 ">
-                <p class="numbering">04</p>
-                    <h1 style="text-shadow: none;" data-lang-en="Application Maintenance and Support" data-lang-id="Layanan Pemeliharaan dan Dukungan Aplikasi">Application Maintenance and Support</h1>
-                    <p class="blogdesc" data-lang-en="Providing ongoing maintenance, bug fixes, and technical support for applications to ensure they continue to function optimally and adapt to evolving business needs." 
-                    data-lang-id="Menyediakan pemeliharaan berkelanjutan, perbaikan bug, dan dukungan teknis untuk aplikasi agar tetap berfungsi secara optimal dan dapat menyesuaikan dengan kebutuhan bisnis yang terus berkembang.">
-                    Providing ongoing maintenance, bug fixes, and technical support for applications to ensure they continue to function optimally and adapt to evolving business needs.
-                </p>
-            
+                
+                </div>
             </div>
         </div>
+        
         
         <div class="servContact contact hero-text container" style="color: black;">
             <div class="serv row d-flex" style="text-align: center">
