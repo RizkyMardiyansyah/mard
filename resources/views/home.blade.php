@@ -26,6 +26,7 @@
         <meta name="keywords" content="jasa buat website jakarta, jasa buat website jakarta timur, jasa buat website jaktim, digital solutions, business optimization, software development, IT consulting, buat website, domain, website, website jakarta, website jakarta timur, website jaktim, software, development, IT consultant jakarta, IT consultant jakarta timur, IT consulting jakarta, IT consulting jakarta timur, IT consultant jaktim, IT consulting jaktim">
 
         <!-- Open Graph Meta -->
+        <meta name="application-name" content="Mitra Adidaya Rekayasa Digital">
         <meta name="title" content="Mitra Adidaya Rekayasa Digital">
         <meta property="og:site_name" content="Mitra Adidaya Rekayasa Digital">
         <meta property="og:title" content="Mitra Adidaya Rekayasa Digital">
@@ -47,7 +48,7 @@
         <script type="application/ld+json">
             {
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "Website",
               "name": "Mitra Adidaya Rekayasa Digital",
               "url": "https://www.mardsoft.com",
               "logo": "https://www.mardsoft.com/img/icon.png",

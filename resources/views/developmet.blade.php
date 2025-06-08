@@ -11,6 +11,7 @@
       <meta property="og:url" content="https://www.mardsoft.com">
       <meta property="og:image" content="https://www.mardsoft.com/img/og-image.png">
       <title>Mardsoft - Custom App Development</title>
+      <meta name="application-name" content="Mitra Adidaya Rekayasa Digital">
       <meta name="description" content="No more papers, Let's bring your digital ideas to life with our solutions. We are committed to helping you optimize operations and unlock your business's full potential.">
       <meta name="keywords" content="jasa buat website jakarta, jasa buat website jakarta timur, jasa buat website jaktim, digital solutions, business optimization, software development, IT consulting, buat website, domain, website, website jakarta, website jakarta timur, website jaktim, software, development, IT consultant jakarta, IT consultant jakarta timur, IT consulting jakarta, IT consulting jakarta timur, IT consultant jaktim, IT consulting jaktim">
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +25,7 @@
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": "Website",
           "name": "Mitra Adidaya Rekayasa Digital",
           "url": "https://www.mardsoft.com",
           "logo": "https://www.mardsoft.com/img/icon.png",

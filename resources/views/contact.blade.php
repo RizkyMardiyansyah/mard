@@ -28,6 +28,7 @@
       <meta property="og:url" content="https://www.mardsoft.com">
       <meta property="og:image" content="https://www.mardsoft.com/img/og-image.png">
       <title>Mardsoft - Contact</title>
+      <meta name="application-name" content="Mitra Adidaya Rekayasa Digital">
       <meta name="keywords" content="jasa buat website jakarta, jasa buat website jakarta timur, jasa buat website jaktim, digital solutions, business optimization, software development, IT consulting, buat website, domain, website, website jakarta, website jakarta timur, website jaktim, software, development, IT consultant jakarta, IT consultant jakarta timur, IT consulting jakarta, IT consulting jakarta timur, IT consultant jaktim, IT consulting jaktim">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
