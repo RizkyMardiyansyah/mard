@@ -45,7 +45,7 @@
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
         <!-- Structured Data -->
-        <script type="application/ld+json">
+        {{-- <script type="application/ld+json">
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
@@ -58,7 +58,117 @@
                 "https://www.linkedin.com/company/mardsoft"
               ]
             }
-            </script>
+            </script> --}}
+
+            <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@graph": [
+                    {
+                      "@type": "WebPage",
+                      "@id": "https://www.mardsoft.com/",
+                      "url": "https://www.mardsoft.com/",
+                      "name": "Mitra Adidaya Rekayasa Digital",
+                      "isPartOf": {
+                        "@id": "https://www.mardsoft.com/#website"
+                      },
+                      "about": {
+                        "@id": "https://www.mardsoft.com/#organization"
+                      },
+                      "primaryImageOfPage": {
+                        "@id": "https://www.mardsoft.com/#primaryimage"
+                      },
+                      "image": {
+                        "@id": "https://www.mardsoft.com/#primaryimage"
+                      },
+                      "thumbnailUrl": "https://www.mardsoft.com/img/og-image.png",
+                      "description": "No more papers, Let's bring your digital ideas to life with our solutions. We are committed to helping you optimize operations and unlock your business's full potential.",
+                      "breadcrumb": {
+                        "@id": "https://www.mardsoft.com/#breadcrumb"
+                      },
+                      "inLanguage": "id-ID",
+                      "potentialAction": [
+                        {
+                          "@type": "ReadAction",
+                          "target": [
+                            "https://www.mardsoft.com/"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "@type": "ImageObject",
+                      "inLanguage": "id-ID",
+                      "@id": "https://www.mardsoft.com/#primaryimage",
+                      "url": "https://www.mardsoft.com/img/og-image.png",
+                      "contentUrl": "https://www.mardsoft.com/img/og-image.png",
+                      "width": 1200,
+                      "height": 628,
+                      "caption": "Mitra Adidaya Rekayasa Digital"
+                    },
+                    {
+                      "@type": "BreadcrumbList",
+                      "@id": "https://www.mardsoft.com/#breadcrumb",
+                      "itemListElement": [
+                        {
+                          "@type": "ListItem",
+                          "position": 1,
+                          "name": "Beranda",
+                          "item": "https://www.mardsoft.com/"
+                        }
+                      ]
+                    },
+                    {
+                      "@type": "WebSite",
+                      "@id": "https://www.mardsoft.com/#website",
+                      "url": "https://www.mardsoft.com/",
+                      "name": "Mitra Adidaya Rekayasa Digital",
+                      "description": "No more papers, Let's bring your digital ideas to life with our solutions. We are committed to helping you optimize operations and unlock your business's full potential.",
+                      "publisher": {
+                        "@id": "https://www.mardsoft.com/#organization"
+                      },
+                      "inLanguage": "id-ID",
+                      "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": {
+                          "@type": "EntryPoint",
+                          "urlTemplate": "https://www.mardsoft.com/?s={search_term_string}"
+                        },
+                        "query-input": {
+                          "@type": "PropertyValueSpecification",
+                          "valueRequired": true,
+                          "valueName": "search_term_string"
+                        }
+                      }
+                    },
+                    {
+                      "@type": "Organization",
+                      "@id": "https://www.mardsoft.com/#organization",
+                      "name": "Mitra Adidaya Rekayasa Digital",
+                      "url": "https://www.mardsoft.com/",
+                      "logo": {
+                        "@type": "ImageObject",
+                        "inLanguage": "id-ID",
+                        "@id": "https://www.mardsoft.com/#logo",
+                        "url": "https://www.mardsoft.com/img/og-image.png",
+                        "contentUrl": "https://www.mardsoft.com/img/og-image.png",
+                        "width": 1200,
+                        "height": 628,
+                        "caption": "Logo MARDsoft"
+                      },
+                      "image": {
+                        "@id": "https://www.mardsoft.com/#logo"
+                      },
+                      "sameAs": [
+                        "https://www.facebook.com/mardsoft",
+                        "https://www.instagram.com/hi.mardsoft",
+                        "https://www.linkedin.com/company/mardsoft"
+                      ]
+                    }
+                  ]
+                }
+                </script>
+                
             
         </head>
 
