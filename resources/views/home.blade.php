@@ -48,7 +48,7 @@
         <script type="application/ld+json">
             {
               "@context": "https://schema.org",
-              "@type": "Website",
+              "@type": "WebSite",
               "name": "Mitra Adidaya Rekayasa Digital",
               "url": "https://www.mardsoft.com",
               "logo": "https://www.mardsoft.com/img/icon.png",
