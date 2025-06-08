@@ -26,10 +26,13 @@
 
 
 {{-- Navbar --}}
+<header class="hide-in-preloading big-header" style="opacity: 1; visibility: inherit;">
 <nav  id="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; transition: background-color 0.5s;">
     <div class="container">
-        <a class="navbar-brand blue" href="/"><img  src="../img/Logo_Blue.svg" height="50px" style="padding: 5px;"></a>
-        <a class="navbar-brand white" href="/"><img src="../img/Logo_White.svg" height="50px" style="padding: 5px;"></a>
+        <div class="logo" title="Mitra Adidaya Rekayasa Digital"> 
+            <a class="navbar-brand blue" href="/"><img  src="../img/Logo_Blue.svg" height="50px" style="padding: 5px;"></a>
+            <a class="navbar-brand white" href="/"><img src="../img/Logo_White.svg" height="50px" style="padding: 5px;"></a>
+        </div>
         <div class="language-selector order-lg-2">
             <div class="toggle-container">
                 <input type="checkbox" id="languageToggle" class="toggle-checkbox">
@@ -69,6 +72,7 @@
         </div>
     </div>
 </nav>
+</header>
 
 
 {{-- Navbar Phone --}}
