@@ -183,7 +183,7 @@ body{
     text-decoration:none;
     color: #000;
     font-weight: 500;
-    transition: color 0.3s ease; /* Tambahkan transisi untuk efek */
+    transition: color 0.9s ease; /* Tambahkan transisi untuk efek */
 }
 .offcanvas-body li{
   padding-bottom: 10px !important;
